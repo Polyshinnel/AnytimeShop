@@ -14,7 +14,11 @@
                                 <div class="yuwell-cart__block">
                                     <img src="/assets/img/icons/header/cart.svg" alt="">
                                     <div class="yuwell-cart__counter">
-                                        <span>3</span>
+                                        @if($cart)
+                                            <span>{{$cart['count']}}</span>
+                                        @else
+                                            <span>0</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <!--/.yuwell-cart__block-->

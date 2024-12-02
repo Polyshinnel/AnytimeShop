@@ -178,3 +178,24 @@ if(video)
         }
     });
 }
+
+
+const addToCart = async (product_id, quantity) => {
+    let obj = {
+        product_id: product_id,
+        quantity: quantity
+    }
+
+    let {data} = await axios.post('/add-cart', obj)
+    return data;
+}
+
+const removeFromCart = async (product_id, quantity) => {
+    let obj = {
+        product_id: product_id,
+        quantity: quantity
+    }
+
+    let {data} = await axios.post('/remove-cart', obj)
+    console.log(data)
+}

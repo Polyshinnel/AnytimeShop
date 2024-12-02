@@ -18,6 +18,7 @@
         @yield('content')
     </main>
     @include('Components.Footer')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://yastatic.net/share2/share.js" async></script>
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/main.js?ver=1234"></script>
