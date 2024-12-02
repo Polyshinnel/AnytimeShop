@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/js/splide/css/splide-core.min.css">
     <link rel="stylesheet" href="/assets/js/fancybox/fancybox.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css?ver=123">
     <title>@yield('page_title')</title>
 </head>
 <body>
@@ -18,8 +18,9 @@
         @yield('content')
     </main>
     @include('Components.Footer')
-<script src="/assets/js/fancybox/fancybox.umd.js"></script>
-<script src="/assets/js/main.js"></script>
-@yield('scripts')
+    <script src="https://yastatic.net/share2/share.js" async></script>
+    <script src="/assets/js/fancybox/fancybox.umd.js"></script>
+    <script src="/assets/js/main.js?ver=123"></script>
+    @yield('scripts')
 </body>
 </html>

@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="box-container">
-        <section class="advantages-list-block" id="info-targer">
+        <section class="advantages-list-block">
             <h2>Получайте мгновенную информацию о том, как питание, активность и инсулин влияют на уровень глюкозы</h2>
 
             <div class="advantages-list">
@@ -75,7 +75,7 @@
 
                     <div class="advantages-list-item__text">
                         <h3>Система оповещений</h3>
-                        <p>Сигналы тревоги оповещают, что уровень глюкозы в крови становится слишком низким или слишком высоким, чтобы действовать быстро.</p>
+                        <p>Сигналы тревоги оповещают, что уровень глюкозы в крови становится слишком низким или слишком высоким.</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
@@ -100,13 +100,13 @@
 
         <div class="hour-video-block">
             <div class="hour-video">
-                <video src="#" poster="/assets/img/hour-video-banner.jpg"></video>
+                <video src="/storage/video/anytime.mp4" poster="/assets/img/hour-video-banner.jpg" id="hour-look-video"></video>
             </div>
             <!-- /.hour-video -->
             <div class="box-container">
                 <div class="hour-video-block-text">
                     <p>Показатели уровня глюкозы отправляются на телефон каждую секунду</p>
-                    <a href="#">
+                    <a href="https://apps.apple.com/cz/app/yuwell-anytime/id6467751539">
                         <button>Скачать приложение</button>
                     </a>
                 </div>
@@ -128,7 +128,7 @@
         </div>
         <!--/.product-block-main__rounds-->
 
-        <div class="product-block-main__content">
+        <div class="product-block-main__content" id="info-target">
             <div class="box-container">
                 <section class="product-list__block">
                     <h2>Наши товары</h2>
@@ -136,7 +136,7 @@
                     <div class="product-list">
                         <div class="product-list__item">
                             <div class="product-list__item-img">
-                                <a href="#"><img src="/assets/img/products/1.png" alt=""></a>
+                                <a href="#"><img src="assets/img/products/1.png" alt=""></a>
                             </div>
 
                             <div class="product-list__item-text">
@@ -175,25 +175,25 @@
 
                                             <div class="product-list__item-adv">
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Апликатор и сенсор Yuwell</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
 
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Доступ в приложение</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
 
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Гарантия от производителя</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
 
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Служба поддержки</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
@@ -206,7 +206,7 @@
                                             <div class="product-list__item-tab-block">
                                                 <div class="product-list__item-tab-title">
                                                     <h4>Доставка</h4>
-                                                    <img src="/assets/img/products/delivery.png" alt="">
+                                                    <img src="assets/img/products/delivery.png" alt="">
                                                 </div>
 
                                                 <div class="product-list__item-tab-block-body">
@@ -270,7 +270,7 @@
                                 <div class="product-list__item-btns">
                                     <div class="product-list__item-btns-shop-quantity">
                                         <button class="product-shop">
-                                            <img src="/assets/img/icons/products/cart.svg" alt="">
+                                            <img src="assets/img/icons/products/cart.svg" alt="">
                                             <span>Добавить в корзину</span>
                                         </button>
 
@@ -286,7 +286,7 @@
                                     <div class="product-shop__oneclick-block">
                                         <button class="product-shop__oneclick">Купить в один клик</button>
                                         <a href="#">
-                                            <img src="/assets/img/icons/cart/share.svg" alt="">
+                                            <img src="assets/img/icons/cart/share.svg" alt="">
                                         </a>
                                     </div>
                                     <!-- /.product-shop__oneclick-block -->
@@ -302,7 +302,7 @@
 
                         <div class="product-list__item">
                             <div class="product-list__item-img">
-                                <a href="#"><img src="/assets/img/products/1.png" alt=""></a>
+                                <a href="#"><img src="assets/img/products/1.png" alt=""></a>
                             </div>
 
                             <div class="product-list__item-text">
@@ -341,25 +341,25 @@
 
                                             <div class="product-list__item-adv">
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Апликатор и сенсор Yuwell</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
 
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Доступ в приложение</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
 
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Гарантия от производителя</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
 
                                                 <div class="product-list__item-adv__item">
-                                                    <img src="/assets/img/icons/products/check.svg" alt="">
+                                                    <img src="assets/img/icons/products/check.svg" alt="">
                                                     <p>Служба поддержки</p>
                                                 </div>
                                                 <!--/.product-list__item-adv__item-->
@@ -372,7 +372,7 @@
                                             <div class="product-list__item-tab-block">
                                                 <div class="product-list__item-tab-title">
                                                     <h4>Доставка</h4>
-                                                    <img src="/assets/img/products/delivery.png" alt="">
+                                                    <img src="assets/img/products/delivery.png" alt="">
                                                 </div>
 
                                                 <div class="product-list__item-tab-block-body">
@@ -432,7 +432,7 @@
                                 <div class="product-list__item-btns">
                                     <div class="product-list__item-btns-shop-quantity">
                                         <button class="product-shop">
-                                            <img src="/assets/img/icons/products/cart.svg" alt="">
+                                            <img src="assets/img/icons/products/cart.svg" alt="">
                                             <span>Добавить в корзину</span>
                                         </button>
 
@@ -448,7 +448,7 @@
                                     <div class="product-shop__oneclick-block">
                                         <button class="product-shop__oneclick">Купить в один клик</button>
                                         <a href="#">
-                                            <img src="/assets/img/icons/cart/share.svg" alt="">
+                                            <img src="assets/img/icons/cart/share.svg" alt="">
                                         </a>
                                     </div>
                                     <!-- /.product-shop__oneclick-block -->
@@ -463,11 +463,11 @@
                         <!--/.product-list__item-->
                     </div>
                     <!-- /.product-list -->
+                </section>
+                <!--/.product-list__block-->
             </div>
-            <!--/.product-list__block-->
+            <!-- /.box-container -->
         </div>
-        <!-- /.box-container -->
-    </div>
     </div>
     <!--/.product-block-main-->
 
@@ -482,14 +482,14 @@
                     <div class="product-app-block__img-text-block__cover-text">
                         <h2>Приложение Yuwell Anytime </h2>
                         <p>Контролируйте уровень глюкозы в крови, просматривайте отчеты и делитесь данными - все в одном месте</p>
-                        <a href="#">
+                        <a href="https://apps.apple.com/cz/app/yuwell-anytime/id6467751539">
                             <button>Скачать приложение</button>
                         </a>
                         <div class="stores-block">
-                            <a href="#">
+                            <a href="https://apps.apple.com/cz/app/yuwell-anytime/id6467751539">
                                 <img src="/assets/img/app-data/app-store.png" alt="">
                             </a>
-                            <a href="#">
+                            <a href="https://play.google.com/store/apps/details?id=com.yuwell.oversea&hl=ru&pli=1">
                                 <img src="/assets/img/app-data/goole-play.png" alt="">
                             </a>
                         </div>
@@ -663,14 +663,14 @@
                 <div class="follow-app__wrapper-text">
                     <h2>Приложение Follow Anytime</h2>
                     <p>В котором врачи и близкие удаленно могут получить доступ к данным пользователя.</p>
-                    <a href="#">
+                    <a href="https://apps.apple.com/cz/app/follow-anytime/id6474446706">
                         <button>Скачать приложение</button>
                     </a>
                     <div class="follow-app__store">
-                        <a href="#">
+                        <a href="https://apps.apple.com/cz/app/follow-anytime/id6474446706">
                             <img src="/assets/img/follow-app/app-store.png" alt="">
                         </a>
-                        <a href="#">
+                        <a href="https://play.google.com/store/apps/details?id=com.poctech.follow&hl=ru&pli=1">
                             <img src="/assets/img/follow-app/google-play.png" alt="">
                         </a>
                     </div>
@@ -840,7 +840,7 @@
     <div class="box-container">
         <section class="faq-block">
             <h2>Остались вопросы?</h2>
-            <p>Перейдите на нашу страницу <a href="#">FAQ</a>, чтобы найти ответы на часто задаваемые вопросы.</p>
+            <p>Перейдите на нашу страницу <a href="/faq">FAQ</a>, чтобы найти ответы на часто задаваемые вопросы.</p>
         </section>
         <!-- /.faq-block -->
     </div>

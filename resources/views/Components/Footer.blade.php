@@ -15,19 +15,19 @@
             <h2 class="footer-col__title">Меню</h2>
             <div class="footer-col__menu">
                 <ul>
-                    <li><a href="#">Каталог</a></li>
-                    <li><a href="#">Специалистам</a></li>
-                    <li><a href="#">Доставка и  оплата</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="/catalog">Каталог</a></li>
+                    <li><a href="/documentation">Документация</a></li>
+                    <li><a href="/delivery">Доставка и  оплата</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
                 </ul>
 
                 <ul>
-                    <li><a href="#">Статьи</a></li>
-                    <li><a href="#">О компании</a></li>
-                    <li><a href="#">Сертификаты</a></li>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Помощь</a></li>
+                    <li><a href="/articles">Статьи</a></li>
+                    <li><a href="/about">О компании</a></li>
+                    <li><a href="/sertificates">Сертификаты</a></li>
+                    <li><a href="/news">Новости</a></li>
+                    <li><a href="/help">Помощь</a></li>
                 </ul>
             </div>
             <!-- /.footer-col__menu -->
@@ -38,11 +38,11 @@
             <h2 class="footer-col__title">Приложение</h2>
 
             <div class="footer-col-app-block">
-                <a href="#" class="footer-col-app">
+                <a href="https://apps.apple.com/cz/app/yuwell-anytime/id6467751539" class="footer-col-app">
                     <img src="/assets/img/app-data/app-store.png" alt="">
                 </a>
 
-                <a href="#" class="footer-col-app">
+                <a href="https://play.google.com/store/apps/details?id=com.yuwell.oversea&hl=ru&pli=1" class="footer-col-app">
                     <img src="/assets/img/app-data/goole-play.png" alt="">
                 </a>
             </div>
@@ -54,15 +54,15 @@
             <h2 class="footer-col__title">Соц.сети</h2>
 
             <div class="footer-col__social">
-                <a href="#">
+                <a href="https://t.me/DiabetAnyTime">
                     <img src="/assets/img/icons/footer/tg.svg" alt="">
                 </a>
 
-                <a href="#">
+                <a href="https://www.instagram.com/diabet_anytime?igsh=MWJ0bTJnNzRzZmZiZA==">
                     <img src="/assets/img/icons/footer/inst.svg" alt="">
                 </a>
 
-                <a href="#">
+                <a href="https://wa.me/+375173360870">
                     <img src="/assets/img/icons/footer/wh.svg" alt="">
                 </a>
             </div>

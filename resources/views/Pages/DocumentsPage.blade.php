@@ -25,7 +25,7 @@
                 <img src="/assets/img/specialists/1.jpg" alt="">
                 <div class="instructions-block__item-wrapper">
                     <p>Краткое руководство к началу</p>
-                    <a href="#"><button>Посмотреть</button></a>
+                    <a target="_blank" href="/storage/materials//CT3 Quick Start Guide .pdf"><button>Посмотреть</button></a>
                 </div>
             </div>
             <!-- /.instructions-block__item -->
@@ -34,7 +34,7 @@
                 <img src="/assets/img/specialists/2.png" alt="">
                 <div class="instructions-block__item-wrapper">
                     <p>Руководство пользователя</p>
-                    <a href="#"><button>Посмотреть</button></a>
+                    <a target="_blank" href="/storage/materials/A4_CGM14_004_V2_0.pdf"><button>Посмотреть</button></a>
                 </div>
             </div>
             <!-- /.instructions-block__item -->
