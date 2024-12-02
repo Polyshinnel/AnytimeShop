@@ -986,6 +986,12 @@ body{
     }
 }
 
+.delivery-tab-link{
+    display: flex;
+    margin-top: 15px;
+    color: var(--primary-color);
+}
+
 .product-list__item-tab-block+.product-list__item-tab-block{
     margin-top: 20px;
 }

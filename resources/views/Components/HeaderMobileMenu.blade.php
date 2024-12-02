@@ -46,11 +46,11 @@
         <li class="hidden"><a href="/delivery">Доставка и оплата</a></li>
         <li class="hidden"><a href="/faq">FAQ</a></li>
         <li class="hidden nav-bottom"><a href="/contacts">Контакты</a></li>
-        <li><a href="#">Статьи</a></li>
-        <li><a href="#">О компании</a></li>
-        <li><a href="#">Сертификаты</a></li>
-        <li><a href="#">Новости</a></li>
-        <li><a href="#">Помощь</a></li>
+        <li><a href="/articles">Статьи</a></li>
+        <li><a href="/about">О компании</a></li>
+        <li><a href="/sertificates">Сертификаты</a></li>
+        <li><a href="/news">Новости</a></li>
+        <li><a href="/help">Помощь</a></li>
     </ul>
 
     <button class="recall-header">Перезвоните мне</button>

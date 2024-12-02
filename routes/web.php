@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Pages\AboutPageController;
-use App\Http\Controllers\Pages\CatalogPageController;
+use App\Http\Controllers\Pages\Catalog\CatalogPageController;
+use App\Http\Controllers\Pages\Catalog\ProductPageController;
 use App\Http\Controllers\Pages\ContactsPageController;
 use App\Http\Controllers\Pages\DeliveryPageController;
 use App\Http\Controllers\Pages\DocumentationPageController;
@@ -27,3 +28,4 @@ Route::get('/documentation', DocumentationPageController::class);
 Route::get('/delivery', DeliveryPageController::class);
 Route::get('/faq', FaqPageController::class);
 Route::get('/contacts', ContactsPageController::class);
+Route::get('/catalog/{product_id}', ProductPageController::class);

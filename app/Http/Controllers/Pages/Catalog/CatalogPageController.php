@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Pages;
+namespace App\Http\Controllers\Pages\Catalog;
 
 use App\Http\Controllers\Controller;
 use App\Service\Product\CommonProductService;
-use Illuminate\Http\Request;
 
-class HomePageController extends Controller
+class CatalogPageController extends Controller
 {
     private CommonProductService $commonProductService;
 
@@ -18,6 +17,6 @@ class HomePageController extends Controller
     public function __invoke()
     {
         $products = $this->commonProductService->getProducts();
-        return view('Pages.HomePage', ['products' => $products]);
+        return view('Pages.CatalogPage', ['products' => $products]);
     }
 }
