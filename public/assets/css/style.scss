@@ -1192,6 +1192,25 @@ body{
     }
 }
 
+@media(max-width: 365px)
+{
+    .product-list__item-btns{
+        .product-list__item-btns-shop-quantity{
+            justify-content: space-between;
+
+            .product-shop{
+                width: 165px;
+                height: 38px;
+
+                span{
+                    font-size: 10px;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
 .product-app-block__img-text-block{
     height: 510px;
     position: relative;
