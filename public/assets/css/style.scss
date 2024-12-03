@@ -3128,4 +3128,17 @@ body{
         width: 100%;
         margin-top: 50px;
     }
+
+    .cart-item{
+        .cart-item__controls{
+            .cart-item__control-price{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-item__price{
+                margin-top: 10px;
+            }
+        } 
+    } 
 }
