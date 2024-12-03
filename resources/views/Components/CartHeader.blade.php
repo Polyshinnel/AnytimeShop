@@ -22,9 +22,9 @@
                     <a href="{{$product['link']}}"><h3>{{$product['name']}}</h3></a>
                     <div class="cart-item__control-price">
                         <div class="cart-item__control">
-                            <button class="minus-cart cart-btn">-</button>
+                            <button class="minus-cart cart-btn" data-product="{{$product['id']}}">-</button>
                             <input type="text" class="cart-product-count" name="cart-product-count" id="cart-product-count" value="{{$product['quantity']}}">
-                            <button class="plus-cart cart-btn">+</button>
+                            <button class="plus-cart cart-btn" data-product="{{$product['id']}}">+</button>
                         </div>
                         <!--/.cart-item__control-->
 

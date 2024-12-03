@@ -2653,4 +2653,58 @@ body {
 }
 .empty-block {
   margin-top: 30px;
+}
+
+@media (max-width: 560px) {
+  .personal-data-cart .personal-data-cart__block {
+    width: 100%;
+  }
+}
+.empty-order-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.empty-order-block__wrapper {
+  width: 400px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.empty-order-block__wrapper img {
+  width: 150px;
+}
+.empty-order-block__wrapper h2 {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 28px;
+}
+.empty-order-block__wrapper p {
+  text-align: center;
+  margin-top: 10px;
+  line-height: 140%;
+  font-size: 14px;
+}
+.empty-order-block__wrapper button {
+  width: 200px;
+  height: 35px;
+  background: var(--primary-color);
+  color: #fff;
+  margin-top: 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+.empty-order-block__wrapper button:hover {
+  background: var(--hover-color);
+}
+
+@media (max-width: 560px) {
+  .empty-order-block__wrapper {
+    width: 100%;
+    margin-top: 50px;
+  }
 }/*# sourceMappingURL=style.css.map */

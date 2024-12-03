@@ -154,13 +154,23 @@ cart.addEventListener('click', (event) => {
         let menu = document.querySelector('.cart-block')
         menu.classList.toggle('cart-block_active')
     }
+
+    if (event.target.classList.contains('minus-cart')) {
+        let productId = event.target.dataset.product
+        removeFromCart(productId, 1)
+    }
+
+    if (event.target.classList.contains('plus-cart')) {
+        let productId = event.target.dataset.product
+        addToCart(productId, 1)
+    }
 });
 
-document.querySelector('.close-cart').addEventListener('click', function() {
-    console.log('click!')
-    let menu = document.querySelector('.cart-block')
-    menu.classList.toggle('cart-block_active')
-})
+// document.querySelector('.close-cart').addEventListener('click', function() {
+//     console.log('click!')
+//     let menu = document.querySelector('.cart-block')
+//     menu.classList.toggle('cart-block_active')
+// })
 
 if(document.querySelector('.more-info-scroll')) {
     document.querySelector('.more-info-scroll').addEventListener('click', function() {
@@ -239,9 +249,9 @@ const updateCartState = (data) => {
                     <a href="${item['link']}"><h3>${item['name']}</h3></a>
                     <div class="cart-item__control-price">
                         <div class="cart-item__control">
-                            <button class="minus-cart cart-btn">-</button>
+                            <button class="minus-cart cart-btn" data-product="${item['id']}">-</button>
                             <input type="text" class="cart-product-count" name="cart-product-count" id="cart-product-count" value="${item['quantity']}">
-                            <button class="plus-cart cart-btn">+</button>
+                            <button class="plus-cart cart-btn" data-product="${item['id']}">+</button>
                         </div>
                         <!--/.cart-item__control-->
 
@@ -258,29 +268,29 @@ const updateCartState = (data) => {
             if(!item['new_price']) {
                 product = `
                 <div class="cart-item">
-                <div class="cart-item__img">
-                    <a href="${item['link']}"><img src="${item['thumbnail']}" alt=""></a>
-                </div>
-                <!-- /.cart-item__img -->
+                    <div class="cart-item__img">
+                        <a href="${item['link']}"><img src="${item['thumbnail']}" alt=""></a>
+                    </div>
+                    <!-- /.cart-item__img -->
 
-                <div class="cart-item__controls">
-                    <a href="${item['link']}"><h3>${item['name']}</h3></a>
-                    <div class="cart-item__control-price">
-                        <div class="cart-item__control">
-                            <button class="minus-cart cart-btn">-</button>
-                            <input type="text" class="cart-product-count" name="cart-product-count" id="cart-product-count" value="${item['quantity']}">
-                            <button class="plus-cart cart-btn">+</button>
-                        </div>
-                        <!--/.cart-item__control-->
+                    <div class="cart-item__controls">
+                        <a href="${item['link']}"><h3>${item['name']}</h3></a>
+                        <div class="cart-item__control-price">
+                            <div class="cart-item__control">
+                                <button class="minus-cart cart-btn" data-product="${item['id']}">-</button>
+                                <input type="text" class="cart-product-count" name="cart-product-count" id="cart-product-count" value="${item['quantity']}">
+                                <button class="plus-cart cart-btn" data-product="${item['id']}">+</button>
+                            </div>
+                            <!--/.cart-item__control-->
 
-                        <div class="cart-item__price">
-                            <p>${item['total_price']} BYN</p>
+                            <div class="cart-item__price">
+                                <p>${item['total_price']} BYN</p>
+                            </div>
                         </div>
                     </div>
+                    <!-- /.cart-item__controls -->
                 </div>
-                <!-- /.cart-item__controls -->
-            </div>
-            <!-- /.cart-item -->
+                <!-- /.cart-item -->
                 `
             }
             products.innerHTML += product
@@ -355,6 +365,47 @@ if(productShopBtns)
             let quantity = quantityInput.value
             item.querySelector('span').innerText = 'Добавлено!'
             addToCart(productId, quantity)
+        })
+    })
+}
+
+let cartMinusBtn = document.querySelectorAll('.minus-cart')
+if(cartMinusBtn)
+{
+    cartMinusBtn.forEach((item) => {
+        item.addEventListener('click', function () {
+            console.log(this.dataset.product)
+        })
+    })
+}
+
+let orderPlusBtn = document.querySelectorAll('.order-list__item .button-plus')
+let orderMinusBtn = document.querySelectorAll('.order-list__item .button-minus')
+let orderDeleteBtn = document.querySelectorAll('.order-list__item .delete-block img')
+
+if(orderPlusBtn)
+{
+    orderPlusBtn.forEach((item) => {
+        item.addEventListener('click', function () {
+            let productId = item.dataset.product
+            addToCart(productId, 1)
+            location.reload()
+        })
+    })
+
+    orderMinusBtn.forEach((item) => {
+        item.addEventListener('click', function () {
+            let productId = item.dataset.product
+            removeFromCart(productId, 1)
+            location.reload()
+        })
+    })
+
+    orderDeleteBtn.forEach((item) => {
+        item.addEventListener('click', function () {
+            let productId = item.dataset.product
+            removeFromCart(productId, 100)
+            location.reload()
         })
     })
 }
