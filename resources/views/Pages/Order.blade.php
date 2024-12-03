@@ -119,7 +119,7 @@
                         <div class="delivery-method">
                             <div class="delivery-method__checkbox">
                                 <label for="self-pickup">
-                                    <input type="checkbox" name="self-pickup" checked id="self-pickup" data-item="self-pickup">
+                                    <input type="checkbox" name="self-pickup" checked id="self-pickup" data-item="Anytime">
                                     <span></span>
                                 </label>
                             </div>
@@ -132,7 +132,7 @@
                         <div class="delivery-method">
                             <div class="delivery-method__checkbox">
                                 <label for="boxberry">
-                                    <input type="checkbox" name="boxberry" id="boxberry" data-item="boxberry">
+                                    <input type="checkbox" name="boxberry" id="boxberry" data-item="Boxberry">
                                     <span></span>
                                 </label>
                             </div>
@@ -155,8 +155,18 @@
                         <span class="price-add">0 BYN</span>
                     </div>
 
+                    <div class="promocode-block">
+                        <input type="text" name="promocode" id="promocode" placeholder="Введите промокод">
+                        <button id="send-promocode">
+                            <img src="/assets/img/icons/arrow-w.svg" alt="">
+                        </button>
+                    </div>
+                    <!-- /.promocode-block -->
+
+                    <p class="promocode-block-text">Применен промокод на 10%</p>
+
                     <div class="total-block">
-                        <h3><b>Итого</b> {{$cart['total']}} BYN</h3>
+                        <h3><b>Итого</b> <span>{{$cart['total']}} BYN</span></h3>
 
                         <button class="confirm-order">Оформить заказ</button>
                     </div>

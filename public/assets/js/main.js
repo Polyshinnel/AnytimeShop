@@ -409,3 +409,139 @@ if(orderPlusBtn)
         })
     })
 }
+
+let phoneFormMain = document.getElementById('phone')
+if(phoneFormMain) {
+    Inputmask({"mask": "+7(999)999-99-99"}).mask(phoneFormMain);
+}
+
+
+let cartPhone = document.getElementById('cart-phone')
+if(cartPhone) {
+    Inputmask({"mask": "+7(999)999-99-99"}).mask(cartPhone);
+}
+
+
+let deliveryMethod = document.querySelectorAll('.delivery-method__checkbox')
+if(deliveryMethod){
+    deliveryMethod.forEach((item) => {
+        item.addEventListener('click', function () {
+            deliveryMethod.forEach((group) => {
+                group.querySelector('input[type="checkbox"]').checked = false
+            })
+            item.querySelector('input[type="checkbox"]').checked = true
+        })
+    })
+}
+
+let promocodeInfoHook = async (obj, totalBlock) => {
+    let {data} = await axios.post('/promocode', obj)
+    console.log(data)
+    if(data.err == 'none') {
+        totalBlock.innerHTML += `<span class="current">${data['total_sum']} BYN</span>`
+        totalBlock.classList.add('promo')
+    }
+    let promocodeText = document.querySelector('.promocode-block-text');
+    promocodeText.innerText = data['message']
+    promocodeText.style.display = 'block'
+}
+
+let promocodeBtn = document.getElementById('send-promocode');
+let promocodeText = document.getElementById('promocode')
+if(promocodeBtn)
+{
+    promocodeBtn.addEventListener('click', function () {
+        let promocode = promocodeText.value
+        let totalBlock = document.querySelector('.total-block h3')
+        let total = parseInt(totalBlock.querySelector('span').innerText)
+        let obj = {
+            promocode: promocode,
+            total_sum: total.toString()
+        }
+        promocodeInfoHook(obj, totalBlock)
+    })
+}
+
+let validateName = (selector) => {
+    let name = selector.value;
+    if(name.length < 2) {
+        selector.parentNode.querySelector('.err-text').style.display = 'block'
+        return false;
+    }
+    return true;
+}
+
+let validatePhone = (selector) => {
+    let phone = selector.value
+    phone = phone.replace(/[^0-9]/g, '')
+    if(phone.length < 9) {
+        selector.parentNode.querySelector('.err-text').style.display = 'block'
+        return false;
+    }
+    return true;
+}
+
+let validateEmail = (selector) => {
+    let email = selector.value
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if(!email.match(re)) {
+        selector.parentNode.querySelector('.err-text').style.display = 'block'
+        return false
+    }
+    return true
+}
+
+let checkDelivery = () => {
+    let checkBoxes = document.querySelectorAll('.delivery-method__checkbox input[type="checkbox"]')
+    let delivery = ''
+    checkBoxes.forEach((item) => {
+        if(item.checked)
+        {
+            delivery = item.dataset.item
+        }
+    })
+    return delivery
+}
+
+let sendOrder = async (obj) => {
+    let {data} = await axios.post('/order/create', obj)
+    if(data.err == 'none') {
+        window.location.replace('/order/success')
+    }
+}
+
+let confirmOrder = document.querySelector('.confirm-order')
+if(confirmOrder) {
+    confirmOrder.addEventListener('click', function (){
+        let cartName = document.getElementById('cart-name')
+        let cartPhone = document.getElementById('cart-phone')
+        let cartEmail = document.getElementById('cart-mail')
+
+        let validateNameInfo = validateName(cartName)
+        let validatePhoneInfo = validatePhone(cartPhone)
+        let validateEmailInfo = validateEmail(cartEmail)
+
+        if(validateNameInfo && validatePhoneInfo && validateEmailInfo)
+        {
+            let obj = {
+                name: cartName.value,
+                phone: cartPhone.value,
+                email: cartEmail.value
+            }
+
+            let message = document.getElementById('cart-comment').value
+            if(message.length > 4)
+            {
+                obj['message'] = message
+            }
+
+            let promocode = document.getElementById('promocode').value
+            if(promocode.length > 3)
+            {
+                obj['promocode'] = promocode
+            }
+            obj['delivery'] = checkDelivery()
+            sendOrder(obj)
+        }
+    })
+}
