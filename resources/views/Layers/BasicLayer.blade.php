@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/assets/js/fancybox/fancybox.css">
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/splide/js/splide.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/style.css?ver=12314">
+    <link rel="stylesheet" href="/assets/css/style.css?ver=78541">
     <title>@yield('page_title')</title>
 </head>
 <body>
@@ -22,6 +22,6 @@
     @include('Components.Footer')
     <script src="https://yastatic.net/share2/share.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/assets/js/main.js?ver=1212334"></script>
+    <script src="/assets/js/main.js?ver=78541"></script>
 </body>
 </html>
