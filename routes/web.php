@@ -11,6 +11,7 @@ use App\Http\Controllers\Pages\DeliveryPageController;
 use App\Http\Controllers\Pages\DocumentationPageController;
 use App\Http\Controllers\Pages\FaqPageController;
 use App\Http\Controllers\Pages\HomePageController;
+use App\Http\Controllers\Pages\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::get('/delivery', DeliveryPageController::class);
 Route::get('/faq', FaqPageController::class);
 Route::get('/contacts', ContactsPageController::class);
 Route::get('/catalog/{product_id}', ProductPageController::class);
+Route::get('/order', OrderController::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);

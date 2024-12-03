@@ -148,7 +148,16 @@ document.querySelector('.yuwell-cart__block').addEventListener('click', function
     menu.classList.toggle('cart-block_active')
 })
 
+let cart = document.querySelector('.cart-block');
+cart.addEventListener('click', (event) => {
+    if (event.target.classList.contains('close-cart')) {
+        let menu = document.querySelector('.cart-block')
+        menu.classList.toggle('cart-block_active')
+    }
+});
+
 document.querySelector('.close-cart').addEventListener('click', function() {
+    console.log('click!')
     let menu = document.querySelector('.cart-block')
     menu.classList.toggle('cart-block_active')
 })
@@ -187,6 +196,7 @@ const addToCart = async (product_id, quantity) => {
     }
 
     let {data} = await axios.post('/add-cart', obj)
+    updateCartState(data)
     return data;
 }
 
@@ -197,5 +207,154 @@ const removeFromCart = async (product_id, quantity) => {
     }
 
     let {data} = await axios.post('/remove-cart', obj)
+    updateCartState(data)
+    return data
+}
+
+const updateCartState = (data) => {
+    let cartCounter = document.querySelector('.yuwell-cart__counter span')
     console.log(data)
+    if('products' in data) {
+        clearCart()
+        cartCounter.innerHTML = data.count
+        let cart = document.querySelector('.cart-block')
+        let emptyBlock = document.querySelector('.empty-block')
+        if(emptyBlock) {
+            emptyBlock.remove()
+        }
+        cart.innerHTML += `
+            <div class="cart-products">
+            </div>
+        `
+        let products = document.querySelector('.cart-products')
+        data['products'].forEach((item) => {
+            let product = `
+             <div class="cart-item">
+                <div class="cart-item__img">
+                    <a href="${item['link']}"><img src="${item['thumbnail']}" alt=""></a>
+                </div>
+                <!-- /.cart-item__img -->
+
+                <div class="cart-item__controls">
+                    <a href="${item['link']}"><h3>${item['name']}</h3></a>
+                    <div class="cart-item__control-price">
+                        <div class="cart-item__control">
+                            <button class="minus-cart cart-btn">-</button>
+                            <input type="text" class="cart-product-count" name="cart-product-count" id="cart-product-count" value="${item['quantity']}">
+                            <button class="plus-cart cart-btn">+</button>
+                        </div>
+                        <!--/.cart-item__control-->
+
+                        <div class="cart-item__price">
+                            <span>${item['total_price']} BYN</span>
+                                <p>${item['total_new']} BYN</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.cart-item__controls -->
+            </div>
+            <!-- /.cart-item -->
+            `
+            if(!item['new_price']) {
+                product = `
+                <div class="cart-item">
+                <div class="cart-item__img">
+                    <a href="${item['link']}"><img src="${item['thumbnail']}" alt=""></a>
+                </div>
+                <!-- /.cart-item__img -->
+
+                <div class="cart-item__controls">
+                    <a href="${item['link']}"><h3>${item['name']}</h3></a>
+                    <div class="cart-item__control-price">
+                        <div class="cart-item__control">
+                            <button class="minus-cart cart-btn">-</button>
+                            <input type="text" class="cart-product-count" name="cart-product-count" id="cart-product-count" value="${item['quantity']}">
+                            <button class="plus-cart cart-btn">+</button>
+                        </div>
+                        <!--/.cart-item__control-->
+
+                        <div class="cart-item__price">
+                            <p>${item['total_price']} BYN</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.cart-item__controls -->
+            </div>
+            <!-- /.cart-item -->
+                `
+            }
+            products.innerHTML += product
+        })
+        cart.innerHTML += `
+            <div class="cart-total">
+                <h3>Сумма заказа</h3>
+
+                <div class="cart-total__items">
+                    <div class="cart-total__item">
+                        <span>Стоимость продуктов</span>
+                        <div class="dash-line"></div>
+                        <span>${data['total']} BYN</span>
+                    </div>
+                    <!-- /.cart-total__item -->
+
+                    <div class="cart-total__item">
+                        <span>Скидка</span>
+                        <div class="dash-line"></div>
+                        <span>-${data['total_sale']} BYN</span>
+                    </div>
+                    <!-- /.cart-total__item -->
+                </div>
+                <!-- /.cart-total__items -->
+
+                <p class="cart-total__summ">Итого: <span>${data['total']} BYN</span></p>
+            </div>
+
+            <a href="/order"><button class="create-order">Оформить заказ</button></a>
+        `
+    } else {
+        clearCart()
+        cartCounter.innerHTML = '0'
+        let cart = document.querySelector('.cart-block')
+        cart.innerHTML += `
+            <div class="empty-block">
+                <p class="empty-cart-info">К сожалению Ваша корзина пуста, добавьте товары для оформления заказа</p>
+                <a href="/catalog"><button class="create-order">В каталог</button></a>
+            </div>
+        `
+    }
+}
+
+const clearCart = () => {
+    let cartProducts = document.querySelector('.cart-products')
+    if(cartProducts) {
+        cartProducts.remove()
+    }
+
+    let cartTotals = document.querySelector('.cart-total')
+    if(cartTotals)
+    {
+        cartTotals.remove()
+    }
+
+    let createOrderBtn = document.querySelector('.cart-block a')
+    if(createOrderBtn)
+    {
+        createOrderBtn.remove()
+    }
+
+}
+
+
+let productShopBtns = document.querySelectorAll('.product-shop')
+if(productShopBtns)
+{
+    productShopBtns.forEach((item) => {
+        item.addEventListener('click', function () {
+            let productId = item.dataset.product
+            let quantityInput = item.parentElement.querySelector('.product-quantity-input')
+            let quantity = quantityInput.value
+            item.querySelector('span').innerText = 'Добавлено!'
+            addToCart(productId, quantity)
+        })
+    })
 }
