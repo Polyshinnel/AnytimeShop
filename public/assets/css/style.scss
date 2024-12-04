@@ -51,7 +51,6 @@ body{
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(#0D2D34, 0.46);
     }
 }
 
@@ -3237,6 +3236,9 @@ body{
 }
 
 @media(max-height: 640px){
+    .header-main{
+        min-height: 570px;
+    }
     .header-app-phone{
         width: 240px;
     }
