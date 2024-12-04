@@ -3238,6 +3238,10 @@ body{
 @media(max-height: 640px){
     .header-main{
         min-height: 570px;
+
+        .header-wrapper{
+            min-height: 570px;
+        }
     }
     .header-app-phone{
         width: 240px;

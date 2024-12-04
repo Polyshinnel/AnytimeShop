@@ -2802,6 +2802,9 @@ body {
   .header-main {
     min-height: 570px;
   }
+  .header-main .header-wrapper {
+    min-height: 570px;
+  }
   .header-app-phone {
     width: 240px;
   }
