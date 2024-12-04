@@ -397,7 +397,15 @@ body {
 
 @media (max-width: 580px) {
   .header-main {
+    height: 600px;
     background-position-x: calc(50% - 80px);
+  }
+  .header-main .header-wrapper {
+    height: 600px;
+  }
+  .header-main .header-app-phone {
+    left: 5%;
+    width: 270px;
   }
   .header-nav {
     display: none;
@@ -464,7 +472,7 @@ body {
 @media (max-width: 580px) {
   .motto-block {
     width: 100%;
-    margin-top: 190px;
+    margin-top: 70px;
   }
   .motto-block h1 {
     color: #fff;
@@ -484,8 +492,8 @@ body {
 .header-app-phone {
   width: 460px;
   position: absolute;
-  top: 140%;
-  left: 0;
+  left: calc((100% - 1240px) / 2);
+  bottom: -40px;
 }
 
 .header-app-about {
@@ -502,15 +510,9 @@ body {
   font-size: 24px;
 }
 
-@media (max-width: 1620px) {
-  .header-app-phone {
-    top: 130%;
-  }
-}
 @media (max-width: 1380px) {
   .header-app-phone {
     width: 360px;
-    top: 120%;
   }
 }
 @media (max-width: 580px) {

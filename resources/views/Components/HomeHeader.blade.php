@@ -36,11 +36,13 @@
                 <h1>Управляйте диабетом с уверенностью</h1>
                 <p>Следите за уровнем глюкозы и ее изменений без необходимости прокалывать пальцы</p>
                 <button class="more-info-scroll">Купить</button>
-                <img src="/assets/img/phone-item-block.png" class="header-app-phone" alt="">
+
             </div>
             <!-- /.motto-block -->
         </div>
         <!--/.box-container-->
+
+        <img src="/assets/img/phone-item-block.png" class="header-app-phone" alt="">
 
         <div class="header-app-about">
             <p>Данные легко передаются онлайн врачу или близким</p>
