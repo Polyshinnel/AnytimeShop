@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/assets/js/fancybox/fancybox.css">
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/splide/js/splide.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/style.css?ver=74123">
+    <link rel="stylesheet" href="/assets/css/style.css?ver=45231">
     <title>@yield('page_title')</title>
 </head>
 <body>
@@ -23,6 +23,6 @@
     <script src="https://yastatic.net/share2/share.js" async></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/assets/js/inputmask.min.js"></script>
-    <script src="/assets/js/main.js?ver=74123"></script>
+    <script src="/assets/js/main.js?ver=45231"></script>
 </body>
 </html>
