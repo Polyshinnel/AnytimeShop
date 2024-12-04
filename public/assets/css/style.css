@@ -2792,4 +2792,15 @@ body {
 }
 .success-wrapper button:hover {
   background: var(--hover-color);
+}
+
+@media (max-width: 560px) {
+  .header-head {
+    margin-top: 30px;
+  }
+}
+@media (max-height: 640px) {
+  .header-app-phone {
+    width: 240px;
+  }
 }/*# sourceMappingURL=style.css.map */
