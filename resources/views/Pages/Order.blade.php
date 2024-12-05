@@ -4,7 +4,7 @@
 
 @section('content')
     <main>
-        <div class="box-container">
+        <div class="box-container box-container_main">
             <div class="product-page__title">
                 <ul class="breadcrumbs">
                     <li><a href="/">Главная</a>&nbsp;/&nbsp;</li>
@@ -95,13 +95,13 @@
                                     </div>
 
                                     <div class="delete-block">
-                                        <img src="assets/img/icons/common/delete.svg" alt="" data-product="{{$product['id']}}">
+                                        <img src="assets/img/icons/common/delete.svg" alt="" data-product="{{$product['id']}}" data-quantity="{{$product['quantity']}}" class="delete-order-btn">
                                     </div>
                                 </div>
                                 <!-- /.quantity-col -->
 
                                 <div class="delete-block">
-                                    <img src="assets/img/icons/common/delete.svg" alt="">
+                                    <img src="assets/img/icons/common/delete.svg" alt="" data-quantity="{{$product['quantity']}}" class="delete-order-btn">
                                 </div>
                             </div>
                             <!--/.order-list__item-->

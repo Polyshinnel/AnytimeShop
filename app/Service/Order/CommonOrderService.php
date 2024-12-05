@@ -74,20 +74,19 @@ class CommonOrderService
                     'quantity' => $product['quantity']
                 ];
                 $this->orderRepository->createOrderProduct($createProductArr);
-                $message = sprintf("Товар %s \n<b>Наименование: </b>%s, <b>Количество: </b>%s",$count, $product['name'], $product['quantity']);
                 $count++;
-                $messageProducts .= $message;
+                $messageProducts .= sprintf("➡ <b>Наименование: </b>%s, <b>Количество: </b>%s \n", $product['name'], $product['quantity']);
             }
 
-            $telegram_message = sprintf("Новый заказ с интернет магазина: \n<b>Имя: </b> %s, \n<b>Телефон: </b> %s, \n<b>Почта: </b> %s, \n", $name, $phone, $email);
+            $telegram_message = sprintf("⚠ Новый заказ с интернет магазина ⚠: \n👤 <b>Имя: </b> %s, \n📞 <b>Телефон: </b> %s, \n✉ <b>Почта: </b> %s, \n", $name, $phone, $email);
             if($message) {
-                $telegram_message .= sprintf("<b>Комментарий:</b> %s \n", $message);
+                $telegram_message .= sprintf("⌨ <b>Комментарий:</b> %s \n", $message);
             }
-            $telegram_message.=sprintf("<b>Метод доставки: </b> %s \n", $deliveryInfo['method_name']);
-            $telegram_message.=sprintf("<b>Адрес доставки: </b> %s, \n", $deliveryInfo['delivery_addr']);
+            $telegram_message.=sprintf("🛄 <b>Метод доставки: </b> %s \n", $deliveryInfo['method_name']);
+            $telegram_message.=sprintf("🚩 <b>Адрес доставки: </b> %s, \n", $deliveryInfo['delivery_addr']);
             if(isset($promocodeData['use_promocode']))
             {
-                $telegram_message.=sprintf("<b>Промокод: </b> %s \n", $promocodeData['promocode']);
+                $telegram_message.=sprintf("💎 <b>Промокод: </b> %s \n", $promocodeData['promocode']);
             }
             $telegram_message.= "ТОВАРЫ: \n";
             $telegram_message.= $messageProducts;

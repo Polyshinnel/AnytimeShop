@@ -22,7 +22,7 @@
     <script src="https://yastatic.net/share2/share.js" async></script>
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/inputmask.min.js"></script>
-    <script src="/assets/js/main.js?ver=45231"></script>
+    <script src="/assets/js/main.js?ver=12314"></script>
     @yield('scripts')
 </body>
 </html>

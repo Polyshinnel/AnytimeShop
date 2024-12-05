@@ -81,7 +81,7 @@ class StoreOrderController extends Controller
             $deliveryArr
         );
         $this->telegramController->sendOrder($result['message']);
-        session('cart', []);
+        session()->forget('cart');
         return response()->json($result);
     }
 }
