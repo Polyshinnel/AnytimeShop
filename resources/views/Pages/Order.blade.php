@@ -101,7 +101,7 @@
                                 <!-- /.quantity-col -->
 
                                 <div class="delete-block">
-                                    <img src="assets/img/icons/common/delete.svg" alt="" data-quantity="{{$product['quantity']}}" class="delete-order-btn">
+                                    <img src="assets/img/icons/common/delete.svg" alt="" data-product="{{$product['id']}}" data-quantity="{{$product['quantity']}}" class="delete-order-btn">
                                 </div>
                             </div>
                             <!--/.order-list__item-->

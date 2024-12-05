@@ -632,6 +632,8 @@ if(orderList) {
         if (event.target.classList.contains('delete-order-btn')) {
             let productId = event.target.dataset.product
             let quantity = parseInt(event.target.dataset.quantity)
+            console.log(productId)
+            console.log(quantity)
             removeFromCart(productId, quantity)
         }
     });
