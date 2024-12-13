@@ -11,6 +11,7 @@ use App\Http\Controllers\Pages\ContactsPageController;
 use App\Http\Controllers\Pages\DeliveryPageController;
 use App\Http\Controllers\Pages\DocumentationPageController;
 use App\Http\Controllers\Pages\FaqPageController;
+use App\Http\Controllers\Pages\HelpPageController;
 use App\Http\Controllers\Pages\HomePageController;
 use App\Http\Controllers\Pages\OrderController;
 use App\Http\Controllers\Promocode\PromocodeController;
@@ -39,6 +40,7 @@ Route::get('/order', OrderController::class);
 Route::get('/order/success', function () {
     return view('Pages.SuccessOrder', ['cart' => []]);
 });
+Route::get('/help', HelpPageController::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);

@@ -3313,3 +3313,213 @@ body{
         width: 240px;
     }
 }
+
+.consult-form{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    .consult-form__form{
+        width: 50%;
+    }
+
+    .consult-form__img{
+        width: 50%;
+
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.consult-form_mod{
+    padding-top: 50px;
+    border-top: 1px solid #ccc;
+}
+
+.consult-form__form-title{
+    h1{
+        font-weight: 700;
+        font-size: 40px;
+        color: var(--primary-color);
+    }
+
+    h2{
+        font-weight: 700;
+        font-size: 40px;
+        color: var(--primary-color);
+    }
+
+    p{
+        margin-top: 10px;
+        font-size: 18px;
+    }
+}
+
+.consult-form__form-subtitle{
+    margin-top: 30px;
+
+    h3{
+        color: var(--primary-color);
+        font-size: 24px;
+    }
+
+    p{
+        margin-top: 10px;
+        font-size: 18px;
+    }
+}
+
+.help-form{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 460px;
+
+    .help-form__title{
+        h4{
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        p{
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        margin-bottom: 20px;
+    }
+
+    .help-form__input{
+        margin-bottom: 15px;
+        width: 100%;
+        height: 47px;
+        border-radius: 12px;
+        background: #F0F0F0;
+        border: none;
+        color: #373737;
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .help-form__checkbox-block{
+        display: flex;
+        align-items: center;
+        
+
+        .help-form__checkbox{
+            position: relative;
+            
+            input[type='checkbox']{
+                width: 1px;
+                opacity: 0;
+                position: absolute;
+                z-index: -1;
+            }
+
+            span{
+                display: flex;
+                width: 27px;
+                height: 27px;
+                border-radius: 5px;
+                border: 1px solid var(--primary-color);
+                margin-right: 15px;
+            }
+
+            input[type='checkbox']:checked + span{
+                &::before{
+                    content: '';
+                    background-image: url('../img/icons/common/checked.svg');
+                    width: 20px;
+                    height: 24px;
+                    position: absolute;
+                    bottom: 5px;
+                    left: 5px;
+                }
+            }
+        }
+    }
+
+    input[type='submit']{
+        width: 100%;
+        height: 45px;
+        background: var(--primary-color);
+        color: #fff;
+        margin-top: 25px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s all ease;
+        font-size: 20px;
+
+        &:hover{
+            background: var(--hover-color);
+        }
+    }
+
+    .err-data{
+        font-size: 14px;
+        margin-top: 20px;
+        display: none;
+    }
+}
+
+@media(max-width: 580px){
+    .consult-form{
+        flex-direction: column-reverse;
+
+        .consult-form__form{
+            width: 100%;
+        }
+
+        .consult-form__img{
+            width: 100%;
+        }
+    }
+
+    .help-form{
+        width: 100%;
+    }
+
+    .consult-form__form-title{
+        h1{
+            font-size: 26px;
+        }
+
+        h2{
+            font-size: 26px;
+        }
+
+        p{
+            font-size: 16px;
+        }
+    }
+
+    .consult-form__form-subtitle{
+        h3{
+            font-size: 20px;
+        }
+
+        p{
+            font-size: 16px;
+        }
+    }
+
+    .consult-form_mod{
+        position: relative;
+
+        .consult-form__form{
+            position: relative;
+            z-index: 20;
+        }
+
+        .consult-form__img{
+            position: absolute;
+            z-index: 10;
+            top: 150px;
+        }
+    }
+}
