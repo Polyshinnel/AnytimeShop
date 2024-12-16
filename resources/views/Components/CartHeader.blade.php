@@ -16,7 +16,7 @@
     </div>
     <!-- /.cart-block__header-icons -->
 
-    <h2>Корзина</h2>
+    <p class="cart-title">Корзина</p>
 
     @if($cart)
     <div class="cart-products">

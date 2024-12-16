@@ -12,7 +12,7 @@
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/splide/js/splide.min.js"></script>
     <script src="https://yastatic.net/share2/share.js" async></script>
-    <link rel="stylesheet" href="/assets/css/style.css?ver=3124">
+    <link rel="stylesheet" href="/assets/css/style.css?ver=1241">
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

@@ -251,6 +251,10 @@ body {
 .cart-block h2 {
   font-size: 26px;
 }
+.cart-block .cart-title {
+  font-size: 26px;
+  font-weight: 700;
+}
 
 .cart-block_active {
   right: 0;
