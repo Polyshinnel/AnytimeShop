@@ -39,10 +39,10 @@
 
                         <div class="cart-item__price">
                             @if($product['new_price'])
-                                <span>{{$product['total_price']}} BYN</span>
-                                <p>{{$product['total_new']}} BYN</p>
+                                <span>{{$product['total_price']}} Руб</span>
+                                <p>{{$product['total_new']}} Руб</p>
                             @else
-                                <p>{{$product['total_price']}} BYN</p>
+                                <p>{{$product['total_price']}} Руб</p>
                             @endif
                         </div>
                     </div>

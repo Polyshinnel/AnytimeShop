@@ -76,13 +76,13 @@
 
                                 @if($product['new_price'])
                                     <div class="price-col">
-                                        <span>{{$product['total_price']}} BYN</span>
-                                        <p>{{$product['total_new']}} BYN</p>
+                                        <span>{{$product['total_price']}} Руб</span>
+                                        <p>{{$product['total_new']}} Руб</p>
                                     </div>
                                     <!-- /.price-col -->
                                 @else
                                     <div class="price-col">
-                                        <p>{{$product['total_price']}} BYN</p>
+                                        <p>{{$product['total_price']}} Руб</p>
                                     </div>
                                     <!-- /.price-col -->
                                 @endif
@@ -152,7 +152,7 @@
                     <div class="add-params">
                         <span>Доставка</span>
                         <div class="line"></div>
-                        <span class="price-add">0 BYN</span>
+                        <span class="price-add">0 Руб</span>
                     </div>
 
                     <div class="promocode-block">
@@ -166,7 +166,7 @@
                     <p class="promocode-block-text">Применен промокод на 10%</p>
 
                     <div class="total-block">
-                        <h3><b>Итого</b> <span>{{$cart['total']}} BYN</span></h3>
+                        <h3><b>Итого</b> <span>{{$cart['total']}} Руб</span></h3>
 
                         <button class="confirm-order">Оформить заказ</button>
                     </div>
