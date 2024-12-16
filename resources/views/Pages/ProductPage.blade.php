@@ -1,6 +1,12 @@
 @extends('Layers.BasicLayer')
 
-@section('page_title', 'AnyTime CGM')
+
+
+
+@section('canonical', $product['link'])
+@section('description', $product['clear_description'])
+@section('og_image', '/assets/img/og-image.png')
+@section('page_title', $product['name'])
 
 @section('content')
     <main>

@@ -2,6 +2,7 @@
 
 namespace App\Service\Product;
 
+use App\Models\CommonSettings;
 use App\Repository\Product\ProductRepository;
 
 class CommonProductService
@@ -20,6 +21,17 @@ class CommonProductService
             $products = $this->productRepository->getProductById($id);
         } else {
             $products = $this->productRepository->getAllProducts();
+        }
+
+        $settings = CommonSettings::all();
+        $host = '';
+        if(!$settings->isEmpty()) {
+            foreach ($settings as $setting) {
+                if($setting->name == 'site_host')
+                {
+                    $host = $setting->value;
+                }
+            }
         }
 
         if(!$products->isEmpty())
@@ -78,11 +90,13 @@ class CommonProductService
                         $productComplectationsInfo[] = $complectation->complect_text;
                     }
                 }
-                $formattedProducts[] = [
+
+                $prodArr = [
                     'id' => $product->id,
                     'link' => '/catalog/'.$product->id,
                     'name' => $product->name,
                     'decription' => $product->description,
+                    'clear_description' => strip_tags($product->description),
                     'price' => $product->price,
                     'new_price' => $product->new_price,
                     'thumbnail' => $productImages[0]['img'] ? $productImages[0]['img'] : '',
@@ -92,6 +106,13 @@ class CommonProductService
                     'delivery' => $deliveryInfo,
                     'common_chars' => $commonProductCharsInfo
                 ];
+
+                if($host)
+                {
+                    $prodArr['full_link'] = $host.$prodArr['link'];
+                }
+
+                $formattedProducts[] = $prodArr;
             }
         }
 

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Pages;
 
+use App\Http\Controllers\BasePageController;
 use App\Http\Controllers\Controller;
 use App\Service\Cart\CommonCartService;
 use Illuminate\Http\Request;
 
-class AboutPageController extends Controller
+class AboutPageController extends BasePageController
 {
     private CommonCartService $commonCartService;
 
@@ -15,13 +16,14 @@ class AboutPageController extends Controller
         $this->commonCartService = $commonCartService;
     }
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
         $cart = session('cart');
         $cartInfo = [];
         if($cart) {
             $cartInfo = $this->commonCartService->getTotalCartInfo($cart);
         }
-        return view('Pages.AboutPage', ['cart' => $cartInfo]);
+        $pageInfo = $this->getPageInfo($request);
+        return view('Pages.AboutPage', ['cart' => $cartInfo, 'pageInfo' => $pageInfo]);
     }
 }
