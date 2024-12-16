@@ -75,7 +75,7 @@
                     <div class="product-list__item-btns">
                         <div class="product-list__item-btns-shop-quantity">
                             <button class="product-shop" data-product="{{$product['id']}}">
-                                <img src="/assets/img/icons/products/cart.svg" alt="">
+                                <img src="/assets/img/icons/products/cart.svg" alt="Иконка корзины" title="Иконка корзины | AnyTime">
                                 <span>Добавить в корзину</span>
                             </button>
 
@@ -110,7 +110,7 @@
                                     @if($product['complectation'])
                                         @foreach($product['complectation'] as $complect)
                                             <div class="product-list__item-adv__item">
-                                                <img src="/assets/img/icons/products/check.svg" alt="">
+                                                <img src="/assets/img/icons/products/check.svg" alt="Иконка проверено" title="Иконка проверено | AnyTime">
                                                 <p>{{$complect}}</p>
                                             </div>
                                             <!--/.product-list__item-adv__item-->

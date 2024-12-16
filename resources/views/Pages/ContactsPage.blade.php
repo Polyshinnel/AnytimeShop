@@ -14,7 +14,7 @@
                 <div class="contacts-page-block__contact-info">
                     <div class="contacts-page-block__contact-info__unit">
                         <div class="contacts-page-block__contact-info__unit-img">
-                            <img src="assets/img/icons/contacts-icon/phone-w.png" alt="">
+                            <img src="assets/img/icons/contacts-icon/phone-w.png" alt="Иконка" title="Иконка | AnyTime">
                         </div>
                         <!-- /.contacts-page-block__contact-info__unit-img -->
                         <div class="contacts-page-block__contact-info__unit-text">
@@ -30,7 +30,7 @@
 
                     <div class="contacts-page-block__contact-info__unit">
                         <div class="contacts-page-block__contact-info__unit-img">
-                            <img src="assets/img/icons/contacts-icon/email-w.png" alt="">
+                            <img src="assets/img/icons/contacts-icon/email-w.png" alt="Иконка" title="Иконка | AnyTime">
                         </div>
                         <!-- /.contacts-page-block__contact-info__unit-img -->
                         <div class="contacts-page-block__contact-info__unit-text">
@@ -43,7 +43,7 @@
 
                     <div class="contacts-page-block__contact-info__unit">
                         <div class="contacts-page-block__contact-info__unit-img">
-                            <img src="assets/img/icons/contacts-icon/geo-w.png" alt="">
+                            <img src="assets/img/icons/contacts-icon/geo-w.png" alt="Иконка" title="Иконка | AnyTime">
                         </div>
                         <!-- /.contacts-page-block__contact-info__unit-img -->
                         <div class="contacts-page-block__contact-info__unit-text">
@@ -94,7 +94,7 @@
             <div class="contacts-page-block__contact-info">
                 <div class="contacts-page-block__contact-info__unit">
                     <div class="contacts-page-block__contact-info__unit-img">
-                        <img src="assets/img/icons/contacts-icon/phone-b.png" alt="">
+                        <img src="assets/img/icons/contacts-icon/phone-b.png" alt="Иконка" title="Иконка | AnyTime">
                     </div>
                     <!-- /.contacts-page-block__contact-info__unit-img -->
                     <div class="contacts-page-block__contact-info__unit-text">
@@ -110,7 +110,7 @@
 
                 <div class="contacts-page-block__contact-info__unit">
                     <div class="contacts-page-block__contact-info__unit-img">
-                        <img src="assets/img/icons/contacts-icon/email-b.png" alt="">
+                        <img src="assets/img/icons/contacts-icon/email-b.png" alt="Иконка" title="Иконка | AnyTime">
                     </div>
                     <!-- /.contacts-page-block__contact-info__unit-img -->
                     <div class="contacts-page-block__contact-info__unit-text">
@@ -123,7 +123,7 @@
 
                 <div class="contacts-page-block__contact-info__unit">
                     <div class="contacts-page-block__contact-info__unit-img">
-                        <img src="assets/img/icons/contacts-icon/geo-b.png" alt="">
+                        <img src="assets/img/icons/contacts-icon/geo-b.png" alt="Иконка" title="Иконка | AnyTime">
                     </div>
                     <!-- /.contacts-page-block__contact-info__unit-img -->
                     <div class="contacts-page-block__contact-info__unit-text">

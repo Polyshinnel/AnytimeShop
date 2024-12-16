@@ -9,7 +9,7 @@
                 <div class="yuwell-cart-menu">
                     <img src="/assets/img/logo-b.png" alt="" class="yewell-logo">
                     <div class="yuwell-cart__block">
-                        <img src="/assets/img/icons/header/cart-b.svg" alt="">
+                        <img src="/assets/img/icons/header/cart-b.svg" alt="Иконка" title="Иконка | AnyTime">
                         <div class="yuwell-cart__counter">
                             @if($cart)
                                 <span>{{$cart['count']}}</span>
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                     <!--/.yuwell-cart__block-->
-                    <img src="/assets/img/icons/header/menu-b.svg" alt="" class="yuwell-menu">
+                    <img src="/assets/img/icons/header/menu-b.svg" alt="Иконка" title="Иконка | AnyTime" class="yuwell-menu">
                 </div>
                 <!-- /.yuwell-cart -->
             </div>

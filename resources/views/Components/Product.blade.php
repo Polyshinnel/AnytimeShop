@@ -1,6 +1,6 @@
 <div class="product-list__item">
     <div class="product-list__item-img">
-        <a href="{{$product['link']}}"><img src="{{$product['thumbnail']}}" alt=""></a>
+        <a href="{{$product['link']}}"><img src="{{$product['thumbnail']}}" alt="{{$product['name']}}" title="{{$product['name']}} | AnyTime"></a>
     </div>
 
     <div class="product-list__item-text">

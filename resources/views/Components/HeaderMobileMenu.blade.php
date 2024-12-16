@@ -1,37 +1,37 @@
 <div class="header-menu">
     <div class="close-menu">
-        <img src="/assets/img/icons/header/close.svg" alt="">
+        <img src="/assets/img/icons/header/close.svg" alt="Иконка" title="Иконка | AnyTime">
     </div>
     <!--/.close-->
 
     <div class="custom-select" id="country-select">
         <div class="custom-select__current">
             <div class="custom-select__current-value">
-                <img src="/assets/img/icons/header/countries/ru.svg" alt="">
+                <img src="/assets/img/icons/header/countries/ru.svg" alt="Иконка Россия" title="Иконка Россия | AnyTime">
                 <p>Россия</p>
             </div>
             <!-- /.custom-select__current-value -->
-            <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="">
+            <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="Иконка стрелка" title="Иконка стрелка | AnyTime">
         </div>
         <!--/.custom-select__current-->
         <div class="custom-select__list">
             <div class="custom-select__list-item" data-value="ru">
-                <img src="/assets/img/icons/header/countries/ru.svg" alt="">
+                <img src="/assets/img/icons/header/countries/ru.svg" alt="Иконка Россия" title="Иконка Россия | AnyTime">
                 <p>Россия</p>
             </div>
             <!--/.custom-select__list-item-->
             <div class="custom-select__list-item" data-value="bel">
-                <img src="/assets/img/icons/header/countries/bel.svg" alt="">
+                <img src="/assets/img/icons/header/countries/bel.svg" alt="Иконка Беларусь" title="Иконка Беларусь | AnyTime">
                 <p>Беларусь</p>
             </div>
             <!--/.custom-select__list-item-->
             <div class="custom-select__list-item" data-value="bel">
-                <img src="/assets/img/icons/header/countries/kz.svg" alt="">
+                <img src="/assets/img/icons/header/countries/kz.svg" alt="Иконка Казахстан" title="Иконка Казахстан | AnyTime">
                 <p>Казахстан</p>
             </div>
             <!--/.custom-select__list-item-->
             <div class="custom-select__list-item" data-value="bel">
-                <img src="/assets/img/icons/header/countries/arm.svg" alt="">
+                <img src="/assets/img/icons/header/countries/arm.svg" alt="Иконка Армения" title="Иконка Армения | AnyTime">
                 <p>Армения</p>
             </div>
             <!--/.custom-select__list-item-->

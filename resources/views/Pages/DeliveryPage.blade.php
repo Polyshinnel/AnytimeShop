@@ -11,7 +11,7 @@
             <div class="page-title-block__wrapper">
                 <picture>
                     <source srcset="/assets/img/pages/delivery-m.jpg" media="(max-width: 800px)">
-                    <img src="/assets/img/pages/delivery.jpg" alt="Абстрактное изображение">
+                    <img src="/assets/img/pages/delivery.jpg" alt="Доставка" title="Доставка | AnyTime">
                 </picture>
                 <div class="page-title__block-bg">
                     <h1>Доставка и оплата</h1>
@@ -42,7 +42,7 @@
                     </ul>
                 </div>
                 <!-- /.delivery-payment-common__text -->
-                <img src="/assets/img/delivery-payment/cards.png" alt="" class="delivery-payment-common__img">
+                <img src="/assets/img/delivery-payment/cards.png" alt="Банковские карты" title="Банковские карты | AnyTime" class="delivery-payment-common__img">
             </section>
             <!-- /.delivery-payment-common -->
         </div>
@@ -55,7 +55,7 @@
             <section class="delivery-payment-common">
                 <div class="delivery-payment-common__title">
                     <h2>Доставка</h2>
-                    <img src="/assets/img/delivery-payment/boxberry-logo.png" alt="">
+                    <img src="/assets/img/delivery-payment/boxberry-logo.png" alt="Иконка Boxberry" title="Иконка Boxberry | AnyTime">
                 </div>
                 <!-- /.delivery-payment-common__title -->
 
@@ -102,12 +102,12 @@
                     </ul>
                 </div>
                 <!-- /.delivery-payment-common__text -->
-                <img src="/assets/img/delivery-payment/anytime-box.png" class="delivery-payment-common__img" alt="">
+                <img src="/assets/img/delivery-payment/anytime-box.png" class="delivery-payment-common__img" alt="ANYTime в коробке" title="ANYTime в коробке | AnyTime">
             </section>
             <!-- /.delivery-payment-common -->
         </div>
         <!-- /.box-container -->
 
-        <img src="/assets/img/delivery-payment/truck-bg.svg" alt="" class="delivery-block-bg">
+        <img src="/assets/img/delivery-payment/truck-bg.svg" alt="Иконка доставка" title="Иконка доставка | AnyTime" class="delivery-block-bg">
     </div>
 @endsection

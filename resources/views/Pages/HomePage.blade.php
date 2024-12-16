@@ -13,7 +13,7 @@
             <div class="advantages-list">
                 <div class="advantages-list-item">
                     <div class="advantages-list-item__img">
-                        <img src="/assets/img/icons/adv/1.svg" alt="">
+                        <img src="/assets/img/icons/adv/1.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
@@ -25,7 +25,7 @@
 
                 <div class="advantages-list-item">
                     <div class="advantages-list-item__img">
-                        <img src="/assets/img/icons/adv/2.svg" alt="">
+                        <img src="/assets/img/icons/adv/2.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
@@ -37,7 +37,7 @@
 
                 <div class="advantages-list-item advantages-list-item_big">
                     <div class="advantages-list-item__img">
-                        <img src="/assets/img/icons/adv/3.svg" alt="">
+                        <img src="/assets/img/icons/adv/3.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
@@ -50,7 +50,7 @@
 
                 <div class="advantages-list-item advantages-list-item_big">
                     <div class="advantages-list-item__img">
-                        <img src="/assets/img/icons/adv/4.svg" alt="">
+                        <img src="/assets/img/icons/adv/4.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
@@ -62,7 +62,7 @@
 
                 <div class="advantages-list-item advantages-list-item_big">
                     <div class="advantages-list-item__img">
-                        <img src="/assets/img/icons/adv/5.svg" alt="">
+                        <img src="/assets/img/icons/adv/5.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
@@ -74,7 +74,7 @@
 
                 <div class="advantages-list-item advantages-list-item_big">
                     <div class="advantages-list-item__img">
-                        <img src="/assets/img/icons/adv/6.svg" alt="">
+                        <img src="/assets/img/icons/adv/6.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
@@ -184,15 +184,15 @@
             <!--/.product-app-block__img-text-block__cover-->
 
             <div class="app-block">
-                <img src="/assets/img/app-data/phone.png" alt="" class="phone-app">
+                <img src="/assets/img/app-data/phone.png" alt="Телефон с программой ANYTime" title="Телефон с программой ANYTime | AnyTime" class="phone-app">
                 <div class="app-block__logo">
-                    <img src="/assets/img/app-data/any-logo.png" alt="">
+                    <img src="/assets/img/app-data/any-logo.png" alt="Логотип ANYTime" title="Логотип ANYTime | AnyTime">
                 </div>
             </div>
             <!--/.app-block-->
 
             <div class="any-time-device">
-                <img src="/assets/img/app-data/any-time.png" alt="">
+                <img src="/assets/img/app-data/any-time.png" alt="фото ANYTime" title="фото ANYTime | AnyTime">
             </div>
             <!--/.any-time-device-->
         </div>
@@ -213,7 +213,7 @@
                             <div class="slide-block-item-text_block-white">
                                 <h2>Ежедневный обзор</h2>
                                 <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="" class="plus">
+                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
                         <picture>
@@ -233,7 +233,7 @@
                             <div class="slide-block-item-text_block-white">
                                 <h2>Журнал</h2>
                                 <p>Дополняйте график личными примечаниями.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="" class="plus">
+                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
                         <picture>
@@ -252,7 +252,7 @@
                             <div class="slide-block-item-text_block-white">
                                 <h2>Настройка значений</h2>
                                 <p>Установка пользователем пределов высокого и низкого уровня глюкозы в крови.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="" class="plus">
+                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
                         <picture>
@@ -271,7 +271,7 @@
                             <div class="slide-block-item-text_block-white">
                                 <h2>Отчет данных</h2>
                                 <p>Приложение отслеживает и регистрирует, позволяя анализировать данные по временным интервалам.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="" class="plus">
+                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
                         <picture>
@@ -291,7 +291,7 @@
                             <div class="slide-block-item-text_block-white">
                                 <h2>Текущие данные глюкозы</h2>
                                 <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="" class="plus">
+                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
                         <picture>
@@ -361,7 +361,7 @@
             </div>
             <!--/.follow-app__wrapper-->
 
-            <img src="/assets/img/follow-app/app.png" alt="" class="follow-app-phone">
+            <img src="/assets/img/follow-app/app.png" alt="Приложение Follow" title="Приложение Follow | AnyTime" class="follow-app-phone">
         </div>
         <!--/.box-container-->
     </div>
@@ -374,19 +374,19 @@
                 <div class="splide__list">
                     <div class="splide__slide review-item">
                         <div class="avatar-block">
-                            <img src="/assets/img/reviews/1.png" alt="">
+                            <img src="/assets/img/reviews/1.png" alt="Отзыв - фото5" title="Отзыв - фото5 | AnyTime">
                         </div>
 
                         <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="" class="quotes">
+                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime" class="quotes">
                             <p class="review-text">This article is not just a transmission of information, but a sharing of knowledge. The author integrates their own thoughts and perceptions into the text, making reading a pleasure.</p>
                             <b>dylan_yates</b>
                             <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
                             </div>
                         </div>
 
@@ -395,19 +395,19 @@
 
                     <div class="splide__slide review-item">
                         <div class="avatar-block">
-                            <img src="/assets/img/reviews/2.png" alt="">
+                            <img src="/assets/img/reviews/2.png" alt="Отзыв - фото2" title="Отзыв - фото2 | AnyTime">
                         </div>
 
                         <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="" class="quotes">
+                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime"  class="quotes">
                             <p class="review-text">The craftsmanship of these pants is meticulous, with superior quality. Every detail is well handled, making them very durable.</p>
                             <b>dylan_yates</b>
                             <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-e.svg" alt="">
-                                <img src="/assets/img/reviews/star-e.svg" alt="">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
+                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
                             </div>
                         </div>
                     </div>
@@ -415,19 +415,19 @@
 
                     <div class="splide__slide review-item">
                         <div class="avatar-block">
-                            <img src="/assets/img/reviews/3.png" alt="">
+                            <img src="/assets/img/reviews/3.png" alt="Отзыв - фото1"  title="Отзыв - фото1 | AnyTime">
                         </div>
 
                         <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="" class="quotes">
+                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime" class="quotes">
                             <p class="review-text">This article is not just a transmission of information, but a sharing of knowledge. The author integrates their own thoughts and perceptions into the text, making reading a pleasure.</p>
                             <b>dylan_yates</b>
                             <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-e.svg" alt="">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
                             </div>
                         </div>
                     </div>
@@ -440,15 +440,15 @@
                         </div>
 
                         <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="" class="quotes">
+                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime" class="quotes">
                             <p class="review-text">This article is not just a transmission of information, but a sharing of knowledge. The author integrates their own thoughts and perceptions into the text, making reading a pleasure.</p>
                             <b>dylan_yates</b>
                             <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-f.svg" alt="">
-                                <img src="/assets/img/reviews/star-e.svg" alt="">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime"">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime"">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
                             </div>
                         </div>
                     </div>
@@ -466,7 +466,7 @@
             <div class="need-help__list">
                 <div class="need-help__list-item">
                     <div class="img-box">
-                        <img src="/assets/img/icons/help/1.svg" alt="">
+                        <img src="/assets/img/icons/help/1.svg" alt="Иконка доставка" title="Иконка доставка | AnyTime">
                     </div>
                     <div class="need-help__list-item-text">
                         <h3>Быстрая доставка</h3>
@@ -478,7 +478,7 @@
 
                 <div class="need-help__list-item">
                     <div class="img-box">
-                        <img src="/assets/img/icons/help/2.svg" alt="">
+                        <img src="/assets/img/icons/help/2.svg" alt="Иконка написать" title="Иконка написать | AnyTime">
                     </div>
                     <div class="need-help__list-item-text">
                         <h3>Отправьте письмо</h3>
@@ -489,7 +489,7 @@
 
                 <div class="need-help__list-item">
                     <div class="img-box">
-                        <img src="/assets/img/icons/help/3.svg" alt="">
+                        <img src="/assets/img/icons/help/3.svg" alt="Иконка позвонить" title="Иконка позвонить | AnyTime">
                     </div>
                     <div class="need-help__list-item-text">
                         <h3>Быстрая поддержка</h3>
@@ -515,7 +515,7 @@
         </div>
         <!-- /.box-container -->
         <div class="manage-glukoza-level-img">
-            <img src="/assets/img/manage-banner.jpg" alt="">
+            <img src="/assets/img/manage-banner.jpg" alt="Пример крепления на предплечье" title="Пример крепления на предплечье | AnyTime">
         </div>
     </div>
     <!-- /.manage-glukoza-level -->

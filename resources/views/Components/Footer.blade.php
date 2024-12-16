@@ -68,7 +68,7 @@
             </div>
             <!-- /.footer-col__social -->
 
-            <img src="/assets/img/logo-b.png" class="yuwell-footer-logo" alt="">
+            <img src="/assets/img/logo-b.png" class="yuwell-footer-logo" alt="Логотип Yuwell" title="Логотип Yuwell | AnyTime">
         </div>
         <!--/.footer-col-->
     </div>

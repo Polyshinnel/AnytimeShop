@@ -12,7 +12,7 @@
             ></div>
         </div>
         <!-- /.share-block -->
-        <img src="/assets/img/icons/cart/close.svg" class="close-cart" alt="">
+        <img src="/assets/img/icons/cart/close.svg" class="close-cart" alt="Иконка закрыть корзину" title="Иконка закрыть корзину | AnyTime">
     </div>
     <!-- /.cart-block__header-icons -->
 
@@ -23,7 +23,7 @@
         @foreach($cart['products'] as $product)
             <div class="cart-item">
                 <div class="cart-item__img">
-                    <a href="{{$product['link']}}"><img src="{{$product['thumbnail']}}" alt=""></a>
+                    <a href="{{$product['link']}}"><img src="{{$product['thumbnail']}}" alt="{{$product['name']}}" title="{{$product['name']}} | AnyTime"></a>
                 </div>
                 <!-- /.cart-item__img -->
 

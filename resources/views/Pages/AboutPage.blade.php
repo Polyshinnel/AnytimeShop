@@ -11,7 +11,7 @@
             <div class="page-title-block__wrapper">
                 <picture>
                     <source srcset="/assets/img/pages/about-m.jpg" media="(max-width: 800px)">
-                    <img src="/assets/img/pages/about.jpg" alt="Абстрактное изображение">
+                    <img src="/assets/img/pages/about.jpg" alt="О компании" title="О компании | AnyTime">
                 </picture>
                 <div class="page-title__block-bg">
                     <h1>О компании</h1>

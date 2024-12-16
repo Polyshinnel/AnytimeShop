@@ -8,9 +8,9 @@
                     @include('Components.HeaderNav')
 
                     <div class="yuwell-cart-menu">
-                        <img src="/assets/img/logo-w.png" alt="" class="yewell-logo">
+                        <img src="/assets/img/logo-w.png" alt="Логотип Yuwell" title="Логотип Yuwell | AnyTime" class="yewell-logo">
                         <div class="yuwell-cart__block">
-                            <img src="/assets/img/icons/header/cart.svg" alt="">
+                            <img src="/assets/img/icons/header/cart.svg" alt="Иконка" title="Иконка | AnyTime">
                             <div class="yuwell-cart__counter">
                                 @if($cart)
                                     <span>{{$cart['count']}}</span>
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <!--/.yuwell-cart__block-->
-                        <img src="/assets/img/icons/header/menu.svg" alt="" class="yuwell-menu">
+                        <img src="/assets/img/icons/header/menu.svg" alt="Иконка" title="Иконка | AnyTime" class="yuwell-menu">
                     </div>
                     <!-- /.yuwell-cart -->
                 </div>
@@ -42,7 +42,7 @@
         </div>
         <!--/.box-container-->
 
-        <img src="/assets/img/phone-item-block.png" class="header-app-phone" alt="">
+        <img src="/assets/img/phone-item-block.png" class="header-app-phone" alt="Фото ANYTime и программы" title="Фото ANYTime и программы | AnyTime">
 
         <div class="header-app-about">
             <p>Приобретая у официального представителя, вы гарантированно получаете качественный сервис и 100% замену в случае неисправности.</p>

@@ -93,7 +93,7 @@
             <!-- /.consult-form__form -->
 
             <div class="consult-form__img">
-                <img src="/assets/img/help-doctor.png" alt="">
+                <img src="/assets/img/help-doctor.png" alt="Помощь доктора" title="Помощь доктора | AnyTime">
             </div>
         </div>
         <!-- /.consult-form -->

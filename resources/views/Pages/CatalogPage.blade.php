@@ -11,7 +11,7 @@
             <div class="page-title-block__wrapper">
                 <picture>
                     <source srcset="/assets/img/pages/catalog-m.jpg" media="(max-width: 800px)">
-                    <img src="/assets/img/pages/catalog.jpg" alt="Абстрактное изображение">
+                    <img src="/assets/img/pages/catalog.jpg" alt="Каталог" title="Каталог | AnyTime">
                 </picture>
                 <div class="page-title__block-bg">
                     <h1>Каталог</h1>
