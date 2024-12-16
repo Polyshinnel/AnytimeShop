@@ -12,6 +12,10 @@ class BasePageController extends Controller
         $pageName = $request->path();
         $pageInfo = SiteInfo::where('url', $pageName)->first()->toArray();
         $pageInfo['canonical_url'] = $request->url();
+        if($pageInfo['url'] == '/')
+        {
+            $pageInfo['canonical_url'] = $pageInfo['canonical_url'].'/';
+        }
         return $pageInfo;
     }
 }
