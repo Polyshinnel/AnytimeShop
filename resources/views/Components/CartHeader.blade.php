@@ -61,20 +61,20 @@
             <div class="cart-total__item">
                 <span>Стоимость продуктов</span>
                 <div class="dash-line"></div>
-                <span>{{$cart['total']}} BYN</span>
+                <span>{{$cart['total']}} Руб</span>
             </div>
             <!-- /.cart-total__item -->
 
             <div class="cart-total__item">
                 <span>Скидка</span>
                 <div class="dash-line"></div>
-                <span>-{{$cart['total_sale']}} BYN</span>
+                <span>-{{$cart['total_sale']}} Руб</span>
             </div>
             <!-- /.cart-total__item -->
         </div>
         <!-- /.cart-total__items -->
 
-        <p class="cart-total__summ">Итого: <span>{{$cart['total']}} BYN</span></p>
+        <p class="cart-total__summ">Итого: <span>{{$cart['total']}} Руб</span></p>
     </div>
     <!-- /.cart-total -->
 

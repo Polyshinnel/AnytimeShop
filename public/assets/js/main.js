@@ -444,10 +444,12 @@ const clearCart = () => {
         cartTotals.remove()
     }
 
-    let createOrderBtn = document.querySelector('.cart-block a')
+    let createOrderBtn = document.querySelectorAll('.cart-block a')
     if(createOrderBtn)
     {
-        createOrderBtn.remove()
+        createOrderBtn.forEach((item) => {
+            item.remove()
+        })
     }
 
 }
