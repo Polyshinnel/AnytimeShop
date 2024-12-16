@@ -20,9 +20,9 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="@yield('page_title')">
     <meta property="og:description" content="@yield('description')">
-    <meta property="og:image" content="@yield('og_image')"/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="630"/>
+    <meta property="og:image" content="@yield('og_image')">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <title>@yield('page_title')</title>
 </head>
@@ -52,7 +52,7 @@
             webvisor:true
         });
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/99227364" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/99227364" style="position:absolute; left:-9999px;" alt="" ></div></noscript>
     <!-- /Yandex.Metrika counter -->
 </body>
 </html>
