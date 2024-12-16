@@ -54,11 +54,11 @@
                             <div class="product-list__item-price-block__main">
                                 <p>Стоимость</p>
                                 <div class="cross-price__block">
-                                    <span>{{$product['price']}} BYN</span>
+                                    <span>{{$product['price']}} Руб</span>
                                     <div class="line"></div>
                                 </div>
                             </div>
-                            <p class="product-list__item-price-block__current">{{$product['new_price']}} BYN</p>
+                            <p class="product-list__item-price-block__current">{{$product['new_price']}} Руб</p>
                         </div>
                         <!--/.product-list__item-price-block-->
                     @else
@@ -66,7 +66,7 @@
                         <div class="product-list__item-price-block product-list__item-price-block_mod">
                             <div class="product-list__item-price-block__main">
                                 <p>Стоимость</p>
-                                <span>{{$product['price']}} BYN</span>
+                                <span>{{$product['price']}} Руб</span>
                             </div>
                         </div>
                         <!--/.product-list__item-price-block-->
