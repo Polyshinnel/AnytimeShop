@@ -1,8 +1,17 @@
 <div class="cart-block">
     <div class="cart-block__header-icons">
         <div class="share-block">
-            <img src="/assets/img/icons/cart/share.svg" alt="" class="share-block-btn">
+            <div
+                class="ya-share2"
+                data-curtain
+                data-shape="round"
+                data-limit="0"
+                data-more-button-type="short"
+                data-services="vkontakte,telegram,whatsapp"
+                data-url="/"
+            ></div>
         </div>
+        <!-- /.share-block -->
         <img src="/assets/img/icons/cart/close.svg" class="close-cart" alt="">
     </div>
     <!-- /.cart-block__header-icons -->

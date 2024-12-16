@@ -141,7 +141,18 @@
 
             <div class="product-shop__oneclick-block">
                 <button class="product-shop__oneclick" data-product="{{$product['id']}}">Купить в один клик</button>
-                <img src="assets/img/icons/cart/share.svg" alt="">
+                <div class="share-block">
+                    <div
+                        class="ya-share2"
+                        data-curtain
+                        data-shape="round"
+                        data-limit="0"
+                        data-more-button-type="short"
+                        data-services="vkontakte,telegram,whatsapp"
+                        data-url="{{$product['link']}}"
+                    ></div>
+                </div>
+                <!-- /.share-block -->
             </div>
             <!-- /.product-shop__oneclick-block -->
 

@@ -543,6 +543,7 @@
             breakpoints: {
                 580: {
                     perPage: 1,
+                    autoWidth: true,
                 },
             }
         }).mount();

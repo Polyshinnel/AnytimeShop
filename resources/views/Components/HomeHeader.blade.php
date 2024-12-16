@@ -45,7 +45,7 @@
         <img src="/assets/img/phone-item-block.png" class="header-app-phone" alt="">
 
         <div class="header-app-about">
-            <p>Данные легко передаются онлайн врачу или близким</p>
+            <p>Приобретая у официального представителя, вы гарантированно получаете качественный сервис и 100% замену в случае неисправности.</p>
         </div>
     </div>
     <!--/.header-wrapper-->

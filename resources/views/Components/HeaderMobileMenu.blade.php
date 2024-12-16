@@ -53,6 +53,6 @@
         <li><a href="/help">Помощь</a></li>
     </ul>
 
-    <button class="recall-header">Перезвоните мне</button>
+    <a href="/help"><button class="recall-header">Перезвоните мне</button></a>
 </div>
 <!--/.header-menu-->
