@@ -445,8 +445,8 @@
                             <b>dylan_yates</b>
                             <div class="mark-block">
                                 <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime"">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime"">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
                                 <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
                                 <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
                             </div>
