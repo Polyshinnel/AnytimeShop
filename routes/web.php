@@ -14,6 +14,7 @@ use App\Http\Controllers\Pages\FaqPageController;
 use App\Http\Controllers\Pages\HelpPageController;
 use App\Http\Controllers\Pages\HomePageController;
 use App\Http\Controllers\Pages\OrderController;
+use App\Http\Controllers\Pages\SertificatesPageController;
 use App\Http\Controllers\Promocode\PromocodeController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,7 @@ Route::get('/order/success', function () {
     return view('Pages.SuccessOrder', ['cart' => []]);
 });
 Route::get('/help', HelpPageController::class);
+Route::get('/sertificates', SertificatesPageController::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);
