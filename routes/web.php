@@ -5,6 +5,8 @@ use App\Http\Controllers\Cart\DeleteCartController;
 use App\Http\Controllers\Cart\GetCartController;
 use App\Http\Controllers\Orders\StoreOrderController;
 use App\Http\Controllers\Pages\AboutPageController;
+use App\Http\Controllers\Pages\ArticlesItemPageController;
+use App\Http\Controllers\Pages\ArticlesPageController;
 use App\Http\Controllers\Pages\Catalog\CatalogPageController;
 use App\Http\Controllers\Pages\Catalog\ProductPageController;
 use App\Http\Controllers\Pages\ContactsPageController;
@@ -13,6 +15,8 @@ use App\Http\Controllers\Pages\DocumentationPageController;
 use App\Http\Controllers\Pages\FaqPageController;
 use App\Http\Controllers\Pages\HelpPageController;
 use App\Http\Controllers\Pages\HomePageController;
+use App\Http\Controllers\Pages\NewsItemPageController;
+use App\Http\Controllers\Pages\NewsPageController;
 use App\Http\Controllers\Pages\OrderController;
 use App\Http\Controllers\Pages\SertificatesPageController;
 use App\Http\Controllers\Promocode\PromocodeController;
@@ -43,6 +47,10 @@ Route::get('/order/success', function () {
 });
 Route::get('/help', HelpPageController::class);
 Route::get('/sertificates', SertificatesPageController::class);
+Route::get('/news', NewsPageController::class);
+Route::get('/news/{id}', NewsItemPageController::class);
+Route::get('/articles', ArticlesPageController::class);
+Route::get('/articles/{id}', ArticlesItemPageController::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);
@@ -50,3 +58,4 @@ Route::post('/cart/get-cart', GetCartController::class);
 
 Route::post('/promocode', PromocodeController::class);
 Route::post('/order/create', StoreOrderController::class);
+
