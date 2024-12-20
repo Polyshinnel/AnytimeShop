@@ -81,7 +81,6 @@
                     <i>* Пожалуйста, учтите, что доставка каждого заказа оплачивается отдельно, даже если вы выбираете для получения один день.</i>
                 </div>
                 <!-- /.delivery-payment-common__text -->
-                <img src="/assets/img/" alt="">
             </section>
             <!-- /.delivery-payment-common -->
 
