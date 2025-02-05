@@ -14,7 +14,7 @@
                     <img src="/assets/img/pages/about.jpg" alt="О компании" title="О компании | AnyTime">
                 </picture>
                 <div class="page-title__block-bg">
-                    <h1>О компании</h1>
+                    <h1>{{$pageInfo['h1']}}</h1>
                     <p>Производителе Yuwell Group</p>
                 </div>
                 <!-- /.page-title__block-bg -->

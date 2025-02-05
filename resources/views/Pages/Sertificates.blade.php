@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="sertificates-header">
-        <h1>Наша продукция – ваш гарант качества</h1>
+        <h1>{{$pageInfo['h1']}}</h1>
         <div class="sertificates-header__line"></div>
         <p>Все аппараты прошли строгую сертификацию и соответствуют международным стандартам.</p>
     </div>

@@ -10,7 +10,7 @@
         <div class="consult-form">
             <div class="consult-form__form">
                 <div class="consult-form__form-title">
-                    <h1>Бесплатная консультация менеджера</h1>
+                    <h1>{{$pageInfo['h1']}}</h1>
                     <p>Мы заботимся о вашем комфорте и готовы помочь вам освоить работу с устройством.</p>
                 </div>
                 <!-- /.consult-form__form-title -->

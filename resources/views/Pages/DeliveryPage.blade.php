@@ -14,7 +14,7 @@
                     <img src="/assets/img/pages/delivery.jpg" alt="Доставка" title="Доставка | AnyTime">
                 </picture>
                 <div class="page-title__block-bg">
-                    <h1>Доставка и оплата</h1>
+                    <h1>{{$pageInfo['h1']}}</h1>
                     <p>Информация об оплате, доставке и самовывозе</p>
                 </div>
                 <!-- /.page-title__block-bg -->

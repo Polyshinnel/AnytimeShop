@@ -9,7 +9,7 @@
     <div class="box-container box-container_news">
         <div class="news-text">
             <div class="news-text__thumb">
-                <img src="{{$article['thumbnail']}}" alt="{{$article['title']}}" title="{{$article['title']}} | AnyTime">
+                <img src="/storage/{{$article['thumbnail']}}" alt="{{$article['title']}}" title="{{$article['title']}} | AnyTime">
             </div>
 
             <h1>{{$article['title']}}</h1>

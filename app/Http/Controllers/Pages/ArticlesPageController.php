@@ -32,7 +32,6 @@ class ArticlesPageController extends BasePageController
             [
                 'pageInfo' => $pageInfo,
                 'cart' => $cartInfo,
-                'pageTitle' => 'Статьи',
                 'articles' => $this->articleService->getArticles(),
             ]);
     }

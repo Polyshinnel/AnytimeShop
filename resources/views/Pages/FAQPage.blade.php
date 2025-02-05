@@ -14,7 +14,7 @@
                     <img src="/assets/img/pages/faq.jpg" alt="FAQ" title="FAQ | AnyTime">
                 </picture>
                 <div class="page-title__block-bg">
-                    <h1>Часто задаваемые вопросы</h1>
+                    <h1>{{$pageInfo['h1']}}</h1>
                     <p>Есть вопрос? Мы здесь, чтобы помочь!</p>
                 </div>
                 <!-- /.page-title__block-bg -->

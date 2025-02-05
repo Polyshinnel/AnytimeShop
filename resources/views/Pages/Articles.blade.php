@@ -7,14 +7,14 @@
 
 @section('content')
     <div class="box-container">
-        <h1 class="news-title">{{$pageTitle}}</h1>
+        <h1 class="news-title">{{$pageInfo['h1']}}</h1>
 
         <div class="news-list">
             @if($articles)
                 @foreach($articles as $article)
                     <article class="news-item">
                         <div class="news-item__img">
-                            <a href="{{$article['link']}}"><img src="{{$article['thumbnail']}}" alt="{{$article['title']}}" title="{{$article['title']}} | AnyTime"></a>
+                            <a href="{{$article['link']}}"><img src="/storage/{{$article['thumbnail']}}" alt="{{$article['title']}}" title="{{$article['title']}} | AnyTime"></a>
                         </div>
                         <!-- /.news-item__img -->
 

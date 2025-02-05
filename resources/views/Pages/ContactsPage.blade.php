@@ -9,7 +9,7 @@
     <div class="box-container">
         <div class="contacts-page-block">
             <div class="contacts-page-block__contacts">
-                <h1>КОНТАКТЫ</h1>
+                <h1>{{$pageInfo['h1']}}</h1>
 
                 <div class="contacts-page-block__contact-info">
                     <div class="contacts-page-block__contact-info__unit">
