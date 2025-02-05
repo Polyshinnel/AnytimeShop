@@ -16,6 +16,7 @@ use App\MoonShine\Resources\ProductResource;
 use App\MoonShine\Resources\PromocodesResource;
 use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\ArticleResource;
+use App\MoonShine\Resources\SertificateResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -37,6 +38,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 PromocodesResource::class,
                 NewsResource::class,
                 ArticleResource::class,
+                SertificateResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

@@ -18,9 +18,9 @@
             @if($certificates)
                 @foreach($certificates as $certificate)
                     <div class="sertificates-list-item">
-                        <a data-fancybox data-type="pdf" href="{{$certificate['link']}}">
+                        <a data-fancybox data-type="pdf" href="/storage/{{$certificate['link']}}">
                             <div class="sertificates-list-item-img">
-                                <img src="{{$certificate['img']}}" alt="{{$certificate['name']}}" title="{{$certificate['name']}} | AnyTime">
+                                <img src="/storage/{{$certificate['img']}}" alt="{{$certificate['name']}}" title="{{$certificate['name']}} | AnyTime">
                             </div>
                         </a>
                     </div>

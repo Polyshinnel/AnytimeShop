@@ -38,6 +38,7 @@ use App\MoonShine\Resources\ProductResource;
 use App\MoonShine\Resources\PromocodesResource;
 use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\ArticleResource;
+use App\MoonShine\Resources\SertificateResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -60,7 +61,9 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make('Новости', NewsResource::class),
             MenuItem::make('Статьи', ArticleResource::class),
             MenuItem::make('Промокоды', PromocodesResource::class),
+            MenuItem::make('Сертификаты', SertificateResource::class),
             ...parent::menu(),
+
         ];
     }
 
