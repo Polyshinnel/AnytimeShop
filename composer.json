@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "moonshine/moonshine": "^3.4",
+        "moonshine/ru": "^1.0",
         "moonshine/tinymce": "^1.0"
     },
     "require-dev": {

@@ -22,7 +22,7 @@
                             <ul class="splide__list">
                                 @foreach($product['images'] as $img)
                                     <li class="splide__slide">
-                                        <img src="{{$img['img']}}" data-fancybox="gallery" alt="">
+                                        <img src="/storage/{{$img['img']}}" data-fancybox="gallery" alt="">
                                     </li>
                                 @endforeach
 
@@ -38,7 +38,7 @@
                             <ul class="splide__list">
                                 @foreach($product['images'] as $img)
                                     <li class="splide__slide">
-                                        <img src="{{$img['img']}}" data-fancybox="gallery" alt="">
+                                        <img src="/storage/{{$img['img']}}" data-fancybox="gallery" alt="">
                                     </li>
                                 @endforeach
                             </ul>

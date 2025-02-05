@@ -22,7 +22,7 @@ return new class extends Migration
         $data_items = [
             [
                 'name' => 'Доставка',
-                'img' => '/assets/img/products/delivery.png'
+                'img' => 'images/delivery/delivery.png'
             ],
             [
                 'name' => 'Самовывоз из офиса AnyTime',

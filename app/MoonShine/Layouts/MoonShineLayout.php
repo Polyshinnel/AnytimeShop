@@ -5,6 +5,11 @@ declare(strict_types=1);
 namespace App\MoonShine\Layouts;
 
 use App\MoonShine\Pages\Dashboard;
+use App\MoonShine\Resources\ArticleResource;
+use App\MoonShine\Resources\NewsResource;
+use App\MoonShine\Resources\ProductResource;
+use App\MoonShine\Resources\PromocodesResource;
+use App\MoonShine\Resources\SiteInfoResource;
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
@@ -33,12 +38,12 @@ use MoonShine\UI\Components\{Breadcrumbs,
     When};
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
-use App\MoonShine\Resources\SiteInfoResource;
-use App\MoonShine\Resources\ProductResource;
-use App\MoonShine\Resources\PromocodesResource;
-use App\MoonShine\Resources\NewsResource;
-use App\MoonShine\Resources\ArticleResource;
-use App\MoonShine\Resources\SertificateResource;
+use App\MoonShine\Resources\ProductImagesResource;
+use App\MoonShine\Resources\ProductComplectationResource;
+use App\MoonShine\Resources\ProductCommonWarrantyResource;
+use App\MoonShine\Resources\ProductCommonDeliveryTypeResource;
+use App\MoonShine\Resources\ProductCommonDeliveryResource;
+use App\MoonShine\Resources\ProductCommonCharsResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -51,17 +56,18 @@ final class MoonShineLayout extends AppLayout
 
     protected function menu(): array
     {
-
         return [
             MenuItem::make('Дашборд', Dashboard::class),
             MenuItem::make('SEO Site', SiteInfoResource::class),
             MenuGroup::make('Каталог', [
                 MenuItem::make('Товары', ProductResource::class),
+                MenuItem::make('Гарантия', ProductCommonWarrantyResource::class),
+                MenuItem::make('Доставка', ProductCommonDeliveryTypeResource::class),
+                MenuItem::make('Общие характеристики', ProductCommonCharsResource::class),
             ]),
             MenuItem::make('Новости', NewsResource::class),
             MenuItem::make('Статьи', ArticleResource::class),
             MenuItem::make('Промокоды', PromocodesResource::class),
-            MenuItem::make('Сертификаты', SertificateResource::class),
             ...parent::menu(),
 
         ];

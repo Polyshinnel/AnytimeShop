@@ -338,7 +338,7 @@ const updateCartState = (data) => {
             let product = `
              <div class="cart-item">
                 <div class="cart-item__img">
-                    <a href="${item['link']}"><img src="${item['thumbnail']}" alt=""></a>
+                    <a href="${item['link']}"><img src="/storage/${item['thumbnail']}" alt=""></a>
                 </div>
                 <!-- /.cart-item__img -->
 
@@ -366,7 +366,7 @@ const updateCartState = (data) => {
                 product = `
                 <div class="cart-item">
                     <div class="cart-item__img">
-                        <a href="${item['link']}"><img src="${item['thumbnail']}" alt=""></a>
+                        <a href="${item['link']}"><img src="/storage/${item['thumbnail']}" alt=""></a>
                     </div>
                     <!-- /.cart-item__img -->
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Sertificate;
 
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\ID;
@@ -24,6 +25,8 @@ class SertificateResource extends ModelResource
     protected string $model = Sertificate::class;
 
     protected string $title = 'Сертификаты';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
 
     /**
      * @return list<FieldContract>

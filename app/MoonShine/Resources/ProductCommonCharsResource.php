@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\SiteInfo;
+use App\Models\ProductCommonChars;
 
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Support\Enums\SortDirection;
@@ -16,15 +16,13 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Fields\Text;
 
 /**
- * @extends ModelResource<SiteInfo>
+ * @extends ModelResource<ProductCommonChars>
  */
-class SiteInfoResource extends ModelResource
+class ProductCommonCharsResource extends ModelResource
 {
-    protected string $model = SiteInfo::class;
+    protected string $model = ProductCommonChars::class;
 
-    protected string $title = 'SEO Site';
-
-    protected ?string $alias = 'siteInfo';
+    protected string $title = 'ProductCommonChars';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
 
@@ -35,10 +33,7 @@ class SiteInfoResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Url', 'url'),
-            Text::make('Title', 'title'),
-            Text::make('Description', 'description'),
-            Text::make('h1', 'h1')
+            Text::make('Характеристика', 'char_text')
         ];
     }
 
@@ -50,10 +45,7 @@ class SiteInfoResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Text::make('Url', 'url'),
-                Text::make('Title', 'title'),
-                Text::make('Description', 'description'),
-                Text::make('h1', 'h1')
+                Text::make('Характеристика', 'char_text')
             ])
         ];
     }
@@ -65,15 +57,12 @@ class SiteInfoResource extends ModelResource
     {
         return [
             ID::make(),
-            Text::make('Url', 'url'),
-            Text::make('Title', 'title'),
-            Text::make('Description', 'description'),
-            Text::make('h1', 'h1')
+            Text::make('Характеристика', 'char_text')
         ];
     }
 
     /**
-     * @param SiteInfo $item
+     * @param ProductCommonChars $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

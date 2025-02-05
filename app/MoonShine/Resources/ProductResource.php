@@ -7,12 +7,17 @@ namespace App\MoonShine\Resources;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
 
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\TinyMce\Fields\TinyMce;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Preview;
 use MoonShine\UI\Fields\Text;
 
 /**
@@ -23,6 +28,8 @@ class ProductResource extends ModelResource
     protected string $model = Product::class;
 
     protected string $title = 'Товары';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
 
     /**
      * @return list<FieldContract>
@@ -49,6 +56,20 @@ class ProductResource extends ModelResource
                 Text::make('Цена', 'price'),
                 Text::make('Новая цена', 'new_price')->nullable(),
                 TinyMce::make('Описание', 'description'),
+                HasMany::make('Изображения', 'images', resource: ProductImagesResource::class)
+                ->fields([
+                    ID::make('ID', 'id'),
+                    Text::make('Сортировка', 'sort_order'),
+                    Preview::make('Изображение', 'img', static fn($image)=> "/storage/$image->img")
+                    ->image()
+                ])
+                ->creatable(),
+                HasMany::make('Комплектация', 'complectation', resource: ProductComplectationResource::class)
+                ->fields([
+                    ID::make('ID', 'id'),
+                    Text::make('Текст', 'complect_text')
+                ])
+                ->creatable()
             ])
         ];
     }

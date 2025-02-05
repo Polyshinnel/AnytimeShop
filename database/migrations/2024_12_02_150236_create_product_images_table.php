@@ -28,27 +28,27 @@ return new class extends Migration
         $data_items = [
             [
                 'product_id' => 1,
-                'img' => '/assets/img/products/prod/1/1.png',
+                'img' => 'images/products/1/1.png',
                 'sort_order' => 0
             ],
             [
                 'product_id' => 1,
-                'img' => '/assets/img/products/prod/1/2.png',
+                'img' => 'images/products/1/2.png',
                 'sort_order' => 1
             ],
             [
                 'product_id' => 2,
-                'img' => '/assets/img/products/prod/2/1.png',
+                'img' => 'images/products/2/1.png',
                 'sort_order' => 0
             ],
             [
                 'product_id' => 2,
-                'img' => '/assets/img/products/prod/2/2.png',
+                'img' => 'images/products/2/2.png',
                 'sort_order' => 1
             ],
             [
                 'product_id' => 2,
-                'img' => '/assets/img/products/prod/2/3.png',
+                'img' => 'images/products/2/3.png',
                 'sort_order' => 2
             ],
         ];

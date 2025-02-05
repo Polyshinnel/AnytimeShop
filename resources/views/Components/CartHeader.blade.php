@@ -23,7 +23,7 @@
         @foreach($cart['products'] as $product)
             <div class="cart-item">
                 <div class="cart-item__img">
-                    <a href="{{$product['link']}}"><img src="{{$product['thumbnail']}}" alt="{{$product['name']}}" title="{{$product['name']}} | AnyTime"></a>
+                    <a href="{{$product['link']}}"><img src="/storage/{{$product['thumbnail']}}" alt="{{$product['name']}}" title="{{$product['name']}} | AnyTime"></a>
                 </div>
                 <!-- /.cart-item__img -->
 

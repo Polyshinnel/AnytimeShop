@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\SiteInfo;
+use App\Models\ProductCommonDelivery;
 
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
@@ -16,17 +18,27 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Fields\Text;
 
 /**
- * @extends ModelResource<SiteInfo>
+ * @extends ModelResource<ProductCommonDelivery>
  */
-class SiteInfoResource extends ModelResource
+class ProductCommonDeliveryResource extends ModelResource
 {
-    protected string $model = SiteInfo::class;
-
-    protected string $title = 'SEO Site';
-
-    protected ?string $alias = 'siteInfo';
+    use ResourceWithParent;
 
     protected SortDirection $sortDirection = SortDirection::ASC;
+
+    protected function getParentResourceClassName(): string
+    {
+        return ProductCommonDeliveryTypeResource::class;
+    }
+
+    protected function getParentRelationName(): string
+    {
+        return 'delivery';
+    }
+
+    protected string $model = ProductCommonDelivery::class;
+
+    protected string $title = 'ProductCommonDeliveries';
 
     /**
      * @return list<FieldContract>
@@ -35,10 +47,6 @@ class SiteInfoResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Url', 'url'),
-            Text::make('Title', 'title'),
-            Text::make('Description', 'description'),
-            Text::make('h1', 'h1')
         ];
     }
 
@@ -50,10 +58,8 @@ class SiteInfoResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Text::make('Url', 'url'),
-                Text::make('Title', 'title'),
-                Text::make('Description', 'description'),
-                Text::make('h1', 'h1')
+                BelongsTo::make('Тип доставка', 'delivery', resource: ProductCommonDeliveryTypeResource::class),
+                Text::make('Текст', 'text')
             ])
         ];
     }
@@ -65,15 +71,11 @@ class SiteInfoResource extends ModelResource
     {
         return [
             ID::make(),
-            Text::make('Url', 'url'),
-            Text::make('Title', 'title'),
-            Text::make('Description', 'description'),
-            Text::make('h1', 'h1')
         ];
     }
 
     /**
-     * @param SiteInfo $item
+     * @param ProductCommonDelivery $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

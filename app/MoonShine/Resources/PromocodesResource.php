@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Promocodes;
 
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
@@ -22,6 +23,8 @@ class PromocodesResource extends ModelResource
     protected string $model = Promocodes::class;
 
     protected string $title = 'Промокоды';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
 
     /**
      * @return list<FieldContract>

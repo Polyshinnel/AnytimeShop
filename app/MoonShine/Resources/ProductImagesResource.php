@@ -5,28 +5,41 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\SiteInfo;
+use App\Models\ProductImages;
 
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Text;
 
 /**
- * @extends ModelResource<SiteInfo>
+ * @extends ModelResource<ProductImages>
  */
-class SiteInfoResource extends ModelResource
+class ProductImagesResource extends ModelResource
 {
-    protected string $model = SiteInfo::class;
+    use ResourceWithParent;
 
-    protected string $title = 'SEO Site';
+    protected string $model = ProductImages::class;
 
-    protected ?string $alias = 'siteInfo';
+    protected string $title = 'ProductImages';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
+
+    protected function getParentResourceClassName(): string
+    {
+        return ProductResource::class;
+    }
+
+    protected function getParentRelationName(): string
+    {
+        return 'product';
+    }
 
     /**
      * @return list<FieldContract>
@@ -35,10 +48,6 @@ class SiteInfoResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Url', 'url'),
-            Text::make('Title', 'title'),
-            Text::make('Description', 'description'),
-            Text::make('h1', 'h1')
         ];
     }
 
@@ -50,10 +59,13 @@ class SiteInfoResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Text::make('Url', 'url'),
-                Text::make('Title', 'title'),
-                Text::make('Description', 'description'),
-                Text::make('h1', 'h1')
+                BelongsTo::make('Ид товара', 'product', resource: ProductResource::class),
+                Text::make('Порядок сортировки', 'sort_order'),
+                Image::make('Изображение', 'img')
+                    ->when(
+                        $parentId = $this->getParentId(),
+                        static fn($image): Image => $image->dir("images/products/$parentId")
+                    ),
             ])
         ];
     }
@@ -65,15 +77,11 @@ class SiteInfoResource extends ModelResource
     {
         return [
             ID::make(),
-            Text::make('Url', 'url'),
-            Text::make('Title', 'title'),
-            Text::make('Description', 'description'),
-            Text::make('h1', 'h1')
         ];
     }
 
     /**
-     * @param SiteInfo $item
+     * @param ProductImages $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

@@ -1,6 +1,6 @@
 <div class="product-list__item">
     <div class="product-list__item-img">
-        <a href="{{$product['link']}}"><img src="{{$product['thumbnail']}}" alt="{{$product['name']}}" title="{{$product['name']}} | AnyTime"></a>
+        <a href="{{$product['link']}}"><img src="/storage/{{$product['thumbnail']}}" alt="{{$product['name']}}" title="{{$product['name']}} | AnyTime"></a>
     </div>
 
     <div class="product-list__item-text">
@@ -59,7 +59,7 @@
                                 <div class="product-list__item-tab-title">
                                     <h4>{{$delivery_item['name']}}</h4>
                                     @if($delivery_item['img'])
-                                        <img src="{{$delivery_item['img']}}" alt="">
+                                        <img src="/storage/{{$delivery_item['img']}}" alt="">
                                     @endif
                                 </div>
 

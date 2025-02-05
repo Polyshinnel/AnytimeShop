@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\News;
 
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Support\Enums\SortDirection;
 use MoonShine\TinyMce\Fields\TinyMce;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
@@ -25,6 +26,8 @@ class NewsResource extends ModelResource
     protected string $model = News::class;
 
     protected string $title = 'Новости';
+
+    protected SortDirection $sortDirection = SortDirection::ASC;
 
     /**
      * @return list<FieldContract>
