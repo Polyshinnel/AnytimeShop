@@ -231,7 +231,7 @@ const refreshOrder = (data) => {
             data['products'].forEach((item) => {
                 let productPrice = `
                     <div class="price-col">
-                        <p>${item['total_price']} Руб</p>
+                        <p>${item['total_price']} ${data['currency']}</p>
                     </div>
                     <!-- /.price-col -->
                 `
@@ -239,8 +239,8 @@ const refreshOrder = (data) => {
                 {
                     productPrice = `
                         <div class="price-col">
-                            <span>${item['total_price']} Руб</span>
-                            <p>${item['total_new']} Руб</p>
+                            <span>${item['total_price']} ${data['currency']}</span>
+                            <p>${item['total_new']} ${data['currency']}</p>
                         </div>
                         <!-- /.price-col -->
                     `
@@ -250,7 +250,7 @@ const refreshOrder = (data) => {
                         <div class="product-col">
                             <a href="${item['link']}">
                                 <div class="img-box">
-                                    <img src="${item['thumbnail']}" alt="">
+                                    <img src="/storage/${item['thumbnail']}" alt="">
                                 </div>
                             </a>
                             <a href="${item['link']}"><h3>${item['name']}</h3></a>
@@ -284,7 +284,7 @@ const refreshOrder = (data) => {
             document.getElementById('promocode').value = ''
             document.querySelector('.promocode-block-text').style.display = 'none'
             totalBlock.innerHTML = ''
-            totalBlock.innerHTML += `<b>Итого:</b> <span>${data['total']} Руб</span>`
+            totalBlock.innerHTML += `<b>Итого:</b> <span>${data['total']} ${data['currency']}</span>`
         }
     }
     else {
@@ -353,8 +353,8 @@ const updateCartState = (data) => {
                         <!--/.cart-item__control-->
 
                         <div class="cart-item__price">
-                            <span>${item['total_price']} Руб</span>
-                                <p>${item['total_new']} Руб</p>
+                            <span>${item['total_price']} ${data['currency']}</span>
+                                <p>${item['total_new']} ${data['currency']}</p>
                         </div>
                     </div>
                 </div>
@@ -381,7 +381,7 @@ const updateCartState = (data) => {
                             <!--/.cart-item__control-->
 
                             <div class="cart-item__price">
-                                <p>${item['total_price']} Руб</p>
+                                <p>${item['total_price']} ${data['currency']}</p>
                             </div>
                         </div>
                     </div>
@@ -400,20 +400,20 @@ const updateCartState = (data) => {
                     <div class="cart-total__item">
                         <span>Стоимость продуктов</span>
                         <div class="dash-line"></div>
-                        <span>${data['total']} Руб</span>
+                        <span>${data['total']} ${data['currency']}</span>
                     </div>
                     <!-- /.cart-total__item -->
 
                     <div class="cart-total__item">
                         <span>Скидка</span>
                         <div class="dash-line"></div>
-                        <span>-${data['total_sale']} Руб</span>
+                        <span>-${data['total_sale']} ${data['currency']}</span>
                     </div>
                     <!-- /.cart-total__item -->
                 </div>
                 <!-- /.cart-total__items -->
 
-                <p class="cart-total__summ">Итого: <span>${data['total']} Руб</span></p>
+                <p class="cart-total__summ">Итого: <span>${data['total']} ${data['currency']}</span></p>
             </div>
 
             <a href="/order"><button class="create-order">Оформить заказ</button></a>
@@ -507,7 +507,7 @@ let promocodeInfoHook = async (obj, totalBlock) => {
     let {data} = await axios.post('/promocode', obj)
     console.log(data)
     if(data.err == 'none') {
-        totalBlock.innerHTML += `<span class="current">${data['total_sum']} Руб</span>`
+        totalBlock.innerHTML += `<span class="current">${data['total_sum']} ${data['currency']}</span>`
         totalBlock.classList.add('promo')
     }
     let promocodeText = document.querySelector('.promocode-block-text');

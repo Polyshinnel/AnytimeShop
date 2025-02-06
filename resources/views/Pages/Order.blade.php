@@ -67,7 +67,7 @@
                                 <div class="product-col">
                                     <a href="{{$product['link']}}">
                                         <div class="img-box">
-                                            <img src="{{$product['thumbnail']}}" alt="">
+                                            <img src="/storage/{{$product['thumbnail']}}" alt="">
                                         </div>
                                     </a>
                                     <a href="{{$product['link']}}"><h3>{{$product['name']}}</h3></a>
@@ -76,13 +76,13 @@
 
                                 @if($product['new_price'])
                                     <div class="price-col">
-                                        <span>{{$product['total_price']}} Руб</span>
-                                        <p>{{$product['total_new']}} Руб</p>
+                                        <span>{{$product['total_price']}} {{$pageInfo['currency']}}</span>
+                                        <p>{{$product['total_new']}} {{$pageInfo['currency']}}</p>
                                     </div>
                                     <!-- /.price-col -->
                                 @else
                                     <div class="price-col">
-                                        <p>{{$product['total_price']}} Руб</p>
+                                        <p>{{$product['total_price']}} {{$pageInfo['currency']}}</p>
                                     </div>
                                     <!-- /.price-col -->
                                 @endif
@@ -152,7 +152,7 @@
                     <div class="add-params">
                         <span>Доставка</span>
                         <div class="line"></div>
-                        <span class="price-add">0 Руб</span>
+                        <span class="price-add">0 {{$pageInfo['currency']}}</span>
                     </div>
 
                     <div class="promocode-block">
@@ -166,7 +166,7 @@
                     <p class="promocode-block-text">Применен промокод на 10%</p>
 
                     <div class="total-block">
-                        <h3><b>Итого</b> <span>{{$cart['total']}} Руб</span></h3>
+                        <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
 
                         <button class="confirm-order">Оформить заказ</button>
                     </div>

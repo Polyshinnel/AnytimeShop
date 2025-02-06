@@ -2,6 +2,7 @@
 
 namespace App\Service\Promocode;
 
+use App\Models\SiteSettings;
 use App\Repository\Promocode\PromocodeRepository;
 use App\Service\Cart\CommonCartService;
 
@@ -23,6 +24,7 @@ class CommonPromocodeService
     {
         $promocodeData = $this->promocodeRepository->getPromocodeByName($promocode);
         $oldTotalSum = $totalSum;
+        $siteSettings = SiteSettings::where('active', true)->first();
         if($promocodeData){
             $salePercent = $promocodeData->sale_percent;
             $totalSum = ceil($totalSum * ((100 - $salePercent))/100);
@@ -37,7 +39,8 @@ class CommonPromocodeService
                 'message' => $message,
                 'total_sum' => $totalSum,
                 'old_total_sum' => $oldTotalSum,
-                'err' => 'none'
+                'err' => 'none',
+                'currency' => $siteSettings->currency
             ];
 
         }

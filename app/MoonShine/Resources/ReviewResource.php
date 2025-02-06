@@ -5,27 +5,27 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Article;
+use App\Models\Review;
 
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Support\Enums\SortDirection;
-use MoonShine\TinyMce\Fields\TinyMce;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Preview;
 use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Textarea;
 
 /**
- * @extends ModelResource<Article>
+ * @extends ModelResource<Review>
  */
-class ArticleResource extends ModelResource
+class ReviewResource extends ModelResource
 {
-    protected string $model = Article::class;
+    protected string $model = Review::class;
 
-    protected string $title = 'Статьи';
+    protected string $title = 'Отзывы';
 
     protected SortDirection $sortDirection = SortDirection::ASC;
 
@@ -36,10 +36,10 @@ class ArticleResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Название', 'title'),
-            Text::make('Короткое описание', 'description_short'),
-            Text::make('Дата публикации', 'created_at'),
-            Text::make('Дата редактирования', 'updated_at'),
+            Preview::make('Аватар', 'avatar', static fn($image)=> "/storage/$image->avatar")
+                ->image(),
+            Text::make('Имя', 'name'),
+            Text::make('Оценка', 'rating'),
         ];
     }
 
@@ -51,12 +51,10 @@ class ArticleResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Text::make('Название', 'title'),
-                Textarea::make('Короткое описание', 'description_short'),
-                Image::make('Обложка', 'thumbnail')->dir('images/articles'),
-                TinyMce::make('Текст', 'text'),
-                Text::make('Seo title', 'meta_title'),
-                Text::make('Seo description', 'meta_description'),
+                Image::make('Аватар', 'avatar')->dir('images/review'),
+                Text::make('Имя', 'name'),
+                Textarea::make('Отзыв', 'text'),
+                Text::make('Оценка', 'rating')
             ])
         ];
     }
@@ -72,7 +70,7 @@ class ArticleResource extends ModelResource
     }
 
     /**
-     * @param Article $item
+     * @param Review $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages\Catalog;
 
 use App\Http\Controllers\Controller;
+use App\Models\SiteSettings;
 use App\Service\Cart\CommonCartService;
 use App\Service\Product\CommonProductService;
 
@@ -31,6 +32,8 @@ class ProductPageController extends Controller
             $product = $products[0];
         }
 
-        return view('Pages.ProductPage', ['product' => $product, 'cart' => $cartInfo]);
+        $pageInfo = SiteSettings::where('active', true)->first();
+
+        return view('Pages.ProductPage', ['product' => $product, 'cart' => $cartInfo, 'pageInfo' => $pageInfo]);
     }
 }

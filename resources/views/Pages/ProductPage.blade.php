@@ -54,11 +54,11 @@
                             <div class="product-list__item-price-block__main">
                                 <p>Стоимость</p>
                                 <div class="cross-price__block">
-                                    <span>{{$product['price']}} Руб</span>
+                                    <span>{{$product['price']}} {{$pageInfo['currency']}}</span>
                                     <div class="line"></div>
                                 </div>
                             </div>
-                            <p class="product-list__item-price-block__current">{{$product['new_price']}} Руб</p>
+                            <p class="product-list__item-price-block__current">{{$product['new_price']}} {{$pageInfo['currency']}}</p>
                         </div>
                         <!--/.product-list__item-price-block-->
                     @else
@@ -66,7 +66,7 @@
                         <div class="product-list__item-price-block product-list__item-price-block_mod">
                             <div class="product-list__item-price-block__main">
                                 <p>Стоимость</p>
-                                <span>{{$product['price']}} Руб</span>
+                                <span>{{$product['price']}} {{$pageInfo['currency']}}</span>
                             </div>
                         </div>
                         <!--/.product-list__item-price-block-->

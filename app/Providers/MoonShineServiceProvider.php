@@ -23,6 +23,10 @@ use App\MoonShine\Resources\ProductCommonWarrantyResource;
 use App\MoonShine\Resources\ProductCommonDeliveryTypeResource;
 use App\MoonShine\Resources\ProductCommonDeliveryResource;
 use App\MoonShine\Resources\ProductCommonCharsResource;
+use App\MoonShine\Resources\SiteSettingsResource;
+use App\MoonShine\Resources\FaqGroupsResource;
+use App\MoonShine\Resources\FaqResource;
+use App\MoonShine\Resources\ReviewResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -51,6 +55,10 @@ class MoonShineServiceProvider extends ServiceProvider
                 ProductCommonDeliveryTypeResource::class,
                 ProductCommonDeliveryResource::class,
                 ProductCommonCharsResource::class,
+                SiteSettingsResource::class,
+                FaqGroupsResource::class,
+                FaqResource::class,
+                ReviewResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

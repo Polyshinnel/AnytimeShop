@@ -44,6 +44,10 @@ use App\MoonShine\Resources\ProductCommonWarrantyResource;
 use App\MoonShine\Resources\ProductCommonDeliveryTypeResource;
 use App\MoonShine\Resources\ProductCommonDeliveryResource;
 use App\MoonShine\Resources\ProductCommonCharsResource;
+use App\MoonShine\Resources\SiteSettingsResource;
+use App\MoonShine\Resources\FaqGroupsResource;
+use App\MoonShine\Resources\FaqResource;
+use App\MoonShine\Resources\ReviewResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -67,9 +71,11 @@ final class MoonShineLayout extends AppLayout
             ]),
             MenuItem::make('Новости', NewsResource::class),
             MenuItem::make('Статьи', ArticleResource::class),
+            MenuItem::make('FAQ', FaqGroupsResource::class),
+            MenuItem::make('Отзывы', ReviewResource::class),
             MenuItem::make('Промокоды', PromocodesResource::class),
+            MenuItem::make('Настройки сайта', SiteSettingsResource::class),
             ...parent::menu(),
-
         ];
     }
 

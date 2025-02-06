@@ -2,10 +2,13 @@
 
 namespace App\Service\Cart;
 
+use App\Models\SiteSettings;
+
 class CommonCartService
 {
     public function getTotalCartInfo(array $cart): array
     {
+        $currencyInfo = SiteSettings::where('active', true)->first();
         $formattedCart = [];
         $total = 0;
         $totalSale = 0;
@@ -23,6 +26,7 @@ class CommonCartService
             $formattedCart['total'] = $total;
             $formattedCart['total_sale'] = $totalSale;
             $formattedCart['count'] = $totalProducts;
+            $formattedCart['currency'] = $currencyInfo->currency;
         }
 
         return $formattedCart;

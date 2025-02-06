@@ -53,7 +53,7 @@ class NewsResource extends ModelResource
                 ID::make(),
                 Text::make('Название', 'title'),
                 Textarea::make('Короткое описание', 'description_short'),
-                Image::make('Обложка', 'thumbnail'),
+                Image::make('Обложка', 'thumbnail')->dir('images/news'),
                 TinyMce::make('Текст', 'text'),
                 Text::make('Seo title', 'meta_title'),
                 Text::make('Seo description', 'meta_description'),

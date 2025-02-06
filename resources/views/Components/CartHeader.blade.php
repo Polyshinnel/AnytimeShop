@@ -39,10 +39,10 @@
 
                         <div class="cart-item__price">
                             @if($product['new_price'])
-                                <span>{{$product['total_price']}} Руб</span>
-                                <p>{{$product['total_new']}} Руб</p>
+                                <span>{{$product['total_price']}} {{$pageInfo['currency']}}</span>
+                                <p>{{$product['total_new']}} {{$pageInfo['currency']}}</p>
                             @else
-                                <p>{{$product['total_price']}} Руб</p>
+                                <p>{{$product['total_price']}} {{$pageInfo['currency']}}</p>
                             @endif
                         </div>
                     </div>
@@ -61,20 +61,20 @@
             <div class="cart-total__item">
                 <span>Стоимость продуктов</span>
                 <div class="dash-line"></div>
-                <span>{{$cart['total']}} Руб</span>
+                <span>{{$cart['total']}} {{$pageInfo['currency']}}</span>
             </div>
             <!-- /.cart-total__item -->
 
             <div class="cart-total__item">
                 <span>Скидка</span>
                 <div class="dash-line"></div>
-                <span>-{{$cart['total_sale']}} Руб</span>
+                <span>-{{$cart['total_sale']}} {{$pageInfo['currency']}}</span>
             </div>
             <!-- /.cart-total__item -->
         </div>
         <!-- /.cart-total__items -->
 
-        <p class="cart-total__summ">Итого: <span>{{$cart['total']}} Руб</span></p>
+        <p class="cart-total__summ">Итого: <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></p>
     </div>
     <!-- /.cart-total -->
 

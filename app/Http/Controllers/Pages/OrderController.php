@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\SiteSettings;
 use App\Service\Cart\CommonCartService;
 
 class OrderController extends Controller
@@ -21,6 +22,7 @@ class OrderController extends Controller
         if($cart) {
             $cartInfo = $this->commonCartService->getTotalCartInfo($cart);
         }
-        return view('Pages.Order', ['cart' => $cartInfo]);
+        $pageInfo = SiteSettings::where('active', true)->first();
+        return view('Pages.Order', ['cart' => $cartInfo, 'pageInfo' => $pageInfo]);
     }
 }
