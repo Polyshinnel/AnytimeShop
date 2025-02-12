@@ -139,8 +139,7 @@ body {
 
 .header-nav {
   display: flex;
-  -moz-column-gap: 26px;
-       column-gap: 26px;
+  column-gap: 26px;
 }
 .header-nav a {
   color: #fff;
@@ -264,8 +263,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 .cart-block__header-icons .share-block-btn {
   cursor: pointer;
@@ -295,8 +293,7 @@ body {
 }
 .cart-item .cart-item__img img {
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .cart-item .cart-item__controls {
   width: calc(100% - 110px);
@@ -601,8 +598,7 @@ body {
 .advantages-list-item_mod .advantages-list-item__img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media (max-width: 580px) {
@@ -809,8 +805,7 @@ body {
 }
 .product-list__item-img img {
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .product-list__item-text {
@@ -826,8 +821,7 @@ body {
 
 .product-list__item-tab-head {
   display: flex;
-  -moz-column-gap: 3px;
-       column-gap: 3px;
+  column-gap: 3px;
 }
 .product-list__item-tab-head .product-list__item-tab-head__item {
   width: 200px;
@@ -1095,7 +1089,7 @@ body {
     justify-content: space-between;
   }
   .product-list__item-btns .product-list__item-btns-shop-quantity .product-shop {
-    width: 200px;
+    width: 210px;
     height: 38px;
   }
   .product-list__item-btns .product-list__item-btns-shop-quantity .product-shop span {
@@ -1113,10 +1107,10 @@ body {
   .product-list__item-btns .product-shop__oneclick-block .product-shop__oneclick {
     height: 35px;
     font-size: 14px;
-    width: 230px;
+    width: 270px;
   }
 }
-@media (max-width: 365px) {
+@media (max-width: 376px) {
   .product-list__item-btns .product-list__item-btns-shop-quantity {
     justify-content: space-between;
   }
@@ -1136,8 +1130,7 @@ body {
 .product-app-block__img-text-block img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .product-app-block__img-text-block__cover {
@@ -1191,8 +1184,7 @@ body {
   margin-top: 20px;
   display: flex;
   align-items: flex-start;
-  -moz-column-gap: 14px;
-       column-gap: 14px;
+  column-gap: 14px;
 }
 
 .app-block {
@@ -1275,6 +1267,7 @@ body {
 }
 .slider-block {
   margin-top: 250px;
+  display: none;
 }
 
 .slide-block-item {
@@ -1329,6 +1322,10 @@ body {
 @media (max-width: 580px) {
   .slider-block {
     margin-top: 300px;
+    display: block;
+  }
+  .stack-container__wrapper {
+    display: none;
   }
   .slide-block-item {
     flex-direction: column-reverse;
@@ -1518,13 +1515,17 @@ body {
   margin-top: 20px;
   display: flex;
   align-items: flex-start;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  column-gap: 20px;
 }
 .follow-app .follow-app-phone {
   position: absolute;
   left: calc((100% - 1220px) / 2);
   bottom: calc((100% - 694px) / 2);
+}
+.follow-app .follow-app-icon {
+  position: absolute;
+  left: calc((100% - 1220px) / 2 + 272px);
+  bottom: calc((100% - 694px) / 2 + 80px);
 }
 
 @media (max-width: 580px) {
@@ -1564,9 +1565,16 @@ body {
     display: none;
   }
   .follow-app .follow-app-phone {
-    width: 280px;
-    bottom: -350px;
+    width: 150px;
+    bottom: -80px;
     left: calc((100% - 280px) / 2);
+  }
+  .follow-app .follow-app-icon {
+    display: block;
+    position: absolute;
+    bottom: -75px;
+    right: 60px;
+    left: auto;
   }
 }
 .reviews {
@@ -1634,8 +1642,7 @@ body {
 .reviews .review-item .avatar-block img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .reviews .review-item .review-item__text {
   height: 340px;
@@ -1710,8 +1717,7 @@ body {
 }
 .need-help .need-help__list .need-help__list-item .img-box img {
   height: 120px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .need-help .need-help__list .need-help__list-item h3 {
   font-size: 28px;
@@ -1805,8 +1811,7 @@ body {
 .manage-glukoza-level .manage-glukoza-level-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media (max-width: 580px) {
@@ -1896,8 +1901,7 @@ body {
   margin-top: 15px;
   display: flex;
   align-items: flex-start;
-  -moz-column-gap: 80px;
-       column-gap: 80px;
+  column-gap: 80px;
 }
 .footer .footer-col .footer-col__menu ul {
   list-style: none;
@@ -1925,8 +1929,7 @@ body {
   margin-top: 25px;
   display: flex;
   align-items: center;
-  -moz-column-gap: 15px;
-       column-gap: 15px;
+  column-gap: 15px;
 }
 .footer .footer-col .yuwell-footer-logo {
   margin-top: 15px;
@@ -1983,8 +1986,7 @@ body {
 .page-title-block .page-title-block__wrapper img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .page-title-block .page-title-block__wrapper .page-title__block-bg {
   position: absolute;
@@ -2229,8 +2231,7 @@ body {
 #main-carousel .splide__slide img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 #thumbnail-carousel {
@@ -2244,8 +2245,7 @@ body {
 #thumbnail-carousel .splide__slide img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 #thumbnail-carousel .splide__slide.is-visible.is-active {
   border: 1px solid #ccc;
@@ -2377,8 +2377,7 @@ body {
 .order-list__item .product-col .img-box img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .order-list__item .product-col h3 {
   margin-left: 40px;
@@ -2627,8 +2626,7 @@ body {
 }
 .instructions-block .instructions-block__item img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .instructions-block .instructions-block__item .instructions-block__item-wrapper {
   width: 100%;
@@ -2850,8 +2848,7 @@ body {
   .success-wrapper .success-wrapper-img img {
     width: 100%;
     height: 200px;
-    -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 }
 @media (max-width: 560px) {
@@ -2884,8 +2881,7 @@ body {
 }
 .consult-form .consult-form__img img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .consult-form_mod {
@@ -3087,9 +3083,6 @@ body {
   font-size: 16px;
   height: 30px;
 }
-.contacts-page-block__form .contacts-page-block__form-unit input[type=text]::-moz-placeholder {
-  color: #fff;
-}
 .contacts-page-block__form .contacts-page-block__form-unit input[type=text]::placeholder {
   color: #fff;
 }
@@ -3266,8 +3259,7 @@ body {
 .sertificates-list-item .sertificates-list-item-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media (max-width: 580px) {
@@ -3322,10 +3314,8 @@ body {
 .news-item .news-item__img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
 }
 .news-item .news-item__text {
   height: 150px;
@@ -3364,8 +3354,7 @@ body {
 .news-text .news-text__thumb img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .news-text h1 {
   font-size: 24px;
@@ -3399,4 +3388,98 @@ body {
   .news-text .news-text__thumb {
     height: 300px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+.stack-container__wrapper {
+  width: 100%;
+  margin-top: 200px;
+}
+
+.stack-container {
+  position: relative;
+  width: 100%; /* Ширина контейнера */
+  height: 650px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* Разрешаем видеть все слайды */
+}
+
+.stack-item {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+  transform-origin: left center; /* Точка трансформации слева */
+  z-index: 1;
+  cursor: grab; /* Курсор для перетаскивания */
+  user-select: none; /* Запрет выделения текста */
+  display: flex;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Активный слайд слева */
+.stack-item.active {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 4; /* Активный слайд поверх остальных */
+}
+.stack-item.active .stack-item__text-block {
+  opacity: 1;
+}
+
+/* Слайды справа от активного */
+.stack-item.next-1 {
+  transform: translateX(20%) scale(0.9); /* Первый следующий */
+  z-index: 3;
+}
+
+.stack-item.next-2 {
+  transform: translateX(40%) scale(0.8); /* Второй следующий */
+  z-index: 2;
+}
+
+.stack-item.next-3 {
+  transform: translateX(60%) scale(0.7); /* Третий следующий */
+  z-index: 1;
+}
+
+.stack-item__text-block {
+  width: 450px;
+  background: #7ACB0B;
+  border-radius: 18px;
+  padding: 30px;
+  color: #fff;
+  position: relative;
+  opacity: 0;
+  transition: 2s all ease;
+}
+.stack-item__text-block h2 {
+  font-size: 30px;
+  color: #fff;
+}
+.stack-item__text-block p {
+  margin-top: 5px;
+  font-size: 20px;
+  color: #fff;
+}
+.stack-item__text-block .plus {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.stack-item__text-block__white {
+  margin-top: 20px;
+  background: #fff;
+  border: 1px solid #6E6E6E;
+}
+.stack-item__text-block__white h2 {
+  color: #6E6E6E;
+}
+.stack-item__text-block__white p {
+  color: #6E6E6E;
+}
+
+/*# sourceMappingURL=style.css.map */

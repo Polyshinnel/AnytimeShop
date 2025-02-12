@@ -164,7 +164,7 @@
                 <div class="box-container box-container_mod">
                     <div class="product-app-block__img-text-block__cover-text">
                         <h2>Приложение Yuwell Anytime </h2>
-                        <p>Контролируйте уровень глюкозы в крови, просматривайте отчеты и делитесь данными - все в одном месте</p>
+                        <p>Контролируйте уровень глюкозы в крови, просматривайте отчеты и делитесь данными - все в одном месте</p>
                         <a href="https://apps.apple.com/cz/app/yuwell-anytime/id6467751539">
                             <button>Скачать приложение</button>
                         </a>
@@ -201,6 +201,75 @@
     <!-- /.product-app-block -->
 
     <div class="box-container">
+        <div class="stack-container__wrapper">
+            <div class="stack-container">
+                <div class="stack-item active">
+                    <div class="stack-item__text">
+                        <div class="stack-item__text-block">
+                            <h2>Текущие данные глюкозы</h2>
+                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
+                        </div>
+
+                        <div class="stack-item__text-block stack-item__text-block__white">
+                            <h2>Ежедневный обзор</h2>
+                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
+                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                        </div>
+                    </div>
+
+                    <img src="/assets/img/app-slider/1_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__text">
+                        <div class="stack-item__text-block">
+                            <h2>Текущие данные глюкозы</h2>
+                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
+                        </div>
+
+                        <div class="stack-item__text-block stack-item__text-block__white">
+                            <h2>Ежедневный обзор</h2>
+                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
+                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                        </div>
+                    </div>
+
+                    <img src="/assets/img/app-slider/2_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__text">
+                        <div class="stack-item__text-block">
+                            <h2>Текущие данные глюкозы</h2>
+                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
+                        </div>
+
+                        <div class="stack-item__text-block stack-item__text-block__white">
+                            <h2>Ежедневный обзор</h2>
+                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
+                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                        </div>
+                    </div>
+
+                    <img src="/assets/img/app-slider/3_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
+                </div>
+                <div class="stack-item">
+                    <div class="stack-item__text">
+                        <div class="stack-item__text-block">
+                            <h2>Текущие данные глюкозы</h2>
+                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
+                        </div>
+
+                        <div class="stack-item__text-block stack-item__text-block__white">
+                            <h2>Ежедневный обзор</h2>
+                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
+                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                        </div>
+                    </div>
+
+                    <img src="/assets/img/app-slider/4_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
+                </div>
+            </div>
+        </div>
+
         <div class="slider-block splide">
             <div class="splide__track">
                 <div class="splide__list">
@@ -362,6 +431,8 @@
             <!--/.follow-app__wrapper-->
 
             <img src="/assets/img/follow-app/app.png" alt="Приложение Follow" title="Приложение Follow | AnyTime" class="follow-app-phone">
+            <img src="/assets/img/follow-app/follow-img.png" alt="Иконка приложения Follow" title="Иконка приложения Follow | AnyTime" class="follow-app-icon">
+
         </div>
         <!--/.box-container-->
     </div>
@@ -551,5 +622,106 @@
                 },
             }
         }).mount();
+    </script>
+
+
+    <script>
+        const items = document.querySelectorAll('.stack-item');
+        let currentIndex = 0;
+
+        // Переменные для перетаскивания
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+
+        function updateStack() {
+            items.forEach((item, i) => {
+                item.classList.remove('active', 'next-1', 'next-2', 'next-3');
+
+                if (i === currentIndex) {
+                    item.classList.add('active');
+                } else if (i === currentIndex + 1 || (currentIndex === items.length - 1 && i === 0)) {
+                    item.classList.add('next-1');
+                } else if (i === currentIndex + 2 || (currentIndex === items.length - 2 && i === 0) || (currentIndex === items.length - 1 && i === 1)) {
+                    item.classList.add('next-2');
+                } else if (i === currentIndex + 3 || (currentIndex === items.length - 3 && i === 0) || (currentIndex === items.length - 2 && i === 1) || (currentIndex === items.length - 1 && i === 2)) {
+                    item.classList.add('next-3');
+                }
+            });
+        }
+
+        // Обработчики для перетаскивания
+        function startDrag(e) {
+            isDragging = true;
+            startX = e.clientX || e.touches[0].clientX;
+            currentX = startX;
+            document.addEventListener('mousemove', onDrag);
+            document.addEventListener('mouseup', stopDrag);
+            document.addEventListener('touchmove', onDrag, { passive: false });
+            document.addEventListener('touchend', stopDrag);
+        }
+
+        function onDrag(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const clientX = e.clientX || e.touches[0].clientX;
+            const deltaX = clientX - currentX;
+            currentX = clientX;
+
+            // Перемещение слайдов
+            items.forEach((item) => {
+                const transform = window.getComputedStyle(item).transform;
+                const matrix = new DOMMatrix(transform);
+                const currentTranslateX = matrix.m41;
+                item.style.transform = `translateX(${currentTranslateX + deltaX}px) scale(${matrix.a})`;
+            });
+        }
+
+        function stopDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+
+            // Определение направления перетаскивания
+            const deltaX = currentX - startX;
+            if (Math.abs(deltaX) > 50) { // Порог для смены слайда
+                if (deltaX > 0) {
+                    currentIndex = (currentIndex - 1 + items.length) % items.length; // Влево
+                } else {
+                    currentIndex = (currentIndex + 1) % items.length; // Вправо
+                }
+            }
+
+            // Возврат к нормальному состоянию
+            updateStack();
+            items.forEach((item) => {
+                item.style.transform = ''; // Сброс временных трансформаций
+            });
+
+            // Удаление обработчиков
+            document.removeEventListener('mousemove', onDrag);
+            document.removeEventListener('mouseup', stopDrag);
+            document.removeEventListener('touchmove', onDrag);
+            document.removeEventListener('touchend', stopDrag);
+        }
+
+        // Добавление обработчиков для мыши и касаний
+        items.forEach((item) => {
+            item.addEventListener('mousedown', startDrag);
+            item.addEventListener('touchstart', startDrag, { passive: true });
+        });
+
+        // Кнопки для навигации
+        // prevBtn.addEventListener('click', () => {
+        //     currentIndex = (currentIndex - 1 + items.length) % items.length;
+        //     updateStack();
+        // });
+        //
+        // nextBtn.addEventListener('click', () => {
+        //     currentIndex = (currentIndex + 1) % items.length;
+        //     updateStack();
+        // });
+
+        // Инициализация
+        updateStack();
     </script>
 @endsection

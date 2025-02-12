@@ -100,7 +100,7 @@ body{
             position: absolute;
             bottom: -8px;
             right: -8px;
-            
+
             span{
                 color: #fff;
             }
@@ -247,7 +247,7 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         img{
             width: 100%;
             object-fit: contain;
@@ -409,7 +409,7 @@ body{
             .nav-bottom{
                 margin-bottom: 50px;
             }
-            
+
             li{
                 font-size: 18px;
                 margin-top: 20px;
@@ -466,13 +466,13 @@ body{
     .motto-block{
         width: 100%;
         margin-top: 70px;
-    
+
         h1{
             color: #fff;
             font-size: 24px;
             font-weight: 700;
         }
-    
+
         p{
             margin-top: 10px;
             color: #fff;
@@ -887,7 +887,7 @@ body{
         border-radius: 4px;
         cursor: pointer;
         transition: 0.3s all ease;
-        
+
         p{
             color: var(--secondary-font-color);
         }
@@ -1065,7 +1065,7 @@ body{
             height: 55px;
             background: var(--primary-color);
             transition: 0.3s all ease;
-            
+
             span{
                 color: #fff;
                 font-size: 20px;
@@ -1194,7 +1194,7 @@ body{
             justify-content: space-between;
 
             .product-shop{
-                width: 200px;
+                width: 210px;
                 height: 38px;
 
                 span{
@@ -1216,13 +1216,13 @@ body{
             .product-shop__oneclick{
                 height: 35px;
                 font-size: 14px;
-                width: 230px;
+                width: 270px;
             }
         }
     }
 }
 
-@media(max-width: 365px)
+@media(max-width: 376px)
 {
     .product-list__item-btns{
         .product-list__item-btns-shop-quantity{
@@ -1260,7 +1260,7 @@ body{
     background: rgba(255, 255, 255, 0.69);
     width: 100%;
     height: 100%;
-    
+
 
     .box-container_mod{
         display: flex;
@@ -1412,6 +1412,7 @@ body{
 
 .slider-block{
     margin-top: 250px;
+    display: none;
 }
 
 .slide-block-item{
@@ -1427,7 +1428,7 @@ body{
             width: 100%;
             border-radius: 18px;
             background: var(--primary-color);
-            
+
 
             h2{
                 font-size: 30px;
@@ -1476,7 +1477,13 @@ body{
 @media(max-width: 580px) {
     .slider-block{
         margin-top: 300px;
+        display: block;
     }
+
+    .stack-container__wrapper{
+        display: none;
+    }
+
     .slide-block-item{
         flex-direction: column-reverse;
 
@@ -1541,7 +1548,7 @@ body{
 
     .main-recall-form-form{
         width: 460px;
-        
+
         input[type=text] {
             width: 100%;
             height: 47px;
@@ -1598,7 +1605,7 @@ body{
             }
         }
     }
-    
+
     .form-img{
         position: absolute;
         left: 15px;
@@ -1709,6 +1716,12 @@ body{
         left: calc((100% - 1220px) / 2);
         bottom: calc((100% - 694px) / 2);
     }
+
+    .follow-app-icon{
+        position: absolute;
+        left: calc(((100% - 1220px) / 2) + 272px);
+        bottom: calc(((100% - 694px) / 2) + 80px);
+    }
 }
 
 @media(max-width: 580px) {
@@ -1729,8 +1742,8 @@ body{
             .follow-app__wrapper-text{
                 width: 100%;
                 margin: 0;
-                
-                
+
+
                 h2{
                     font-size: 30px;
                     color: #fff;
@@ -1755,9 +1768,17 @@ body{
         }
 
         .follow-app-phone{
-            width: 280px;
-            bottom: -350px;
+            width: 150px;
+            bottom: -80px;
             left: calc((100% - 280px) / 2);
+        }
+
+        .follow-app-icon{
+            display: block;
+            position: absolute;
+            bottom: -75px;
+            right: 60px;
+            left: auto;
         }
     }
 }
@@ -1882,7 +1903,7 @@ body{
                 width: 94%;
                 left: 3%;
             }
-        } 
+        }
 
         .review-item{
             width: 270px;
@@ -1894,7 +1915,7 @@ body{
                 }
             }
         }
-    } 
+    }
 }
 
 .need-help{
@@ -2021,7 +2042,7 @@ body{
 
     .manage-glukoza-level-text{
         width: 490px;
-        
+
         h2{
             font-size: 40px;
             font-weight: 700;
@@ -2229,9 +2250,9 @@ body{
                 span{
                     color: var(--primary-font-color);
                 }
-            } 
-        } 
-    } 
+            }
+        }
+    }
 }
 
 @media(max-width: 580px) {
@@ -2245,7 +2266,7 @@ body{
         .header-menu{
             top: 0;
         }
-    } 
+    }
 
     .yuwell-cart-menu{
         margin-left: 0;
@@ -2316,8 +2337,8 @@ body{
                     text-align: left;
                 }
             }
-        } 
-    } 
+        }
+    }
 }
 
 .faq-section{
@@ -2422,7 +2443,7 @@ body{
 
         ul{
             padding-left: 20px;
-            
+
             li{
                 color: #5A5A5A;
             }
@@ -2461,7 +2482,7 @@ body{
     .delivery-block{
         position: relative;
         overflow: hidden;
-    
+
         .delivery-block-bg{
             position: absolute;
             height: 596px;
@@ -2529,7 +2550,7 @@ body{
     ul{
         margin-top: 40px;
         list-style: none;
-        
+
         li{
             color: #fff;
             margin-top: 20px;
@@ -2564,7 +2585,7 @@ body{
 
 #thumbnail-carousel{
     width: 100%;
-    
+
     .splide__slide{
         padding: 5px;
         border: 1px solid #fff;
@@ -2671,7 +2692,7 @@ body{
         border-bottom: 1px solid #ccc;
         padding-bottom: 10px;
         font-size: 16px;
-        
+
         font-weight: 500;
 
         .product-col{
@@ -2758,7 +2779,7 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         .delete-block{
             display: none;
         }
@@ -2956,8 +2977,8 @@ body{
     .order-items-list{
         .order-list__header{
             display: none;
-        } 
-    } 
+        }
+    }
 
     .order-list__item {
         flex-direction: column;
@@ -2997,7 +3018,7 @@ body{
         .delete-block{
             display: none;
         }
-    } 
+    }
 
 
 
@@ -3007,8 +3028,8 @@ body{
                 width: 100%;
                 box-shadow: none;
             }
-        } 
-    } 
+        }
+    }
 
     .total-calculate{
         width: 100%;
@@ -3081,7 +3102,7 @@ body{
             height: 250px;
         }
     }
-    
+
 }
 
 .empty-block{
@@ -3094,7 +3115,7 @@ body{
         .personal-data-cart__block{
             width: 100%;
         }
-    } 
+    }
 }
 
 
@@ -3162,8 +3183,8 @@ body{
             .cart-item__price{
                 margin-top: 10px;
             }
-        } 
-    } 
+        }
+    }
 }
 
 
@@ -3297,7 +3318,7 @@ body{
                 p{
                     font-size: 18px;
                 }
-                
+
                 button{
                     width: 100%;
                 }
@@ -3429,11 +3450,11 @@ body{
     .help-form__checkbox-block{
         display: flex;
         align-items: center;
-        
+
 
         .help-form__checkbox{
             position: relative;
-            
+
             input[type='checkbox']{
                 width: 1px;
                 opacity: 0;
@@ -3585,7 +3606,7 @@ body{
         flex-direction: column;
         align-items: flex-start;
         margin-top: 20px;
-        
+
 
         input[type='text']{
             width: 100%;
@@ -3732,11 +3753,11 @@ body{
 
     .contacts-page-block__contacts{
         color: #fff;
-    
+
         h1{
             color: #fff;
         }
-    
+
         .contacts-page-block__contact-info{
             display: none;
         }
@@ -3755,9 +3776,9 @@ body{
                         width: 100%;
                         font-size: 22px;
                     }
-                } 
-            } 
-        } 
+                }
+            }
+        }
     }
 
     .contacts-page-block__form{
@@ -3810,7 +3831,7 @@ body{
     .sertificates-list-item-img{
         width: 180px;
         height: 250px;
-        
+
 
         img{
             width: 100%;
@@ -3830,7 +3851,7 @@ body{
             font-size: 24px;
             text-align: center;
         }
-    
+
         p{
             font-size: 14px;
             text-align: center;
@@ -3970,5 +3991,104 @@ body{
         .news-text__thumb{
             height: 300px;
         }
+    }
+}
+
+.stack-container__wrapper{
+    width: 100%;
+    margin-top: 200px;
+}
+
+.stack-container {
+    position: relative;
+    width: 100%; /* Ширина контейнера */
+    height: 650px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Разрешаем видеть все слайды */
+}
+
+.stack-item{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
+    transform-origin: left center; /* Точка трансформации слева */
+    z-index: 1;
+    cursor: grab; /* Курсор для перетаскивания */
+    user-select: none; /* Запрет выделения текста */
+    display: flex;
+    background: #fff;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Активный слайд слева */
+.stack-item.active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 4; /* Активный слайд поверх остальных */
+
+    .stack-item__text-block{
+        opacity: 1;
+    }
+}
+
+/* Слайды справа от активного */
+.stack-item.next-1 {
+    transform: translateX(20%) scale(0.9); /* Первый следующий */
+    z-index: 3;
+}
+
+.stack-item.next-2 {
+    transform: translateX(40%) scale(0.8); /* Второй следующий */
+    z-index: 2;
+}
+
+.stack-item.next-3 {
+    transform: translateX(60%) scale(0.7); /* Третий следующий */
+    z-index: 1;
+}
+
+.stack-item__text-block{
+    width: 450px;
+    background: #7ACB0B;
+    border-radius: 18px;
+    padding: 30px;
+    color: #fff;
+    position: relative;
+    opacity: 0;
+    transition: 2s all ease;
+
+    h2{
+        font-size: 30px;
+        color: #fff;
+    }
+
+    p{
+        margin-top: 5px;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .plus{
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
+}
+
+.stack-item__text-block__white{
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #6E6E6E;
+
+    h2{
+        color: #6E6E6E;
+    }
+
+    p{
+        color: #6E6E6E;
     }
 }
