@@ -150,7 +150,8 @@
                         data-more-button-type="short"
                         data-services="vkontakte,telegram,whatsapp"
                         data-url="{{$product['product-full-link']}}"
-                        data-description="{{$product['name']}}"
+                        data-title="{{$product['name']}}"
+                        data-description="{{$product['product-link-description']}}"
                         data-image="{{$product['link-to-product-img']}}"
                     ></div>
                 </div>

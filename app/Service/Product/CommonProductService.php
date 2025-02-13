@@ -94,6 +94,7 @@ class CommonProductService
 
                 $productFullLink = sprintf('%s/catalog/%s', Request::getSchemeAndHttpHost(), $product->id);
                 $productImg = Request::getSchemeAndHttpHost().'/storage/'.$productImages[0]['img'];
+                $productDescription = strip_tags($product->description);
 
                 $prodArr = [
                     'id' => $product->id,
@@ -110,7 +111,8 @@ class CommonProductService
                     'delivery' => $deliveryInfo,
                     'common_chars' => $commonProductCharsInfo,
                     'product-full-link' => $productFullLink,
-                    'link-to-product-img' => $productImg
+                    'link-to-product-img' => $productImg,
+                    'product-link-description' => $productDescription
                 ];
 
                 if($host)

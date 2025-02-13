@@ -285,10 +285,7 @@
                                 <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
-                        <picture>
-                            <source srcset="/assets/img/app-slider/1_mob.png" media="(max-width: 800px)">
-                            <img src="/assets/img/app-slider/1.png" alt="Абстрактное изображение">
-                        </picture>
+                        <img src="/assets/img/app-slider/1_mob.png" alt="Приложение Follow Anytime">
                     </div>
                     <!--/.slide-block-item-->
 
@@ -305,10 +302,7 @@
                                 <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
-                        <picture>
-                            <source srcset="/assets/img/app-slider/2_mob.png" media="(max-width: 800px)">
-                            <img src="/assets/img/app-slider/2.png" alt="Абстрактное изображение">
-                        </picture>
+                        <img src="/assets/img/app-slider/2_mob.png" alt="Приложение Follow Anytime">
                     </div>
                     <!--/.slide-block-item-->
 
@@ -324,10 +318,7 @@
                                 <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
-                        <picture>
-                            <source srcset="/assets/img/app-slider/3_mob.png" media="(max-width: 800px)">
-                            <img src="/assets/img/app-slider/3.png" alt="Абстрактное изображение">
-                        </picture>
+                        <img src="/assets/img/app-slider/3_mob.png" alt="Приложение Follow Anytime">
                     </div>
                     <!--/.slide-block-item-->
 
@@ -343,10 +334,7 @@
                                 <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
-                        <picture>
-                            <source srcset="/assets/img/app-slider/4_mob.png" media="(max-width: 800px)">
-                            <img src="/assets/img/app-slider/4.png" alt="Абстрактное изображение">
-                        </picture>
+                        <img src="/assets/img/app-slider/4_mob.png" alt="Приложение Follow Anytime">
                     </div>
                     <!--/.slide-block-item-->
 
@@ -363,10 +351,7 @@
                                 <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
                             </div>
                         </div>
-                        <picture>
-                            <source srcset="/assets/img/app-slider/5_mob.png" media="(max-width: 800px)">
-                            <img src="/assets/img/app-slider/5.png" alt="Абстрактное изображение">
-                        </picture>
+                        <img src="/assets/img/app-slider/5_mob.png" alt="Приложение Follow Anytime">
                     </div>
                     <!--/.slide-block-item-->
                 </div>

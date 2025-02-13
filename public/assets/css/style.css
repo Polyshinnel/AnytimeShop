@@ -3512,4 +3512,37 @@ body {
   font-size: 14px;
 }
 
+.header-main-block {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.header-main-block_active {
+  width: 100%;
+  background: #fff;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 300;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  opacity: 1;
+  visibility: visible;
+}
+.header-main-block_active .header-head {
+  margin-top: 0;
+}
+.header-main-block_active .header-head .header-logo {
+  color: #000;
+}
+.header-main-block_active .header-head .header-nav a {
+  color: #000;
+}
+.header-main-block_active .header-head .yuwell-cart-menu .yuwell-cart__counter span {
+  color: #000;
+}
+.header-main-block_active .header-head .yuwell-cart-menu img {
+  filter: invert(100%);
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -469,6 +469,18 @@ if(productShopBtns)
     })
 }
 
+let shopOnleClickBtns = document.querySelectorAll('.product-shop__oneclick')
+if(shopOnleClickBtns)
+{
+    shopOnleClickBtns.forEach((item) => {
+        item.addEventListener('click', function () {
+            let productId = item.dataset.product
+            addToCart(productId, 1)
+            window.location = '/order'
+        })
+    })
+}
+
 let cartMinusBtn = document.querySelectorAll('.minus-cart')
 if(cartMinusBtn)
 {
@@ -659,10 +671,13 @@ if(orderList) {
 // Получаем кнопку
 const scrollToTopBtn = document.getElementById("recall-side-btn");
 let commonHeader = document.querySelector('.header-common')
+let homeHeader = document.querySelector('.header-main-block')
 
 // Функция для проверки положения прокрутки
 function checkScroll() {
     // Если прокрутка больше 100 пикселей, показываем кнопку
+
+
     if (window.scrollY > 5) {
         if(commonHeader){
             commonHeader.classList.add('header-common-active')
@@ -683,5 +698,28 @@ function checkScroll() {
 // Слушаем событие прокрутки
 window.addEventListener("scroll", checkScroll);
 
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
 
+window.addEventListener('scroll', debounce(() => {
+    if (window.scrollY >= 400) {
+        if (homeHeader) {
+
+            setTimeout(() => {
+                homeHeader.classList.add('header-main-block_active');
+            }, 500)
+        }
+    } else {
+        if (homeHeader) {
+            setTimeout(() => {
+                homeHeader.classList.remove('header-main-block_active');
+            }, 500)
+        }
+    }
+}, 100));
 
