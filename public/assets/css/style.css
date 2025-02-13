@@ -1673,7 +1673,7 @@ body {
 
 @media (max-width: 580px) {
   .reviews {
-    margin-top: 300px;
+    margin-top: 130px;
   }
   .reviews .reviews-block .splide__arrows {
     width: 94%;
@@ -1956,6 +1956,14 @@ body {
 }
 .header-head_mod .yuwell-cart-menu .yuwell-cart__block .yuwell-cart__counter span {
   color: var(--primary-font-color);
+}
+
+.header-common-active {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 400;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 @media (max-width: 580px) {
@@ -2855,6 +2863,9 @@ body {
   .header-head {
     margin-top: 30px;
   }
+  .header-head_mod {
+    margin-top: 10px;
+  }
 }
 @media (max-height: 640px) {
   .header-main {
@@ -3483,7 +3494,7 @@ body {
 }
 
 .recall-side-btn {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   position: fixed;

@@ -4,6 +4,7 @@ namespace App\Service\Product;
 
 use App\Models\CommonSettings;
 use App\Repository\Product\ProductRepository;
+use Illuminate\Support\Facades\Request;
 
 class CommonProductService
 {
@@ -91,6 +92,9 @@ class CommonProductService
                     }
                 }
 
+                $productFullLink = sprintf('%s/catalog/%s', Request::getSchemeAndHttpHost(), $product->id);
+                $productImg = Request::getSchemeAndHttpHost().'/storage/'.$productImages[0]['img'];
+
                 $prodArr = [
                     'id' => $product->id,
                     'link' => '/catalog/'.$product->id,
@@ -104,7 +108,9 @@ class CommonProductService
                     'images' => $productImages,
                     'warranty' => $warrantyInfo,
                     'delivery' => $deliveryInfo,
-                    'common_chars' => $commonProductCharsInfo
+                    'common_chars' => $commonProductCharsInfo,
+                    'product-full-link' => $productFullLink,
+                    'link-to-product-img' => $productImg
                 ];
 
                 if($host)

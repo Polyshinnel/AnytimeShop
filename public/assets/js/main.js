@@ -656,4 +656,32 @@ if(orderList) {
 }
 
 
+// Получаем кнопку
+const scrollToTopBtn = document.getElementById("recall-side-btn");
+let commonHeader = document.querySelector('.header-common')
+
+// Функция для проверки положения прокрутки
+function checkScroll() {
+    // Если прокрутка больше 100 пикселей, показываем кнопку
+    if (window.scrollY > 5) {
+        if(commonHeader){
+            commonHeader.classList.add('header-common-active')
+        }
+    } else {
+        if(commonHeader){
+            commonHeader.classList.remove('header-common-active')
+        }
+    }
+    if (window.scrollY > 100) {
+        scrollToTopBtn.style.display = "flex";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+}
+
+
+// Слушаем событие прокрутки
+window.addEventListener("scroll", checkScroll);
+
+
 

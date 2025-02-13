@@ -1896,7 +1896,7 @@ body{
 
 @media(max-width: 580px) {
     .reviews{
-        margin-top: 300px;
+        margin-top: 130px;
 
         .reviews-block{
             .splide__arrows{
@@ -2253,6 +2253,14 @@ body{
             }
         }
     }
+}
+
+.header-common-active{
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 400;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 @media(max-width: 580px) {
@@ -3341,6 +3349,10 @@ body{
     .header-head{
         margin-top: 30px;
     }
+
+    .header-head_mod{
+        margin-top: 10px;
+    }
 }
 
 @media(max-height: 640px){
@@ -4094,7 +4106,7 @@ body{
 }
 
 .recall-side-btn{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: fixed;

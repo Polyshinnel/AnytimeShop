@@ -149,7 +149,9 @@
                         data-limit="0"
                         data-more-button-type="short"
                         data-services="vkontakte,telegram,whatsapp"
-                        data-url="{{$product['link']}}"
+                        data-url="{{$product['product-full-link']}}"
+                        data-description="{{$product['name']}}"
+                        data-image="{{$product['link-to-product-img']}}"
                     ></div>
                 </div>
                 <!-- /.share-block -->
