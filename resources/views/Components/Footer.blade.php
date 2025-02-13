@@ -75,3 +75,9 @@
     <!-- /.box-container -->
 </footer>
 <!-- /.footer -->
+
+<input type="hidden" name="phone-mask" id="phone-mask" value="{{$pageInfo['number_format']}}">
+
+<a href="/help" class="recall-side-btn">
+    <p>Перезвоните мне</p>
+</a>

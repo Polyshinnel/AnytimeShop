@@ -480,16 +480,30 @@ if(cartMinusBtn)
 }
 
 let phoneFormMain = document.getElementById('phone')
+let inputMask = document.getElementById('phone-mask').value
+console.log(inputMask)
 if(phoneFormMain) {
-    Inputmask({"mask": "+7(999)999-99-99"}).mask(phoneFormMain);
+    Inputmask({"mask": inputMask}).mask(phoneFormMain);
 }
 
 
 let cartPhone = document.getElementById('cart-phone')
 if(cartPhone) {
-    Inputmask({"mask": "+7(999)999-99-99"}).mask(cartPhone);
+    Inputmask({"mask": inputMask}).mask(cartPhone);
 }
 
+let contactPhone = document.getElementById('contact-phone')
+if(contactPhone) {
+    Inputmask({"mask": inputMask}).mask(contactPhone);
+}
+
+let managerPhoneInput = document.getElementById('manager_help-phone')
+let doctorHelpPhone = document.getElementById('doctor_help-phone')
+if(managerPhoneInput)
+{
+    Inputmask({"mask": inputMask}).mask(managerPhoneInput);
+    Inputmask({"mask": inputMask}).mask(doctorHelpPhone);
+}
 
 let deliveryMethod = document.querySelectorAll('.delivery-method__checkbox')
 if(deliveryMethod){
