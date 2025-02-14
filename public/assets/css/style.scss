@@ -257,7 +257,7 @@ body{
     .cart-item__controls{
         width: calc(100% - 110px);
 
-        h3{
+        b{
             font-size: 14px;
             font-weight: 700;
         }
@@ -321,7 +321,7 @@ body{
 .cart-total{
     margin-top: 40px;
 
-    h3{
+    b{
         font-size: 24px;
         margin-bottom: 20px;
     }

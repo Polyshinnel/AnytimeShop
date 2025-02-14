@@ -28,7 +28,7 @@
                 <!-- /.cart-item__img -->
 
                 <div class="cart-item__controls">
-                    <a href="{{$product['link']}}"><h3>{{$product['name']}}</h3></a>
+                    <a href="{{$product['link']}}"><b>{{$product['name']}}</b></a>
                     <div class="cart-item__control-price">
                         <div class="cart-item__control">
                             <button class="minus-cart cart-btn" data-product="{{$product['id']}}">-</button>
@@ -55,7 +55,7 @@
     <!-- /.cart-products -->
 
     <div class="cart-total">
-        <h3>Сумма заказа</h3>
+        <b>Сумма заказа</b>
 
         <div class="cart-total__items">
             <div class="cart-total__item">

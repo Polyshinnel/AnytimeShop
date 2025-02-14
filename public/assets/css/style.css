@@ -298,7 +298,7 @@ body {
 .cart-item .cart-item__controls {
   width: calc(100% - 110px);
 }
-.cart-item .cart-item__controls h3 {
+.cart-item .cart-item__controls b {
   font-size: 14px;
   font-weight: 700;
 }
@@ -352,7 +352,7 @@ body {
 .cart-total {
   margin-top: 40px;
 }
-.cart-total h3 {
+.cart-total b {
   font-size: 24px;
   margin-bottom: 20px;
 }

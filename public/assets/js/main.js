@@ -253,7 +253,7 @@ const refreshOrder = (data) => {
                                     <img src="/storage/${item['thumbnail']}" alt="">
                                 </div>
                             </a>
-                            <a href="${item['link']}"><h3>${item['name']}</h3></a>
+                            <a href="${item['link']}"><b>${item['name']}</b></a>
                         </div>
                         <!--/.product-col-->
 
@@ -279,7 +279,7 @@ const refreshOrder = (data) => {
                     <!--/.order-list__item-->
                 `
             })
-            let totalBlock = document.querySelector('.total-block h3')
+            let totalBlock = document.querySelector('.total-block b')
             totalBlock.classList.remove('promo')
             document.getElementById('promocode').value = ''
             document.querySelector('.promocode-block-text').style.display = 'none'
@@ -343,7 +343,7 @@ const updateCartState = (data) => {
                 <!-- /.cart-item__img -->
 
                 <div class="cart-item__controls">
-                    <a href="${item['link']}"><h3>${item['name']}</h3></a>
+                    <a href="${item['link']}"><b>${item['name']}</b></a>
                     <div class="cart-item__control-price">
                         <div class="cart-item__control">
                             <button class="minus-cart cart-btn" data-product="${item['id']}">-</button>
@@ -371,7 +371,7 @@ const updateCartState = (data) => {
                     <!-- /.cart-item__img -->
 
                     <div class="cart-item__controls">
-                        <a href="${item['link']}"><h3>${item['name']}</h3></a>
+                        <a href="${item['link']}"><b>${item['name']}</b></a>
                         <div class="cart-item__control-price">
                             <div class="cart-item__control">
                                 <button class="minus-cart cart-btn" data-product="${item['id']}">-</button>
@@ -394,7 +394,7 @@ const updateCartState = (data) => {
         })
         cart.innerHTML += `
             <div class="cart-total">
-                <h3>Сумма заказа</h3>
+                <b>Сумма заказа</b>
 
                 <div class="cart-total__items">
                     <div class="cart-total__item">
@@ -547,7 +547,7 @@ if(promocodeBtn)
 {
     promocodeBtn.addEventListener('click', function () {
         let promocode = promocodeText.value
-        let totalBlock = document.querySelector('.total-block h3')
+        let totalBlock = document.querySelector('.total-block b')
         let total = parseInt(totalBlock.querySelector('span').innerText)
         let obj = {
             promocode: promocode,

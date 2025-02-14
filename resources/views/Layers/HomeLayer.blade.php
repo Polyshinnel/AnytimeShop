@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/js/splide/css/splide-core.min.css">
     <link rel="stylesheet" href="/assets/js/fancybox/fancybox.css">
     <script src="https://yastatic.net/share2/share.js" async></script>
-    <link rel="stylesheet" href="/assets/css/style.min.css?ver=123">
+    <link rel="stylesheet" href="/assets/css/style.min.css?ver=12323">
 
     <link rel="canonical" href="@yield('canonical')">
     <meta property="description" content="@yield('description')">
@@ -34,7 +34,7 @@
 
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/inputmask.min.js"></script>
-    <script src="/assets/js/main.js?ver=1234123"></script>
+    <script src="/assets/js/main.js?ver=126342"></script>
 
     @yield('scripts')
 
