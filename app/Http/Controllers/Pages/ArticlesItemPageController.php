@@ -30,6 +30,7 @@ class ArticlesItemPageController extends Controller
         $siteInfo = SiteSettings::where('active', true)->first();
         $pageInfo = $this->articleService->getArticleMeta($articleItem);
         $pageInfo['currency'] = $siteInfo['currency'];
+        $pageInfo['number_format'] = $siteInfo['number_format'];
         return view('Pages.Articles-item',
             [
                 'pageInfo' => $pageInfo,
