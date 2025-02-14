@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
+use App\Models\SiteSettings;
 use App\Service\Cart\CommonCartService;
 use App\Service\News\NewsService;
 use Illuminate\Http\Request;
@@ -26,7 +27,9 @@ class NewsItemPageController extends Controller
             $cartInfo = $this->commonCartService->getTotalCartInfo($cart);
         }
         $newsItem = $this->newsService->getNewsItem($id);
+        $siteInfo = SiteSettings::where('active', true)->first();
         $pageInfo = $this->newsService->getNewsMeta($newsItem);
+        $pageInfo['currency'] = $siteInfo['currency'];
         return view('Pages.Articles-item',
             [
                 'pageInfo' => $pageInfo,
