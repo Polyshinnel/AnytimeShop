@@ -5,29 +5,23 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Review;
+use App\Models\CommonSettings;
 
 use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Preview;
 use MoonShine\UI\Fields\Text;
-use MoonShine\UI\Fields\Textarea;
 
 /**
- * @extends ModelResource<Review>
+ * @extends ModelResource<CommonSettings>
  */
-class ReviewResource extends ModelResource
+class CommonSiteSettingResource extends ModelResource
 {
-    protected string $model = Review::class;
+    protected string $model = CommonSettings::class;
 
-    protected string $title = 'Отзывы';
-
-    protected SortDirection $sortDirection = SortDirection::ASC;
+    protected string $title = 'CommonSiteSettings';
 
     /**
      * @return list<FieldContract>
@@ -36,10 +30,9 @@ class ReviewResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Preview::make('Аватар', 'avatar', static fn($image)=> "/storage/$image->avatar")
-                ->image(),
-            Text::make('Имя', 'name'),
-            Text::make('Оценка', 'rating'),
+            Text::make('Название настройки', 'name'),
+            Text::make('Тип настройки', 'type'),
+            Text::make('Значение', 'value'),
         ];
     }
 
@@ -51,10 +44,9 @@ class ReviewResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Image::make('Аватар', 'avatar')->dir('images/review')->nullable(),
-                Text::make('Имя', 'name'),
-                Textarea::make('Отзыв', 'text'),
-                Text::make('Оценка', 'rating')
+                Text::make('Название настройки', 'name'),
+                Text::make('Тип настройки', 'type'),
+                Text::make('Значение', 'value'),
             ])
         ];
     }
@@ -66,11 +58,14 @@ class ReviewResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('Название настройки', 'name'),
+            Text::make('Тип настройки', 'type'),
+            Text::make('Значение', 'value'),
         ];
     }
 
     /**
-     * @param Review $item
+     * @param CommonSiteSetting $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

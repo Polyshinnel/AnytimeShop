@@ -200,160 +200,71 @@
     </div>
     <!-- /.product-app-block -->
 
+    @if($slides)
     <div class="box-container">
         <div class="stack-container__wrapper">
             <div class="stack-container">
-                <div class="stack-item active">
-                    <div class="stack-item__text">
-                        <div class="stack-item__text-block">
-                            <h2>Текущие данные глюкозы</h2>
-                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
-                        </div>
+                @foreach($slides as $slide)
+                    @if($slide['active'])
+                        <div class="stack-item active">
+                            <div class="stack-item__text">
+                                <div class="stack-item__text-block">
+                                    <h2>{{$slide['title_block_1']}}</h2>
+                                    <p>{{$slide['text_block_1']}}</p>
+                                </div>
 
-                        <div class="stack-item__text-block stack-item__text-block__white">
-                            <h2>Ежедневный обзор</h2>
-                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
-                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                        </div>
-                    </div>
+                                <div class="stack-item__text-block stack-item__text-block__white">
+                                    <h2>{{$slide['title_block_2']}}</h2>
+                                    <p>{{$slide['text_block_2']}}</p>
+                                    <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                                </div>
+                            </div>
 
-                    <img src="/assets/img/app-slider/1_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
-                </div>
-                <div class="stack-item">
-                    <div class="stack-item__text">
-                        <div class="stack-item__text-block">
-                            <h2>Текущие данные глюкозы</h2>
-                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
+                            <img src="/storage/{{$slide['img']}}" alt="{{$slide['img_alt']}}" title="{{$slide['img_title']}}" class="stack-img">
                         </div>
+                    @else
+                        <div class="stack-item">
+                            <div class="stack-item__text">
+                                <div class="stack-item__text-block">
+                                    <h2>{{$slide['title_block_1']}}</h2>
+                                    <p>{{$slide['text_block_1']}}</p>
+                                </div>
 
-                        <div class="stack-item__text-block stack-item__text-block__white">
-                            <h2>Ежедневный обзор</h2>
-                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
-                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                                <div class="stack-item__text-block stack-item__text-block__white">
+                                    <h2>{{$slide['title_block_2']}}</h2>
+                                    <p>{{$slide['text_block_2']}}</p>
+                                    <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                                </div>
+                            </div>
+
+                            <img src="/storage/{{$slide['img']}}" alt="{{$slide['img_alt']}}" title="{{$slide['img_title']}}" class="stack-img">
                         </div>
-                    </div>
-
-                    <img src="/assets/img/app-slider/2_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
-                </div>
-                <div class="stack-item">
-                    <div class="stack-item__text">
-                        <div class="stack-item__text-block">
-                            <h2>Текущие данные глюкозы</h2>
-                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
-                        </div>
-
-                        <div class="stack-item__text-block stack-item__text-block__white">
-                            <h2>Ежедневный обзор</h2>
-                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
-                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                        </div>
-                    </div>
-
-                    <img src="/assets/img/app-slider/3_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
-                </div>
-                <div class="stack-item">
-                    <div class="stack-item__text">
-                        <div class="stack-item__text-block">
-                            <h2>Текущие данные глюкозы</h2>
-                            <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
-                        </div>
-
-                        <div class="stack-item__text-block stack-item__text-block__white">
-                            <h2>Ежедневный обзор</h2>
-                            <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
-                            <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                        </div>
-                    </div>
-
-                    <img src="/assets/img/app-slider/4_mob.png" alt="Экран приложения Follow Anytime" title="Экран приложения Follow Anytime | AnyTime" class="stack-img">
-                </div>
+                    @endif
+                @endforeach
             </div>
         </div>
 
         <div class="slider-block splide">
             <div class="splide__track">
                 <div class="splide__list">
-                    <div class="splide__slide slide-block-item">
-                        <div class="slide-block-item-text">
-                            <div class="slide-block-item-text_block">
-                                <h2>Текущие данные глюкозы</h2>
-                                <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
+                    @foreach($slides as $slide)
+                        <div class="splide__slide slide-block-item">
+                            <div class="slide-block-item-text">
+                                <div class="slide-block-item-text_block">
+                                    <h2>{{$slide['title_block_1']}}</h2>
+                                    <p>{{$slide['text_block_1']}}</p>
+                                </div>
+                                <div class="slide-block-item-text_block-white">
+                                    <h2>{{$slide['title_block_2']}}</h2>
+                                    <p>{{$slide['text_block_2']}}</p>
+                                    <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+                                </div>
                             </div>
-                            <div class="slide-block-item-text_block-white">
-                                <h2>Ежедневный обзор</h2>
-                                <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                            </div>
+                            <img src="/storage/{{$slide['img']}}" alt="{{$slide['img_alt']}}" title="{{$slide['img_title']}}" class="stack-img">
                         </div>
-                        <img src="/assets/img/app-slider/1_mob.png" alt="Приложение Follow Anytime">
-                    </div>
-                    <!--/.slide-block-item-->
+                        <!--/.slide-block-item-->
+                    @endforeach
 
-
-                    <div class="splide__slide slide-block-item">
-                        <div class="slide-block-item-text">
-                            <div class="slide-block-item-text_block">
-                                <h2>Ежедневный обзор</h2>
-                                <p>Данные уровня глюкозы в крови, включая средний, максимальный и минимальный значения, показатели гипогликемии и гипергликемии.</p>
-                            </div>
-                            <div class="slide-block-item-text_block-white">
-                                <h2>Журнал</h2>
-                                <p>Дополняйте график личными примечаниями.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                            </div>
-                        </div>
-                        <img src="/assets/img/app-slider/2_mob.png" alt="Приложение Follow Anytime">
-                    </div>
-                    <!--/.slide-block-item-->
-
-                    <div class="splide__slide slide-block-item">
-                        <div class="slide-block-item-text">
-                            <div class="slide-block-item-text_block">
-                                <h2>Журнал</h2>
-                                <p>Дополняйте график личными примечаниями.</p>
-                            </div>
-                            <div class="slide-block-item-text_block-white">
-                                <h2>Настройка значений</h2>
-                                <p>Установка пользователем пределов высокого и низкого уровня глюкозы в крови.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                            </div>
-                        </div>
-                        <img src="/assets/img/app-slider/3_mob.png" alt="Приложение Follow Anytime">
-                    </div>
-                    <!--/.slide-block-item-->
-
-                    <div class="splide__slide slide-block-item">
-                        <div class="slide-block-item-text">
-                            <div class="slide-block-item-text_block">
-                                <h2>Настройка значений</h2>
-                                <p>Установка пользователем пределов высокого и низкого уровня глюкозы в крови.</p>
-                            </div>
-                            <div class="slide-block-item-text_block-white">
-                                <h2>Отчет данных</h2>
-                                <p>Приложение отслеживает и регистрирует, позволяя анализировать данные по временным интервалам.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                            </div>
-                        </div>
-                        <img src="/assets/img/app-slider/4_mob.png" alt="Приложение Follow Anytime">
-                    </div>
-                    <!--/.slide-block-item-->
-
-                    <div class="splide__slide slide-block-item">
-                        <div class="slide-block-item-text">
-                            <div class="slide-block-item-text_block">
-                                <h2>Отчет данных</h2>
-                                <p>Приложение отслеживает и регистрирует, позволяя анализировать данные
-                                    по временным интервалам.</p>
-                            </div>
-                            <div class="slide-block-item-text_block-white">
-                                <h2>Текущие данные глюкозы</h2>
-                                <p>Проверяйте уровень глюкозы в режиме реального времени.</p>
-                                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                            </div>
-                        </div>
-                        <img src="/assets/img/app-slider/5_mob.png" alt="Приложение Follow Anytime">
-                    </div>
-                    <!--/.slide-block-item-->
                 </div>
                 <!--/.splide__list-->
             </div>
@@ -362,6 +273,7 @@
         <!--/.slider-block-->
     </div>
     <!--/.box-container-->
+    @endif
 
     <div class="box-container">
         <div class="main-recall-form">
@@ -423,97 +335,44 @@
     </div>
     <!-- /.follow-app -->
 
-    <div class="reviews">
-        <h2>Отзывы</h2>
-        <div class="reviews-block splide">
-            <div class="splide__track">
-                <div class="splide__list">
-                    <div class="splide__slide review-item">
-                        <div class="avatar-block">
-                            <img src="/assets/img/reviews/1.png" alt="Отзыв - фото5" title="Отзыв - фото5 | AnyTime">
-                        </div>
+    @if($reviews)
+        <div class="reviews">
+            <h2>Отзывы</h2>
+            <div class="reviews-block splide">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        @foreach($reviews as $review)
+                            <div class="splide__slide review-item">
+                                <div class="avatar-block">
+                                    <img src="/storage/{{$review['avatar']}}" alt="Отзыв - фото" title="Отзыв - фото | AnyTime">
+                                </div>
 
-                        <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime" class="quotes">
-                            <p class="review-text">This article is not just a transmission of information, but a sharing of knowledge. The author integrates their own thoughts and perceptions into the text, making reading a pleasure.</p>
-                            <b>dylan_yates</b>
-                            <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                <div class="review-item__text">
+                                    <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime" class="quotes">
+                                    <p class="review-text">{{$review['text']}}</p>
+                                    <b>{{$review['name']}}</b>
+                                    <div class="mark-block">
+                                        @foreach($review['stars'] as $star)
+                                            @if($star == 'empty-star')
+                                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                            @else
+                                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
+                            <!--/.review-item-->
+                        @endforeach
 
                     </div>
-                    <!--/.review-item-->
-
-                    <div class="splide__slide review-item">
-                        <div class="avatar-block">
-                            <img src="/assets/img/reviews/2.png" alt="Отзыв - фото2" title="Отзыв - фото2 | AnyTime">
-                        </div>
-
-                        <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime"  class="quotes">
-                            <p class="review-text">The craftsmanship of these pants is meticulous, with superior quality. Every detail is well handled, making them very durable.</p>
-                            <b>dylan_yates</b>
-                            <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
-                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.review-item-->
-
-                    <div class="splide__slide review-item">
-                        <div class="avatar-block">
-                            <img src="/assets/img/reviews/3.png" alt="Отзыв - фото1"  title="Отзыв - фото1 | AnyTime">
-                        </div>
-
-                        <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime" class="quotes">
-                            <p class="review-text">This article is not just a transmission of information, but a sharing of knowledge. The author integrates their own thoughts and perceptions into the text, making reading a pleasure.</p>
-                            <b>dylan_yates</b>
-                            <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.review-item-->
-
-
-                    <div class="splide__slide review-item">
-                        <div class="avatar-block">
-                            <img src="/assets/img/reviews/3.png" alt="">
-                        </div>
-
-                        <div class="review-item__text">
-                            <img src="/assets/img/reviews/quotes.svg" alt="Иконка &quot;" title="Иконка &quot; | AnyTime" class="quotes">
-                            <p class="review-text">This article is not just a transmission of information, but a sharing of knowledge. The author integrates their own thoughts and perceptions into the text, making reading a pleasure.</p>
-                            <b>dylan_yates</b>
-                            <div class="mark-block">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-f.svg" alt="Иконка Звезда" title="Иконка Звезда | AnyTime">
-                                <img src="/assets/img/reviews/star-e.svg" alt="Иконка Звезда Пустая" title="Иконка Звезда Пустая | AnyTime">
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.review-item-->
                 </div>
             </div>
         </div>
-    </div>
-    <!-- /.reviews -->
+        <!-- /.reviews -->
+    @endif
+
 
     <div class="box-container">
         <section class="need-help">
@@ -589,11 +448,16 @@
     <script src="assets/js/splide/js/splide.min.js"></script>
 
     <script>
-        new Splide('.slider-block', {
-            type   : 'loop',
-            perPage: 1,
-            arrows: false
-        }).mount();
+        let slider = document.querySelector('.slider-block');
+        if(slider)
+        {
+            new Splide('.slider-block', {
+                type   : 'loop',
+                perPage: 1,
+                arrows: false
+            }).mount();
+        }
+
 
         new Splide('.reviews-block', {
             type   : 'loop',

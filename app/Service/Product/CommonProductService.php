@@ -37,6 +37,16 @@ class CommonProductService
 
         if(!$products->isEmpty())
         {
+            $settings = CommonSettings::all();
+            $host = '';
+            if(!$settings->isEmpty()) {
+                foreach ($settings as $setting) {
+                    if($setting->name == 'site_host')
+                    {
+                        $host = $setting->value;
+                    }
+                }
+            }
             foreach ($products as $product) {
                 $deliveryInfo = [];
                 $deliveryTypes = $this->productRepository->getCommonDeliveries();
@@ -92,8 +102,8 @@ class CommonProductService
                     }
                 }
 
-                $productFullLink = sprintf('%s/catalog/%s', Request::getSchemeAndHttpHost(), $product->id);
-                $productImg = Request::getSchemeAndHttpHost().'/storage/'.$productImages[0]['img'];
+                $productFullLink = sprintf('%s/catalog/%s', $host, $product->id);
+                $productImg = $host.'/storage/'.$productImages[0]['img'];
                 $productDescription = strip_tags($product->description);
 
                 $prodArr = [

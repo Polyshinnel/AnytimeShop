@@ -26,125 +26,32 @@
     <!-- /.page-title-block -->
 
     <div class="box-container">
-        <section class="faq-section">
-            <h2>Общие вопросы</h2>
+        @if($faq)
+            @foreach($faq as $faqGroup)
+                <section class="faq-section">
+                    <h2>{{$faqGroup['group_name']}}</h2>
 
-            <div class="faq-section-list">
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Является ли система сертифицированной?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
+                    <div class="faq-section-list">
+                        @foreach($faqGroup['faq_list'] as $faqItem)
+                            <div class="faq-section__item">
+                                <div class="faq-section__item-head">
+                                    <h3>{{$faqItem['question']}}</h3>
+                                    <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
+                                </div>
+                                <!-- /.faq-section__item-head -->
+                                <div class="faq-section__item-body">
+                                    <p>{{$faqItem['answer']}}</p>
+                                </div>
+                                <!-- /.faq-section__item-body -->
+                            </div>
+                            <!-- /.faq-section__item -->
+                        @endforeach
                     </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Где доступна ваша система CGM?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Могу ли я купаться, принимать душ, плавать или заниматься спортом, находясь с сенсором?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Больно ли вставлять сенсор?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-            </div>
-            <!-- /.faq-section-list -->
-        </section>
-        <!--/.faq-section-->
-
-        <section class="faq-section">
-            <h2>Оплата и доставка</h2>
-
-            <div class="faq-section-list">
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Является ли система сертифицированной?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Где доступна ваша система CGM?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Могу ли я купаться, принимать душ, плавать или заниматься спортом, находясь с сенсором?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-
-                <div class="faq-section__item">
-                    <div class="faq-section__item-head">
-                        <h3>Больно ли вставлять сенсор?</h3>
-                        <img src="/assets/img/icons/common/plus-w.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-                    <!-- /.faq-section__item-head -->
-                    <div class="faq-section__item-body">
-                        <p>Процесс установки сенсора минимально болезненный благодаря использованию специального аппликатора, который делает процедуру быстрой и комфортной.</p>
-                    </div>
-                    <!-- /.faq-section__item-body -->
-                </div>
-                <!-- /.faq-section__item -->
-            </div>
-            <!-- /.faq-section-list -->
-        </section>
-        <!--/.faq-section-->
+                    <!-- /.faq-section-list -->
+                </section>
+                <!--/.faq-section-->
+            @endforeach
+        @endif
     </div>
     <!-- /.box-container -->
 @endsection

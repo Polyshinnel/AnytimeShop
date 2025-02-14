@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Layouts;
 
 use App\MoonShine\Pages\Dashboard;
+use App\MoonShine\Resources\AppSliderResource;
 use App\MoonShine\Resources\ArticleResource;
 use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\ProductResource;
@@ -48,7 +49,7 @@ use App\MoonShine\Resources\SiteSettingsResource;
 use App\MoonShine\Resources\FaqGroupsResource;
 use App\MoonShine\Resources\FaqResource;
 use App\MoonShine\Resources\ReviewResource;
-
+use App\MoonShine\Resources\CommonSiteSettingResource;
 final class MoonShineLayout extends AppLayout
 {
     protected function assets(): array
@@ -72,9 +73,14 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make('Новости', NewsResource::class),
             MenuItem::make('Статьи', ArticleResource::class),
             MenuItem::make('FAQ', FaqGroupsResource::class),
+            MenuItem::make('Слайдер приложения', AppSliderResource::class),
             MenuItem::make('Отзывы', ReviewResource::class),
             MenuItem::make('Промокоды', PromocodesResource::class),
-            MenuItem::make('Настройки сайта', SiteSettingsResource::class),
+
+            MenuGroup::make('Настройки сайта', [
+                MenuItem::make('Настройки валют и форматов', SiteSettingsResource::class),
+                MenuItem::make('Общие настройки сайта', CommonSiteSettingResource::class),
+            ]),
             ...parent::menu(),
         ];
     }

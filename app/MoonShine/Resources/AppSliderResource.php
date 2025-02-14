@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Review;
+use App\Models\AppSlider;
 
 use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\Enums\SortDirection;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
@@ -19,15 +18,13 @@ use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Textarea;
 
 /**
- * @extends ModelResource<Review>
+ * @extends ModelResource<AppSlider>
  */
-class ReviewResource extends ModelResource
+class AppSliderResource extends ModelResource
 {
-    protected string $model = Review::class;
+    protected string $model = AppSlider::class;
 
-    protected string $title = 'Отзывы';
-
-    protected SortDirection $sortDirection = SortDirection::ASC;
+    protected string $title = 'Слайдер приложения';
 
     /**
      * @return list<FieldContract>
@@ -36,10 +33,9 @@ class ReviewResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Preview::make('Аватар', 'avatar', static fn($image)=> "/storage/$image->avatar")
+            Text::make('Текст', 'title_block_1'),
+            Preview::make('Слайд', 'img', static fn($image)=> "/storage/$image->img")
                 ->image(),
-            Text::make('Имя', 'name'),
-            Text::make('Оценка', 'rating'),
         ];
     }
 
@@ -51,10 +47,13 @@ class ReviewResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Image::make('Аватар', 'avatar')->dir('images/review')->nullable(),
-                Text::make('Имя', 'name'),
-                Textarea::make('Отзыв', 'text'),
-                Text::make('Оценка', 'rating')
+                Text::make('Заголовок блока 1', 'title_block_1'),
+                Textarea::make('Текст блока 1', 'text_block_1'),
+                Text::make('Заголовок блока 2', 'title_block_2'),
+                Textarea::make('Текст блока 2', 'text_block_2'),
+                Image::make('Слайд', 'img')->dir('images/app-slider'),
+                Text::make('Img alt', 'img_alt'),
+                Text::make('Img title', 'img_title'),
             ])
         ];
     }
@@ -70,7 +69,7 @@ class ReviewResource extends ModelResource
     }
 
     /**
-     * @param Review $item
+     * @param AppSlider $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

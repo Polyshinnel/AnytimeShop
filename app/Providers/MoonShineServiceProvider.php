@@ -27,6 +27,8 @@ use App\MoonShine\Resources\SiteSettingsResource;
 use App\MoonShine\Resources\FaqGroupsResource;
 use App\MoonShine\Resources\FaqResource;
 use App\MoonShine\Resources\ReviewResource;
+use App\MoonShine\Resources\AppSliderResource;
+use App\MoonShine\Resources\CommonSiteSettingResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -59,6 +61,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 FaqGroupsResource::class,
                 FaqResource::class,
                 ReviewResource::class,
+                AppSliderResource::class,
+                CommonSiteSettingResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

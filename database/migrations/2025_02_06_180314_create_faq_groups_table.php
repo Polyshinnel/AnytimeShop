@@ -16,6 +16,19 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        $data_items = [
+            [
+                'name' => 'Общие вопросы'
+            ],
+            [
+                'name' => 'Оплата и доставка'
+            ],
+        ];
+
+        foreach ($data_items as $item) {
+            DB::table('faq_groups')->insert($item);
+        }
     }
 
     /**
