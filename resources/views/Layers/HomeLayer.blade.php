@@ -14,6 +14,7 @@
 
     <link rel="canonical" href="@yield('canonical')">
     <meta property="description" content="@yield('description')">
+    <meta name="description" content="@yield('description')">
     <meta property="og:type" content="website">
     <meta property="og:title" content="@yield('page_title')">
     <meta property="og:description" content="@yield('description')">
