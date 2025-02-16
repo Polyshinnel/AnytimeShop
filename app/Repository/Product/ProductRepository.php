@@ -23,6 +23,11 @@ class ProductRepository
         return Product::where('id', $id)->get();
     }
 
+    public function getProductBySeoUrl(string $product): ?Collection
+    {
+        return Product::where('seo_url', $product)->get();
+    }
+
     public function getCommonDeliveries(): ?Collection
     {
         return ProductCommonDeliveryType::all();

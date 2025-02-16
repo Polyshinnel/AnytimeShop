@@ -15,11 +15,15 @@ class CommonProductService
         $this->productRepository = $productRepository;
     }
 
-    public function getProducts(int $id = NULL): array
+    public function getProducts(string|int $product = NULL): array
     {
         $formattedProducts = [];
-        if($id) {
-            $products = $this->productRepository->getProductById($id);
+        if($product) {
+            $products = $this->productRepository->getProductBySeoUrl($product);
+            if($products->isEmpty())
+            {
+                $products = $this->productRepository->getProductById($product);
+            }
         } else {
             $products = $this->productRepository->getAllProducts();
         }
@@ -90,7 +94,16 @@ class CommonProductService
                     }
                 }
 
-                $productImages = $this->productRepository->getProductImageById($product->id)->toArray();
+                $productImages = $this->productRepository->getProductImageById($product->id);
+
+                $formattedProductImages = [];
+
+                foreach ($productImages as $productImage)
+                {
+                    $productImage->alt_img = $productImage->alt_img ?? $product->name;
+                    $productImage->title_img = $productImage->title_img ?? $product->name;
+                    $formattedProductImages[] = $productImage;
+                }
 
                 $productComplectationsInfo = [];
                 $productComplectation = $this->productRepository->getProductComplectationById($product->id);
@@ -106,23 +119,28 @@ class CommonProductService
                 $productImg = $host.'/storage/'.$productImages[0]['img'];
                 $productDescription = strip_tags($product->description);
 
-                $prodArr = [
+                $link = $product->seo_url ?? $product->id;
+                $thumbnail = $productImages[0]['img'] ?? '';
+
+                    $prodArr = [
                     'id' => $product->id,
-                    'link' => '/catalog/'.$product->id,
+                    'link' => '/catalog/'.$link,
                     'name' => $product->name,
                     'decription' => $product->description,
                     'clear_description' => strip_tags($product->description),
                     'price' => $product->price,
                     'new_price' => $product->new_price,
-                    'thumbnail' => $productImages[0]['img'] ? $productImages[0]['img'] : '',
+                    'thumbnail' => $thumbnail,
                     'complectation' => $productComplectationsInfo,
-                    'images' => $productImages,
+                    'images' => $formattedProductImages,
                     'warranty' => $warrantyInfo,
                     'delivery' => $deliveryInfo,
                     'common_chars' => $commonProductCharsInfo,
                     'product-full-link' => $productFullLink,
                     'link-to-product-img' => $productImg,
-                    'product-link-description' => $productDescription
+                    'product-link-description' => $productDescription,
+                    'meta_title' => $product->meta_title ?? $product->name,
+                    'meta_description' => $product->meta_description ?? $productDescription
                 ];
 
                 if($host)

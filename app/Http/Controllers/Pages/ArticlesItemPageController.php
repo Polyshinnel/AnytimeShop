@@ -19,14 +19,14 @@ class ArticlesItemPageController extends Controller
         $this->articleService = $articleService;
     }
 
-    public function __invoke(int $id)
+    public function __invoke(string|int $article)
     {
         $cart = session('cart');
         $cartInfo = [];
         if($cart) {
             $cartInfo = $this->commonCartService->getTotalCartInfo($cart);
         }
-        $articleItem = $this->articleService->getArticleItem($id);
+        $articleItem = $this->articleService->getArticleItem($article);
         $siteInfo = SiteSettings::where('active', true)->first();
         $pageInfo = $this->articleService->getArticleMeta($articleItem);
         $pageInfo['currency'] = $siteInfo['currency'];

@@ -17,21 +17,26 @@ class NewsService
                 if(mb_strlen($descriptionShort) > 80){
                     $descriptionShort = mb_substr($descriptionShort, 0, 75) . '...';
                 }
+                $link = $news_item->seo_url ?? $news_item->id;
                 $news[] = [
                     'id' => $news_item->id,
                     'title' => $news_item->title,
                     'description_short' => $descriptionShort,
                     'thumbnail' => $news_item->thumbnail,
-                    'link' => '/news/' . $news_item->id,
+                    'link' => '/news/' . $link,
                 ];
             }
         }
         return $news;
     }
 
-    public function getNewsItem(int $id): array
+    public function getNewsItem(string|int $news_item): array
     {
-        $newsItem = News::find($id);
+        $newsItem = News::where('seo_url', $news_item)->first();
+        if(!$newsItem)
+        {
+            $newsItem = News::find($news_item);
+        }
         if($newsItem)
         {
             return $newsItem->toArray();
@@ -47,6 +52,5 @@ class NewsService
             'og_image' => $newsItemArr['thumbnail'],
             'title' => $newsItemArr['meta_title']
         ];
-
     }
 }

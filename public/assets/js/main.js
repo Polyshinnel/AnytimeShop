@@ -475,8 +475,9 @@ if(shopOnleClickBtns)
     shopOnleClickBtns.forEach((item) => {
         item.addEventListener('click', function () {
             let productId = item.dataset.product
-            addToCart(productId, 1)
-            window.location = '/order'
+            addToCart(productId, 1).then(() => {
+                window.location = '/order'
+            })
         })
     })
 }

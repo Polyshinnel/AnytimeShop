@@ -57,6 +57,7 @@ class NewsResource extends ModelResource
                 TinyMce::make('Текст', 'text'),
                 Text::make('Seo title', 'meta_title'),
                 Text::make('Seo description', 'meta_description'),
+                Text::make('Seo url', 'seo_url')->nullable(),
             ])
         ];
     }
@@ -68,6 +69,13 @@ class NewsResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('Название', 'title'),
+            Textarea::make('Короткое описание', 'description_short'),
+            Image::make('Обложка', 'thumbnail')->dir('images/news'),
+            Textarea::make('Текст', 'text'),
+            Text::make('Seo title', 'meta_title'),
+            Text::make('Seo description', 'meta_description'),
+            Text::make('Seo url', 'seo_url'),
         ];
     }
 

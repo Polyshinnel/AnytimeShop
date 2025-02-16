@@ -19,14 +19,14 @@ class NewsItemPageController extends Controller
         $this->newsService = $newsService;
     }
 
-    public function __invoke(int $id)
+    public function __invoke(string|int $news_item)
     {
         $cart = session('cart');
         $cartInfo = [];
         if($cart) {
             $cartInfo = $this->commonCartService->getTotalCartInfo($cart);
         }
-        $newsItem = $this->newsService->getNewsItem($id);
+        $newsItem = $this->newsService->getNewsItem($news_item);
         $siteInfo = SiteSettings::where('active', true)->first();
         $pageInfo = $this->newsService->getNewsMeta($newsItem);
         $pageInfo['currency'] = $siteInfo['currency'];

@@ -66,6 +66,8 @@ class ProductImagesResource extends ModelResource
                         $parentId = $this->getParentId(),
                         static fn($image): Image => $image->dir("images/products/$parentId")
                     ),
+                Text::make('Img alt', 'alt_img'),
+                Text::make('Img title', 'title_img'),
             ])
         ];
     }
@@ -77,6 +79,14 @@ class ProductImagesResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('Порядок сортировки', 'sort_order'),
+            Image::make('Изображение', 'img')
+                ->when(
+                    $parentId = $this->getParentId(),
+                    static fn($image): Image => $image->dir("images/products/$parentId")
+                ),
+            Text::make('Img alt', 'alt_img'),
+            Text::make('Img title', 'title_img'),
         ];
     }
 

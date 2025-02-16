@@ -4,9 +4,9 @@
 
 
 @section('canonical', $product['link'])
-@section('description', $product['clear_description'])
-@section('og_image', '/assets/img/og-image.png')
-@section('page_title', $product['name'])
+@section('description', $pageInfo['description'])
+@section('og_image', $product['link-to-product-img'])
+@section('page_title', $pageInfo['page_title'])
 
 @section('content')
     <main>
@@ -22,7 +22,7 @@
                             <ul class="splide__list">
                                 @foreach($product['images'] as $img)
                                     <li class="splide__slide">
-                                        <img src="/storage/{{$img['img']}}" data-fancybox="gallery" alt="">
+                                        <img src="/storage/{{$img['img']}}" data-fancybox="gallery" alt="{{$img['alt_img']}}" title="{{$img['title_img']}}">
                                     </li>
                                 @endforeach
 
@@ -32,13 +32,13 @@
                     <section
                         id="thumbnail-carousel"
                         class="splide"
-                        aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Beautiful Gallery carousel."
+                        aria-label="Карусель с изображениями"
                     >
                         <div class="splide__track">
                             <ul class="splide__list">
                                 @foreach($product['images'] as $img)
                                     <li class="splide__slide">
-                                        <img src="/storage/{{$img['img']}}" data-fancybox="gallery" alt="">
+                                        <img src="/storage/{{$img['img']}}" data-fancybox="gallery" alt="{{$img['alt_img']}}" title="{{$img['title_img']}}">
                                     </li>
                                 @endforeach
                             </ul>

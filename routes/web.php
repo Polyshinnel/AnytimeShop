@@ -40,7 +40,7 @@ Route::get('/documentation', DocumentationPageController::class);
 Route::get('/delivery', DeliveryPageController::class);
 Route::get('/faq', FaqPageController::class);
 Route::get('/contacts', ContactsPageController::class);
-Route::get('/catalog/{product_id}', ProductPageController::class);
+Route::get('/catalog/{product}', ProductPageController::class);
 Route::get('/order', OrderController::class);
 Route::get('/order/success', function () {
     return view('Pages.SuccessOrder', ['cart' => []]);
@@ -48,9 +48,9 @@ Route::get('/order/success', function () {
 Route::get('/help', HelpPageController::class);
 Route::get('/sertificates', SertificatesPageController::class);
 Route::get('/news', NewsPageController::class);
-Route::get('/news/{id}', NewsItemPageController::class);
+Route::get('/news/{news_item}', NewsItemPageController::class);
 Route::get('/articles', ArticlesPageController::class);
-Route::get('/articles/{id}', ArticlesItemPageController::class);
+Route::get('/articles/{article}', ArticlesItemPageController::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);

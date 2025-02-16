@@ -19,6 +19,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Preview;
 use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Textarea;
 
 /**
  * @extends ModelResource<Product>
@@ -55,6 +56,9 @@ class ProductResource extends ModelResource
                 Text::make('Название', 'name'),
                 Text::make('Цена', 'price'),
                 Text::make('Новая цена', 'new_price')->nullable(),
+                Text::make('Meta Title', 'meta_title')->nullable(),
+                Textarea::make('Meta Description', 'meta_description')->nullable(),
+                Text::make('Seo url', 'seo_url')->nullable(),
                 TinyMce::make('Описание', 'description'),
                 HasMany::make('Изображения', 'images', resource: ProductImagesResource::class)
                 ->fields([
@@ -80,7 +84,12 @@ class ProductResource extends ModelResource
     protected function detailFields(): iterable
     {
         return [
-            ID::make(),
+            Text::make('Название', 'name'),
+            Text::make('Цена', 'price'),
+            Text::make('Новая цена', 'new_price'),
+            Text::make('Meta Title', 'meta_title'),
+            Text::make('Meta Description', 'meta_description'),
+            Text::make('Seo url', 'seo_url'),
         ];
     }
 
