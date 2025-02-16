@@ -48,7 +48,7 @@
             <div class="consult-form__img">
                 <picture>
                     <source srcset="/assets/img/help-manager_mob.png" media="(max-width: 800px)">
-                    <img src="/assets/img/help-manager.png" alt="Абстрактное изображение">
+                    <img src="/assets/img/help-manager.png" alt="Консультация менеджера" title="Консультация менеджера | Anytime">
                 </picture>
             </div>
         </div>

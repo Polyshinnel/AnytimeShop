@@ -40,7 +40,7 @@
                         @if($product['complectation'])
                             @foreach($product['complectation'] as $complect)
                                 <div class="product-list__item-adv__item">
-                                    <img src="assets/img/icons/products/check.svg" alt="">
+                                    <img src="assets/img/icons/products/check.svg" alt="Иконка ✓" title="Иконка ✓ | Anytime">
                                     <p>{{$complect}}</p>
                                 </div>
                                 <!--/.product-list__item-adv__item-->
@@ -59,7 +59,7 @@
                                 <div class="product-list__item-tab-title">
                                     <h4>{{$delivery_item['name']}}</h4>
                                     @if($delivery_item['img'])
-                                        <img src="/storage/{{$delivery_item['img']}}" alt="">
+                                        <img src="/storage/{{$delivery_item['img']}}" alt="{{$delivery_item['name']}}" title="{{$delivery_item['name']}} | Anytime">
                                     @endif
                                 </div>
 
@@ -126,7 +126,7 @@
         <div class="product-list__item-btns">
             <div class="product-list__item-btns-shop-quantity">
                 <button class="product-shop" data-product="{{$product['id']}}">
-                    <img src="assets/img/icons/products/cart.svg" alt="">
+                    <img src="assets/img/icons/products/cart.svg" alt="Иконка корзины" title="Иконка корзины | Anytime">
                     <span>Добавить в корзину</span>
                 </button>
 

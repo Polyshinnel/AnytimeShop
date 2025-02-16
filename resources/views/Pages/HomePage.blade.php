@@ -158,7 +158,7 @@
         <div class="product-app-block__img-text-block">
             <picture>
                 <source srcset="/assets/img/app-data/bg-small.jpg" media="(max-width: 800px)">
-                <img src="/assets/img/app-data/bg-full.jpg" alt="Абстрактное изображение">
+                <img src="/assets/img/app-data/bg-full.jpg" alt="Девушка с датчиком Anytime">
             </picture>
             <div class="product-app-block__img-text-block__cover">
                 <div class="box-container box-container_mod">
@@ -297,7 +297,7 @@
             <div class="form-img">
                 <picture>
                     <source srcset="/assets/img/main-form/2.png" media="(max-width: 800px)">
-                    <img src="/assets/img/main-form/1.png" alt="Абстрактное изображение">
+                    <img src="/assets/img/main-form/1.png" alt="Сенсор и аппликатор Yuwell Anytime CGM">
                 </picture>
             </div>
         </div>
