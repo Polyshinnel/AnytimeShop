@@ -237,7 +237,7 @@
                                 </div>
                             </div>
 
-                            <img src="/storage/{{$slide['img']}}" alt="{{$slide['img_alt']}}" title="{{$slide['img_title']}}" class="stack-img">
+                            <img src="/storage/{{$slide['img']}}" alt="{{$slide['img_alt']}}" title="{{$slide['img_title']}}" class="stack-img" draggable="false">
                         </div>
                     @endif
                 @endforeach
@@ -249,28 +249,40 @@
                 <div class="splide__list">
                     @foreach($slides as $slide)
                         <div class="splide__slide slide-block-item">
-                            <div class="slide-block-item-text">
-                                <div class="slide-block-item-text_block">
-                                    <h2>{{$slide['title_block_1']}}</h2>
-                                    <p>{{$slide['text_block_1']}}</p>
-                                </div>
-                                <div class="slide-block-item-text_block-white">
-                                    <h2>{{$slide['title_block_2']}}</h2>
-                                    <p>{{$slide['text_block_2']}}</p>
-                                    <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
-                                </div>
-                            </div>
-                            <img src="/storage/{{$slide['img']}}" alt="{{$slide['img_alt']}}" title="{{$slide['img_title']}}" class="stack-img">
+                            <img src="/storage/{{$slide['img']}}"
+                                 alt="{{$slide['img_alt']}}"
+                                 title="{{$slide['img_title']}}"
+                                 class="stack-img"
+                                 draggable="false"
+                                 data-titleBlock1="{{$slide['title_block_1']}}"
+                                 data-titleText1="{{$slide['text_block_1']}}"
+                                 data-titleBlock2="{{$slide['title_block_2']}}"
+                                 data-titleText2="{{$slide['text_block_2']}}"
+                            >
                         </div>
                         <!--/.slide-block-item-->
                     @endforeach
-
                 </div>
                 <!--/.splide__list-->
             </div>
             <!--/.splide__track-->
         </div>
         <!--/.slider-block-->
+
+        <div class="slide-block-item-text">
+            <div class="slide-block-item-text_block slide-block-item-text_block_active" id="block1">
+                <h2>{{$slides[0]['title_block_1']}}</h2>
+                <p>{{$slides[0]['text_block_1']}}</p>
+            </div>
+
+            <div class="slide-block-item-text_block slide-block-item-text_block-white slide-block-item-text_block_active" id="block2">
+                <h2>{{$slides[0]['title_block_2']}}</h2>
+                <p>{{$slides[0]['text_block_2']}}</p>
+                <img src="/assets/img/app-slider/plus-btn.svg" alt="Иконка +" title="Иконка + | AnyTime" class="plus">
+            </div>
+
+            <img src="/assets/img/app-slider/slide-img-line.png" alt="Линия" class="gradient-line">
+        </div>
     </div>
     <!--/.box-container-->
     @endif
@@ -451,23 +463,87 @@
         let slider = document.querySelector('.slider-block');
         if(slider)
         {
-            new Splide('.slider-block', {
+
+            function showBlock1() {
+                const block1 = document.getElementById('block1');
+                block1.classList.remove('slide-block-item-text_block_inactive');
+                block1.classList.add('slide-block-item-text_block_active');
+            }
+
+            function showBlock2() {
+                const block2 = document.getElementById('block2');
+                block2.classList.remove('slide-block-item-text_block_inactive');
+                block2.classList.add('slide-block-item-text_block_active');
+            }
+
+
+            function showBlocks() {
+                showBlock1();
+                setTimeout(showBlock2, 300);
+            }
+
+            const splide = new Splide('.slider-block', {
                 type   : 'loop',
-                perPage: 1,
-                arrows: false
+                perPage: 3,
+                arrows: false,
+                gap: '4rem',
+                autoWidth: true,
+                padding: { left: '10%', right: '10%' },
+                focus: 'center',
             }).mount();
+
+            function changeText(block, title, text) {
+                block.querySelector('h2').textContent = title
+                block.querySelector('p').textContent = text
+            }
+
+            splide.on('moved', function (newIndex) {
+                const activeSlide = splide.Components.Elements.slides[newIndex];
+                const img = activeSlide.querySelector('.stack-img');
+                const titleBlock1 = img.dataset.titleblock1
+                const textBlock1 = img.dataset.titletext1
+                const titleBlock2 = img.dataset.titleblock2
+                const textBlock2 = img.dataset.titletext2
+
+                const block1 = document.getElementById('block1');
+                const block2 = document.getElementById('block2');
+
+
+
+                document.querySelectorAll('.slide-block-item-text_block').forEach((item) => {
+                    if(item.classList.contains('slide-block-item-text_block_active'))
+                    {
+                        item.classList.remove('slide-block-item-text_block_active')
+                        item.classList.add('slide-block-item-text_block_inactive')
+                    }
+                })
+                changeText(block1, titleBlock1, textBlock1)
+                changeText(block1, titleBlock2, textBlock2)
+                showBlocks();
+            });
+
+            document.querySelectorAll('.slide-block-item-text .slide-block-item-text_block-white .plus').forEach((item) => {
+                item.addEventListener('click', () => {
+                    splide.go('+1')
+                })
+            })
         }
 
 
         new Splide('.reviews-block', {
             type   : 'loop',
-            perPage: 2,
+            perPage: 5,
             arrows: true,
             autoWidth: true,
+            focus: 'center',
+            gap: '2rem',
+            padding: { left: '10%', right: '10%' },
             breakpoints: {
                 580: {
-                    perPage: 1,
-                    autoWidth: true,
+                    perPage: 3,
+                    focus: 'center',
+                    gap: '1rem',
+                    padding: { left: '10%', right: '10%' },
                 },
             }
         }).mount();
@@ -532,7 +608,7 @@
 
             // Определение направления перетаскивания
             const deltaX = currentX - startX;
-            if (Math.abs(deltaX) > 50) { // Порог для смены слайда
+            if (Math.abs(deltaX) > 15) { // Порог для смены слайда
                 if (deltaX > 0) {
                     currentIndex = (currentIndex - 1 + items.length) % items.length; // Влево
                 } else {
@@ -572,5 +648,22 @@
 
         // Инициализация
         updateStack();
+
+        function goToNextSlide() {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateStack();
+        }
+
+        function handleActiveSlideClick() {
+            goToNextSlide();
+        }
+
+        items.forEach((item) => {
+            item.addEventListener('click', () => {
+                if (item.classList.contains('active')) {
+                    handleActiveSlideClick();
+                }
+            });
+        });
     </script>
 @endsection

@@ -1419,64 +1419,65 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
 
-    .slide-block-item-text{
-        width: 420px;
+.slide-block-item-text{
+    width: 420px;
+    display: none;
 
-        .slide-block-item-text_block{
-            padding: 30px;
-            width: 100%;
-            border-radius: 18px;
-            background: var(--primary-color);
+    .slide-block-item-text_block{
+        padding: 30px;
+        width: 100%;
+        border-radius: 18px;
+        background: var(--primary-color);
 
 
-            h2{
-                font-size: 30px;
-                font-weight: 400;
-                color: #fff;
-            }
-
-            p{
-                margin-top: 10px;
-                font-size: 20px;
-                color: #fff;
-            }
+        h2{
+            font-size: 30px;
+            font-weight: 400;
+            color: #fff;
         }
 
-        .slide-block-item-text_block-white{
-            margin-top: 20px;
-            width: 100%;
-            padding: 60px 30px;
-            border-radius: 18px;
-            background: #fff;
-            position: relative;
-            border: 1px solid #6E6E6E;
+        p{
+            margin-top: 10px;
+            font-size: 20px;
+            color: #fff;
+        }
+    }
+
+    .slide-block-item-text_block-white{
+        margin-top: 20px;
+        width: 100%;
+        padding: 60px 30px;
+        border-radius: 18px;
+        background: #fff;
+        position: relative;
+        border: 1px solid #6E6E6E;
 
 
-            h2{
-                font-size: 30px;
-                font-weight: 400;
-                color: #6E6E6E;
-            }
+        h2{
+            font-size: 30px;
+            font-weight: 400;
+            color: #6E6E6E;
+        }
 
-            p{
-                margin-top: 10px;
-                font-size: 20px;
-                color: #6E6E6E;
-            }
+        p{
+            margin-top: 10px;
+            font-size: 20px;
+            color: #6E6E6E;
+        }
 
-            .plus{
-                position: absolute;
-                bottom: 30px;
-                right: 30px;
-            }
+        .plus{
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
         }
     }
 }
 
 @media(max-width: 580px) {
     .slider-block{
-        margin-top: 300px;
+        margin-top: 250px;
         display: block;
     }
 
@@ -1486,34 +1487,61 @@ body{
 
     .slide-block-item{
         flex-direction: column-reverse;
+        width: 140px;
 
-        .slide-block-item-text{
-            width: 100%;
 
-            .slide-block-item-text_block{
-                padding: 15px;
 
-                h2{
-                    font-size: 20px;
-                    font-weight: 700;
-                }
+        .stack-img{
+            height: 270px;
+        }
+    }
 
-                p{
-                    font-size: 14px;
-                }
+    .slide-block-item-text{
+        width: 300px;
+        display: block;
+        margin: auto;
+        position: relative;
+
+        .slide-block-item-text_block{
+            padding: 30px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+
+            h2{
+                font-size: 20px;
+                font-weight: 700;
             }
 
-            .slide-block-item-text_block-white{
-                padding: 45px 20px;
-                h2{
-                    font-size: 20px;
-                    font-weight: 700;
-                }
-
-                p{
-                    font-size: 14px;
-                }
+            p{
+                font-size: 14px;
             }
+        }
+
+        .slide-block-item-text_block_inactive{
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .slide-block-item-text_block_active{
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-block-item-text_block-white{
+            padding: 45px 20px;
+            h2{
+                font-size: 20px;
+                font-weight: 700;
+            }
+
+            p{
+                font-size: 14px;
+            }
+        }
+
+        .gradient-line{
+            position: absolute;
+            bottom: 100%;
+            left: 40px;
         }
     }
 }
@@ -1842,7 +1870,6 @@ body{
         height: 386px;
         position: relative;
         z-index: 10;
-        margin-left: 30px;
 
         .avatar-block{
             position: absolute;
@@ -1907,7 +1934,7 @@ body{
 
         .review-item{
             width: 270px;
-            margin-left: 25px;
+            margin-left: 0;
 
             .review-item__text{
                 p{
@@ -4095,6 +4122,7 @@ body{
     margin-top: 20px;
     background: #fff;
     border: 1px solid #6E6E6E;
+    padding: 30px 30px 45px;
 
     h2{
         color: #6E6E6E;

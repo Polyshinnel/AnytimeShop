@@ -1275,26 +1275,28 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.slide-block-item .slide-block-item-text {
+
+.slide-block-item-text {
   width: 420px;
+  display: none;
 }
-.slide-block-item .slide-block-item-text .slide-block-item-text_block {
+.slide-block-item-text .slide-block-item-text_block {
   padding: 30px;
   width: 100%;
   border-radius: 18px;
   background: var(--primary-color);
 }
-.slide-block-item .slide-block-item-text .slide-block-item-text_block h2 {
+.slide-block-item-text .slide-block-item-text_block h2 {
   font-size: 30px;
   font-weight: 400;
   color: #fff;
 }
-.slide-block-item .slide-block-item-text .slide-block-item-text_block p {
+.slide-block-item-text .slide-block-item-text_block p {
   margin-top: 10px;
   font-size: 20px;
   color: #fff;
 }
-.slide-block-item .slide-block-item-text .slide-block-item-text_block-white {
+.slide-block-item-text .slide-block-item-text_block-white {
   margin-top: 20px;
   width: 100%;
   padding: 60px 30px;
@@ -1303,17 +1305,17 @@ body {
   position: relative;
   border: 1px solid #6E6E6E;
 }
-.slide-block-item .slide-block-item-text .slide-block-item-text_block-white h2 {
+.slide-block-item-text .slide-block-item-text_block-white h2 {
   font-size: 30px;
   font-weight: 400;
   color: #6E6E6E;
 }
-.slide-block-item .slide-block-item-text .slide-block-item-text_block-white p {
+.slide-block-item-text .slide-block-item-text_block-white p {
   margin-top: 10px;
   font-size: 20px;
   color: #6E6E6E;
 }
-.slide-block-item .slide-block-item-text .slide-block-item-text_block-white .plus {
+.slide-block-item-text .slide-block-item-text_block-white .plus {
   position: absolute;
   bottom: 30px;
   right: 30px;
@@ -1321,7 +1323,7 @@ body {
 
 @media (max-width: 580px) {
   .slider-block {
-    margin-top: 300px;
+    margin-top: 250px;
     display: block;
   }
   .stack-container__wrapper {
@@ -1329,29 +1331,50 @@ body {
   }
   .slide-block-item {
     flex-direction: column-reverse;
+    width: 140px;
   }
-  .slide-block-item .slide-block-item-text {
-    width: 100%;
+  .slide-block-item .stack-img {
+    height: 270px;
   }
-  .slide-block-item .slide-block-item-text .slide-block-item-text_block {
-    padding: 15px;
+  .slide-block-item-text {
+    width: 300px;
+    display: block;
+    margin: auto;
+    position: relative;
   }
-  .slide-block-item .slide-block-item-text .slide-block-item-text_block h2 {
+  .slide-block-item-text .slide-block-item-text_block {
+    padding: 30px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .slide-block-item-text .slide-block-item-text_block h2 {
     font-size: 20px;
     font-weight: 700;
   }
-  .slide-block-item .slide-block-item-text .slide-block-item-text_block p {
+  .slide-block-item-text .slide-block-item-text_block p {
     font-size: 14px;
   }
-  .slide-block-item .slide-block-item-text .slide-block-item-text_block-white {
+  .slide-block-item-text .slide-block-item-text_block_inactive {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  .slide-block-item-text .slide-block-item-text_block_active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .slide-block-item-text .slide-block-item-text_block-white {
     padding: 45px 20px;
   }
-  .slide-block-item .slide-block-item-text .slide-block-item-text_block-white h2 {
+  .slide-block-item-text .slide-block-item-text_block-white h2 {
     font-size: 20px;
     font-weight: 700;
   }
-  .slide-block-item .slide-block-item-text .slide-block-item-text_block-white p {
+  .slide-block-item-text .slide-block-item-text_block-white p {
     font-size: 14px;
+  }
+  .slide-block-item-text .gradient-line {
+    position: absolute;
+    bottom: 100%;
+    left: 40px;
   }
 }
 .main-recall-form {
@@ -1627,7 +1650,6 @@ body {
   height: 386px;
   position: relative;
   z-index: 10;
-  margin-left: 30px;
 }
 .reviews .review-item .avatar-block {
   position: absolute;
@@ -1681,7 +1703,7 @@ body {
   }
   .reviews .review-item {
     width: 270px;
-    margin-left: 25px;
+    margin-left: 0;
   }
   .reviews .review-item .review-item__text p {
     font-size: 14px;
@@ -3485,6 +3507,7 @@ body {
   margin-top: 20px;
   background: #fff;
   border: 1px solid #6E6E6E;
+  padding: 30px 30px 45px;
 }
 .stack-item__text-block__white h2 {
   color: #6E6E6E;
