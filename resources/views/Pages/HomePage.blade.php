@@ -660,9 +660,7 @@
 
         items.forEach((item) => {
             item.addEventListener('click', () => {
-                if (item.classList.contains('active')) {
-                    handleActiveSlideClick();
-                }
+                handleActiveSlideClick();
             });
         });
     </script>
