@@ -299,10 +299,11 @@
                 <input type="text" name="name" id="name" placeholder="Ваше имя">
                 <input type="text" name="phone" id="phone" placeholder="Телефон">
                 <div class="acept-policy">
-                    <input type="checkbox" name="policy" id="policy">
-                    <label for="policy">Я согласен/на с <a href="#">политикой конфиденциальности</a></label>
+                    <input type="checkbox" name="policy" id="policy" checked>
+                    <label for="policy">Я согласен/на с <a href="/policy">политикой конфиденциальности</a></label>
                 </div>
                 <input type="submit" class="submit-btn" value="Заказать звонок">
+                <p class="err-data">Заполните обязательные поля!</p>
             </form>
             <!--/.main-recall-form-form-->
 

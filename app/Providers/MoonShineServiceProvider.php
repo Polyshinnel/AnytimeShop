@@ -29,6 +29,10 @@ use App\MoonShine\Resources\FaqResource;
 use App\MoonShine\Resources\ReviewResource;
 use App\MoonShine\Resources\AppSliderResource;
 use App\MoonShine\Resources\CommonSiteSettingResource;
+use App\MoonShine\Resources\PrivatePolicyResource;
+use App\MoonShine\Resources\PaymentResource;
+use App\MoonShine\Resources\NeedHelpResource;
+use App\MoonShine\Resources\DeliveryResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -63,6 +67,10 @@ class MoonShineServiceProvider extends ServiceProvider
                 ReviewResource::class,
                 AppSliderResource::class,
                 CommonSiteSettingResource::class,
+                PrivatePolicyResource::class,
+                PaymentResource::class,
+                NeedHelpResource::class,
+                DeliveryResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

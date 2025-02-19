@@ -18,8 +18,10 @@ use App\Http\Controllers\Pages\HomePageController;
 use App\Http\Controllers\Pages\NewsItemPageController;
 use App\Http\Controllers\Pages\NewsPageController;
 use App\Http\Controllers\Pages\OrderController;
+use App\Http\Controllers\Pages\PolicyPage;
 use App\Http\Controllers\Pages\SertificatesPageController;
 use App\Http\Controllers\Promocode\PromocodeController;
+use App\Http\Controllers\SendFormDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +53,7 @@ Route::get('/news', NewsPageController::class);
 Route::get('/news/{news_item}', NewsItemPageController::class);
 Route::get('/articles', ArticlesPageController::class);
 Route::get('/articles/{article}', ArticlesItemPageController::class);
+Route::get('/policy', PolicyPage::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);
@@ -58,4 +61,6 @@ Route::post('/cart/get-cart', GetCartController::class);
 
 Route::post('/promocode', PromocodeController::class);
 Route::post('/order/create', StoreOrderController::class);
+
+Route::post('/send-form', SendFormDataController::class);
 

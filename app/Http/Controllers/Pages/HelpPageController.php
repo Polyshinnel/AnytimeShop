@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\BasePageController;
 use App\Http\Controllers\Controller;
+use App\Models\NeedHelp;
 use App\Service\Cart\CommonCartService;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,7 @@ class HelpPageController extends BasePageController
             $cartInfo = $this->commonCartService->getTotalCartInfo($cart);
         }
         $pageInfo = $this->getPageInfo($request);
-        return view('Pages.HelpPage', ['cart' => $cartInfo, 'pageInfo' => $pageInfo]);
+        $helpInfo = NeedHelp::all();
+        return view('Pages.HelpPage', ['cart' => $cartInfo, 'pageInfo' => $pageInfo, 'helpInfo' => $helpInfo]);
     }
 }

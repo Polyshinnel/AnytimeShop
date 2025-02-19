@@ -81,10 +81,12 @@
                         <input type="checkbox" name="contact-policy" id="contact-policy" checked>
                         <span></span>
                     </label>
-                    <p>Я согласен/на с политикой конфиденциальности</p>
+                    <p>Я согласен/на с <a href="/policy">политикой конфиденциальности</a></p>
                 </div>
                 <!-- /.contacts-page-block__form-unit -->
                 <input type="submit" value="Заказать звонок" class="contacts-submit">
+
+                <p class="err-data">Заполните обязательные поля!</p>
             </form>
             <!-- /.contacts-page-block__form -->
         </div>

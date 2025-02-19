@@ -570,7 +570,7 @@ let validateName = (selector) => {
 let validatePhone = (selector) => {
     let phone = selector.value
     phone = phone.replace(/[^0-9]/g, '')
-    if(phone.length < 9) {
+    if(phone.length < 7) {
         selector.parentNode.querySelector('.err-text').style.display = 'block'
         return false;
     }
@@ -724,3 +724,138 @@ window.addEventListener('scroll', debounce(() => {
     }
 }, 100));
 
+
+
+let sendFormData = async (obj) => {
+    let {data} = await axios.post('/send-form', obj)
+    if(data.err == 'none') {
+        document.querySelectorAll('input').forEach((item) => {
+            item.value = '';
+        });
+        let errData = document.querySelector('.err-data')
+        errData.innerText = 'Сообщение отправлено!'
+        errData.style.display = 'block'
+    }
+}
+
+
+
+let validateNameText = (name) => {
+    if(name.length < 2) {
+        return false;
+    }
+    return true;
+}
+
+let validatePhoneText = (phone) => {
+    phone = phone.replace(/[^0-9]/g, '')
+    if(phone.length < 7) {
+        return false;
+    }
+    return true;
+}
+
+
+let sendForm = (name, phone, message=null) => {
+    let validateNameInfo = validateNameText(name)
+    let validatePhoneInfo = validatePhoneText(phone)
+    let obj = {
+        name: name,
+        phone: phone,
+    }
+    if(message)
+    {
+        obj['message'] = message
+    }
+    if(!validateNameInfo)
+    {
+        return {
+            message: "input err",
+            err: "Введите корректное имя"
+        }
+    }
+    if(!validatePhoneInfo)
+    {
+        return {
+            message: "input err",
+            err: "Введите корретный телефон"
+        }
+    }
+
+    if(validateNameInfo && validatePhoneInfo)
+    {
+        sendFormData(obj)
+        return {
+            message: "ok",
+            err: "Сообщение успешно отправлено!"
+        }
+    }
+}
+
+let contactSubmit = document.querySelector('.contacts-submit')
+if(contactSubmit)
+{
+    contactSubmit.addEventListener('click', (e) => {
+        e.preventDefault()
+        let name = document.getElementById('contact-name').value
+        let phone = document.getElementById('contact-phone').value
+        let message = document.getElementById('contact-message').value
+
+        let sendFormInfo = sendForm(name, phone, message)
+        if(sendFormInfo.message != 'ok')
+        {
+            let errData = document.querySelector('.err-data');
+            errData.innerText = sendFormInfo.err
+            errData.style.display = 'block'
+        }
+
+    })
+}
+
+let mainFormDataBtn = document.querySelector('.submit-btn')
+if(mainFormDataBtn)
+{
+    mainFormDataBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let name = document.getElementById('name').value
+        let phone = document.getElementById('phone').value
+        let sendFormInfo = sendForm(name, phone)
+        if(sendFormInfo.message != 'ok')
+        {
+            let errData = document.querySelector('.err-data');
+            errData.innerText = sendFormInfo.err
+            errData.style.display = 'block'
+        }
+    })
+}
+
+let managerHelpBtn = document.getElementById('manager-help')
+let doctorHelpBtn = document.getElementById('doctor-help')
+if(managerHelpBtn)
+{
+    managerHelpBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let name = document.getElementById('manager_help-name').value
+        let phone = document.getElementById('manager_help-phone').value
+        let sendFormInfo = sendForm(name, phone)
+        if(sendFormInfo.message != 'ok')
+        {
+            let errData = document.querySelector('#help1');
+            errData.innerText = sendFormInfo.err
+            errData.style.display = 'block'
+        }
+    })
+
+    doctorHelpBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        let name = document.getElementById('doctor_help-name').value
+        let phone = document.getElementById('doctor_help-phone').value
+        let sendFormInfo = sendForm(name, phone)
+        if(sendFormInfo.message != 'ok')
+        {
+            let errData = document.querySelector('#help2');
+            errData.innerText = sendFormInfo.err
+            errData.style.display = 'block'
+        }
+    })
+}

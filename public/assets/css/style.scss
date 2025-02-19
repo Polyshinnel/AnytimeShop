@@ -1632,6 +1632,13 @@ body{
                 color: var(--primary-font-color);
             }
         }
+
+        .err-data{
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
     }
 
     .form-img{
@@ -3522,6 +3529,12 @@ body{
                 }
             }
         }
+
+        p{
+            a{
+                text-decoration: underline;
+            }
+        }
     }
 
     input[type='submit']{
@@ -3543,7 +3556,8 @@ body{
 
     .err-data{
         font-size: 14px;
-        margin-top: 20px;
+        margin-top: 10px;
+        color: #ff0000;
         display: none;
     }
 }
@@ -3707,6 +3721,11 @@ body{
         p{
             margin-left: 10px;
             color: #fff;
+
+            a{
+                color: #fff;
+                text-decoration: underline;
+            }
         }
     }
 
@@ -3726,6 +3745,13 @@ body{
             background: #fff;
             color: #000;
         }
+    }
+
+    .err-data{
+        font-size: 14px;
+        color: #fff;
+        margin-top: 10px;
+        display: none;
     }
 }
 
@@ -4192,6 +4218,27 @@ body{
             img{
                 filter: invert(100%);
             }
+        }
+    }
+}
+
+.policy-data{
+    margin-top: 30px;
+
+    h2{
+        margin-top: 20px;
+    }
+
+    p{
+        margin-top: 20px;
+    }
+
+    ul{
+        padding-left: 20px;
+        margin-top: 20px;
+
+        li{
+            margin-top: 5px;
         }
     }
 }

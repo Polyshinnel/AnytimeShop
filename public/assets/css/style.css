@@ -1452,6 +1452,12 @@ body {
   background: #fff;
   color: var(--primary-font-color);
 }
+.main-recall-form .main-recall-form-form .err-data {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
 .main-recall-form .form-img {
   position: absolute;
   left: 15px;
@@ -3008,6 +3014,9 @@ body {
   bottom: 5px;
   left: 5px;
 }
+.help-form .help-form__checkbox-block p a {
+  text-decoration: underline;
+}
 .help-form input[type=submit] {
   width: 100%;
   height: 45px;
@@ -3025,7 +3034,8 @@ body {
 }
 .help-form .err-data {
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 10px;
+  color: #ff0000;
   display: none;
 }
 
@@ -3158,6 +3168,10 @@ body {
   margin-left: 10px;
   color: #fff;
 }
+.contacts-page-block__form .contacts-page-block__form-unit-flex p a {
+  color: #fff;
+  text-decoration: underline;
+}
 .contacts-page-block__form .contacts-submit {
   margin-top: 35px;
   width: 100%;
@@ -3173,6 +3187,12 @@ body {
 .contacts-page-block__form .contacts-submit:hover {
   background: #fff;
   color: #000;
+}
+.contacts-page-block__form .err-data {
+  font-size: 14px;
+  color: #fff;
+  margin-top: 10px;
+  display: none;
 }
 
 .contacts-page-block__contacts {
@@ -3566,6 +3586,23 @@ body {
 }
 .header-main-block_active .header-head .yuwell-cart-menu img {
   filter: invert(100%);
+}
+
+.policy-data {
+  margin-top: 30px;
+}
+.policy-data h2 {
+  margin-top: 20px;
+}
+.policy-data p {
+  margin-top: 20px;
+}
+.policy-data ul {
+  padding-left: 20px;
+  margin-top: 20px;
+}
+.policy-data ul li {
+  margin-top: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

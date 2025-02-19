@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\BasePageController;
 use App\Http\Controllers\Controller;
-use App\Models\Delivery;
-use App\Models\Payment;
+use App\Models\PrivatePolicy;
 use App\Service\Cart\CommonCartService;
 use Illuminate\Http\Request;
 
-class DeliveryPageController extends BasePageController
+class PolicyPage extends BasePageController
 {
     private CommonCartService $commonCartService;
 
@@ -26,13 +25,7 @@ class DeliveryPageController extends BasePageController
             $cartInfo = $this->commonCartService->getTotalCartInfo($cart);
         }
         $pageInfo = $this->getPageInfo($request);
-        $paymentInfo = Payment::all();
-        $deliveryInfo = Delivery::all();
-        return view('Pages.DeliveryPage', [
-            'cart' => $cartInfo,
-            'pageInfo' => $pageInfo,
-            'paymentInfo' => $paymentInfo,
-            'deliveryInfo' => $deliveryInfo
-        ]);
+        $policy = PrivatePolicy::first();
+        return view('Pages.PolicyPage', ['cart' => $cartInfo, 'pageInfo' => $pageInfo, 'policy_data' => $policy]);
     }
 }

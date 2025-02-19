@@ -50,6 +50,10 @@ use App\MoonShine\Resources\FaqGroupsResource;
 use App\MoonShine\Resources\FaqResource;
 use App\MoonShine\Resources\ReviewResource;
 use App\MoonShine\Resources\CommonSiteSettingResource;
+use App\MoonShine\Resources\PrivatePolicyResource;
+use App\MoonShine\Resources\PaymentResource;
+use App\MoonShine\Resources\NeedHelpResource;
+use App\MoonShine\Resources\DeliveryResource;
 final class MoonShineLayout extends AppLayout
 {
     protected function assets(): array
@@ -63,25 +67,40 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuItem::make('Дашборд', Dashboard::class),
-            MenuItem::make('SEO Site', SiteInfoResource::class),
+
+            MenuGroup::make('Главная страница', [
+                MenuItem::make('Слайдер приложения', AppSliderResource::class),
+                MenuItem::make('Отзывы', ReviewResource::class),
+            ]),
+
+            MenuGroup::make('Seo и реклама', [
+                MenuItem::make('SEO Site', SiteInfoResource::class),
+                MenuItem::make('Промокоды', PromocodesResource::class),
+            ]),
+
             MenuGroup::make('Каталог', [
                 MenuItem::make('Товары', ProductResource::class),
                 MenuItem::make('Гарантия', ProductCommonWarrantyResource::class),
                 MenuItem::make('Доставка', ProductCommonDeliveryTypeResource::class),
                 MenuItem::make('Общие характеристики', ProductCommonCharsResource::class),
             ]),
-            MenuItem::make('Новости', NewsResource::class),
-            MenuItem::make('Статьи', ArticleResource::class),
-            MenuItem::make('FAQ', FaqGroupsResource::class),
-            MenuItem::make('Слайдер приложения', AppSliderResource::class),
-            MenuItem::make('Отзывы', ReviewResource::class),
-            MenuItem::make('Промокоды', PromocodesResource::class),
+
+            MenuGroup::make('Контент', [
+                MenuItem::make('Новости', NewsResource::class),
+                MenuItem::make('Статьи', ArticleResource::class),
+                MenuItem::make('FAQ', FaqGroupsResource::class),
+            ]),
 
             MenuGroup::make('Настройки сайта', [
                 MenuItem::make('Настройки валют и форматов', SiteSettingsResource::class),
                 MenuItem::make('Общие настройки сайта', CommonSiteSettingResource::class),
+
             ]),
             ...parent::menu(),
+            MenuItem::make('PrivatePolicies', PrivatePolicyResource::class),
+            MenuItem::make('Payments', PaymentResource::class),
+            MenuItem::make('NeedHelps', NeedHelpResource::class),
+            MenuItem::make('Deliveries', DeliveryResource::class),
         ];
     }
 
