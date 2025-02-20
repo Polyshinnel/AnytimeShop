@@ -39,10 +39,25 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
+
+
+
     if(document.querySelector('.custom-select__list-item')) {
         document.querySelectorAll('.custom-select__list-item').forEach((item) => {
             item.addEventListener('click', function() {
-                console.log('click!')
+                let country = item.dataset.country
+                if(country === 'ru')
+                {
+                    window.location = 'https://diabet-anytime.ru'
+                }
+                if(country === 'bel')
+                {
+                    window.location = 'https://diabet-anytime.com'
+                }
+                if(country === 'kz')
+                {
+                    window.location = 'https://diabet-anytime.kz'
+                }
             })
         })
     }
@@ -859,3 +874,45 @@ if(managerHelpBtn)
         }
     })
 }
+
+let setCurrentCountry = () => {
+    let currentHost = window.location.origin;
+    let currentCountrySelect = document.querySelector('.custom-select__current')
+    if(currentHost === 'http://127.0.0.1:8000' || currentHost === 'https://diabet-anytime.ru')
+    {
+        currentCountrySelect.innerHTML = `
+            <div class="custom-select__current-value">
+                <img src="/assets/img/icons/header/countries/ru.svg" alt="Иконка Россия" title="Иконка Россия | AnyTime">
+                <p>Россия</p>
+            </div>
+            <!-- /.custom-select__current-value -->
+            <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="Иконка стрелка" title="Иконка стрелка | AnyTime">
+        `
+    }
+    if(currentHost === 'https://diabet-anytime.com')
+    {
+        currentCountrySelect.innerHTML = `
+            <div class="custom-select__current-value">
+                <img src="/assets/img/icons/header/countries/bel.svg" alt="Иконка Беларусь" title="Иконка Беларусь | AnyTime">
+                <p>Беларусь</p>
+            </div>
+            <!-- /.custom-select__current-value -->
+            <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="Иконка стрелка" title="Иконка стрелка | AnyTime">
+        `
+    }
+
+    if(currentHost === 'https://diabet-anytime.kz')
+    {
+        currentCountrySelect.innerHTML = `
+            <div class="custom-select__current-value">
+                <img src="/assets/img/icons/header/countries/kz.svg" alt="Иконка Казахстан" title="Иконка Казахстан | AnyTime">
+                <p>Казахстан</p>
+            </div>
+            <!-- /.custom-select__current-value -->
+            <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="Иконка стрелка" title="Иконка стрелка | AnyTime">
+        `
+    }
+}
+
+setCurrentCountry()
+

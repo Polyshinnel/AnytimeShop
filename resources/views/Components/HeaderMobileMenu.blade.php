@@ -15,26 +15,26 @@
         </div>
         <!--/.custom-select__current-->
         <div class="custom-select__list">
-            <div class="custom-select__list-item" data-value="ru">
+            <div class="custom-select__list-item" data-country="ru">
                 <img src="/assets/img/icons/header/countries/ru.svg" alt="Иконка Россия" title="Иконка Россия | AnyTime">
                 <p>Россия</p>
             </div>
             <!--/.custom-select__list-item-->
-            <div class="custom-select__list-item" data-value="bel">
+            <div class="custom-select__list-item" data-country="bel">
                 <img src="/assets/img/icons/header/countries/bel.svg" alt="Иконка Беларусь" title="Иконка Беларусь | AnyTime">
                 <p>Беларусь</p>
             </div>
             <!--/.custom-select__list-item-->
-            <div class="custom-select__list-item" data-value="bel">
+            <div class="custom-select__list-item" data-country="kz">
                 <img src="/assets/img/icons/header/countries/kz.svg" alt="Иконка Казахстан" title="Иконка Казахстан | AnyTime">
                 <p>Казахстан</p>
             </div>
             <!--/.custom-select__list-item-->
-            <div class="custom-select__list-item" data-value="bel">
-                <img src="/assets/img/icons/header/countries/arm.svg" alt="Иконка Армения" title="Иконка Армения | AnyTime">
-                <p>Армения</p>
-            </div>
-            <!--/.custom-select__list-item-->
+{{--            <div class="custom-select__list-item" data-value="bel">--}}
+{{--                <img src="/assets/img/icons/header/countries/arm.svg" alt="Иконка Армения" title="Иконка Армения | AnyTime">--}}
+{{--                <p>Армения</p>--}}
+{{--            </div>--}}
+{{--            <!--/.custom-select__list-item-->--}}
         </div>
         <!--/.custom-select__list-->
     </div>
