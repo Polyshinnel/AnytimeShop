@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\PrivatePolicy;
 
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\TinyMce\Fields\TinyMce;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Fields\Text;
 
 /**
  * @extends ModelResource<PrivatePolicy>
@@ -21,7 +23,7 @@ class PrivatePolicyResource extends ModelResource
     protected string $model = PrivatePolicy::class;
 
     protected string $title = 'PrivatePolicies';
-    
+
     /**
      * @return list<FieldContract>
      */
@@ -40,6 +42,7 @@ class PrivatePolicyResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
+                TinyMce::make('Содержимое', 'html_text')
             ])
         ];
     }

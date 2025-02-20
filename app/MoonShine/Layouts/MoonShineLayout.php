@@ -89,6 +89,10 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Новости', NewsResource::class),
                 MenuItem::make('Статьи', ArticleResource::class),
                 MenuItem::make('FAQ', FaqGroupsResource::class),
+                MenuItem::make('Оплата', PaymentResource::class),
+                MenuItem::make('Доставка', DeliveryResource::class),
+                MenuItem::make('Нужна помощь', NeedHelpResource::class),
+                MenuItem::make('Политика конфиденциальности', PrivatePolicyResource::class),
             ]),
 
             MenuGroup::make('Настройки сайта', [
@@ -97,10 +101,7 @@ final class MoonShineLayout extends AppLayout
 
             ]),
             ...parent::menu(),
-            MenuItem::make('PrivatePolicies', PrivatePolicyResource::class),
-            MenuItem::make('Payments', PaymentResource::class),
-            MenuItem::make('NeedHelps', NeedHelpResource::class),
-            MenuItem::make('Deliveries', DeliveryResource::class),
+
         ];
     }
 

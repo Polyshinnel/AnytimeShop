@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Payment;
 
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\TinyMce\Fields\TinyMce;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Text;
 
 /**
  * @extends ModelResource<Payment>
@@ -20,8 +23,8 @@ class PaymentResource extends ModelResource
 {
     protected string $model = Payment::class;
 
-    protected string $title = 'Payments';
-    
+    protected string $title = 'Оплата';
+
     /**
      * @return list<FieldContract>
      */
@@ -29,6 +32,7 @@ class PaymentResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Название', 'name')
         ];
     }
 
@@ -40,6 +44,9 @@ class PaymentResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
+                Text::make('Название', 'name'),
+                Image::make('Изображение в шапке', 'title_img'),
+                TinyMce::make('Содержимое', 'content')
             ])
         ];
     }
