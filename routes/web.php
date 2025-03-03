@@ -20,6 +20,7 @@ use App\Http\Controllers\Pages\NewsPageController;
 use App\Http\Controllers\Pages\OrderController;
 use App\Http\Controllers\Pages\PolicyPage;
 use App\Http\Controllers\Pages\SertificatesPageController;
+use App\Http\Controllers\Pages\SuccessPageController;
 use App\Http\Controllers\Promocode\PromocodeController;
 use App\Http\Controllers\SendFormDataController;
 use Illuminate\Support\Facades\Route;
@@ -44,9 +45,7 @@ Route::get('/faq', FaqPageController::class);
 Route::get('/contacts', ContactsPageController::class);
 Route::get('/catalog/{product}', ProductPageController::class);
 Route::get('/order', OrderController::class);
-Route::get('/order/success', function () {
-    return view('Pages.SuccessOrder', ['cart' => []]);
-});
+Route::get('/order/success', SuccessPageController::class);
 Route::get('/help', HelpPageController::class);
 Route::get('/sertificates', SertificatesPageController::class);
 Route::get('/news', NewsPageController::class);
