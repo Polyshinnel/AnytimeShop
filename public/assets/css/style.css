@@ -2598,6 +2598,17 @@ body {
 .total-calculate .total-block .confirm-order:hover {
   background: var(--hover-color);
 }
+.total-calculate .total-block .confirm-order:disabled {
+  background: #bddc92;
+}
+.total-calculate .total-block .confirm-order:disabled:hover {
+  background: #bddc92;
+  cursor: not-allowed;
+}
+.total-calculate .total-block .await-docs {
+  margin: 20px 0;
+  font-size: 14px;
+}
 
 @media (max-width: 580px) {
   .personal-data-cart__block {

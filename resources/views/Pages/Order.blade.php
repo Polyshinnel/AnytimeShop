@@ -168,7 +168,9 @@
                     <div class="total-block">
                         <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
 
-                        <button class="confirm-order">Оформить заказ</button>
+                        <p class="await-docs">В настоящее время система находится в процессе регистрации, заказы через сайт временно недоступны. Для получения подробной информации свяжитесь с нами через мессенджеры, по почте или по телефону.</p>
+
+                        <button class="confirm-order" disabled>Оформить заказ</button>
                     </div>
                 </div>
                 <!-- /.total-calculate -->

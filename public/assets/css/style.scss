@@ -3008,6 +3008,20 @@ body{
                 background: var(--hover-color);
             }
         }
+
+        .confirm-order:disabled{
+            background: #bddc92;
+
+            &:hover{
+                background: #bddc92;
+                cursor: not-allowed;
+            }
+        }
+
+        .await-docs{
+            margin: 20px 0;
+            font-size: 14px;
+        }
     }
 }
 

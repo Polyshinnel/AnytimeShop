@@ -10,6 +10,7 @@ use App\MoonShine\Resources\ArticleResource;
 use App\MoonShine\Resources\NewsResource;
 use App\MoonShine\Resources\ProductResource;
 use App\MoonShine\Resources\PromocodesResource;
+use App\MoonShine\Resources\SertificateResource;
 use App\MoonShine\Resources\SiteInfoResource;
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\ColorManager\ColorManager;
@@ -92,6 +93,7 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Оплата', PaymentResource::class),
                 MenuItem::make('Доставка', DeliveryResource::class),
                 MenuItem::make('Нужна помощь', NeedHelpResource::class),
+                MenuItem::make('Сертификаты', SertificateResource::class),
                 MenuItem::make('Политика конфиденциальности', PrivatePolicyResource::class),
             ]),
 
