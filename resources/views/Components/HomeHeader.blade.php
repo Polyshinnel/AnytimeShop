@@ -1,4 +1,7 @@
 <header class="header-main header-basic">
+    <div class="header-attention">
+        <p>Сайт находится в разработке</p>
+    </div>
     <div class="header-wrapper">
         <div class="header-main-block">
             <div class="box-container">

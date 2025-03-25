@@ -689,57 +689,60 @@ const scrollToTopBtn = document.getElementById("recall-side-btn");
 let commonHeader = document.querySelector('.header-common')
 let homeHeader = document.querySelector('.header-main-block')
 
-// Функция для проверки положения прокрутки
-function checkScroll() {
-    // Если прокрутка больше 100 пикселей, показываем кнопку
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
 
-
-    if (window.scrollY > 5) {
-        if(commonHeader){
+let lastScrollTop = 0;
+const handleScroll = throttle(function() {
+    const scrollTop = window.scrollY;
+    const scrollingDown = scrollTop > lastScrollTop;
+    
+    // Обработка commonHeader с учетом направления прокрутки
+    if (scrollTop > 5 && scrollingDown) {
+        if(commonHeader && !commonHeader.classList.contains('header-common-active')){
             commonHeader.classList.add('header-common-active')
         }
-    } else {
-        if(commonHeader){
+    } else if (scrollTop <= 5 || !scrollingDown) {
+        if(commonHeader && commonHeader.classList.contains('header-common-active')){
             commonHeader.classList.remove('header-common-active')
         }
     }
-    if (window.scrollY > 100) {
-        scrollToTopBtn.style.display = "flex";
-    } else {
-        scrollToTopBtn.style.display = "none";
-    }
-}
 
-
-// Слушаем событие прокрутки
-window.addEventListener("scroll", checkScroll);
-
-function debounce(func, wait) {
-    let timeout;
-    return function(...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-}
-
-window.addEventListener('scroll', debounce(() => {
-    if (window.scrollY >= 400) {
-        if (homeHeader) {
-
-            setTimeout(() => {
-                homeHeader.classList.add('header-main-block_active');
-            }, 500)
+    // Обработка кнопки прокрутки
+    if (scrollTop > 100) {
+        if(scrollToTopBtn.style.display !== "flex") {
+            scrollToTopBtn.style.display = "flex";
         }
     } else {
-        if (homeHeader) {
-            setTimeout(() => {
-                homeHeader.classList.remove('header-main-block_active');
-            }, 500)
+        if(scrollToTopBtn.style.display !== "none") {
+            scrollToTopBtn.style.display = "none";
         }
     }
-}, 100));
 
+    // Обработка homeHeader
+    if (scrollTop >= 400 && scrollingDown) {
+        if (homeHeader && !homeHeader.classList.contains('header-main-block_active')) {
+            homeHeader.classList.add('header-main-block_active');
+        }
+    } else if (scrollTop < 400 || !scrollingDown) {
+        if (homeHeader && homeHeader.classList.contains('header-main-block_active')) {
+            homeHeader.classList.remove('header-main-block_active');
+        }
+    }
 
+    lastScrollTop = scrollTop;
+}, 150);
+
+// Единый слушатель события прокрутки
+window.addEventListener("scroll", handleScroll);
 
 let sendFormData = async (obj) => {
     let {data} = await axios.post('/send-form', obj)

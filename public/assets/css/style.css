@@ -3616,4 +3616,15 @@ body {
   margin-top: 5px;
 }
 
+.header-attention {
+  width: 100%;
+  padding: 20px;
+  background: #ff0000;
+  color: #fff;
+}
+.header-attention p {
+  text-align: center;
+  color: #fff;
+}
+
 /*# sourceMappingURL=style.css.map */
