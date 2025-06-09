@@ -3627,4 +3627,34 @@ body {
   color: #fff;
 }
 
+.site-own-data {
+  margin-top: 30px;
+}
+.site-own-data h2 {
+  margin-bottom: 20px;
+}
+.site-own-data p {
+  font-size: 14px;
+}
+.site-own-data p + p {
+  margin-top: 10px;
+}
+
+.box-container-footer {
+  margin-top: 30px;
+}
+.box-container-footer p {
+  font-size: 12px;
+}
+
+.payment-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pay-img {
+  width: 100px;
+}
+
 /*# sourceMappingURL=style.css.map */

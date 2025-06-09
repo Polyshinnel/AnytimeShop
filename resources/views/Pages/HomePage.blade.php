@@ -455,6 +455,12 @@
         </section>
         <!-- /.faq-block -->
     </div>
+
+    <div class="box-container">
+        <div class="site-payment">
+
+        </div>
+    </div>
 @endsection
 
 @section('scripts')

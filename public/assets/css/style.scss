@@ -4268,3 +4268,35 @@ body{
         color: #fff;
     }
 }
+
+.site-own-data{
+    margin-top: 30px;
+    h2{
+        margin-bottom: 20px;
+    }
+
+    p{
+        font-size: 14px;
+    }
+
+    p+p{
+        margin-top: 10px;
+    }
+}
+
+.box-container-footer{
+    margin-top: 30px;
+
+    p{
+        font-size: 12px;
+    }
+}
+
+.payment-block{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.pay-img{
+    width: 100px;
+}

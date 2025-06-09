@@ -28,6 +28,7 @@
                     <li><a href="/sertificates">Сертификаты</a></li>
                     <li><a href="/news">Новости</a></li>
                     <li><a href="/help">Помощь</a></li>
+                    <li><a href="/refund">Политика возврата</a></li>
                 </ul>
             </div>
             <!-- /.footer-col__menu -->
@@ -71,6 +72,21 @@
             <img src="/assets/img/logo-b.png" class="yuwell-footer-logo" alt="Логотип Yuwell" title="Логотип Yuwell | AnyTime">
         </div>
         <!--/.footer-col-->
+    </div>
+    <!-- /.box-container -->
+
+    <div class="box-container box-container-footer">
+        <div class="footer-col">
+            <p><b>Наименование компании:</b> ОДО «КомПродСервис». <b>Юридический адрес:</b> 220037, Беларусь, Минск, ул. Филимонова, 25Г, офис 1000. <b>Режим работы:</b> 8:00-17:00. <b>УНП: </b>101472374. <b>Дата и номер регистрации в торговом реестре: </b>719780, 12.07.2024</p>
+        </div>
+        <!-- /.footer-col -->
+    </div>
+    <!-- /.box-container -->
+
+    <div class="box-container box-container-footer">
+        <div class="payment-block">
+            <img src="/assets/img/pay-data/webpay.svg" class="pay-img" alt="">
+        </div>
     </div>
     <!-- /.box-container -->
 </footer>

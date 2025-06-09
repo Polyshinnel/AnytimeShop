@@ -35,7 +35,6 @@
                         <!-- /.contacts-page-block__contact-info__unit-img -->
                         <div class="contacts-page-block__contact-info__unit-text">
                             <a href="mailto:info@diabet-anytime.com">info@diabet-anytime.com</a>
-                            <a href="mailto:mail@diabet-anytime.com">mail@diabet-anytime.com</a>
                         </div>
                         <!-- /.contacts-page-block__contact-info__unit-text -->
                     </div>
@@ -117,7 +116,6 @@
                     <!-- /.contacts-page-block__contact-info__unit-img -->
                     <div class="contacts-page-block__contact-info__unit-text">
                         <a href="mailto:info@diabet-anytime.com">info@diabet-anytime.com</a>
-                        <a href="mailto:mail@diabet-anytime.com">mail@diabet-anytime.com</a>
                     </div>
                     <!-- /.contacts-page-block__contact-info__unit-text -->
                 </div>
@@ -138,6 +136,16 @@
             <!-- /.contacts-page-block__contact-info -->
         </div>
         <!-- /.contacts-page-block__mob -->
+
+        <div class="site-own-data">
+            <h2>Юридическая информация:</h2>
+            <p><b>Наименование компании:</b>  ОДО «КомПродСервис»</p>
+            <p><b>УНП: </b>101472374.</p>
+            <p><b>Юридический адрес:</b> 220037, Беларусь, Минск, ул. Филимонова, 25Г, офис 1000. </p>
+            <p><b>Время работы:</b> 08:00 - 17:00 </p>
+            <p><b>РБ город:</b> +375 17 336 08 70</p>
+            <p><b>РФ Москва (многоканальный):</b> +7 499 430 06 70</p>
+        </div>
     </div>
     <!-- /.box-container -->
 @endsection

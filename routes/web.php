@@ -19,6 +19,7 @@ use App\Http\Controllers\Pages\NewsItemPageController;
 use App\Http\Controllers\Pages\NewsPageController;
 use App\Http\Controllers\Pages\OrderController;
 use App\Http\Controllers\Pages\PolicyPage;
+use App\Http\Controllers\Pages\RefundPage;
 use App\Http\Controllers\Pages\SertificatesPageController;
 use App\Http\Controllers\Pages\SuccessPageController;
 use App\Http\Controllers\Promocode\PromocodeController;
@@ -53,6 +54,7 @@ Route::get('/news/{news_item}', NewsItemPageController::class);
 Route::get('/articles', ArticlesPageController::class);
 Route::get('/articles/{article}', ArticlesItemPageController::class);
 Route::get('/policy', PolicyPage::class);
+Route::get('/refund', RefundPage::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);

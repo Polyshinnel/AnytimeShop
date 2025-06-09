@@ -1,7 +1,4 @@
 <header class="header-common">
-    <div class="header-attention">
-        <p>Сайт находится в разработке</p>
-    </div>
     <div class="box-container">
         <div class="header-head header-head_mod">
             <a href="/" class="header-logo-link"><span class="header-logo">Anytime</span></a>
