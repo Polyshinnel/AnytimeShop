@@ -704,7 +704,7 @@ let lastScrollTop = 0;
 const handleScroll = throttle(function() {
     const scrollTop = window.scrollY;
     const scrollingDown = scrollTop > lastScrollTop;
-    
+
     // Обработка commonHeader с учетом направления прокрутки
     if (scrollTop > 5 && scrollingDown) {
         if(commonHeader && !commonHeader.classList.contains('header-common-active')){
