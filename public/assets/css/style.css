@@ -1321,6 +1321,10 @@ body {
   right: 30px;
 }
 
+.stack-img {
+  width: 297px;
+}
+
 @media (max-width: 580px) {
   .slider-block {
     margin-top: 250px;
@@ -1335,6 +1339,7 @@ body {
   }
   .slide-block-item .stack-img {
     height: 270px;
+    width: auto;
   }
   .slide-block-item-text {
     width: 300px;

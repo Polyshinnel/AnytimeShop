@@ -1475,6 +1475,10 @@ body{
     }
 }
 
+.stack-img{
+    width: 297px;
+}
+
 @media(max-width: 580px) {
     .slider-block{
         margin-top: 250px;
@@ -1493,6 +1497,7 @@ body{
 
         .stack-img{
             height: 270px;
+            width: auto;
         }
     }
 
