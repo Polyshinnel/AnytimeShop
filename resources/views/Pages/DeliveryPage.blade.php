@@ -40,6 +40,16 @@
 
                     {!! $payment['content'] !!}
                     <!-- /.delivery-payment-common__text -->
+
+                    <div class="payment-docs">
+                        <h3>Образец документа удостоверяющего оплату</h3>
+
+                        <a href="/assets/img/pay-doc.pdf">
+                            <img src="/assets/img/pay-doc.png" alt="Товарный чек Anytime">
+                        </a>
+                    </div>
+
+
                     <img src="/assets/img/delivery-payment/cards.png" alt="Банковские карты" title="Банковские карты | AnyTime" class="delivery-payment-common__img">
                 </section>
                 <!-- /.delivery-payment-common -->

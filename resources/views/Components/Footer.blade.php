@@ -85,7 +85,14 @@
 
     <div class="box-container box-container-footer">
         <div class="payment-block">
-            <img src="/assets/img/pay-data/webpay.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/belkart-internet-parol-logo-color.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/belkart-logo-color.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/erip-logo-color.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/mastercard-logo-color.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/mastercard-securecode-logo-color.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/visa-logo-color.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/visa-secure-logo-color.svg" class="pay-img pay-img__margin" alt="">
+            <img src="/assets/img/pay-data/webpay-logo-color.svg" class="pay-img" alt="">
         </div>
     </div>
     <!-- /.box-container -->

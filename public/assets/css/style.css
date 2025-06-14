@@ -3651,10 +3651,28 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .pay-img {
-  width: 100px;
+  width: 50px;
+}
+
+.pay-img__margin {
+  margin-top: 10px;
+}
+
+.payment-docs {
+  margin-top: 20px;
+}
+.payment-docs a {
+  display: flex;
+  margin-top: 10px;
+}
+.payment-docs a img {
+  width: 300px;
 }
 
 /*# sourceMappingURL=style.css.map */
