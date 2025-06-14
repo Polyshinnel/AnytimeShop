@@ -59,7 +59,7 @@
                                 <div class="product-list__item-tab-title">
                                     <h4>{{$delivery_item['name']}}</h4>
                                     @if($delivery_item['img'])
-                                        <img src="/storage/{{$delivery_item['img']}}" alt="{{$delivery_item['name']}}" title="{{$delivery_item['name']}} | Anytime">
+                                        <img src="/storage/{{$delivery_item['img']}}" alt="{{$delivery_item['name']}}" title="{{$delivery_item['name']}} | Anytime" class="delivery-product-img">
                                     @endif
                                 </div>
 
