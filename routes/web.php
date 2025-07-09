@@ -15,6 +15,7 @@ use App\Http\Controllers\Pages\DocumentationPageController;
 use App\Http\Controllers\Pages\FaqPageController;
 use App\Http\Controllers\Pages\HelpPageController;
 use App\Http\Controllers\Pages\HomePageController;
+use App\Http\Controllers\Pages\HowToShop;
 use App\Http\Controllers\Pages\NewsItemPageController;
 use App\Http\Controllers\Pages\NewsPageController;
 use App\Http\Controllers\Pages\OrderController;
@@ -55,6 +56,7 @@ Route::get('/articles', ArticlesPageController::class);
 Route::get('/articles/{article}', ArticlesItemPageController::class);
 Route::get('/policy', PolicyPage::class);
 Route::get('/refund', RefundPage::class);
+Route::get('/how-to-shop', HowToShop::class);
 
 Route::post('/add-cart', AddCartController::class);
 Route::post('/remove-cart', DeleteCartController::class);

@@ -3685,4 +3685,28 @@ body {
   width: 140px;
 }
 
+.how-to-shop-block {
+  margin-top: 25px;
+}
+.how-to-shop-block .how-to-shop-block__step {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.how-to-shop-block .how-to-shop-block__step p {
+  margin-top: 10px;
+}
+.how-to-shop-block .how-to-shop-block__step img {
+  margin-top: 15px;
+}
+.how-to-shop-block .how-to-shop-block__step .full-width {
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .how-to-shop-block .how-to-shop-block__step img {
+    width: 100%;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -20,6 +20,7 @@
                     <li><a href="/delivery">Доставка и  оплата</a></li>
                     <li><a href="/faq">FAQ</a></li>
                     <li><a href="/contacts">Контакты</a></li>
+                    <li><a href="/how-to-shop">Как купить</a></li>
                 </ul>
 
                 <ul>

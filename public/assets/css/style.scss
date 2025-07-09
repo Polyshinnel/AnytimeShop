@@ -4331,3 +4331,36 @@ body{
     margin-left: 20px;
     width: 140px;
 }
+
+.how-to-shop-block{
+    margin-top: 25px;
+
+    .how-to-shop-block__step{
+        margin-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+
+        p{
+            margin-top: 10px;
+        }
+
+        img{
+            margin-top: 15px;
+        }
+
+        .full-width{
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width: 580px) {
+    .how-to-shop-block{
+        .how-to-shop-block__step{
+            img{
+                width: 100%;
+            }
+        }
+    }
+
+}
