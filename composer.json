@@ -13,7 +13,8 @@
         "laravel/tinker": "^2.8",
         "moonshine/moonshine": "^3.4",
         "moonshine/ru": "^1.0",
-        "moonshine/tinymce": "^1.0"
+        "moonshine/tinymce": "^1.0",
+        "ext-curl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
