@@ -109,9 +109,16 @@ class WebpayApi
         ];
 
         $orderJson = json_encode($createOrderArr, JSON_UNESCAPED_UNICODE);
-        print_r($orderJson);
 
-        $responseData = $this->requestTool->requestTool('POST', $paymentUrl, json_encode($createOrderArr));
+        // Устанавливаем заголовки для корректной передачи HTTP_REFERER и HTTP_ORIGIN
+        $headers = [
+            'Content-Type: application/json',
+            'Referer: https://diabet-anytime.com/',
+            'Origin: https://diabet-anytime.com/',
+            'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        ];
+
+        $responseData = $this->requestTool->requestTool('POST', $paymentUrl, json_encode($createOrderArr), $headers);
         return json_decode($responseData['response'], true);
     }
 }
