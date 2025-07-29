@@ -121,7 +121,6 @@ class WebpayApi
         ];
 
         $orderJson = json_encode($createOrderArr, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-        print_r($orderJson);
 
         // Устанавливаем заголовки для корректной передачи HTTP_REFERER и HTTP_ORIGIN
         $headers = [
