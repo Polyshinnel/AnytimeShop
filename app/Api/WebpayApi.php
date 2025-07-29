@@ -102,7 +102,7 @@ class WebpayApi
             'wsb_test' => $webpayTest,
             'wsb_invoice_item_name' => $webpayItemName,
             'wsb_invoice_item_quantity' => $webpayItemQuantity,
-            'wsb_invoice_item_price' => (string)$webpayItemPrice,
+            'wsb_invoice_item_price' => $webpayItemPrice,
             'wsb_total' => (string)$webpayTotal,
             'wsb_signature' => $webpaySign,
             'wsb_return_url' => $webpayReturnUrl,
