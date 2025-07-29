@@ -53,22 +53,26 @@ class WebpayApi
         $webpayItemPrice = [];
 
         $webpayTotal = 0;
-
         $webpayTest = 0;
-
         $wsbTax = 0;
 
         foreach ($orderData['products'] as $item) {
             $webpayItemName[] = $item['name'];
             $webpayItemQuantity[] = $item['quantity'];
             $webpayItemPrice[] = (string)$item['price'];
-            $webpayTotal += $item['price']*$item['quantity'];
+            $webpayTotal += $item['price'] * $item['quantity'];
 
-            $wsbTaxProduct = ($item['price'] * 10) / 110;
-            $wsbTax += (float)number_format($wsbTaxProduct, 2, '.', '');
+            // Расчет налога НДС (20% для Беларуси)
+            $wsbTaxProduct = ($item['price'] * $item['quantity'] * 20) / 100;
+            $wsbTax += $wsbTaxProduct;
         }
 
+        // Добавляем стоимость доставки и налог, вычитаем скидку
         $webpayTotal = $webpayTotal + $orderData['shippingPrice'] + $wsbTax - $orderData['discountPrice'];
+        
+        // Округляем до 2 знаков после запятой
+        $webpayTotal = round($webpayTotal, 2);
+        $wsbTax = round($wsbTax, 2);
 
         $webpaySign = $webpaySeed.$webstoreId.$orderId.$webpayTest.$currency.$webpayTotal.$webstoreSecret;
         $webpaySign = SHA1($webpaySign);
