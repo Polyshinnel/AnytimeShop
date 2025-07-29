@@ -95,7 +95,7 @@ class StoreOrderController extends Controller
 
             $createArrProducts[] = [
                 'name' => $productData->name,
-                'price' => $productData->price,
+                'price' => $productData->new_price ?? $productData->price,
                 'quantity' => $product['quantity']
             ];
         }
