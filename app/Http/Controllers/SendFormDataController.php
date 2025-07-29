@@ -30,7 +30,7 @@ class SendFormDataController extends Controller
         $bitrixLead = [
             'title' => 'Новое обращение с сайта',
             'phone' => $data['phone'],
-            'username' => $data['username'],
+            'username' => $data['name'],
         ];
         $this->bitrixApi->createLead($bitrixLead);
         $this->telegram->sendOrder($telegram_message);
