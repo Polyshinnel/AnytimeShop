@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NotifyController extends Controller
 {
@@ -20,6 +21,9 @@ class NotifyController extends Controller
 
     public function __invoke(Request $request)
     {
+        // Логируем все данные из Request
+        $this->logRequestData($request);
+
         $orderId = $request->input('order_id');
         $siteOrderId = $request->input('site_order_id');
         $paymentStatus = $request->input('payment_type');
@@ -69,5 +73,27 @@ class NotifyController extends Controller
                 'site_order_id' => $siteOrderId[1]
             ]
         );
+    }
+
+    /**
+     * Логирует все данные из Request в JSON файл
+     */
+    private function logRequestData(Request $request): void
+    {
+        $logData = [
+            'timestamp' => now()->toISOString(),
+            'method' => $request->method(),
+            'url' => $request->fullUrl(),
+            'headers' => $request->headers->all(),
+            'query_params' => $request->query(),
+            'post_data' => $request->post(),
+            'all_data' => $request->all(),
+            'ip' => $request->ip(),
+            'user_agent' => $request->userAgent(),
+        ];
+
+        $filename = 'payment_notifications/' . date('Y-m-d_H-i-s') . '_' . uniqid() . '.json';
+        
+        Storage::disk('local')->put($filename, json_encode($logData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 }
