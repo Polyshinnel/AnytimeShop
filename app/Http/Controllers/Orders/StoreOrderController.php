@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Orders;
 
+use App\Api\WebpayApi;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Telegram\TelegramController;
 use App\Http\Requests\StoreOrderRequest;
+use App\Models\Product;
 use App\Service\Cart\CommonCartService;
 use App\Service\Order\CommonOrderService;
 use App\Service\Promocode\CommonPromocodeService;
@@ -16,18 +18,21 @@ class StoreOrderController extends Controller
     private CommonPromocodeService $promocodeService;
     private CommonOrderService $commonOrderService;
     private TelegramController $telegramController;
+    private WebpayApi $webpayApi;
 
     public function __construct(
         CommonCartService $commonCartService,
         CommonPromocodeService $promocodeService,
         CommonOrderService $commonOrderService,
-        TelegramController $telegramController
+        TelegramController $telegramController,
+        WebpayApi $webpayApi
     )
     {
         $this->commonCartService = $commonCartService;
         $this->promocodeService = $promocodeService;
         $this->commonOrderService = $commonOrderService;
         $this->telegramController = $telegramController;
+        $this->webpayApi = $webpayApi;
     }
 
 
@@ -80,7 +85,38 @@ class StoreOrderController extends Controller
             $promocodeArr,
             $deliveryArr
         );
+
+
+        $createArrProducts = [];
+
+        foreach ($cartInfo['products'] as $product)
+        {
+            $productData = Product::find($product['id']);
+
+            $createArrProducts[] = [
+                'name' => $productData->name,
+                'price' => $productData->price,
+                'quantity' => $product['quantity']
+            ];
+        }
+
+        $createOrderArr = [
+            'orderId' => $result['order_id'],
+            'products' => $createArrProducts,
+            'shippingPrice' => 0,
+            'discountPrice' => 0,
+            'customerName' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+        ];
+
+        $orderData = $this->webpayApi->createOrder($createOrderArr);
+        dd($orderData);
+
         $this->telegramController->sendOrder($result['message']);
+
+
+
         session()->forget('cart');
         return response()->json($result);
     }

@@ -131,14 +131,14 @@
 
                         <div class="delivery-method">
                             <div class="delivery-method__checkbox">
-                                <label for="boxberry">
-                                    <input type="checkbox" name="boxberry" id="boxberry" data-item="Boxberry">
+                                <label for="sdec">
+                                    <input type="checkbox" name="sdec" id="sdec" data-item="Sdec">
                                     <span></span>
                                 </label>
                             </div>
 
                             <div class="delivery-method-text">
-                                <img src="assets/img/delivery-payment/boxberry-logo.png" alt="">
+                                <img src="assets/img/delivery-payment/sdec-logo.png" alt="">
                                 <p class="select-boxberry">Выбрать пункт выдачи на карте</p>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                     <div class="total-block">
                         <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
 
-                        <button class="confirm-order" disabled>Оформить заказ</button>
+                        <button class="confirm-order">Оформить заказ</button>
                     </div>
                 </div>
                 <!-- /.total-calculate -->

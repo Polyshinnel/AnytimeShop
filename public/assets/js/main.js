@@ -616,10 +616,10 @@ let checkDelivery = () => {
 
 let sendOrder = async (obj) => {
     let {data} = await axios.post('/order/create', obj)
-    if(data.err == 'none') {
-        window.location.replace('/order/success')
-        console.log(data)
-    }
+    // if(data.err == 'none') {
+    //     window.location.replace('/order/success')
+    //     console.log(data)
+    // }
 }
 
 let confirmOrder = document.querySelector('.confirm-order')

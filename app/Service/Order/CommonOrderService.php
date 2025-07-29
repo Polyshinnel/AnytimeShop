@@ -94,6 +94,7 @@ class CommonOrderService
             DB::commit();
 
             return [
+                'order_id' => $order->id,
                 'err' => 'none',
                 'message' => $telegram_message
             ];
