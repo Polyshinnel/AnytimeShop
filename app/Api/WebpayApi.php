@@ -77,9 +77,10 @@ class WebpayApi
         // Добавляем стоимость доставки, вычитаем скидку (налог уже включен в стоимость товаров)
         $webpayTotal = $webpayTotal + $orderData['shippingPrice'] - $orderData['discountPrice'];
         
-        // Округляем до 2 знаков после запятой
-        $webpayTotal = round($webpayTotal, 2);
         $wsbTax = round($wsbTax, 2);
+
+        $webpayTotal = $webpayTotal + $wsbTax;
+        $webpayTotal = round($webpayTotal, 2);
 
         $webpaySign = $webpaySeed.$webstoreId.$orderId.$webpayTest.$currency.$webpayTotal.$webstoreSecret;
         $webpaySign = SHA1($webpaySign);
