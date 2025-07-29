@@ -111,13 +111,12 @@ class StoreOrderController extends Controller
         ];
 
         $orderData = $this->webpayApi->createOrder($createOrderArr);
-        dd($orderData);
 
         $this->telegramController->sendOrder($result['message']);
 
 
 
         session()->forget('cart');
-        return response()->json($result);
+        return response()->json($orderData);
     }
 }

@@ -616,10 +616,21 @@ let checkDelivery = () => {
 
 let sendOrder = async (obj) => {
     let {data} = await axios.post('/order/create', obj)
-    // if(data.err == 'none') {
-    //     window.location.replace('/order/success')
-    //     console.log(data)
-    // }
+    
+    if(data.err == 'none') {
+        window.location.replace('/order/success')
+        console.log(data)
+    }
+    
+    // Обработка ошибки с неверной подписью заказа
+    if(data.error) {
+        console.log(data.error.message)
+    }
+    
+    // Обработка успешного ответа с redirectUrl
+    if(data.data && data.data.redirectUrl) {
+        window.location.href = data.data.redirectUrl
+    }
 }
 
 let confirmOrder = document.querySelector('.confirm-order')
