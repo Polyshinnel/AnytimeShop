@@ -186,7 +186,7 @@ class BitrixApi
                 'VALUE_TYPE' => 'WORK'
             ]
         ];
-        if($leadInfo['email'])
+        if(isset($leadInfo['email']))
         {
             $createLeadArr['EMAIL'] = [
                 [
