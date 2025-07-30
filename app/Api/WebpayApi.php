@@ -61,17 +61,18 @@ class WebpayApi
             $webpayItemQuantity[] = $item['quantity'];
             
             // Вычисляем цену без НДС
-            $priceWithoutTax = ($item['price'] * 100) / 110;
-            $priceWithoutTax = floor($priceWithoutTax * 100) / 100; // Округляем в меньшую сторону
+            // $priceWithoutTax = ($item['price'] * 100) / 110;
+            // $priceWithoutTax = floor($priceWithoutTax * 100) / 100; // Округляем в меньшую сторону
             
-            $webpayItemPrice[] = (string)$priceWithoutTax;
-            $webpayTotal += $priceWithoutTax * $item['quantity'];
+            // $webpayItemPrice[] = (string)$priceWithoutTax;
+            // $webpayTotal += $priceWithoutTax * $item['quantity'];
 
-            // Извлечение налога НДС из цены (НДС 10%)
-            $wsbTaxProduct = ($item['price'] * $item['quantity'] * 10) / 110;
-            // Округляем в меньшую сторону до 2 знаков после запятой
-            $wsbTaxProduct = floor($wsbTaxProduct * 100) / 100;
-            $wsbTax += $wsbTaxProduct;
+            // // Извлечение налога НДС из цены (НДС 10%)
+            // $wsbTaxProduct = ($item['price'] * $item['quantity'] * 10) / 110;
+            // // Округляем в меньшую сторону до 2 знаков после запятой
+            // $wsbTaxProduct = floor($wsbTaxProduct * 100) / 100;
+            // $wsbTax += $wsbTaxProduct;
+            $webpayTotal += $item['price'] * $item['quantity'];
         }
 
         // Добавляем стоимость доставки, вычитаем скидку (налог уже включен в стоимость товаров)
@@ -111,7 +112,6 @@ class WebpayApi
             'wsb_customer_name' => $orderData['customerName'],
             'wsb_customer_address' => '220037, Беларусь, Минск, ул. Филимонова, 25Г, офис 1000',
             'wsb_service_date' => $deliveryDate,
-            'wsb_tax' => (string)$wsbTax,
             'wsb_shipping_name' => 'Стоимость доставки',
             'wsb_shipping_price' => (string)$orderData['shippingPrice'],
             "wsb_discount_name" => "Скидка на товар",
