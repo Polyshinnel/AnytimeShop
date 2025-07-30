@@ -59,6 +59,7 @@ class WebpayApi
         foreach ($orderData['products'] as $item) {
             $webpayItemName[] = $item['name'];
             $webpayItemQuantity[] = $item['quantity'];
+            $webpayItemPrice[] = $item['price'];
             
             // Вычисляем цену без НДС
             // $priceWithoutTax = ($item['price'] * 100) / 110;
