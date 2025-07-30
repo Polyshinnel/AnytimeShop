@@ -116,7 +116,11 @@ class StoreOrderController extends Controller
 
 
 
-        session()->forget('cart');
+        if(isset($orderData['error']))
+        {
+            session()->forget('cart');
+        }
+        
         return response()->json($orderData);
     }
 }

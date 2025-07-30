@@ -34,8 +34,10 @@ class NotifyController extends Controller
             $order = Order::find($siteOrderId[1]);
             $order->update(['payed' => 1]);
 
+            $orderName = sprintf('ORDER_BY-',$order->id);
+
             $createBitrixDeal = [
-                'title' => 'Новый заказ с сайта',
+                'title' => 'Новый заказ с сайта '.$orderName,
                 'username' => $order->customer_name,
                 'phone' => $order->customer_phone,
                 'email' => $order->customer_email,
