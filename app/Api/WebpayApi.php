@@ -78,10 +78,10 @@ class WebpayApi
         // Добавляем стоимость доставки, вычитаем скидку (налог уже включен в стоимость товаров)
         $webpayTotal = $webpayTotal + $orderData['shippingPrice'] - $orderData['discountPrice'];
         
-        $wsbTax = round($wsbTax, 2);
+        // $wsbTax = round($wsbTax, 2);
 
-        $webpayTotal = $webpayTotal + $wsbTax;
-        $webpayTotal = round($webpayTotal, 2);
+        // $webpayTotal = $webpayTotal + $wsbTax;
+        // $webpayTotal = round($webpayTotal, 2);
 
         $webpaySign = $webpaySeed.$webstoreId.$orderId.$webpayTest.$currency.$webpayTotal.$webstoreSecret;
         $webpaySign = SHA1($webpaySign);
@@ -121,6 +121,8 @@ class WebpayApi
         ];
 
         $orderJson = json_encode($createOrderArr, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+
+        print_r($orderJson);
 
         // Устанавливаем заголовки для корректной передачи HTTP_REFERER и HTTP_ORIGIN
         $headers = [
