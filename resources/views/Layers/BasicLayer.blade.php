@@ -56,10 +56,10 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/99227364" style="position:absolute; left:-9999px;" alt="" ></div></noscript>
     <!-- /Yandex.Metrika counter -->
     <script>
-        (function(w,d,u){
-        var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
-        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-        })(window,document,'https://erp.komprod.com/upload/crm/08d/mp3fhhewvpyij07kj1bcvkfx7gkomjc2.js');
+     (function(w,d,u){
+                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
+                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+        })(window,document,'https://erp.komprod.com/upload/crm/site_button/loader_2_083b2q.js');
     </script>
 </body>
 </html>
