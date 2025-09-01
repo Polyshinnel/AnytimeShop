@@ -6,24 +6,6 @@
 @section('page_title', $pageInfo['title'])
 
 @section('content')
-    <div class="page-title-block">
-        <div class="box-container">
-            <div class="page-title-block__wrapper">
-                <picture>
-                    <source srcset="/assets/img/pages/about-m.jpg" media="(max-width: 800px)">
-                    <img src="/assets/img/pages/about.jpg" alt="О компании" title="О компании | AnyTime">
-                </picture>
-                <div class="page-title__block-bg">
-                    <h1>{{$pageInfo['h1']}}</h1>
-                    <p>Производителе Yuwell Group</p>
-                </div>
-                <!-- /.page-title__block-bg -->
-            </div>
-            <!-- /.page-title-block__wrapper -->
-        </div>
-        <!-- /.box-container -->
-    </div>
-    <!-- /.page-title-block -->
 
     <div class="box-container">
         <section class="text-company">

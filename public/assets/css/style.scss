@@ -64,6 +64,10 @@ body{
     position: relative;
 }
 
+.header-head_main{
+    justify-content: flex-end;
+}
+
 .header-logo{
     color: #fff;
     font-weight: 700;
@@ -117,6 +121,114 @@ body{
 .header-head-total{
     display: flex;
     align-items: center;
+}
+
+.header-head-total-phone{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.header-head-total-phone a{
+    color: #fff;
+    font-size: 18px;
+}
+
+.header-head-total-phone img{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.header-country-telegram{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    gap: 15px;
+}
+
+.header-country-select{
+    position: relative;
+    cursor: pointer;
+}
+
+.header-country-select__current{
+    display: flex;
+    align-items: center;
+}
+
+.header-country-select__current-value{
+    display: flex;
+    align-items: center;
+
+    img{
+        width: 24px;
+        height: 16px;
+        border-radius: 2px;
+    }
+}
+
+.header-country-select__list{
+    width: 200px;
+    position: absolute;
+    top: 150%;
+    left: -50px;
+    background: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    transition: height;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    height: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-country-select__list-active{
+    border: 1px solid #ccc;
+    height: 168px;
+}
+
+.header-country-select__list-item{
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    background: #fff;
+
+    img{
+        width: 24px;
+        height: 16px;
+        margin-right: 10px;
+        border-radius: 2px;
+    }
+
+    p{
+        font-size: 14px;
+        color: var(--primary-font-color);
+    }
+
+    &:hover{
+        background: rgba(122, 203, 11, 0.2);
+    }
+}
+
+.header-telegram-link{
+    display: flex;
+    align-items: center;
+    transition: 0.3s all ease;
+
+    img{
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+    }
+
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 .header-menu{
@@ -490,7 +602,7 @@ body{
     width: 460px;
     position: absolute;
     left: calc((100% - 1240px) / 2);
-    bottom: -40px;
+    bottom: 0;
 }
 
 
@@ -2269,6 +2381,7 @@ body{
 .header-head_mod{
     margin-top: 0;
     padding: 20px 0 10px;
+    justify-content: flex-end;
     .header-logo{
         color: var(--primary-font-color);
     }
@@ -2292,31 +2405,54 @@ body{
             }
         }
     }
+
+    .header-telegram-link img{
+        filter: none;
+    }
+
+    .header-head-total-phone{
+        a{
+            color: #333;
+        }
+    }
 }
 
-.header-common-active{
+.header-common{
     background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 400;
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    width: 100%;
 }
 
 @media(max-width: 580px) {
     .header-common{
         background: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 400;
     }
     .header-head_mod{
         .header-menu{
             top: 0;
         }
+
+        .header-telegram-link img{
+            filter: none;
+        }
     }
 
     .yuwell-cart-menu{
         margin-left: 0;
+    }
+
+    .header-country-telegram{
+        margin-left: 10px;
+        gap: 10px;
+    }
+
+    .header-country-select__list{
+        width: 180px;
+        left: -40px;
+    }
+
+    .header-telegram-link img{
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -3406,6 +3542,16 @@ body{
     .header-head_mod{
         margin-top: 10px;
     }
+
+    .header-country-telegram{
+        margin-left: 5px;
+        gap: 8px;
+    }
+
+    .header-country-select__list{
+        width: 160px;
+        left: -30px;
+    }
 }
 
 @media(max-height: 640px){
@@ -4215,6 +4361,13 @@ body{
     opacity: 1;
     visibility: visible;
 
+    .header-head-total-phone{
+        a{
+            font-size: 14px;
+            color: #333;
+        }
+    }
+
     .header-head{
         margin-top: 0;
         .header-logo{
@@ -4238,6 +4391,10 @@ body{
                 filter: invert(100%);
             }
         }
+    }
+
+    .header-telegram-link img{
+        filter: none;
     }
 }
 
@@ -4363,4 +4520,33 @@ body{
         }
     }
 
+}
+
+@media(max-width: 580px) {
+    .header-country-telegram{
+        margin-left: 10px;
+        gap: 10px;
+    }
+
+    .header-country-select__list{
+        width: 180px;
+        left: -40px;
+    }
+
+    .header-telegram-link img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .yuwell-cart-menu .yuwell-menu{
+        margin-left: 25px;
+    }
+
+    .header-head-total-phone{
+        margin-left: 0;
+    }
+
+    .header-head-total-phone a{
+        font-size: 14px;
+    }
 }

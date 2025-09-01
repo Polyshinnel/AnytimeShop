@@ -1,0 +1,32 @@
+# Cursor Rules для проекта Laravel
+
+## Операционная система
+- ОС: Windows 10/11
+- Оболочка командной строки: PowerShell
+
+## Технологический стек
+- Фреймворк: Laravel
+- Версия PHP: 8.1
+- Препроцессор CSS: SCSS (автоматическая компиляция)
+
+## Структура проекта
+- Основная директория: `app/`
+- Контроллеры: `app/Http/Controllers/`
+- Модели: `app/Models/`
+- Представления: `resources/views/`
+- Стили: `resources/css/` и `public/assets/css/`
+- JavaScript: `resources/js/` и `public/assets/js/`
+- Маршруты: `routes/`
+- Конфигурация: `config/`
+
+## Особенности разработки
+- SCSS файлы автоматически компилируются в CSS
+- Используется Vite для сборки фронтенд ресурсов
+- Админ-панель MoonShine
+- API интеграции (Bitrix, Dadata, Webpay)
+
+## Стиль кода
+- Следовать PSR-12 стандартам для PHP
+- Использовать Laravel conventions
+- Blade шаблоны для представлений
+- Eloquent ORM для работы с базой данных

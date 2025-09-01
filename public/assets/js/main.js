@@ -147,6 +147,43 @@ document.querySelector('.custom-select__current').addEventListener('click', func
     arrow.classList.toggle('select-arrow_active')
 })
 
+// Header country select functionality
+if(document.querySelector('#header-country-select')) {
+    document.querySelector('#header-country-select .header-country-select__current').addEventListener('click', function(e){
+        let selectList = this.parentNode.querySelector('.header-country-select__list')
+        selectList.classList.toggle('header-country-select__list-active')
+        e.stopPropagation()
+    })
+
+    document.querySelectorAll('#header-country-select .header-country-select__list-item').forEach((item) => {
+        item.addEventListener('click', function(e){
+            let country = this.dataset.country
+            let countryImg = this.querySelector('img').src
+            let currentValue = document.querySelector('#header-country-select .header-country-select__current-value img')
+            
+            // Update current flag
+            currentValue.src = countryImg
+            
+            // Close dropdown
+            let selectList = document.querySelector('#header-country-select .header-country-select__list')
+            selectList.classList.remove('header-country-select__list-active')
+            
+            // Update phone number based on country
+            updatePhoneByCountry(country)
+        })
+    })
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#header-country-select')) {
+            let selectList = document.querySelector('#header-country-select .header-country-select__list')
+            if (selectList) {
+                selectList.classList.remove('header-country-select__list-active')
+            }
+        }
+    })
+}
+
 document.querySelector('.yuwell-menu').addEventListener('click', function() {
     let menu = document.querySelector('.header-menu')
     menu.classList.toggle('header-menu_active')
@@ -716,17 +753,6 @@ const handleScroll = throttle(function() {
     const scrollTop = window.scrollY;
     const scrollingDown = scrollTop > lastScrollTop;
 
-    // Обработка commonHeader с учетом направления прокрутки
-    if (scrollTop > 5 && scrollingDown) {
-        if(commonHeader && !commonHeader.classList.contains('header-common-active')){
-            commonHeader.classList.add('header-common-active')
-        }
-    } else if (scrollTop <= 5 || !scrollingDown) {
-        if(commonHeader && commonHeader.classList.contains('header-common-active')){
-            commonHeader.classList.remove('header-common-active')
-        }
-    }
-
     // Обработка кнопки прокрутки
     if (scrollTop > 100) {
         if(scrollToTopBtn.style.display !== "flex") {
@@ -739,11 +765,11 @@ const handleScroll = throttle(function() {
     }
 
     // Обработка homeHeader
-    if (scrollTop >= 400 && scrollingDown) {
+    if (scrollTop >= 400) {
         if (homeHeader && !homeHeader.classList.contains('header-main-block_active')) {
             homeHeader.classList.add('header-main-block_active');
         }
-    } else if (scrollTop < 400 || !scrollingDown) {
+    } else if (scrollTop < 400) {
         if (homeHeader && homeHeader.classList.contains('header-main-block_active')) {
             homeHeader.classList.remove('header-main-block_active');
         }
@@ -892,6 +918,8 @@ if(managerHelpBtn)
 let setCurrentCountry = () => {
     let currentHost = window.location.origin;
     let currentCountrySelect = document.querySelector('.custom-select__current')
+    let headerCountrySelect = document.querySelector('#header-country-select .header-country-select__current-value img')
+    
     if(currentHost === 'http://127.0.0.1:8000' || currentHost === 'https://diabet-anytime.ru')
     {
         currentCountrySelect.innerHTML = `
@@ -902,6 +930,9 @@ let setCurrentCountry = () => {
             <!-- /.custom-select__current-value -->
             <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="Иконка стрелка" title="Иконка стрелка | AnyTime">
         `
+        if(headerCountrySelect) {
+            headerCountrySelect.src = '/assets/img/icons/header/countries/ru.svg'
+        }
     }
     if(currentHost === 'https://diabet-anytime.com')
     {
@@ -913,6 +944,9 @@ let setCurrentCountry = () => {
             <!-- /.custom-select__current-value -->
             <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="Иконка стрелка" title="Иконка стрелка | AnyTime">
         `
+        if(headerCountrySelect) {
+            headerCountrySelect.src = '/assets/img/icons/header/countries/bel.svg'
+        }
     }
 
     if(currentHost === 'https://diabet-anytime.kz')
@@ -925,8 +959,34 @@ let setCurrentCountry = () => {
             <!-- /.custom-select__current-value -->
             <img src="/assets/img/icons/arrow.svg" class="select-arrow" alt="Иконка стрелка" title="Иконка стрелка | AnyTime">
         `
+        if(headerCountrySelect) {
+            headerCountrySelect.src = '/assets/img/icons/header/countries/kz.svg'
+        }
     }
 }
 
 setCurrentCountry()
+
+let updatePhoneByCountry = (country) => {
+    let phoneLink = document.querySelector('.header-head-total-phone a')
+    let phoneIcon = document.querySelector('.header-head-total-phone img')
+    
+    switch(country) {
+        case 'ru':
+            phoneLink.href = 'tel:+74951234567'
+            phoneLink.textContent = '+7(495)123-45-67'
+            phoneIcon.src = '/assets/img/icons/header/countries/ru.svg'
+            break
+        case 'bel':
+            phoneLink.href = 'tel:+375173360870'
+            phoneLink.textContent = '+375(29)634-08-70'
+            phoneIcon.src = '/assets/img/icons/header/countries/bel.svg'
+            break
+        case 'kz':
+            phoneLink.href = 'tel:+77271234567'
+            phoneLink.textContent = '+7(727)123-45-67'
+            phoneIcon.src = '/assets/img/icons/header/countries/kz.svg'
+            break
+    }
+}
 

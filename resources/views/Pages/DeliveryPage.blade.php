@@ -6,24 +6,6 @@
 @section('page_title', $pageInfo['title'])
 
 @section('content')
-    <div class="page-title-block">
-        <div class="box-container">
-            <div class="page-title-block__wrapper">
-                <picture>
-                    <source srcset="/assets/img/pages/delivery-m.jpg" media="(max-width: 800px)">
-                    <img src="/assets/img/pages/delivery.jpg" alt="Доставка" title="Доставка | AnyTime">
-                </picture>
-                <div class="page-title__block-bg">
-                    <h1>{{$pageInfo['h1']}}</h1>
-                    <p>Информация об оплате, доставке и самовывозе</p>
-                </div>
-                <!-- /.page-title__block-bg -->
-            </div>
-            <!-- /.page-title-block__wrapper -->
-        </div>
-        <!-- /.box-container -->
-    </div>
-    <!-- /.page-title-block -->
 
     @if($paymentInfo)
     <div class="payment-block">

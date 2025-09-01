@@ -6,21 +6,6 @@
 @section('page_title', $pageInfo['title'])
 
 @section('content')
-    <div class="page-title-block">
-        <div class="box-container">
-            <div class="page-title-block__wrapper">
-                <img src="/assets/img/pages/specialists.jpg" alt="Совет доктора" title="Совет доктора | AnyTime">
-                <div class="page-title__block-bg">
-                    <h1>{{$pageInfo['h1']}}</h1>
-                    <p>Инструкции по эксплуатации</p>
-                </div>
-                <!-- /.page-title__block-bg -->
-            </div>
-            <!-- /.page-title-block__wrapper -->
-        </div>
-        <!-- /.box-container -->
-    </div>
-    <!-- /.page-title-block -->
 
     <div class="box-container">
         <div class="instructions-block">
