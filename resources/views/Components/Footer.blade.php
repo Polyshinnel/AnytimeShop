@@ -88,6 +88,10 @@
             <img src="/assets/img/pay-data/visa-logo-color.svg" class="pay-img" alt="">
             <img src="/assets/img/pay-data/visa-secure-logo-color.svg" class="pay-img pay-img__margin" alt="">
             <img src="/assets/img/pay-data/webpay-logo-color.svg" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/apple-pay.png" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/alfa.png" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/id-check.png" class="pay-img" alt="">
+            <img src="/assets/img/pay-data/samsung-pay.png" class="pay-img" alt="">
         </div>
     </div>
     <!-- /.box-container -->
