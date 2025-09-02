@@ -92,37 +92,6 @@
     </div>
     <!--/.box-container-->
 
-    <section class="hour-video">
-        <div class="box-container">
-            <div class="hour-video__title">
-                <h2>Официальный представитель Yuwell Anytime CGM на территории СНГ</h2>
-                <div class="line"></div>
-                <!-- /.line -->
-            </div>
-            <!-- /.hour-video__title -->
-        </div>
-        <!-- /.box-container -->
-
-        <div class="hour-video-block">
-            <div class="hour-video">
-                <video src="/storage/video/anytime.mp4" poster="/assets/img/hour-video-banner.jpg" id="hour-look-video"></video>
-            </div>
-            <!-- /.hour-video -->
-            <div class="box-container">
-                <div class="hour-video-block-text">
-                    <p>Показатели уровня глюкозы отправляются на телефон каждую секунду</p>
-                    <a href="https://apps.apple.com/cz/app/yuwell-anytime/id6467751539">
-                        <button>Скачать приложение</button>
-                    </a>
-                </div>
-                <!-- /.hour-video-block-text -->
-            </div>
-            <!-- /.box-container -->
-        </div>
-        <!-- /.hour-video-block -->
-    </section>
-    <!-- /.hour-video -->
-
     <div class="product-block-main">
         <div class="product-block-main__rounds">
             <div class="product-block-main__round-big">
@@ -154,6 +123,28 @@
         </div>
     </div>
     <!--/.product-block-main-->
+
+    <section class="hour-video">
+        <div class="box-container">
+            <div class="hour-video__title">
+                <h2>Официальный представитель Yuwell Anytime CGM на территории СНГ</h2>
+                <div class="line"></div>
+                <!-- /.line -->
+            </div>
+            <!-- /.hour-video__title -->
+        </div>
+        <!-- /.box-container -->
+
+        <div class="box-container">
+            <div class="hour-video__content">
+                <video src="/storage/video/anytime.mp4" poster="/assets/img/hour-video-banner.jpg" id="hour-look-video" controls></video>
+            </div>
+            <!-- /.hour-video__content -->
+        </div>
+    </section>
+    <!-- /.hour-video -->
+
+    
 
     <div class="product-app-block">
         <div class="product-app-block__img-text-block">
@@ -307,13 +298,6 @@
                 <p class="err-data">Заполните обязательные поля!</p>
             </form>
             <!--/.main-recall-form-form-->
-
-            <div class="form-img">
-                <picture>
-                    <source srcset="/assets/img/main-form/2.png" media="(max-width: 800px)">
-                    <img src="/assets/img/main-form/1.png" alt="Сенсор и аппликатор Yuwell Anytime CGM">
-                </picture>
-            </div>
         </div>
         <!-- /.main-recall-form -->
     </div>

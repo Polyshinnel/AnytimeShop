@@ -860,17 +860,15 @@ body{
 
 
 .hour-video{
-    margin-top: 70px;
-
-    video{
-        width: 100%;
-    }
+    margin-top: 50px;
+    margin-bottom: 250px;
 }
 
 .hour-video__title{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 40px;
 
     h2{
         color: var(--secondary-font-color);
@@ -887,58 +885,14 @@ body{
     }
 }
 
-
-.hour-video-block{
-    margin-top: 80px;
-    position: relative;
+.hour-video__content{
     width: 100%;
-    height: 300px;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-
-    .hour-video{
-        position: absolute;
-        left: calc((100% - 1220px) / 2);
-        height: 350px;
-        width: 600px;
-        overflow: hidden;
+    
+    video{
+        width: 100%;
+        height: auto;
         border-radius: 9px;
-        top: calc((50% - 350px) / 2);
-    }
-
-    .box-container{
-        display: flex;
-        height: 100%;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    .hour-video-block-text{
-        width: 360px;
-
-        p{
-            font-size: 26px;
-            color: var(--secondary-font-color);
-        }
-
-        button{
-            width: 100%;
-            height: 45px;
-            border: 1px solid var(--secondary-font-color);
-            color: var(--secondary-font-color);
-            font-size: 18px;
-            font-weight: 700;
-            background: #fff;
-            transition: 0.3s all ease;
-            cursor: pointer;
-            border-radius: 50px;
-            margin-top: 50px;
-
-            &:hover{
-                background: var(--secondary-font-color);
-                color: #fff;
-            }
-        }
+        display: block;
     }
 }
 
@@ -953,25 +907,9 @@ body{
         }
     }
 
-    .hour-video-block{
-        height: auto;
-        padding: 40px 0;
-        position: static;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 40px;
-
-        .hour-video{
-            position: static;
-            width: 90%;
-            height: 200px;
-            margin-top: 0;
-        }
-
-        .hour-video-block-text{
-            margin-top: 20px;
+    .hour-video__content{
+        video{
+            border-radius: 0;
         }
     }
 }
@@ -2191,7 +2129,7 @@ body{
                 justify-content: center;
 
                 img{
-                    height: 120px;
+                    height: 80px;
                     object-fit: contain;
                 }
             }
