@@ -173,18 +173,17 @@ if(document.querySelector('#header-country-select')) {
     document.querySelectorAll('#header-country-select .header-country-select__list-item').forEach((item) => {
         item.addEventListener('click', function(e){
             let country = this.dataset.country
-            let countryImg = this.querySelector('img').src
-            let currentValue = document.querySelector('#header-country-select .header-country-select__current-value img')
             
-            // Update current flag
-            currentValue.src = countryImg
-            
-            // Close dropdown
-            let selectList = document.querySelector('#header-country-select .header-country-select__list')
-            selectList.classList.remove('header-country-select__list-active')
-            
-            // Update phone number based on country
-            updatePhoneByCountry(country)
+            // Redirect to appropriate site based on country
+            if(country === 'ru') {
+                window.location = 'https://diabet-anytime.ru'
+            }
+            if(country === 'bel') {
+                window.location = 'https://diabet-anytime.com'
+            }
+            if(country === 'kz') {
+                window.location = 'https://diabet-anytime.kz'
+            }
         })
     })
 
