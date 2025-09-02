@@ -131,12 +131,22 @@ const readMore = (button) => {
 
 const changeTab = (tabBtn) => {
     let attrName = tabBtn.getAttribute('data-item')
-    let tabs = document.querySelectorAll('.product-list__item-tab')
-    let tabBtns = document.querySelectorAll('.product-list__item-tab-head__item')
+    // Находим родительский контейнер товара
+    let productItem = tabBtn.closest('.product-list__item')
+    
+    // Ищем вкладки и кнопки только в рамках текущего товара
+    let tabs = productItem.querySelectorAll('.product-list__item-tab')
+    let tabBtns = productItem.querySelectorAll('.product-list__item-tab-head__item')
+    
+    // Убираем активный класс у всех кнопок вкладок текущего товара
     tabBtns.forEach((btn) => {
         btn.classList.remove('product-list__item-tab-head__item_active')
     })
+    
+    // Добавляем активный класс к нажатой кнопке
     tabBtn.classList.add('product-list__item-tab-head__item_active')
+    
+    // Переключаем вкладки только для текущего товара
     tabs.forEach((tab) => {
         tab.classList.remove('product-list__item-tab_active')
         if(tab.getAttribute('data-item') == attrName) {
