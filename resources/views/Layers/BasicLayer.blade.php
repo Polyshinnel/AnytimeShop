@@ -12,7 +12,7 @@
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/splide/js/splide.min.js"></script>
     <script src="https://yastatic.net/share2/share.js" async></script>
-    <link rel="stylesheet" href="/assets/css/style.min.css?ver=11261">
+    <link rel="stylesheet" href="/assets/css/style.css?ver=11261">
 
 
     <link rel="canonical" href="@yield('canonical')">

@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Инициализация бегущей строки
+    if(document.querySelector('.ticker-main')) {
+        initTicker();
+    }
+
     if(document.querySelector('.more-text')) {
         addReadmoreHeight();
         let moreTextBtns = document.querySelectorAll('.more-text')
@@ -966,6 +971,26 @@ let setCurrentCountry = () => {
 }
 
 setCurrentCountry()
+
+// Функция инициализации бегущей строки
+const initTicker = () => {
+    const tickerContent = document.querySelector('.ticker-content');
+    if (!tickerContent) return;
+
+    // Клонируем содержимое для бесконечной прокрутки
+    const originalContent = tickerContent.innerHTML;
+    tickerContent.innerHTML = originalContent + originalContent;
+
+    // Рассчитываем скорость анимации на основе длины контента
+    const contentWidth = tickerContent.scrollWidth / 2;
+    const animationDuration = (contentWidth / 25); // 25px в секунду (в 2 раза медленнее)
+
+    // Применяем CSS переменную для длительности анимации
+    tickerContent.style.setProperty('--animation-duration', `${animationDuration}s`);
+    
+    // Обновляем CSS анимацию
+    tickerContent.style.animation = `ticker var(--animation-duration) linear infinite`;
+}
 
 let updatePhoneByCountry = (country) => {
     let phoneLink = document.querySelector('.header-head-total-phone a')
