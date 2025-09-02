@@ -2,12 +2,6 @@
     <div class="box-container">
         <div class="footer-col">
             <span class="footer-logo">Anytime</span>
-
-            <div class="support-block">
-                <a href="tel://+375173360870">+375 17 336-08-70</a>
-                <p>Служба поддержки</p>
-            </div>
-            <!--/.support-block-->
         </div>
         <!-- /.footer-col -->
 
@@ -57,15 +51,15 @@
 
             <div class="footer-col__social">
                 <a href="https://t.me/DiabetAnyTime">
-                    <img src="/assets/img/icons/footer/tg.svg" alt="">
+                    <img src="/assets/img/icons/footer/tg-color.svg" alt="Telegram">
                 </a>
 
                 <a href="https://www.instagram.com/diabet_anytime?igsh=MWJ0bTJnNzRzZmZiZA==">
-                    <img src="/assets/img/icons/footer/inst.svg" alt="">
+                    <img src="/assets/img/icons/footer/inst-color.svg" alt="Instagram">
                 </a>
 
                 <a href="https://wa.me/+375173360870">
-                    <img src="/assets/img/icons/footer/wh.svg" alt="">
+                    <img src="/assets/img/icons/footer/wh-color.svg" alt="WhatsApp">
                 </a>
             </div>
             <!-- /.footer-col__social -->

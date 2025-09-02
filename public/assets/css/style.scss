@@ -2403,6 +2403,16 @@ body{
             display: flex;
             align-items: center;
             column-gap: 15px;
+
+            img{
+                width: 30px;
+                height: 30px;
+                transition: 0.3s all ease;
+            }
+
+            a:hover img{
+                transform: scale(1.1);
+            }
         }
 
         .yuwell-footer-logo{

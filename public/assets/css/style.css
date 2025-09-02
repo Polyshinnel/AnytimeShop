@@ -184,7 +184,8 @@ body {
 
 .header-nav {
   display: flex;
-  column-gap: 26px;
+  -moz-column-gap: 26px;
+       column-gap: 26px;
 }
 .header-nav a {
   color: #fff;
@@ -410,7 +411,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  column-gap: 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 .cart-block__header-icons .share-block-btn {
   cursor: pointer;
@@ -440,7 +442,8 @@ body {
 }
 .cart-item .cart-item__img img {
   width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .cart-item .cart-item__controls {
   width: calc(100% - 110px);
@@ -727,7 +730,8 @@ body {
 .advantages-list-item .advantages-list-item__img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .advantages-list-item .advantages-list-item__text {
   width: 100%;
@@ -760,7 +764,8 @@ body {
 .advantages-list-item_mod .advantages-list-item__img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media (max-width: 580px) {
@@ -950,7 +955,8 @@ body {
 .product-list__item-img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .product-list__item-text {
@@ -966,7 +972,8 @@ body {
 
 .product-list__item-tab-head {
   display: flex;
-  column-gap: 3px;
+  -moz-column-gap: 3px;
+       column-gap: 3px;
 }
 .product-list__item-tab-head .product-list__item-tab-head__item {
   width: 200px;
@@ -1277,7 +1284,8 @@ body {
 .product-app-block__img-text-block img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .product-app-block__img-text-block__cover {
@@ -1331,7 +1339,8 @@ body {
   margin-top: 20px;
   display: flex;
   align-items: flex-start;
-  column-gap: 14px;
+  -moz-column-gap: 14px;
+       column-gap: 14px;
 }
 
 .app-block {
@@ -1696,7 +1705,8 @@ body {
   margin-top: 20px;
   display: flex;
   align-items: flex-start;
-  column-gap: 20px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
 }
 .follow-app .follow-app-phone {
   position: absolute;
@@ -1822,7 +1832,8 @@ body {
 .reviews .review-item .avatar-block img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .reviews .review-item .review-item__text {
   height: 340px;
@@ -1897,7 +1908,8 @@ body {
 }
 .need-help .need-help__list .need-help__list-item .img-box img {
   height: 80px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .need-help .need-help__list .need-help__list-item h3 {
   font-size: 28px;
@@ -1991,7 +2003,8 @@ body {
 .manage-glukoza-level .manage-glukoza-level-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 580px) {
@@ -2081,7 +2094,8 @@ body {
   margin-top: 15px;
   display: flex;
   align-items: flex-start;
-  column-gap: 80px;
+  -moz-column-gap: 80px;
+       column-gap: 80px;
 }
 .footer .footer-col .footer-col__menu ul {
   list-style: none;
@@ -2109,7 +2123,16 @@ body {
   margin-top: 25px;
   display: flex;
   align-items: center;
-  column-gap: 15px;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.footer .footer-col .footer-col__social img {
+  width: 30px;
+  height: 30px;
+  transition: 0.3s all ease;
+}
+.footer .footer-col .footer-col__social a:hover img {
+  transform: scale(1.1);
 }
 .footer .footer-col .yuwell-footer-logo {
   margin-top: 15px;
@@ -2190,7 +2213,8 @@ body {
 .page-title-block .page-title-block__wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .page-title-block .page-title-block__wrapper .page-title__block-bg {
   position: absolute;
@@ -2435,7 +2459,8 @@ body {
 #main-carousel .splide__slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 #thumbnail-carousel {
@@ -2449,7 +2474,8 @@ body {
 #thumbnail-carousel .splide__slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 #thumbnail-carousel .splide__slide.is-visible.is-active {
   border: 1px solid #ccc;
@@ -2581,7 +2607,8 @@ body {
 .order-list__item .product-col .img-box img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .order-list__item .product-col h3 {
   margin-left: 40px;
@@ -2841,7 +2868,8 @@ body {
 }
 .instructions-block .instructions-block__item img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .instructions-block .instructions-block__item .instructions-block__item-wrapper {
   width: 100%;
@@ -3063,7 +3091,8 @@ body {
   .success-wrapper .success-wrapper-img img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 @media (max-width: 560px) {
@@ -3107,7 +3136,8 @@ body {
 }
 .consult-form .consult-form__img img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .consult-form_mod {
@@ -3313,6 +3343,9 @@ body {
   font-size: 16px;
   height: 30px;
 }
+.contacts-page-block__form .contacts-page-block__form-unit input[type=text]::-moz-placeholder {
+  color: #fff;
+}
 .contacts-page-block__form .contacts-page-block__form-unit input[type=text]::placeholder {
   color: #fff;
 }
@@ -3499,7 +3532,8 @@ body {
 .sertificates-list-item .sertificates-list-item-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 580px) {
@@ -3554,8 +3588,10 @@ body {
 .news-item .news-item__img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .news-item .news-item__text {
   height: 150px;
@@ -3594,7 +3630,8 @@ body {
 .news-text .news-text__thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .news-text h1 {
   font-size: 24px;
@@ -3652,7 +3689,9 @@ body {
   transform-origin: left center; /* Точка трансформации слева */
   z-index: 1;
   cursor: grab; /* Курсор для перетаскивания */
-  user-select: none; /* Запрет выделения текста */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* Запрет выделения текста */
   display: flex;
   background: #fff;
   align-items: center;
@@ -3908,6 +3947,4 @@ body {
   .header-head-total-phone a {
     font-size: 14px;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
