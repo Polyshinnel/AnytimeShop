@@ -34,7 +34,7 @@
 
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/inputmask.min.js"></script>
-    <script src="/assets/js/main.js?ver=12312"></script>
+    <script src="/assets/js/main.js?ver=4312123"></script>
 
     @yield('scripts')
 

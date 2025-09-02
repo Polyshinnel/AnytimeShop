@@ -36,7 +36,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/assets/js/inputmask.min.js"></script>
-    <script src="/assets/js/main.js?ver=11231"></script>
+    <script src="/assets/js/main.js?ver=1241231"></script>
 
     <!-- Yandex.Metrika counter -->
     <script>
