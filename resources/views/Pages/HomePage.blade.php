@@ -26,7 +26,7 @@
         </div>
 
         <section class="advantages-list-block">
-            <h2>Получайте мгновенную информацию о том, как питание, активность и инсулин влияют на уровень глюкозы</h2>
+            <h2>Контроль глюкозы без проколов и лишнего стресса. Уведомления, история, аналитика — в приложении на вашем телефоне.</h2>
 
             <div class="advantages-list">
                 <div class="advantages-list-item">
@@ -35,9 +35,7 @@
                     </div>
 
                     <div class="advantages-list-item__text">
-                        <h3>Непрерывность</h3>
-                        <p>14 дней постоянного мониторинга, 24 часа в сутки.
-                            Сенсор автоматически передаёт данные без пропусков и пауз.</p>
+                        <p>14 дней постоянного мониторинга, 24 часа в сутки.</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
@@ -48,62 +46,41 @@
                     </div>
 
                     <div class="advantages-list-item__text">
-                        <h3>Комфорт</h3>
-                        <p>Безболезненно, без проколов пальца.
-                            Ультратонкий сенсор легко носится на теле и почти не ощущается — даже во сне.</p>
+                        <p>Без проколов пальца.</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
 
-                <div class="advantages-list-item advantages-list-item_big">
+                <div class="advantages-list-item">
                     <div class="advantages-list-item__img">
                         <img src="/assets/img/icons/adv/3.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
-                        <h3>Надежность</h3>
-                        <p>Надёжная фиксация — душ, спорт, жара.
-                            CT3 крепко держится до 14 дней даже при активном образе жизни и в воде.</p>
+                        <p>Надёжная фиксация и водостойкость</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
 
 
-                <div class="advantages-list-item advantages-list-item_big">
+                <div class="advantages-list-item">
                     <div class="advantages-list-item__img">
                         <img src="/assets/img/icons/adv/4.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
-                        <h3>Точность</h3>
-                        <p>Клинически подтверждённая точность — MARD всего 7.9%.
-                            Особенно точен при низких значениях глюкозы — когда это критически важно.</p>
+                        <p>Клиническая точность MARD 9.07%</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
 
-                <div class="advantages-list-item advantages-list-item_big">
-                    <div class="advantages-list-item__img">
-                        <img src="/assets/img/icons/adv/5.svg" alt="Иконка" title="Иконка | AnyTime">
-                    </div>
-
-                    <div class="advantages-list-item__text">
-                        <h3>Простота</h3>
-                        <p>Все данные — на вашем телефоне.
-                            Контроль уровня глюкозы в реальном времени + мгновенный обмен с близкими и врачом.</p>
-                    </div>
-                </div>
-                <!-- /.advantages-list-item -->
-
-                <div class="advantages-list-item advantages-list-item_big">
+                <div class="advantages-list-item">
                     <div class="advantages-list-item__img">
                         <img src="/assets/img/icons/adv/6.svg" alt="Иконка" title="Иконка | AnyTime">
                     </div>
 
                     <div class="advantages-list-item__text">
-                        <h3>Система оповещений</h3>
-                        <p>Умные сигналы при отклонении глюкозы.
-                            Настраиваемые тревоги сообщают о слишком низком или высоком уровне сахара.</p>
+                        <p>Уведомления при отклонении уровная глюкозы</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
