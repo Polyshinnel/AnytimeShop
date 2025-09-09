@@ -41,8 +41,9 @@
     <!-- /.custom-select -->
 
     <ul class="header-menu-nav header-menu-nav_margin">
+        <li class="hidden"><a href="/">Главная</a></li>
         <li class="hidden"><a href="/catalog">Каталог</a></li>
-        <li class="hidden"><a href="/documentation">Документация</a></li>
+        <li class="hidden"><a href="/documentation">Инструкции</a></li>
         <li class="hidden"><a href="/delivery">Доставка и оплата</a></li>
         <li class="hidden"><a href="/faq">FAQ</a></li>
         <li class="hidden nav-bottom"><a href="/contacts">Контакты</a></li>
