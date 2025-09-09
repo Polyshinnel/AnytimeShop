@@ -215,7 +215,7 @@
                     };
                 case '₽':
                     return {
-                        currency: 'Rub',
+                        currency: 'RUB',
                         servicePath: 'https://diabet-anytime.ru/service.php'
                     };
                 case '₸':
