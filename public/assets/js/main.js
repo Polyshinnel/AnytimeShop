@@ -598,6 +598,16 @@ if(deliveryMethod){
                 group.querySelector('input[type="checkbox"]').checked = false
             })
             item.querySelector('input[type="checkbox"]').checked = true
+            
+            // Показываем/скрываем карту СДЭК в зависимости от выбранного метода
+            let cdekMapContainer = document.getElementById('cdek-map-container')
+            let selectedMethod = item.querySelector('input[type="checkbox"]').dataset.item
+            
+            if(selectedMethod === 'Sdec' && cdekMapContainer) {
+                cdekMapContainer.style.display = 'block'
+            } else if(cdekMapContainer) {
+                cdekMapContainer.style.display = 'none'
+            }
         })
     })
 }

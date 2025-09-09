@@ -145,6 +145,11 @@
                         <!-- /.delivery-method -->
                     </div>
                     <!-- /.delivery-methods -->
+
+                    <!-- Скрытый блок с картой СДЭК -->
+                    <div id="cdek-map-container" class="cdek-map-container" style="display: none;">
+                        <div id="cdek-map"></div>
+                    </div>
                 </div>
                 <!-- /.delivery-block -->
 
@@ -168,7 +173,7 @@
                     <div class="total-block">
                         <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
                         @if($currency_info)
-                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="https://www.nbrb.by/">Национального банка Республики беларусь</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN</p>
+                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="https://www.nbrb.by/">Национального банка Республики беларусь</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <b><span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN.</b> Общая стоимость при конвертации может немного отличаться в зависимости от Вашего банка эмитета</p>
                         @endif
                         <button class="confirm-order">Оформить заказ</button>
                     </div>
@@ -191,4 +196,35 @@
         </div>
         <!--/.box-container-->
     </main>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@cdek-it/widget@3" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    let cdekWidget = null;
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Инициализируем виджет СДЭК только когда карта становится видимой
+        const initCdekWidget = () => {
+            if (!cdekWidget && document.getElementById('cdek-map')) {
+                cdekWidget = new window.CDEKWidget({ 
+                    from: 'Минск', 
+                    root: 'cdek-map', 
+                    apiKey: 'ddda0c18-95d3-493d-820b-a7304bc04e5c', 
+                    servicePath: 'https://diabet-anytime.com/service.php', 
+                    defaultLocation: 'Минск' 
+                });
+            }
+        };
+        
+        // Добавляем обработчик для показа карты СДЭК
+        const cdekCheckbox = document.getElementById('sdec');
+        if (cdekCheckbox) {
+            cdekCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    initCdekWidget();
+                }
+            });
+        }
+    });
+    </script>
 @endsection
