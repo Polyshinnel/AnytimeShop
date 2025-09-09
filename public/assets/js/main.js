@@ -602,11 +602,20 @@ if(deliveryMethod){
             // Показываем/скрываем карту СДЭК в зависимости от выбранного метода
             let cdekMapContainer = document.getElementById('cdek-map-container')
             let selectedMethod = item.querySelector('input[type="checkbox"]').dataset.item
+            let priceAddElement = document.querySelector('.price-add')
             
             if(selectedMethod === 'Sdec' && cdekMapContainer) {
                 cdekMapContainer.style.display = 'block'
+                // Сбрасываем цену доставки при выборе СДЭК - она будет обновлена через виджет
+                if(priceAddElement) {
+                    priceAddElement.textContent = '0 BYN'
+                }
             } else if(cdekMapContainer) {
                 cdekMapContainer.style.display = 'none'
+                // При выборе других методов доставки устанавливаем цену 0
+                if(priceAddElement) {
+                    priceAddElement.textContent = '0 BYN'
+                }
             }
         })
     })
@@ -743,12 +752,22 @@ if(orderList) {
     orderList.addEventListener('click', (event) => {
         if (event.target.classList.contains('button-minus')) {
             let productId = event.target.dataset.product
-            removeFromCart(productId, 1)
+            removeFromCart(productId, 1).then(() => {
+                // Обновляем виджет СДЭК после изменения корзины
+                if (window.updateCdekWidget) {
+                    window.updateCdekWidget();
+                }
+            })
         }
 
         if (event.target.classList.contains('button-plus')) {
             let productId = event.target.dataset.product
-            addToCart(productId, 1)
+            addToCart(productId, 1).then(() => {
+                // Обновляем виджет СДЭК после изменения корзины
+                if (window.updateCdekWidget) {
+                    window.updateCdekWidget();
+                }
+            })
         }
 
         if (event.target.classList.contains('delete-order-btn')) {
@@ -756,7 +775,12 @@ if(orderList) {
             let quantity = parseInt(event.target.dataset.quantity)
             console.log(productId)
             console.log(quantity)
-            removeFromCart(productId, quantity)
+            removeFromCart(productId, quantity).then(() => {
+                // Обновляем виджет СДЭК после изменения корзины
+                if (window.updateCdekWidget) {
+                    window.updateCdekWidget();
+                }
+            })
         }
     });
 }

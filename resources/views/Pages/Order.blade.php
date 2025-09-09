@@ -203,18 +203,99 @@
     let cdekWidget = null;
     
     document.addEventListener('DOMContentLoaded', () => {
+        // Функция для получения товаров из корзины
+        const getCartGoods = () => {
+            const goods = [];
+            const orderItems = document.querySelectorAll('.order-list__item');
+            
+            orderItems.forEach(item => {
+                const quantityInput = item.querySelector('.product-order-quantity');
+                const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
+                
+                // Добавляем товар в массив столько раз, сколько его количество в корзине
+                for (let i = 0; i < quantity; i++) {
+                    goods.push({
+                        width: 10,    // ширина в см
+                        height: 10,   // высота в см
+                        length: 5,    // длина в см
+                        weight: 1000  // вес в граммах
+                    });
+                }
+            });
+            
+            console.log('Товары для СДЭК:', goods.length, 'штук');
+            return goods;
+        };
+        
         // Инициализируем виджет СДЭК только когда карта становится видимой
         const initCdekWidget = () => {
             if (!cdekWidget && document.getElementById('cdek-map')) {
+                const cartGoods = getCartGoods();
+                
                 cdekWidget = new window.CDEKWidget({ 
                     from: 'Минск', 
                     root: 'cdek-map', 
                     apiKey: 'ddda0c18-95d3-493d-820b-a7304bc04e5c', 
                     servicePath: 'https://diabet-anytime.com/service.php', 
-                    defaultLocation: 'Минск' 
+                    defaultLocation: 'Минск',
+                    goods: cartGoods,
+                    onCalculate(tariffs, address) {
+                        // Обработчик расчета стоимости доставки
+                        console.log('Расчет доставки:', tariffs, address);
+                        
+                        // Находим минимальную цену среди всех доступных тарифов
+                        let minPrice = null;
+                        let currency = 'BYN'; // валюта по умолчанию
+                        
+                        // Проверяем тарифы для офисов
+                        if (tariffs.office && tariffs.office.length > 0) {
+                            tariffs.office.forEach(tariff => {
+                                if (minPrice === null || tariff.delivery_sum < minPrice) {
+                                    minPrice = tariff.delivery_sum;
+                                }
+                            });
+                        }
+                        
+                        // Проверяем тарифы для доставки до двери
+                        if (tariffs.door && tariffs.door.length > 0) {
+                            tariffs.door.forEach(tariff => {
+                                if (minPrice === null || tariff.delivery_sum < minPrice) {
+                                    minPrice = tariff.delivery_sum;
+                                }
+                            });
+                        }
+                        
+                        // Обновляем цену доставки в интерфейсе
+                        const priceAddElement = document.querySelector('.price-add');
+                        if (priceAddElement && minPrice !== null) {
+                            priceAddElement.textContent = `${minPrice} ${currency}`;
+                        }
+                    },
+                    onChoose(deliveryMode, tariff, address) {
+                        // Обработчик выбора доставки
+                        console.log('Выбрана доставка:', deliveryMode, tariff, address);
+                        
+                        // Обновляем цену доставки на выбранный тариф
+                        const priceAddElement = document.querySelector('.price-add');
+                        if (priceAddElement && tariff) {
+                            priceAddElement.textContent = `${tariff.delivery_sum} BYN`;
+                        }
+                    }
                 });
             }
         };
+        
+        // Функция для обновления виджета при изменении корзины
+        const updateCdekWidget = () => {
+            if (cdekWidget) {
+                const cartGoods = getCartGoods();
+                cdekWidget.resetParcels(); // Сбрасываем текущие посылки
+                cdekWidget.addParcel(cartGoods); // Добавляем новые посылки
+            }
+        };
+        
+        // Делаем функцию доступной глобально
+        window.updateCdekWidget = updateCdekWidget;
         
         // Добавляем обработчик для показа карты СДЭК
         const cdekCheckbox = document.getElementById('sdec');
@@ -222,6 +303,19 @@
             cdekCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     initCdekWidget();
+                }
+            });
+        }
+        
+        // Добавляем обработчики для обновления виджета при изменении количества товаров
+        const orderList = document.querySelector('.order-list');
+        if (orderList) {
+            orderList.addEventListener('input', function(event) {
+                if (event.target.classList.contains('product-order-quantity')) {
+                    // Обновляем виджет при изменении количества товара
+                    setTimeout(() => {
+                        updateCdekWidget();
+                    }, 100); // Небольшая задержка для корректного обновления
                 }
             });
         }
