@@ -203,6 +203,34 @@
     let cdekWidget = null;
     
     document.addEventListener('DOMContentLoaded', () => {
+        // Функция для определения валюты и настроек СДЭК
+        const getCurrencySettings = () => {
+            const currency = "{{ $pageInfo['currency'] }}";
+            
+            switch(currency) {
+                case 'BYN':
+                    return {
+                        currency: 'BYN',
+                        servicePath: 'https://diabet-anytime.com/service.php'
+                    };
+                case '₽':
+                    return {
+                        currency: 'Rub',
+                        servicePath: 'https://diabet-anytime.ru/service.php'
+                    };
+                case '₸':
+                    return {
+                        currency: 'KZT',
+                        servicePath: 'https://diabet-anytime.kz/service.php'
+                    };
+                default:
+                    return {
+                        currency: 'BYN',
+                        servicePath: 'https://diabet-anytime.com/service.php'
+                    };
+            }
+        };
+        
         // Функция для получения товаров из корзины
         const getCartGoods = () => {
             const goods = [];
@@ -231,21 +259,22 @@
         const initCdekWidget = () => {
             if (!cdekWidget && document.getElementById('cdek-map')) {
                 const cartGoods = getCartGoods();
+                const currencySettings = getCurrencySettings();
                 
                 cdekWidget = new window.CDEKWidget({ 
                     from: {
                         country_code: 'BY',
                         city: 'Минск',
                         postal_code: 220037,
-                        code: 157,
+                        code: 9220,
                         address: 'ул. Филимонова, 25Г, офис 1000',
                     },
                     root: 'cdek-map', 
                     apiKey: 'ddda0c18-95d3-493d-820b-a7304bc04e5c', 
-                    servicePath: 'https://diabet-anytime.com/service.php', 
+                    servicePath: currencySettings.servicePath, 
                     defaultLocation: 'Минск',
                     goods: cartGoods,
-                    currency: 'BYN',
+                    currency: currencySettings.currency,
 
                     onCalculate(tariffs, address) {
                         // Обработчик расчета стоимости доставки
@@ -253,7 +282,8 @@
                         
                         // Находим минимальную цену среди всех доступных тарифов
                         let minPrice = null;
-                        let currency = 'BYN'; // валюта по умолчанию
+                        const currencySettings = getCurrencySettings();
+                        let currency = currencySettings.currency;
                         
                         // Проверяем тарифы для офисов
                         if (tariffs.office && tariffs.office.length > 0) {
@@ -286,7 +316,8 @@
                         // Обновляем цену доставки на выбранный тариф
                         const priceAddElement = document.querySelector('.price-add');
                         if (priceAddElement && tariff) {
-                            priceAddElement.textContent = `${tariff.delivery_sum} BYN`;
+                            const currencySettings = getCurrencySettings();
+                            priceAddElement.textContent = `${tariff.delivery_sum} ${currencySettings.currency}`;
                         }
                     }
                 });
