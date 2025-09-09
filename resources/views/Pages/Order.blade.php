@@ -233,12 +233,20 @@
                 const cartGoods = getCartGoods();
                 
                 cdekWidget = new window.CDEKWidget({ 
-                    from: 'Минск', 
+                    from: {
+                        country_code: 'BY',
+                        city: 'Минск',
+                        postal_code: 220037,
+                        code: 157,
+                        address: 'ул. Филимонова, 25Г, офис 1000',
+                    },
                     root: 'cdek-map', 
                     apiKey: 'ddda0c18-95d3-493d-820b-a7304bc04e5c', 
                     servicePath: 'https://diabet-anytime.com/service.php', 
                     defaultLocation: 'Минск',
                     goods: cartGoods,
+                    currency: 'BYN',
+
                     onCalculate(tariffs, address) {
                         // Обработчик расчета стоимости доставки
                         console.log('Расчет доставки:', tariffs, address);
