@@ -167,7 +167,9 @@
 
                     <div class="total-block">
                         <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
-
+                        @if($currency_info)
+                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="https://www.nbrb.by/">Национального банка Республики беларусь</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN</p>
+                        @endif
                         <button class="confirm-order">Оформить заказ</button>
                     </div>
                 </div>

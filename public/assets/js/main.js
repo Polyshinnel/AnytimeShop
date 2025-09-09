@@ -345,10 +345,16 @@ const refreshOrder = (data) => {
                     <!--/.order-list__item-->
                 `
             })
-            let totalBlock = document.querySelector('.total-block b')
+            let totalBlock = document.querySelector('.total-block h3')
             totalBlock.classList.remove('promo')
             document.getElementById('promocode').value = ''
             document.querySelector('.promocode-block-text').style.display = 'none'
+            let currencyInfo = document.querySelector('.currency_info')
+            if(currencyInfo) {
+                let currencyInfoMoney = parseFloat(currencyInfo.dataset.money)
+                let currencyInfoTotal = Number((data['total'] / currencyInfoMoney).toFixed(2))
+                document.querySelector('.currency_info .total_change').innerHTML = currencyInfoTotal
+            }
             totalBlock.innerHTML = ''
             totalBlock.innerHTML += `<b>Итого:</b> <span>${data['total']} ${data['currency']}</span>`
         }

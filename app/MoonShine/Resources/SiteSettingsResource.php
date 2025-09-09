@@ -37,6 +37,9 @@ class SiteSettingsResource extends ModelResource
             Text::make('Валюта', 'currency'),
             Text::make('Формат телефона', 'number_format'),
             Text::make('Цена доставки', 'delivery_price'),
+            Switcher::make('Обменник', 'exchange'),
+            Text::make('Код валюты', 'currency_code'),
+            Text::make('Количество денег', 'money_quantity'),
             Switcher::make('Включен', 'active')
         ];
     }
@@ -52,7 +55,10 @@ class SiteSettingsResource extends ModelResource
                 Text::make('Валюта', 'currency'),
                 Text::make('Формат телефона', 'number_format'),
                 Text::make('Цена доставки', 'delivery_price'),
-                Switcher::make('Включен', 'active')
+                Switcher::make('Включен', 'active'),
+                Switcher::make('Обменник', 'exchange'),
+                Text::make('Код валюты', 'currency_code'),
+                Text::make('Количество денег', 'money_quantity'),
             ])
         ];
     }

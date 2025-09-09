@@ -3917,5 +3917,14 @@ body {
     font-size: 14px;
   }
 }
+.currency_info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+.currency_info a {
+  color: #666;
+  text-decoration: underline;
+}
 
 /*# sourceMappingURL=style.css.map */
