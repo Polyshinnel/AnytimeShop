@@ -117,11 +117,7 @@ class CommonProductService
 
                 $productFullLink = sprintf('%s/catalog/%s', $host, $product->id);
 
-                $productImg = null;
-                if($product->category_id == 1)
-                {
-                    $productImg = $host.'/storage/'.$productImages[0]['img'];
-                }
+                $productImg = $host.'/storage/'.$productImages[0]['img'];
 
                 $productDescription = strip_tags($product->description);
 
