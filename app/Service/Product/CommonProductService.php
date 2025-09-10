@@ -116,13 +116,19 @@ class CommonProductService
                 }
 
                 $productFullLink = sprintf('%s/catalog/%s', $host, $product->id);
-                $productImg = $host.'/storage/'.$productImages[0]['img'];
+
+                $productImg = null;
+                if($product->category_id == 1)
+                {
+                    $productImg = $host.'/storage/'.$productImages[0]['img'];
+                }
+
                 $productDescription = strip_tags($product->description);
 
                 $link = $product->seo_url ?? $product->id;
                 $thumbnail = $productImages[0]['img'] ?? '';
 
-                    $prodArr = [
+                $prodArr = [
                     'id' => $product->id,
                     'link' => '/catalog/'.$link,
                     'name' => $product->name,
@@ -140,7 +146,10 @@ class CommonProductService
                     'link-to-product-img' => $productImg,
                     'product-link-description' => $productDescription,
                     'meta_title' => $product->meta_title ?? $product->name,
-                    'meta_description' => $product->meta_description ?? $productDescription
+                    'meta_description' => $product->meta_description ?? $productDescription,
+                    'category_id' => $product->category_id,
+                    'benefit' => $product->benefit,
+                    'economy' => $product->economy
                 ];
 
                 if($host)
@@ -148,7 +157,11 @@ class CommonProductService
                     $prodArr['full_link'] = $host.$prodArr['link'];
                 }
 
-                $formattedProducts[] = $prodArr;
+                // Добавляем товары с category_id = 1 (основные товары) и category_id = 2 (стартовые наборы)
+                if($product->category_id == 1 || $product->category_id == 2)
+                {
+                    $formattedProducts[] = $prodArr;
+                }
             }
         }
 

@@ -23,6 +23,11 @@ class DeleteCartController extends Controller
         $cart = session('cart');
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity');
+        
+        // Инициализируем корзину как пустой массив, если она не существует
+        if (!$cart) {
+            $cart = [];
+        }
 
         if(isset($cart[$productId]))
         {

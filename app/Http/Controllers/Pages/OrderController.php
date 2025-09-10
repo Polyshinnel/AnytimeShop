@@ -41,30 +41,34 @@ class OrderController extends Controller
         $currencyInfo = [];
 
 
-        if($pageInfo['exchange'])
+        if($cartInfo)
         {
-            if($pageInfo['currency_code'] == '456')
+            if($pageInfo['exchange'])
             {
-                $currencyInfo = $this->ruExchangeApi->getExchange();
-                $link = 'https://cbr.ru/';
-                $linkTitle = 'Центральный банк Российской Федерации';
-            }
+                if($pageInfo['currency_code'] == '456')
+                {
+                    $currencyInfo = $this->ruExchangeApi->getExchange();
+                    $link = 'https://cbr.ru/';
+                    $linkTitle = 'Центральный банк Российской Федерации';
+                }
 
-            if($pageInfo['currency_code'] == '459')
-            {
-                $currencyInfo = $this->kzExchangeApi->getExchange();
-                $link = 'https://www.nationalbank.kz/ru';
-                $linkTitle = 'Национальный банк Казахстана';
-            }
+                if($pageInfo['currency_code'] == '459')
+                {
+                    $currencyInfo = $this->kzExchangeApi->getExchange();
+                    $link = 'https://www.nationalbank.kz/ru';
+                    $linkTitle = 'Национальный банк Казахстана';
+                }
 
-            if($currencyInfo)
-            {
-                $currencyInfo['total_bel_exchange'] = round($cartInfo['total'] / $currencyInfo['money'], 2);
-                $currencyInfo['current_date'] = Carbon::now()->format('d.m.Y H:i');
-                $currencyInfo['link'] = $link;
-                $currencyInfo['link_title'] = $linkTitle;
+                if($currencyInfo)
+                {
+                    $currencyInfo['total_bel_exchange'] = round($cartInfo['total'] / $currencyInfo['money'], 2);
+                    $currencyInfo['current_date'] = Carbon::now()->format('d.m.Y H:i');
+                    $currencyInfo['link'] = $link;
+                    $currencyInfo['link_title'] = $linkTitle;
+                }
             }
         }
+
 
         return view('Pages.Order', ['cart' => $cartInfo, 'pageInfo' => $pageInfo, 'currency_info' => $currencyInfo]);
     }

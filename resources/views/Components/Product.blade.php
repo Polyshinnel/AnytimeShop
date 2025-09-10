@@ -1,3 +1,4 @@
+@if($product['category_id'] == 1)
 <div class="product-list__item">
     <div class="product-list__item-img">
         <a href="{{$product['link']}}"><img src="/storage/{{$product['thumbnail']}}" alt="{{$product['name']}}" title="{{$product['name']}} | AnyTime"></a>
@@ -163,7 +164,8 @@
         <!--/.product-list__item-btns-->
     </div>
     <!-- /.product-list__item-text -->
-
-
 </div>
 <!--/.product-list__item-->
+@endif
+
+

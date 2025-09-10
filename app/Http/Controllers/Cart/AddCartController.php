@@ -27,7 +27,11 @@ class AddCartController extends Controller
             $quantity = 0;
         }
         $cart = Session::get('cart');
-
+        
+        // Инициализируем корзину как пустой массив, если она не существует
+        if (!$cart) {
+            $cart = [];
+        }
 
         if(isset($cart[$productId])) {
             $cart[$productId]['quantity'] = $cart[$productId]['quantity'] + $quantity;

@@ -60,6 +60,9 @@ class ProductResource extends ModelResource
                 Textarea::make('Meta Description', 'meta_description')->nullable(),
                 Text::make('Seo url', 'seo_url')->nullable(),
                 TinyMce::make('Описание', 'description'),
+                Text::make('Экономия', 'economy')->nullable(),
+                Text::make('Выгода', 'benefit')->nullable(),
+                Text::make('Категория', 'category_id'),
                 HasMany::make('Изображения', 'images', resource: ProductImagesResource::class)
                 ->fields([
                     ID::make('ID', 'id'),

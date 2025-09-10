@@ -541,6 +541,24 @@ if(productShopBtns)
     })
 }
 
+let starterPackageShopBtns = document.querySelectorAll('.starter-package-btn-shop')
+if(starterPackageShopBtns)
+{
+    starterPackageShopBtns.forEach((item) => {
+        item.addEventListener('click', function () {
+            let productId = item.dataset.product
+            let originalText = item.innerText
+            item.innerText = 'Добавлено!'
+            addToCart(productId, 1)
+            
+            // Возвращаем оригинальный текст через 2 секунды
+            setTimeout(() => {
+                item.innerText = originalText
+            }, 2000)
+        })
+    })
+}
+
 let shopOnleClickBtns = document.querySelectorAll('.product-shop__oneclick')
 if(shopOnleClickBtns)
 {

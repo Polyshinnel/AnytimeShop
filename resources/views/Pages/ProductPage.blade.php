@@ -103,6 +103,14 @@
                                     <div class="product-list__item-description-block__text active">
                                         {!! $product['decription'] !!}
                                     </div>
+
+                                    @if($product['category_id'] == 2)
+                                        @if($product['economy'] == 0)
+                                            <p class="product-list__item-description-block__text-economy">Нет экономии по сравнению с нашими индивидуальными ценами. В сравнении с ценами конкурентов — экономия {{$product['benefit'] }} {{$pageInfo['currency']}}, так как требуется новый трансмиттер каждые 2 недели.</p>
+                                        @else
+                                            <p class="product-list__item-description-block__text-economy">Экономия по сравнению {{$product['economy'] }} {{$pageInfo['currency']}} с нашими индивидуальными ценами. В сравнении с ценами конкурентов — экономия {{$product['benefit'] }} {{$pageInfo['currency']}}.</p>
+                                        @endif
+                                    @endif
                                 </div>
                                 <!--/.product-list__item-description-block-->
 
@@ -157,12 +165,22 @@
 
     <script>
         document.addEventListener( 'DOMContentLoaded', function () {
+            // Определяем высоту карусели в зависимости от размера экрана
+            var carouselHeight;
+            if (window.innerWidth > 580) {
+                carouselHeight = 500;
+            } else if (window.innerWidth > 376) {
+                carouselHeight = 250;
+            } else {
+                carouselHeight = 200;
+            }
+            
             var main = new Splide( '#main-carousel', {
                 type      : 'fade',
                 rewind    : true,
                 pagination: false,
                 arrows    : false,
-                fixedHeight : 300,
+                fixedHeight : carouselHeight,
             } );
 
             var thumbnails = new Splide( '#thumbnail-carousel', {
@@ -174,9 +192,15 @@
                 isNavigation: true,
                 arrows    : false,
                 breakpoints : {
-                    600: {
+                    580: {
                         fixedWidth : 60,
-                        fixedHeight: 44,
+                        fixedHeight: 40,
+                        gap        : 5,
+                    },
+                    376: {
+                        fixedWidth : 50,
+                        fixedHeight: 35,
+                        gap        : 3,
                     },
                 },
             } );
