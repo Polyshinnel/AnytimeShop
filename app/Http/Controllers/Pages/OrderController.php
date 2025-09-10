@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Api\BelExchangeApi;
+use App\Api\KzExchangeApi;
+use App\Api\RuExchangeApi;
 use App\Http\Controllers\Controller;
 use App\Models\SiteSettings;
 use App\Service\Cart\CommonCartService;
@@ -12,11 +14,20 @@ class OrderController extends Controller
 {
     private CommonCartService $commonCartService;
     private BelExchangeApi $belExchangeApi;
+    private RuExchangeApi $ruExchangeApi;
+    private KzExchangeApi $kzExchangeApi;
 
-    public function __construct(CommonCartService $commonCartService, BelExchangeApi $belExchangeApi)
+    public function __construct(
+        CommonCartService $commonCartService,
+        BelExchangeApi $belExchangeApi,
+        RuExchangeApi $ruExchangeApi,
+        KzExchangeApi $kzExchangeApi
+    )
     {
         $this->commonCartService = $commonCartService;
         $this->belExchangeApi = $belExchangeApi;
+        $this->ruExchangeApi = $ruExchangeApi;
+        $this->kzExchangeApi = $kzExchangeApi;
     }
 
     public function __invoke()
@@ -28,13 +39,30 @@ class OrderController extends Controller
         }
         $pageInfo = SiteSettings::where('active', true)->first();
         $currencyInfo = [];
+
+
         if($pageInfo['exchange'])
         {
-            $currencyInfo = $this->belExchangeApi->getPriceByMoney($pageInfo['currency_code'], $pageInfo['money_quantity']);
+            if($pageInfo['currency_code'] == '456')
+            {
+                $currencyInfo = $this->ruExchangeApi->getExchange();
+                $link = 'https://cbr.ru/';
+                $linkTitle = 'Центральный банк Российской Федерации';
+            }
+
+            if($pageInfo['currency_code'] == '459')
+            {
+                $currencyInfo = $this->kzExchangeApi->getExchange();
+                $link = 'https://www.nationalbank.kz/ru';
+                $linkTitle = 'Национальный банк Казахстана';
+            }
+
             if($currencyInfo)
             {
                 $currencyInfo['total_bel_exchange'] = round($cartInfo['total'] / $currencyInfo['money'], 2);
                 $currencyInfo['current_date'] = Carbon::now()->format('d.m.Y H:i');
+                $currencyInfo['link'] = $link;
+                $currencyInfo['link_title'] = $linkTitle;
             }
         }
 

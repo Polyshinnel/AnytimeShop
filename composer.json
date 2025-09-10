@@ -14,7 +14,8 @@
         "moonshine/moonshine": "^3.4",
         "moonshine/ru": "^1.0",
         "moonshine/tinymce": "^1.0",
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "ext-simplexml": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

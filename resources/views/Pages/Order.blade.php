@@ -173,7 +173,7 @@
                     <div class="total-block">
                         <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
                         @if($currency_info)
-                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="https://www.nbrb.by/">Национального банка Республики беларусь</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <b><span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN.</b> Общая стоимость при конвертации может немного отличаться в зависимости от Вашего банка эмитета</p>
+                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="{{$currency_info['link']}}">{{$currency_info['link_title']}}</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <b><span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN.</b> Общая стоимость при конвертации может немного отличаться в зависимости от Вашего банка эмитета</p>
                         @endif
                         <button class="confirm-order">Оформить заказ</button>
                     </div>
@@ -201,12 +201,12 @@
 
     <script type="text/javascript">
     let cdekWidget = null;
-    
+
     document.addEventListener('DOMContentLoaded', () => {
         // Функция для определения валюты и настроек СДЭК
         const getCurrencySettings = () => {
             const currency = "{{ $pageInfo['currency'] }}";
-            
+
             switch(currency) {
                 case 'BYN':
                     return {
@@ -230,16 +230,16 @@
                     };
             }
         };
-        
+
         // Функция для получения товаров из корзины
         const getCartGoods = () => {
             const goods = [];
             const orderItems = document.querySelectorAll('.order-list__item');
-            
+
             orderItems.forEach(item => {
                 const quantityInput = item.querySelector('.product-order-quantity');
                 const quantity = quantityInput ? parseInt(quantityInput.value) || 1 : 1;
-                
+
                 // Добавляем товар в массив столько раз, сколько его количество в корзине
                 for (let i = 0; i < quantity; i++) {
                     goods.push({
@@ -250,18 +250,18 @@
                     });
                 }
             });
-            
+
             console.log('Товары для СДЭК:', goods.length, 'штук');
             return goods;
         };
-        
+
         // Инициализируем виджет СДЭК только когда карта становится видимой
         const initCdekWidget = () => {
             if (!cdekWidget && document.getElementById('cdek-map')) {
                 const cartGoods = getCartGoods();
                 const currencySettings = getCurrencySettings();
-                
-                cdekWidget = new window.CDEKWidget({ 
+
+                cdekWidget = new window.CDEKWidget({
                     from: {
                         country_code: 'BY',
                         city: 'Минск',
@@ -269,9 +269,9 @@
                         code: 9220,
                         address: 'ул. Филимонова, 25Г, офис 1000',
                     },
-                    root: 'cdek-map', 
-                    apiKey: 'ddda0c18-95d3-493d-820b-a7304bc04e5c', 
-                    servicePath: currencySettings.servicePath, 
+                    root: 'cdek-map',
+                    apiKey: 'ddda0c18-95d3-493d-820b-a7304bc04e5c',
+                    servicePath: currencySettings.servicePath,
                     defaultLocation: 'Минск',
                     goods: cartGoods,
                     currency: currencySettings.currency,
@@ -279,12 +279,12 @@
                     onCalculate(tariffs, address) {
                         // Обработчик расчета стоимости доставки
                         console.log('Расчет доставки:', tariffs, address);
-                        
+
                         // Находим минимальную цену среди всех доступных тарифов
                         let minPrice = null;
                         const currencySettings = getCurrencySettings();
                         let currency = currencySettings.currency;
-                        
+
                         // Проверяем тарифы для офисов
                         if (tariffs.office && tariffs.office.length > 0) {
                             tariffs.office.forEach(tariff => {
@@ -293,7 +293,7 @@
                                 }
                             });
                         }
-                        
+
                         // Проверяем тарифы для доставки до двери
                         if (tariffs.door && tariffs.door.length > 0) {
                             tariffs.door.forEach(tariff => {
@@ -302,7 +302,7 @@
                                 }
                             });
                         }
-                        
+
                         // Обновляем цену доставки в интерфейсе
                         const priceAddElement = document.querySelector('.price-add');
                         if (priceAddElement && minPrice !== null) {
@@ -312,7 +312,7 @@
                     onChoose(deliveryMode, tariff, address) {
                         // Обработчик выбора доставки
                         console.log('Выбрана доставка:', deliveryMode, tariff, address);
-                        
+
                         // Обновляем цену доставки на выбранный тариф
                         const priceAddElement = document.querySelector('.price-add');
                         if (priceAddElement && tariff) {
@@ -323,7 +323,7 @@
                 });
             }
         };
-        
+
         // Функция для обновления виджета при изменении корзины
         const updateCdekWidget = () => {
             if (cdekWidget) {
@@ -332,10 +332,10 @@
                 cdekWidget.addParcel(cartGoods); // Добавляем новые посылки
             }
         };
-        
+
         // Делаем функцию доступной глобально
         window.updateCdekWidget = updateCdekWidget;
-        
+
         // Добавляем обработчик для показа карты СДЭК
         const cdekCheckbox = document.getElementById('sdec');
         if (cdekCheckbox) {
@@ -345,7 +345,7 @@
                 }
             });
         }
-        
+
         // Добавляем обработчики для обновления виджета при изменении количества товаров
         const orderList = document.querySelector('.order-list');
         if (orderList) {
