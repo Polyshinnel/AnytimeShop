@@ -173,7 +173,7 @@
                     <div class="total-block">
                         <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
                         @if($currency_info)
-                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="{{$currency_info['link']}}">{{$currency_info['link_title']}}</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <b><span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN.</b> Общая стоимость при конвертации может немного отличаться в зависимости от Вашего банка эмитета</p>
+                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="{{$currency_info['link']}}">{{$currency_info['link_title']}}</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <b><span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN.</b> Фактическая сумма оплаты в BYN зависит от курса вашего банка-эмитента</p>
                         @endif
                         <button class="confirm-order">Оформить заказ</button>
                     </div>
