@@ -12,7 +12,7 @@
     <script src="/assets/js/fancybox/fancybox.umd.js"></script>
     <script src="/assets/js/splide/js/splide.min.js"></script>
     <script src="https://yastatic.net/share2/share.js" async></script>
-    <link rel="stylesheet" href="/assets/css/style.css?ver=11261">
+    <link rel="stylesheet" href="/assets/css/style.css?ver=234123">
 
 
     <link rel="canonical" href="@yield('canonical')">
@@ -36,7 +36,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/assets/js/inputmask.min.js"></script>
-    <script src="/assets/js/main.js?ver=1241231"></script>
+    <script src="/assets/js/main.js?ver=123124"></script>
 
     <!-- Yandex.Metrika counter -->
     <script>
