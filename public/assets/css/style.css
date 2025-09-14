@@ -3012,6 +3012,7 @@ body {
 }
 .instructions-block .instructions-block__item img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .instructions-block .instructions-block__item .instructions-block__item-wrapper {

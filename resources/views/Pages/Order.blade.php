@@ -45,6 +45,10 @@
                             <textarea id="cart-comment" name="cart-comment" placeholder="Комментарий"></textarea>
                         </div>
                         <!-- /.input-block -->
+
+                        <!-- Скрытые поля для доставки СДЭК -->
+                        <input type="hidden" id="delivery_addr" name="delivery_addr" value="">
+                        <input type="hidden" id="delivery_city" name="delivery_city" value="">
                     </div>
                     <!-- /.personal-data-cart__block -->
 
@@ -319,6 +323,33 @@
                             const currencySettings = getCurrencySettings();
                             priceAddElement.textContent = `${tariff.delivery_sum} ${currencySettings.currency}`;
                         }
+
+                        // Заполняем скрытые поля данными о доставке
+                        const deliveryAddrField = document.getElementById('delivery_addr');
+                        const deliveryCityField = document.getElementById('delivery_city');
+                        
+                        if (deliveryAddrField && deliveryCityField && address) {
+                            // Определяем тип доставки
+                            const deliveryType = deliveryMode === 'office' ? 'Офис' : 'До двери';
+                            
+                            // Формируем адрес доставки
+                            let fullAddress = `${deliveryType}: `;
+                            if (address.address) {
+                                fullAddress += address.address;
+                            }
+                            if (address.city) {
+                                fullAddress += `, ${address.city}`;
+                            }
+                            
+                            // Заполняем поля
+                            deliveryAddrField.value = fullAddress;
+                            deliveryCityField.value = address.city || '';
+                            
+                            console.log('Заполнены поля доставки:', {
+                                delivery_addr: fullAddress,
+                                delivery_city: address.city
+                            });
+                        }
                     }
                 });
             }
@@ -338,10 +369,30 @@
 
         // Добавляем обработчик для показа карты СДЭК
         const cdekCheckbox = document.getElementById('sdec');
+        const selfPickupCheckbox = document.getElementById('self-pickup');
+        
         if (cdekCheckbox) {
             cdekCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     initCdekWidget();
+                } else {
+                    // Сбрасываем поля доставки при отключении СДЭК
+                    const deliveryAddrField = document.getElementById('delivery_addr');
+                    const deliveryCityField = document.getElementById('delivery_city');
+                    if (deliveryAddrField) deliveryAddrField.value = '';
+                    if (deliveryCityField) deliveryCityField.value = '';
+                }
+            });
+        }
+        
+        if (selfPickupCheckbox) {
+            selfPickupCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    // Сбрасываем поля доставки при выборе самовывоза
+                    const deliveryAddrField = document.getElementById('delivery_addr');
+                    const deliveryCityField = document.getElementById('delivery_city');
+                    if (deliveryAddrField) deliveryAddrField.value = '';
+                    if (deliveryCityField) deliveryCityField.value = '';
                 }
             });
         }

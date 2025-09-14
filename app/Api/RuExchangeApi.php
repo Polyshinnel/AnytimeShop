@@ -29,7 +29,6 @@ class RuExchangeApi
                     {
                         $valuteValue = (string)$valute->Value;
                         $valuteValue = str_replace(',', '.', $valuteValue);
-                        $valuteValue = round($valuteValue, 2);
                         return [
                             'curr_code' => 'BYN',
                             'money' => (string)$valuteValue

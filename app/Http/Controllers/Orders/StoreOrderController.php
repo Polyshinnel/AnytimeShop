@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Orders;
 
+use App\Api\BitrixApi;
 use App\Api\WebpayApi;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Telegram\TelegramController;
@@ -19,13 +20,15 @@ class StoreOrderController extends Controller
     private CommonOrderService $commonOrderService;
     private TelegramController $telegramController;
     private WebpayApi $webpayApi;
+    private BitrixApi $bitrixApi;
 
     public function __construct(
         CommonCartService $commonCartService,
         CommonPromocodeService $promocodeService,
         CommonOrderService $commonOrderService,
         TelegramController $telegramController,
-        WebpayApi $webpayApi
+        WebpayApi $webpayApi,
+        BitrixApi $bitrixApi
     )
     {
         $this->commonCartService = $commonCartService;
@@ -33,6 +36,7 @@ class StoreOrderController extends Controller
         $this->commonOrderService = $commonOrderService;
         $this->telegramController = $telegramController;
         $this->webpayApi = $webpayApi;
+        $this->bitrixApi = $bitrixApi;
     }
 
 
@@ -68,10 +72,18 @@ class StoreOrderController extends Controller
             }
         }
 
+        $deliveryAddr = '220014 Минск, Филимонова 25Г-1000';
+        $city = 'Минск';
+
+        if(isset($data['delivery_addr'])) {
+            $deliveryAddr = $data['delivery_addr'];
+            $city = $data['delivery_city'];
+        }
+
         $deliveryArr = [
             'method_name' => $data['delivery'],
-            'delivery_addr' => '220014 Минск, Филимонова 25Г-1000',
-            'city' => 'Минск'
+            'delivery_addr' => $deliveryAddr,
+            'city' => $city
         ];
 
 

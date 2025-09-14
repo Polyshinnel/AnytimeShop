@@ -708,6 +708,27 @@ let checkDelivery = () => {
     return delivery
 }
 
+let getDeliveryData = () => {
+    let deliveryData = {
+        method: checkDelivery()
+    }
+    
+    // Если выбрана доставка СДЭК, добавляем данные о доставке
+    if (deliveryData.method === 'Sdec') {
+        const deliveryAddrField = document.getElementById('delivery_addr')
+        const deliveryCityField = document.getElementById('delivery_city')
+        
+        if (deliveryAddrField && deliveryAddrField.value) {
+            deliveryData.delivery_addr = deliveryAddrField.value
+        }
+        if (deliveryCityField && deliveryCityField.value) {
+            deliveryData.delivery_city = deliveryCityField.value
+        }
+    }
+    
+    return deliveryData
+}
+
 let sendOrder = async (obj) => {
     let {data} = await axios.post('/order/create', obj)
     
@@ -757,7 +778,18 @@ if(confirmOrder) {
             {
                 obj['promocode'] = promocode
             }
-            obj['delivery'] = checkDelivery()
+            // Получаем данные о доставке
+            let deliveryData = getDeliveryData()
+            obj['delivery'] = deliveryData.method
+            
+            // Если есть данные о доставке СДЭК, добавляем их
+            if (deliveryData.delivery_addr) {
+                obj['delivery_addr'] = deliveryData.delivery_addr
+            }
+            if (deliveryData.delivery_city) {
+                obj['delivery_city'] = deliveryData.delivery_city
+            }
+            
             sendOrder(obj)
         }
     })

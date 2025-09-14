@@ -9,6 +9,7 @@ use App\Models\OrderDetail;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\OrderDelivery;
 
 class NotifyController extends Controller
 {
@@ -36,13 +37,25 @@ class NotifyController extends Controller
 
             $orderName = sprintf('ORDER_BY-',$order->id);
 
+            $orderDelivery = OrderDelivery::where('order_id', $order->id)->first();
+            $deliveryType = 'Самовывоз из офиса AnyTime';
+            if($orderDelivery->delivery_type_id == 1)
+            {
+                $deliveryType = 'Сдэк';
+            }
+
+            $deliveryAddr = $orderDelivery->full_address;
+            $deliveryCity = $orderDelivery->city;
+
+            $deliveryText = $deliveryType . ': ' . $deliveryAddr . ', ' . $deliveryCity;
+
             $createBitrixDeal = [
                 'title' => 'Новый заказ с сайта '.$orderName,
                 'username' => $order->customer_name,
                 'phone' => $order->customer_phone,
                 'email' => $order->customer_email,
                 'promocode' => $order->promocode,
-                'comments' => $order->customer_comment
+                'comments' => $order->customer_comment . ' ' . $deliveryText
             ];
 
             $productsArr = [];
