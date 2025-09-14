@@ -334,10 +334,16 @@
                             
                             // Формируем адрес доставки
                             let fullAddress = `${deliveryType}: `;
-                            if (address.address) {
+                            
+                            // Используем поле 'name' для адреса (как в ответе API)
+                            if (address.name) {
+                                fullAddress += address.name;
+                            } else if (address.address) {
                                 fullAddress += address.address;
                             }
-                            if (address.city) {
+                            
+                            // Добавляем город, если он не включен в адрес
+                            if (address.city && !fullAddress.includes(address.city)) {
                                 fullAddress += `, ${address.city}`;
                             }
                             
@@ -347,7 +353,8 @@
                             
                             console.log('Заполнены поля доставки:', {
                                 delivery_addr: fullAddress,
-                                delivery_city: address.city
+                                delivery_city: address.city,
+                                original_address: address
                             });
                         }
                     }
