@@ -39,13 +39,27 @@
             <div class="instructions-block__item">
                 <div class="video-container">
                     <video id="instruction-video" poster="/assets/img/specialists/video-instruction.webp" controls>
-                        <source src="/storage/materials/video-instruction.mp4" type="video/mp4">
+                        <source src="/storage/materials/video-instruction1.mp4" type="video/mp4">
                         Ваш браузер не поддерживает видео.
                     </video>
                 </div>
                 <div class="instructions-block__item-wrapper">
                     <p>Видео-инструкция</p>
-                    <button onclick="playVideo()">Смотреть видео</button>
+                    <button onclick="playVideo('instruction-video')">Смотреть видео</button>
+                </div>
+            </div>
+            <!-- /.instructions-block__item -->
+
+            <div class="instructions-block__item">
+                <div class="video-container">
+                    <video id="review-video" poster="/assets/img/specialists/review.png" controls>
+                        <source src="/storage/materials/video-rewiew.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+                <div class="instructions-block__item-wrapper">
+                    <p>Видео-обзор</p>
+                    <button onclick="playVideo('review-video')">Смотреть видео</button>
                 </div>
             </div>
             <!-- /.instructions-block__item -->
@@ -73,8 +87,8 @@
     </style>
 
     <script>
-        function playVideo() {
-            const video = document.getElementById('instruction-video');
+        function playVideo(videoId) {
+            const video = document.getElementById(videoId);
             const videoItem = video.closest('.instructions-block__item');
             const wrapper = videoItem.querySelector('.instructions-block__item-wrapper');
             
@@ -89,20 +103,26 @@
 
         // Автоматически скрываем блок с текстом при начале воспроизведения
         document.addEventListener('DOMContentLoaded', function() {
-            const video = document.getElementById('instruction-video');
-            const videoItem = video.closest('.instructions-block__item');
-            const wrapper = videoItem.querySelector('.instructions-block__item-wrapper');
+            const videoIds = ['instruction-video', 'review-video'];
             
-            if (video && wrapper) {
-                video.addEventListener('play', function() {
-                    wrapper.style.display = 'none';
-                });
-                
-                // Показываем блок с текстом при паузе
-                video.addEventListener('pause', function() {
-                    wrapper.style.display = 'flex';
-                });
-            }
+            videoIds.forEach(function(videoId) {
+                const video = document.getElementById(videoId);
+                if (video) {
+                    const videoItem = video.closest('.instructions-block__item');
+                    const wrapper = videoItem.querySelector('.instructions-block__item-wrapper');
+                    
+                    if (wrapper) {
+                        video.addEventListener('play', function() {
+                            wrapper.style.display = 'none';
+                        });
+                        
+                        // Показываем блок с текстом при паузе
+                        video.addEventListener('pause', function() {
+                            wrapper.style.display = 'flex';
+                        });
+                    }
+                }
+            });
         });
     </script>
 @endsection
