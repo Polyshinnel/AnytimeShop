@@ -34,6 +34,7 @@ class CatalogPageController extends BasePageController
         $pageInfo = $this->getPageInfo($request);
         $products = $this->commonProductService->getProducts();
         $additionalProducts = $this->additionalProductService->getAdditionalProducts();
+
         return view('Pages.CatalogPage', [
             'products' => $products,
             'cart' => $cartInfo,

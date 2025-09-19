@@ -24,6 +24,7 @@
                     <li><a href="/news">Новости</a></li>
                     <li><a href="/help">Помощь</a></li>
                     <li><a href="/refund">Политика возврата</a></li>
+                    <li><a href="/policy">Политика конфиденциальности</a></li>
                 </ul>
             </div>
             <!-- /.footer-col__menu -->

@@ -78,18 +78,19 @@
                                 </div>
                                 <!--/.product-col-->
 
-                                @if($product['new_price'])
-                                    <div class="price-col">
-                                        <span>{{$product['total_price']}} {{$pageInfo['currency']}}</span>
-                                        <p>{{$product['total_new']}} {{$pageInfo['currency']}}</p>
+                                <div class="price-col">
+                                    <div class="price-col__wrapper">
+                                        @if($product['new_price'])
+                                            <span>{{$product['total_price']}} {{$pageInfo['currency']}}</span>
+                                            <p>{{$product['total_new']}} {{$pageInfo['currency']}}</p>
+                                        @else
+                                            <p>{{$product['total_price']}} {{$pageInfo['currency']}}</p>
+                                        @endif
                                     </div>
-                                    <!-- /.price-col -->
-                                @else
-                                    <div class="price-col">
-                                        <p>{{$product['total_price']}} {{$pageInfo['currency']}}</p>
-                                    </div>
-                                    <!-- /.price-col -->
-                                @endif
+                                    @if($product['currency_total'])
+                                        <p class="currency-total-product">{{$product['currency_total']}} BYN</p>
+                                    @endif
+                                </div>
 
                                 <div class="quantity-col">
                                     <div class="quantity-block">
@@ -177,7 +178,7 @@
                     <div class="total-block">
                         <h3><b>Итого</b> <span>{{$cart['total']}} {{$pageInfo['currency']}}</span></h3>
                         @if($currency_info)
-                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="{{$currency_info['link']}}">{{$currency_info['link_title']}}</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <b><span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN.</b> Фактическая сумма оплаты в BYN зависит от курса вашего банка-эмитента</p>
+                            <p class="currency_info" data-money="{{$currency_info['money']}}">По данным <a href="{{$currency_info['link']}}">{{$currency_info['link_title']}}</a> на {{$currency_info['current_date']}} стоимость заказа в Беларусских рублях составляет <b><span class="total_change">{{$currency_info['total_bel_exchange']}}</span> BYN.</b> Фактическая сумма оплаты зависит от валюты вашей платежной карты и курса банка-эмитента</p>
                         @endif
                         <button class="confirm-order">Оформить заказ</button>
                     </div>
@@ -327,30 +328,30 @@
                         // Заполняем скрытые поля данными о доставке
                         const deliveryAddrField = document.getElementById('delivery_addr');
                         const deliveryCityField = document.getElementById('delivery_city');
-                        
+
                         if (deliveryAddrField && deliveryCityField && address) {
                             // Определяем тип доставки
                             const deliveryType = deliveryMode === 'office' ? 'Офис' : 'До двери';
-                            
+
                             // Формируем адрес доставки
                             let fullAddress = `${deliveryType}: `;
-                            
+
                             // Используем поле 'name' для адреса (как в ответе API)
                             if (address.name) {
                                 fullAddress += address.name;
                             } else if (address.address) {
                                 fullAddress += address.address;
                             }
-                            
+
                             // Добавляем город, если он не включен в адрес
                             if (address.city && !fullAddress.includes(address.city)) {
                                 fullAddress += `, ${address.city}`;
                             }
-                            
+
                             // Заполняем поля
                             deliveryAddrField.value = fullAddress;
                             deliveryCityField.value = address.city || '';
-                            
+
                             console.log('Заполнены поля доставки:', {
                                 delivery_addr: fullAddress,
                                 delivery_city: address.city,
@@ -377,7 +378,7 @@
         // Добавляем обработчик для показа карты СДЭК
         const cdekCheckbox = document.getElementById('sdec');
         const selfPickupCheckbox = document.getElementById('self-pickup');
-        
+
         if (cdekCheckbox) {
             cdekCheckbox.addEventListener('change', function() {
                 if (this.checked) {
@@ -391,7 +392,7 @@
                 }
             });
         }
-        
+
         if (selfPickupCheckbox) {
             selfPickupCheckbox.addEventListener('change', function() {
                 if (this.checked) {

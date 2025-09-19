@@ -65,10 +65,30 @@ class OrderController extends Controller
                     $currencyInfo['current_date'] = Carbon::now()->format('d.m.Y H:i');
                     $currencyInfo['link'] = $link;
                     $currencyInfo['link_title'] = $linkTitle;
+
+                    $newCart = [
+                        'total' => $cartInfo['total'],
+                        'total_sale' => $cartInfo['total_sale'],
+                        'count' => 2,
+                        'currency' => 'Р'
+                    ];
+
+                    foreach ($cartInfo['products'] as $product)
+                    {
+                        $product['currency_total'] = round($product['total_price'] / $currencyInfo['money'], 2);
+                        if($product['total_new'])
+                        {
+                            $product['currency_total'] = round($product['total_new'] / $currencyInfo['money'], 2);
+                        }
+
+                        $newCart['products'][] = $product;
+                    }
+
+                    $cartInfo = $newCart;
+
                 }
             }
         }
-
 
         return view('Pages.Order', ['cart' => $cartInfo, 'pageInfo' => $pageInfo, 'currency_info' => $currencyInfo]);
     }

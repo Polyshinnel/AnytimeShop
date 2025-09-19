@@ -3196,10 +3196,6 @@ body{
 
     .price-col{
         width: 150px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-
 
         span{
             color: var(--primary-color);
@@ -3210,6 +3206,20 @@ body{
         p{
             font-weight: 500;
         }
+
+        .price-col__wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+
+        .currency-total-product{
+            margin-top: 3px;
+            font-size: 12px;
+            color: #666;
+        }
+        
     }
 
     .quantity-col{
