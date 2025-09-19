@@ -87,8 +87,10 @@
                                             <p>{{$product['total_price']}} {{$pageInfo['currency']}}</p>
                                         @endif
                                     </div>
-                                    @if($product['currency_total'])
-                                        <p class="currency-total-product">{{$product['currency_total']}} BYN</p>
+                                    @if($currency_info)
+                                        @if($product['currency_total'])
+                                            <p class="currency-total-product">{{$product['currency_total']}} BYN</p>
+                                        @endif
                                     @endif
                                 </div>
 
