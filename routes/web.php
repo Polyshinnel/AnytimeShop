@@ -25,6 +25,7 @@ use App\Http\Controllers\Pages\SertificatesPageController;
 use App\Http\Controllers\Pages\SuccessPageController;
 use App\Http\Controllers\Promocode\PromocodeController;
 use App\Http\Controllers\SendFormDataController;
+use App\Http\Controllers\Api\DadataAddressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,4 +67,6 @@ Route::post('/promocode', PromocodeController::class);
 Route::post('/order/create', StoreOrderController::class);
 
 Route::post('/send-form', SendFormDataController::class);
+
+Route::post('/api/dadata/address', [DadataAddressController::class, 'suggest']);
 

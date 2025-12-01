@@ -75,9 +75,9 @@ class StoreOrderController extends Controller
         $deliveryAddr = '220014 Минск, Филимонова 25Г-1000';
         $city = 'Минск';
 
-        if(isset($data['delivery_addr'])) {
+        if(isset($data['delivery_addr']) && !empty($data['delivery_addr'])) {
             $deliveryAddr = $data['delivery_addr'];
-            $city = $data['delivery_city'];
+            $city = $data['delivery_city'] ?? 'Минск';
         }
 
         $deliveryArr = [

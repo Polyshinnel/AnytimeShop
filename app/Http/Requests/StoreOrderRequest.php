@@ -29,7 +29,9 @@ class StoreOrderRequest extends FormRequest
             'promocode' => 'string|nullable',
             'delivery' => 'string',
             'delivery_addr' => 'string|nullable',
-            'delivery_city' => 'string|nullable'
+            'delivery_city' => 'string|nullable',
+            'custom_delivery_addr' => 'string|nullable',
+            'custom_delivery_city' => 'string|nullable'
         ];
     }
 }

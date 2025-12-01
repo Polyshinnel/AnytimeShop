@@ -150,8 +150,35 @@
                             </div>
                         </div>
                         <!-- /.delivery-method -->
+
+                        <div class="delivery-method">
+                            <div class="delivery-method__checkbox">
+                                <label for="custom-delivery">
+                                    <input type="checkbox" name="custom-delivery" id="custom-delivery" data-item="Custom">
+                                    <span></span>
+                                </label>
+                            </div>
+
+                            <div class="delivery-method-text">
+                                <p>Доставка под ваши предпочтения</p>
+                            </div>
+                        </div>
+                        <!-- /.delivery-method -->
                     </div>
                     <!-- /.delivery-methods -->
+
+                    <!-- Скрытый блок с полем адреса для доставки под предпочтения -->
+                    <div id="custom-delivery-container" class="custom-delivery-container" style="display: none;">
+                        <div class="input-block">
+                            <label for="custom-delivery-address">Адрес доставки</label>
+                            <input type="text" id="custom-delivery-address" name="custom-delivery-address" placeholder="Введите адрес доставки" autocomplete="off">
+                            <span class="err-text">Введите адрес доставки!</span>
+                            <div id="dadata-suggestions" class="dadata-suggestions"></div>
+                        </div>
+                        <p class="custom-delivery-note">Менеджер свяжется с Вами</p>
+                        <input type="hidden" id="custom_delivery_addr" name="custom_delivery_addr" value="">
+                        <input type="hidden" id="custom_delivery_city" name="custom_delivery_city" value="">
+                    </div>
 
                     <!-- Скрытый блок с картой СДЭК -->
                     <div id="cdek-map-container" class="cdek-map-container" style="display: none;">
@@ -161,12 +188,6 @@
                 <!-- /.delivery-block -->
 
                 <div class="total-calculate">
-                    <div class="add-params">
-                        <span>Доставка</span>
-                        <div class="line"></div>
-                        <span class="price-add">0 {{$pageInfo['currency']}}</span>
-                    </div>
-
                     <div class="promocode-block">
                         <input type="text" name="promocode" id="promocode" placeholder="Введите промокод">
                         <button id="send-promocode">
@@ -380,17 +401,38 @@
         // Добавляем обработчик для показа карты СДЭК
         const cdekCheckbox = document.getElementById('sdec');
         const selfPickupCheckbox = document.getElementById('self-pickup');
+        const customDeliveryCheckbox = document.getElementById('custom-delivery');
+        const customDeliveryContainer = document.getElementById('custom-delivery-container');
+        const cdekMapContainer = document.getElementById('cdek-map-container');
+
+        // Функция для сброса всех способов доставки кроме выбранного
+        const resetOtherDeliveryMethods = (excludeId) => {
+            if (excludeId !== 'sdec' && cdekCheckbox) {
+                cdekCheckbox.checked = false;
+                if (cdekMapContainer) cdekMapContainer.style.display = 'none';
+            }
+            if (excludeId !== 'self-pickup' && selfPickupCheckbox) {
+                selfPickupCheckbox.checked = false;
+            }
+            if (excludeId !== 'custom-delivery' && customDeliveryCheckbox) {
+                customDeliveryCheckbox.checked = false;
+                if (customDeliveryContainer) customDeliveryContainer.style.display = 'none';
+            }
+        };
 
         if (cdekCheckbox) {
             cdekCheckbox.addEventListener('change', function() {
                 if (this.checked) {
+                    resetOtherDeliveryMethods('sdec');
                     initCdekWidget();
+                    if (cdekMapContainer) cdekMapContainer.style.display = 'block';
                 } else {
                     // Сбрасываем поля доставки при отключении СДЭК
                     const deliveryAddrField = document.getElementById('delivery_addr');
                     const deliveryCityField = document.getElementById('delivery_city');
                     if (deliveryAddrField) deliveryAddrField.value = '';
                     if (deliveryCityField) deliveryCityField.value = '';
+                    if (cdekMapContainer) cdekMapContainer.style.display = 'none';
                 }
             });
         }
@@ -398,11 +440,122 @@
         if (selfPickupCheckbox) {
             selfPickupCheckbox.addEventListener('change', function() {
                 if (this.checked) {
+                    resetOtherDeliveryMethods('self-pickup');
                     // Сбрасываем поля доставки при выборе самовывоза
+                    const deliveryAddrField = document.getElementById('delivery_addr');
+                    const deliveryCityField = document.getElementById('delivery_city');
+                    const customAddrField = document.getElementById('custom_delivery_addr');
+                    const customCityField = document.getElementById('custom_delivery_city');
+                    if (deliveryAddrField) deliveryAddrField.value = '';
+                    if (deliveryCityField) deliveryCityField.value = '';
+                    if (customAddrField) customAddrField.value = '';
+                    if (customCityField) customCityField.value = '';
+                    if (cdekMapContainer) cdekMapContainer.style.display = 'none';
+                    if (customDeliveryContainer) customDeliveryContainer.style.display = 'none';
+                }
+            });
+        }
+
+        if (customDeliveryCheckbox) {
+            customDeliveryCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    resetOtherDeliveryMethods('custom-delivery');
+                    if (customDeliveryContainer) customDeliveryContainer.style.display = 'block';
+                    if (cdekMapContainer) cdekMapContainer.style.display = 'none';
+                    // Сбрасываем поля доставки СДЭК
                     const deliveryAddrField = document.getElementById('delivery_addr');
                     const deliveryCityField = document.getElementById('delivery_city');
                     if (deliveryAddrField) deliveryAddrField.value = '';
                     if (deliveryCityField) deliveryCityField.value = '';
+                } else {
+                    if (customDeliveryContainer) customDeliveryContainer.style.display = 'none';
+                    const customAddrField = document.getElementById('custom_delivery_addr');
+                    const customCityField = document.getElementById('custom_delivery_city');
+                    const customAddressInput = document.getElementById('custom-delivery-address');
+                    if (customAddrField) customAddrField.value = '';
+                    if (customCityField) customCityField.value = '';
+                    if (customAddressInput) customAddressInput.value = '';
+                    const suggestionsDiv = document.getElementById('dadata-suggestions');
+                    if (suggestionsDiv) suggestionsDiv.innerHTML = '';
+                }
+            });
+        }
+
+        // Автозаполнение адреса через Dadata
+        const customAddressInput = document.getElementById('custom-delivery-address');
+        const suggestionsDiv = document.getElementById('dadata-suggestions');
+        let suggestionTimeout = null;
+
+        if (customAddressInput && suggestionsDiv) {
+            customAddressInput.addEventListener('input', function() {
+                const query = this.value.trim();
+                
+                // Очищаем предыдущий таймаут
+                if (suggestionTimeout) {
+                    clearTimeout(suggestionTimeout);
+                }
+
+                // Очищаем подсказки если поле пустое
+                if (query.length < 3) {
+                    suggestionsDiv.innerHTML = '';
+                    suggestionsDiv.style.display = 'none';
+                    return;
+                }
+
+                // Задержка перед запросом (debounce)
+                suggestionTimeout = setTimeout(() => {
+                    fetch('/api/dadata/address', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
+                        },
+                        body: JSON.stringify({ query: query })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.suggestions && data.suggestions.length > 0) {
+                            suggestionsDiv.innerHTML = '';
+                            data.suggestions.forEach((suggestion, index) => {
+                                const item = document.createElement('div');
+                                item.className = 'dadata-suggestion-item';
+                                item.textContent = suggestion.value || suggestion.unrestricted_value;
+                                item.addEventListener('click', () => {
+                                    customAddressInput.value = suggestion.value || suggestion.unrestricted_value;
+                                    const customAddrField = document.getElementById('custom_delivery_addr');
+                                    const customCityField = document.getElementById('custom_delivery_city');
+                                    
+                                    if (customAddrField) {
+                                        customAddrField.value = suggestion.value || suggestion.unrestricted_value;
+                                    }
+                                    
+                                    if (customCityField && suggestion.data) {
+                                        customCityField.value = suggestion.data.city || suggestion.data.region || '';
+                                    }
+                                    
+                                    suggestionsDiv.innerHTML = '';
+                                    suggestionsDiv.style.display = 'none';
+                                });
+                                suggestionsDiv.appendChild(item);
+                            });
+                            suggestionsDiv.style.display = 'block';
+                        } else {
+                            suggestionsDiv.innerHTML = '';
+                            suggestionsDiv.style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Ошибка при получении подсказок:', error);
+                        suggestionsDiv.innerHTML = '';
+                        suggestionsDiv.style.display = 'none';
+                    });
+                }, 300);
+            });
+
+            // Скрываем подсказки при клике вне поля
+            document.addEventListener('click', function(e) {
+                if (!customAddressInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
+                    suggestionsDiv.style.display = 'none';
                 }
             });
         }

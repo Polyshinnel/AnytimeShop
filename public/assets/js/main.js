@@ -726,6 +726,19 @@ let getDeliveryData = () => {
         }
     }
     
+    // Если выбрана доставка под предпочтения, добавляем данные о доставке
+    if (deliveryData.method === 'Custom') {
+        const customAddrField = document.getElementById('custom_delivery_addr')
+        const customCityField = document.getElementById('custom_delivery_city')
+        
+        if (customAddrField && customAddrField.value) {
+            deliveryData.delivery_addr = customAddrField.value
+        }
+        if (customCityField && customCityField.value) {
+            deliveryData.delivery_city = customCityField.value
+        }
+    }
+    
     return deliveryData
 }
 
@@ -788,6 +801,27 @@ if(confirmOrder) {
             }
             if (deliveryData.delivery_city) {
                 obj['delivery_city'] = deliveryData.delivery_city
+            }
+            
+            // Валидация адреса для доставки под предпочтения
+            if (deliveryData.method === 'Custom') {
+                const customAddressInput = document.getElementById('custom-delivery-address')
+                const customAddrField = document.getElementById('custom_delivery_addr')
+                
+                if (!customAddrField || !customAddrField.value || customAddrField.value.trim().length < 5) {
+                    if (customAddressInput) {
+                        const errText = customAddressInput.parentNode.querySelector('.err-text')
+                        if (errText) {
+                            errText.style.display = 'block'
+                        }
+                    }
+                    return
+                } else {
+                    const errText = customAddressInput?.parentNode.querySelector('.err-text')
+                    if (errText) {
+                        errText.style.display = 'none'
+                    }
+                }
             }
             
             sendOrder(obj)

@@ -29,4 +29,26 @@ class DadataApi
         $response = $this->requestTool->requestTool('POST', $url, json_encode($data), $headers);
         return $response['response'];
     }
+
+    public function suggestAddress(string $query, int $count = 10): ?array
+    {
+        $headers = [
+            "Content-Type: application/json",
+            "Authorization: Token {$this->apiKey}",
+            "X-Secret: {$this->secret}",
+        ];
+        $url = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address';
+        $data = [
+            'query' => $query,
+            'count' => $count
+        ];
+        $response = $this->requestTool->requestTool('POST', $url, json_encode($data), $headers);
+        
+        if (isset($response['response']) && is_string($response['response'])) {
+            $decoded = json_decode($response['response'], true);
+            return $decoded ?? null;
+        }
+        
+        return $response['response'] ?? null;
+    }
 }

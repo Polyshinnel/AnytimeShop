@@ -3304,6 +3304,67 @@ body{
         }
     }
 
+    .custom-delivery-container{
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        background: #f9f9f9;
+
+        .input-block{
+            position: relative;
+
+            #custom-delivery-address{
+                width: 100%;
+                height: 38px;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+                margin-top: 5px;
+                padding: 0 10px;
+                font-size: 16px;
+            }
+
+            .dadata-suggestions{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                margin-top: 5px;
+                max-height: 300px;
+                overflow-y: auto;
+                z-index: 1000;
+                display: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                .dadata-suggestion-item{
+                    padding: 12px 15px;
+                    cursor: pointer;
+                    transition: 0.3s all ease;
+                    border-bottom: 1px solid #f0f0f0;
+                    font-size: 14px;
+
+                    &:hover{
+                        background: rgba(122, 203, 11, 0.1);
+                    }
+
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        .custom-delivery-note{
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--secondary-font-color);
+            font-style: italic;
+        }
+    }
+
     .delivery-method{
         width: 400px;
         padding: 20px;
@@ -3503,6 +3564,14 @@ body{
             .delivery-method{
                 width: 100%;
                 box-shadow: none;
+            }
+        }
+
+        .custom-delivery-container{
+            .input-block{
+                #custom-delivery-address{
+                    width: 100%;
+                }
             }
         }
     }
