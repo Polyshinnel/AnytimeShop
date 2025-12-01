@@ -40,7 +40,10 @@ class DadataApi
         $url = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address';
         $data = [
             'query' => $query,
-            'count' => $count
+            'count' => $count,
+            'locations' => [
+                ['country' => '*']
+            ]
         ];
         $response = $this->requestTool->requestTool('POST', $url, json_encode($data), $headers);
         
