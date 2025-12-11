@@ -9,6 +9,7 @@
                     <img src="/assets/img/A1.png" alt="Иконка" title="Иконка | AnyTime">
                     @php
                         $currentHost = request()->getHost();
+                        print_r($currentHost);
                         $isRuOrKz = in_array($currentHost, ['diabet-anytime.kz', 'diabet-anytime.ru']);
                         $phoneNumber = $isRuOrKz ? '+7 499 430 06 70' : '+375(29)634-08-70';
                         $phoneHref = $isRuOrKz ? 'tel:+74994300670' : 'tel:+375173360870';
