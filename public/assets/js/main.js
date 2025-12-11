@@ -745,10 +745,12 @@ let getDeliveryData = () => {
 let sendOrder = async (obj) => {
     let {data} = await axios.post('/order/create', obj)
     
-    if(data.err == 'none') {
-        window.location.replace('/order/success')
-        console.log(data)
-    }
+    console.log(data)
+
+    // if(data.err == 'none') {
+    //     window.location.replace('/order/success')
+    //     console.log(data)
+    // }
     
     // Обработка ошибки с неверной подписью заказа
     if(data.error) {
