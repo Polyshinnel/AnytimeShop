@@ -2,16 +2,10 @@
 
 namespace App\Api;
 
-use App\Tools\RequestTool;
+use Illuminate\Support\Facades\Http;
 
 class AlfaPayApi
 {
-    private RequestTool $requestTool;
-
-    public function __construct(RequestTool $requestTool)
-    {
-        $this->requestTool = $requestTool;
-    }
 
     /**
      * Создает заказ в платежной системе Альфа Банк Беларуси
@@ -87,7 +81,7 @@ class AlfaPayApi
             'description' => $description,
             'email' => $orderData['email'] ?? null,
             'language' => $orderData['language'] ?? 'ru',
-            'orderBundle' => $orderBundle,
+            'orderBundle' => json_encode($orderBundle, JSON_UNESCAPED_UNICODE),
         ];
 
         // Добавляем опциональные параметры, если они переданы
@@ -104,21 +98,11 @@ class AlfaPayApi
             return $value !== null;
         });
 
-        // Устанавливаем заголовки для JSON запроса
-        $headers = [
-            'Content-Type: application/json',
-            'Accept: application/json',
-        ];
+        // Отправляем запрос используя стандартный Laravel HTTP фасад (JSON)
+        $response = Http::asJson()->post($paymentUrl, $requestParams);
 
-        // Отправляем запрос
-        $responseData = $this->requestTool->requestTool('POST', $paymentUrl, json_encode($requestParams), $headers);
-
-        // Парсим ответ
-        $response = json_decode($responseData['response'], true);
-
-        dd($response);
-
-        if (!$response) {
+        // Проверяем успешность запроса
+        if (!$response->successful()) {
             return [
                 'errorCode' => 'REQUEST_ERROR',
                 'errorMessage' => 'Ошибка при выполнении запроса к платежной системе',
@@ -127,7 +111,22 @@ class AlfaPayApi
             ];
         }
 
-        return $response;
+        // Получаем данные ответа
+        $responseData = $response->json();
+
+        dd($responseData);
+
+        // Если ответ не является массивом или пустой
+        if (!is_array($responseData)) {
+            return [
+                'errorCode' => 'REQUEST_ERROR',
+                'errorMessage' => 'Ошибка при выполнении запроса к платежной системе',
+                'formUrl' => null,
+                'orderId' => null,
+            ];
+        }
+
+        return $responseData;
     }
 
     /**
