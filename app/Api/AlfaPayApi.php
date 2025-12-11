@@ -101,7 +101,6 @@ class AlfaPayApi
         // Отправляем запрос используя стандартный Laravel HTTP фасад (form-data)
         $response = Http::asForm()->post($paymentUrl, $requestParams);
 
-        dd($response);
         // Проверяем успешность запроса
         if (!$response->successful()) {
             return [
@@ -125,6 +124,7 @@ class AlfaPayApi
             ];
         }
 
+        dd($responseData);
         return $responseData;
     }
 
