@@ -21,6 +21,7 @@ class StoreOrderController extends Controller
     private TelegramController $telegramController;
     private WebpayApi $webpayApi;
     private BitrixApi $bitrixApi;
+    private AlfaPayApi $alfapayApi;
 
     public function __construct(
         CommonCartService $commonCartService,
@@ -28,7 +29,8 @@ class StoreOrderController extends Controller
         CommonOrderService $commonOrderService,
         TelegramController $telegramController,
         WebpayApi $webpayApi,
-        BitrixApi $bitrixApi
+        BitrixApi $bitrixApi,
+        AlfaPayApi $alfapayApi
     )
     {
         $this->commonCartService = $commonCartService;
@@ -56,6 +58,8 @@ class StoreOrderController extends Controller
 
         $total = $cartInfo['total'];
         $promocodeArr = [];
+
+        $request->path();
 
 
         if($promocode) {
@@ -122,9 +126,25 @@ class StoreOrderController extends Controller
             'phone' => $data['phone'],
         ];
 
-        $orderData = $this->webpayApi->createOrder($createOrderArr);
+        // Получаем настройки сайта
+        $siteSettings = \App\Models\SiteSettings::where('active', true)->first();
+        $currency = $siteSettings->currency;
 
-        $this->telegramController->sendOrder($result['message']);
+        $countries = [
+            'BYN' => 'BY',
+            '₽' => 'RU',
+            '₸' => 'KZ',
+        ];
+        $country = $countries[$currency] ?? 'BY';
+
+        if($country == 'BY') {
+            $orderData = $this->webpayApi->createOrder($createOrderArr);
+        } else {
+            $orderData = $this->alfapayApi->createOrder($createOrderArr, $currency);
+        }
+        
+
+        //$this->telegramController->sendOrder($result['message']);
 
 
 
