@@ -14,7 +14,9 @@
                         $phoneNumber = $isRuOrKz ? '+7 499 430 06 70' : '+375(29)634-08-70';
                         $phoneHref = $isRuOrKz ? 'tel:+74994300670' : 'tel:+375173360870';
                     @endphp
-                    <a href="{{ $phoneHref }}">{{ $phoneNumber }}</a>
+<!-- 
+                    <a href="{{ $phoneHref }}">{{ $phoneNumber }}</a> -->
+                    <a href="{{ $phoneHref }}">{{ $currentHost }}</a>
                 </div>
 
                 <div class="header-country-telegram">
