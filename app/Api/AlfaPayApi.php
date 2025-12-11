@@ -98,9 +98,10 @@ class AlfaPayApi
             return $value !== null;
         });
 
-        // Отправляем запрос используя стандартный Laravel HTTP фасад (JSON)
-        $response = Http::asJson()->post($paymentUrl, $requestParams);
+        // Отправляем запрос используя стандартный Laravel HTTP фасад (form-data)
+        $response = Http::asForm()->post($paymentUrl, $requestParams);
 
+        dd($response);
         // Проверяем успешность запроса
         if (!$response->successful()) {
             return [
@@ -113,8 +114,6 @@ class AlfaPayApi
 
         // Получаем данные ответа
         $responseData = $response->json();
-
-        dd($responseData);
 
         // Если ответ не является массивом или пустой
         if (!is_array($responseData)) {
@@ -221,6 +220,6 @@ class AlfaPayApi
             $orderBundle['agent'] = $orderData['agent'];
         }
 
-        return $orderBundle;
+        return json_encode($orderBundle, JSON_UNESCAPED_UNICODE);
     }
 }
