@@ -1,3 +1,10 @@
+@php
+    $appUrl = config('app.url');
+    $currentHost = parse_url($appUrl, PHP_URL_HOST) ?: request()->getHost();
+    $isRuOrKz = in_array($currentHost, ['diabet-anytime.kz', 'diabet-anytime.ru']);
+    $phoneNumber = $isRuOrKz ? '+7 499 430 06 70' : '+375(29)634-08-70';
+    $phoneHref = $isRuOrKz ? 'tel:+74994300670' : 'tel:+375173360870';
+@endphp
 <header class="header-common">
     <div class="box-container">
         <div class="header-head header-head_mod">
@@ -7,16 +14,7 @@
 
                 <div class="header-head-total-phone">
                     <img src="/assets/img/A1.png" alt="Иконка" title="Иконка | AnyTime">
-                    @php
-                        $currentHost = request()->getHost();
-                        print_r($currentHost);
-                        $isRuOrKz = in_array($currentHost, ['diabet-anytime.kz', 'diabet-anytime.ru']);
-                        $phoneNumber = $isRuOrKz ? '+7 499 430 06 70' : '+375(29)634-08-70';
-                        $phoneHref = $isRuOrKz ? 'tel:+74994300670' : 'tel:+375173360870';
-                    @endphp
-<!-- 
-                    <a href="{{ $phoneHref }}">{{ $phoneNumber }}</a> -->
-                    <a href="{{ $phoneHref }}">Test</a>
+                    <a href="{{ $phoneHref }}">{{ $phoneNumber }}</a>
                 </div>
 
                 <div class="header-country-telegram">
@@ -30,7 +28,6 @@
                                 @else
                                     <img src="/assets/img/icons/header/countries/bel.svg" alt="Иконка Беларусь" title="Иконка Беларусь | AnyTime">
                                 @endif
-                                <img src="/assets/img/icons/header/countries/bel.svg" alt="Иконка Беларусь" title="Иконка Беларусь | AnyTime">
                             </div>
                         </div>
                         <div class="header-country-select__list">

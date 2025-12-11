@@ -1,3 +1,10 @@
+@php
+    $appUrl = config('app.url');
+    $currentHost = parse_url($appUrl, PHP_URL_HOST) ?: request()->getHost();
+    $isRuOrKz = in_array($currentHost, ['diabet-anytime.kz', 'diabet-anytime.ru']);
+    $phoneNumber = $isRuOrKz ? '+7 499 430 06 70' : '+375(29)634-08-70';
+    $phoneHref = $isRuOrKz ? 'tel:+74994300670' : 'tel:+375173360870';
+@endphp
 <header class="header-main header-basic">
     <div class="header-wrapper">
         <div class="header-main-block">
@@ -9,14 +16,20 @@
                         
                         <div class="header-head-total-phone">
                             <img src="/assets/img/A1.png" alt="Иконка" title="Иконка | AnyTime">
-                            <a href="tel:+375173360870">+375(29)634-08-70</a>
+                            <a href="{{ $phoneHref }}">{{ $phoneNumber }}</a>
                         </div>
 
                         <div class="header-country-telegram">
                             <div class="header-country-select" id="header-country-select">
                                 <div class="header-country-select__current">
                                     <div class="header-country-select__current-value">
-                                        <img src="/assets/img/icons/header/countries/ru.svg" alt="Иконка Россия" title="Иконка Россия | AnyTime">
+                                        @if($currentHost == 'diabet-anytime.kz')
+                                            <img src="/assets/img/icons/header/countries/kz.svg" alt="Иконка Казахстан" title="Иконка Казахстан | AnyTime">
+                                        @elseif($currentHost == 'diabet-anytime.ru')
+                                            <img src="/assets/img/icons/header/countries/ru.svg" alt="Иконка Россия" title="Иконка Россия | AnyTime">
+                                        @else
+                                            <img src="/assets/img/icons/header/countries/bel.svg" alt="Иконка Беларусь" title="Иконка Беларусь | AnyTime">
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="header-country-select__list">
