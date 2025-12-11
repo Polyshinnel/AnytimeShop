@@ -75,7 +75,7 @@ class AlfaPayApi
             'password' => $password,
             'orderNumber' => $orderNumber,
             'amount' => $amountInKopecks,
-            'currency' => $currency,
+            'currency' => 933,
             'returnUrl' => $returnUrl,
             'failUrl' => $failUrl,
             'description' => $description,
@@ -83,8 +83,6 @@ class AlfaPayApi
             'language' => $orderData['language'] ?? 'ru',
             'orderBundle' => json_encode($orderBundle, JSON_UNESCAPED_UNICODE),
         ];
-
-        dd($requestParams);
 
         // Добавляем опциональные параметры, если они переданы
         if (isset($orderData['ip'])) {
