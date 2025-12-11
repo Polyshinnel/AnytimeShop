@@ -147,7 +147,7 @@ class StoreOrderController extends Controller
         }
 
 
-        //$this->telegramController->sendOrder($result['message']);
+        $this->telegramController->sendOrder($result['message']);
 
 
 

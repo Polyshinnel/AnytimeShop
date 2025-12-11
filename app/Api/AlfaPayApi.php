@@ -3,9 +3,19 @@
 namespace App\Api;
 
 use Illuminate\Support\Facades\Http;
+use App\Api\KzExchangeApi;
+use App\Api\RuExchangeApi;
 
 class AlfaPayApi
 {
+    private RuExchangeApi $ruExchangeApi;
+    private KzExchangeApi $kzExchangeApi;
+
+    public function __construct(RuExchangeApi $ruExchangeApi, KzExchangeApi $kzExchangeApi)
+    {
+        $this->ruExchangeApi = $ruExchangeApi;
+        $this->kzExchangeApi = $kzExchangeApi;
+    }
 
     /**
      * Создает заказ в платежной системе Альфа Банк Беларуси
@@ -48,6 +58,14 @@ class AlfaPayApi
         }
         $totalAmount = $totalAmount + $orderData['shippingPrice'] - $orderData['discountPrice'];
 
+        if($country == 'BY') {
+            $totalAmount = $this->ruExchangeApi->getExchange()['money'] * $totalAmount;
+        }
+
+        if($country == 'KZ') {
+            $totalAmount = $this->kzExchangeApi->getExchange()['money'] * $totalAmount;
+        }
+
         // Конвертируем в копейки (умножаем на 100)
         $amountInKopecks = (int)round($totalAmount * 100);
 
@@ -67,7 +85,7 @@ class AlfaPayApi
         $description = $orderData['description'] ?? 'Оплата заказа №' . $orderData['orderId'];
 
         // Формируем корзину товаров (orderBundle)
-        $orderBundle = $this->buildOrderBundle($orderData);
+        $orderBundle = $this->buildOrderBundle($orderData, $country);
 
         // Формируем параметры запроса
         $requestParams = [
@@ -124,8 +142,10 @@ class AlfaPayApi
             ];
         }
 
-        dd($responseData);
-        return $responseData;
+        return [ 
+            'orderId' => $responseData['orderId'],
+            'redirectUrl' => $responseData['formUrl'],
+        ];
     }
 
     /**
@@ -134,7 +154,7 @@ class AlfaPayApi
      * @param array $orderData Данные заказа
      * @return string JSON-строка с корзиной товаров
      */
-    private function buildOrderBundle(array $orderData): array
+    private function buildOrderBundle(array $orderData, string $country): array
     {
         $items = [];
         $positionId = 1;
@@ -143,6 +163,12 @@ class AlfaPayApi
         foreach ($orderData['products'] as $item) {
             $itemPriceInKopecks = (int)round($item['price'] * 100);
             $itemAmountInKopecks = (int)round($item['price'] * $item['quantity'] * 100);
+            if($country == 'RU') {
+                $itemAmountInKopecks = $this->ruExchangeApi->getExchange()['money'] * $itemAmountInKopecks;
+            }
+            if($country == 'KZ') {
+                $itemAmountInKopecks = $this->kzExchangeApi->getExchange()['money'] * $itemAmountInKopecks;
+            }
 
             $productItem = [
                 'positionId' => (string)$positionId,
