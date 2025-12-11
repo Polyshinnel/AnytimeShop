@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Orders;
 
+use App\Api\AlfaPayApi;
 use App\Api\BitrixApi;
 use App\Api\WebpayApi;
 use App\Http\Controllers\Controller;
@@ -39,6 +40,7 @@ class StoreOrderController extends Controller
         $this->telegramController = $telegramController;
         $this->webpayApi = $webpayApi;
         $this->bitrixApi = $bitrixApi;
+        $this->alfapayApi = $alfapayApi;
     }
 
 
@@ -142,7 +144,7 @@ class StoreOrderController extends Controller
         } else {
             $orderData = $this->alfapayApi->createOrder($createOrderArr, $currency);
         }
-        
+
 
         //$this->telegramController->sendOrder($result['message']);
 
@@ -152,7 +154,7 @@ class StoreOrderController extends Controller
         {
             session()->forget('cart');
         }
-        
+
         return response()->json($orderData);
     }
 }
