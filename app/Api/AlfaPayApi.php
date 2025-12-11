@@ -134,7 +134,7 @@ class AlfaPayApi
      * @param array $orderData Данные заказа
      * @return string JSON-строка с корзиной товаров
      */
-    private function buildOrderBundle(array $orderData): array
+    private function buildOrderBundle(array $orderData): string
     {
         $items = [];
         $positionId = 1;
