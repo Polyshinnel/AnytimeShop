@@ -5,6 +5,7 @@ namespace App\Api;
 use Illuminate\Support\Facades\Http;
 use App\Api\KzExchangeApi;
 use App\Api\RuExchangeApi;
+use App\Models\Order;
 
 class AlfaPayApi
 {
@@ -309,5 +310,52 @@ class AlfaPayApi
         }
 
         return $orderBundle;
+    }
+
+    public function getOrderStatus(string $orderId): ?array
+    {
+        $paymentUrl = config('alfapay.alfapay_url') . 'rest/getOrderStatus.do';
+        $userName = config('alfapay.alfapay_login');
+        $password = config('alfapay.alfapay_password');
+        $order = Order::find($orderId);
+        if(!$order) {
+            return [
+                'errorCode' => 'ORDER_NOT_FOUND',
+                'errorMessage' => 'Заказ не найден',
+                'orderStatus' => null,
+            ];
+        }
+
+        $orderId = $order->payment_order_id;
+
+        $requestParams = [
+            'userName' => $userName,
+            'password' => $password,
+            'orderId' => $orderId,
+        ];
+
+        $response = Http::asForm()->post($paymentUrl, $requestParams);
+
+        if(!$response->successful()) {
+            return [
+                'errorCode' => 'REQUEST_ERROR',
+                'errorMessage' => 'Ошика при выполнении запроса к платежной системе',
+            ];
+        }
+        
+        $responseData = $response->json();
+
+        if(!is_array($responseData)) {
+            return [
+                'errorCode' => 'REQUEST_ERROR',
+                'errorMessage' => 'Ошика при выполнении запроса к платежной системе',
+            ];
+        }
+
+        if(isset($responseData['orderStatus'])) {
+            if($responseData['orderStatus'] == '1' || $responseData['orderStatus'] == '2') {
+                $order->update(['payed' => 1]);
+            }
+        }
     }
 }

@@ -13,6 +13,18 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        
+        // Проверка статуса оплаты заказов каждую минуту
+        // Запускается только для доменов diabet-anytime.kz и diabet-anytime.ru
+        $schedule->command('orders:check-payment-status')
+            ->everyMinute()
+            ->when(function () {
+                $appUrl = config('app.url');
+                return in_array($appUrl, [
+                    'https://diabet-anytime.kz/',
+                    'https://diabet-anytime.ru/'
+                ]);
+            });
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Api\WebpayApi;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Telegram\TelegramController;
 use App\Http\Requests\StoreOrderRequest;
+use App\Models\Order;
 use App\Models\Product;
 use App\Service\Cart\CommonCartService;
 use App\Service\Order\CommonOrderService;
@@ -144,6 +145,11 @@ class StoreOrderController extends Controller
             $orderData = $this->webpayApi->createOrder($createOrderArr);
         } else {
             $orderData = $this->alfapayApi->createOrder($createOrderArr, $country);
+            if(isset($orderData['data']['orderId'])) {
+                $paymentOrderId = $orderData['data']['orderId'];
+                $order = Order::find($result['order_id']);
+                $order->update(['payment_order_id' => $paymentOrderId]);
+            }
         }
 
 
