@@ -84,6 +84,8 @@ class AlfaPayApi
             'orderBundle' => json_encode($orderBundle, JSON_UNESCAPED_UNICODE),
         ];
 
+        dd($requestParams);
+
         // Добавляем опциональные параметры, если они переданы
         if (isset($orderData['ip'])) {
             $requestParams['ip'] = $orderData['ip'];
