@@ -16,7 +16,7 @@
                     @endphp
 <!-- 
                     <a href="{{ $phoneHref }}">{{ $phoneNumber }}</a> -->
-                    <a href="{{ $phoneHref }}">{{ $currentHost }}</a>
+                    <a href="{{ $phoneHref }}">Test</a>
                 </div>
 
                 <div class="header-country-telegram">
