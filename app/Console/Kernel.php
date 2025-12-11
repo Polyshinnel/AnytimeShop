@@ -21,8 +21,8 @@ class Kernel extends ConsoleKernel
             ->when(function () {
                 $appUrl = config('app.url');
                 return in_array($appUrl, [
-                    'https://diabet-anytime.kz/',
-                    'https://diabet-anytime.ru/'
+                    'https://diabet-anytime.kz',
+                    'https://diabet-anytime.ru'
                 ]);
             });
     }
