@@ -58,7 +58,7 @@ class AlfaPayApi
         }
         $totalAmount = $totalAmount + $orderData['shippingPrice'] - $orderData['discountPrice'];
 
-        if($country == 'BY') {
+        if($country == 'RU') {
             $totalAmount = $this->ruExchangeApi->getExchange()['money'] * $totalAmount;
         }
 
@@ -86,6 +86,8 @@ class AlfaPayApi
 
         // Формируем корзину товаров (orderBundle)
         $orderBundle = $this->buildOrderBundle($orderData, $country);
+
+        dd($country);
 
         // Формируем параметры запроса
         $requestParams = [
@@ -169,9 +171,11 @@ class AlfaPayApi
             $itemAmountInKopecks = (int)round($item['price'] * $item['quantity'] * 100);
             if($country == 'RU') {
                 $itemAmountInKopecks = $this->ruExchangeApi->getExchange()['money'] * $itemAmountInKopecks;
+                $itemPriceInKopecks = $this->ruExchangeApi->getExchange()['money'] * $itemPriceInKopecks;
             }
             if($country == 'KZ') {
                 $itemAmountInKopecks = $this->kzExchangeApi->getExchange()['money'] * $itemAmountInKopecks;
+                $itemPriceInKopecks = $this->kzExchangeApi->getExchange()['money'] * $itemPriceInKopecks;
             }
 
             $productItem = [
@@ -226,6 +230,12 @@ class AlfaPayApi
         // Добавляем скидку как отдельную позицию, если она есть
         if (isset($orderData['discountPrice']) && $orderData['discountPrice'] > 0) {
             $discountPriceInKopecks = (int)round($orderData['discountPrice'] * 100);
+            if($country == 'RU') {
+                $discountPriceInKopecks = $this->ruExchangeApi->getExchange()['money'] * $discountPriceInKopecks;
+            }
+            if($country == 'KZ') {
+                $discountPriceInKopecks = $this->kzExchangeApi->getExchange()['money'] * $discountPriceInKopecks;
+            }
             $items[] = [
                 'positionId' => (string)$positionId,
                 'name' => 'Скидка на товар',
