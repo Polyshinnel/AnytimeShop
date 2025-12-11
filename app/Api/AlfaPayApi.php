@@ -110,12 +110,13 @@ class AlfaPayApi
             'Accept: application/json',
         ];
 
-        dd($requestParams);
         // Отправляем запрос
         $responseData = $this->requestTool->requestTool('POST', $paymentUrl, json_encode($requestParams), $headers);
 
         // Парсим ответ
         $response = json_decode($responseData['response'], true);
+
+        dd($response);
 
         if (!$response) {
             return [
