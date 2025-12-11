@@ -137,13 +137,13 @@ class StoreOrderController extends Controller
             '₽' => 'RU',
             '₸' => 'KZ',
         ];
-        dd($currency);
+        
         $country = $countries[$currency] ?? 'BY';
 
         if($country == 'BY') {
             $orderData = $this->webpayApi->createOrder($createOrderArr);
         } else {
-            $orderData = $this->alfapayApi->createOrder($createOrderArr, $currency);
+            $orderData = $this->alfapayApi->createOrder($createOrderArr, $country);
         }
 
 
