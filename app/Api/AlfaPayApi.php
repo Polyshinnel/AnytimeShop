@@ -142,6 +142,8 @@ class AlfaPayApi
             ];
         }
 
+        dd($responseData);
+
         return [ 
             'orderId' => $responseData['orderId'],
             'redirectUrl' => $responseData['formUrl'],
