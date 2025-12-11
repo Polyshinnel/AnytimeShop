@@ -34,7 +34,7 @@ class AlfaPayApi
      */
     public function createOrder(array $orderData, string $country): array
     {
-        $paymentUrl = config('alfapay.alfapay_url') . '/rest/register.do';
+        $paymentUrl = config('alfapay.alfapay_url') . 'rest/register.do';
         $userName = config('alfapay.alfapay_login');
         $password = config('alfapay.alfapay_password');
 
