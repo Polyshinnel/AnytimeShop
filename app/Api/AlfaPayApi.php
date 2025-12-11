@@ -152,8 +152,10 @@ class AlfaPayApi
 
 
         return [ 
-            'orderId' => $responseData['orderId'],
-            'redirectUrl' => $responseData['formUrl'],
+            'data' => [
+                'orderId' => $responseData['orderId'],
+                'redirectUrl' => $responseData['formUrl'],
+            ]
         ];
     }
 
