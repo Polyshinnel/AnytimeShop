@@ -53,7 +53,7 @@ class AlfaPayApi
             $totalAmount += $item['price'] * $item['quantity'];
         }
         $totalAmount = $totalAmount + $orderData['shippingPrice'] - $orderData['discountPrice'];
-        
+
         // Конвертируем в копейки (умножаем на 100)
         $amountInKopecks = (int)round($totalAmount * 100);
 
@@ -110,12 +110,13 @@ class AlfaPayApi
             'Accept: application/json',
         ];
 
+        dd($requestParams);
         // Отправляем запрос
         $responseData = $this->requestTool->requestTool('POST', $paymentUrl, json_encode($requestParams), $headers);
-        
+
         // Парсим ответ
         $response = json_decode($responseData['response'], true);
-        
+
         if (!$response) {
             return [
                 'errorCode' => 'REQUEST_ERROR',
@@ -143,7 +144,7 @@ class AlfaPayApi
         foreach ($orderData['products'] as $item) {
             $itemPriceInKopecks = (int)round($item['price'] * 100);
             $itemAmountInKopecks = (int)round($item['price'] * $item['quantity'] * 100);
-            
+
             $productItem = [
                 'positionId' => (string)$positionId,
                 'name' => $item['name'],
