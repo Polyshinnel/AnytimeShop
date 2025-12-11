@@ -87,8 +87,6 @@ class AlfaPayApi
         // Формируем корзину товаров (orderBundle)
         $orderBundle = $this->buildOrderBundle($orderData, $country);
 
-        dd($country);
-
         // Формируем параметры запроса
         $requestParams = [
             'userName' => $userName,
