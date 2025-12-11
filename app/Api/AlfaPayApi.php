@@ -51,19 +51,26 @@ class AlfaPayApi
         // Формируем номер заказа
         $orderNumber = 'ORDER_BY-' . $orderData['orderId'];
 
-        // Вычисляем общую сумму в копейках
+        // Вычисляем общую сумму
         $totalAmount = 0;
         foreach ($orderData['products'] as $item) {
             $totalAmount += $item['price'] * $item['quantity'];
         }
         $totalAmount = $totalAmount + $orderData['shippingPrice'] - $orderData['discountPrice'];
 
+        // Конвертируем в белорусские рубли, если страна не Беларусь
         if($country == 'RU') {
-            $totalAmount = $this->ruExchangeApi->getExchange()['money'] * $totalAmount;
+            $currencyInfo = $this->ruExchangeApi->getExchange();
+            if($currencyInfo && isset($currencyInfo['money'])) {
+                $totalAmount = round($totalAmount / (float)$currencyInfo['money'], 2);
+            }
         }
 
         if($country == 'KZ') {
-            $totalAmount = $this->kzExchangeApi->getExchange()['money'] * $totalAmount;
+            $currencyInfo = $this->kzExchangeApi->getExchange();
+            if($currencyInfo && isset($currencyInfo['money'])) {
+                $totalAmount = round($totalAmount / (float)$currencyInfo['money'], 2);
+            }
         }
 
         // Конвертируем в копейки (умножаем на 100)
@@ -102,7 +109,6 @@ class AlfaPayApi
             'orderBundle' => json_encode($orderBundle, JSON_UNESCAPED_UNICODE),
         ];
 
-        dd($requestParams);
 
         // Добавляем опциональные параметры, если они переданы
         if (isset($orderData['ip'])) {
@@ -144,7 +150,6 @@ class AlfaPayApi
             ];
         }
 
-        dd($responseData);
 
         return [ 
             'orderId' => $responseData['orderId'],
@@ -165,16 +170,29 @@ class AlfaPayApi
 
         // Формируем товары из корзины
         foreach ($orderData['products'] as $item) {
-            $itemPriceInKopecks = (int)round($item['price'] * 100);
-            $itemAmountInKopecks = (int)round($item['price'] * $item['quantity'] * 100);
+            $itemPrice = $item['price'];
+            $itemAmount = $item['price'] * $item['quantity'];
+            
+            // Конвертируем в белорусские рубли, если страна не Беларусь
             if($country == 'RU') {
-                $itemAmountInKopecks = $this->ruExchangeApi->getExchange()['money'] * $itemAmountInKopecks;
-                $itemPriceInKopecks = $this->ruExchangeApi->getExchange()['money'] * $itemPriceInKopecks;
+                $currencyInfo = $this->ruExchangeApi->getExchange();
+                if($currencyInfo && isset($currencyInfo['money'])) {
+                    $itemPrice = round($itemPrice / (float)$currencyInfo['money'], 2);
+                    $itemAmount = round($itemAmount / (float)$currencyInfo['money'], 2);
+                }
             }
+            
             if($country == 'KZ') {
-                $itemAmountInKopecks = $this->kzExchangeApi->getExchange()['money'] * $itemAmountInKopecks;
-                $itemPriceInKopecks = $this->kzExchangeApi->getExchange()['money'] * $itemPriceInKopecks;
+                $currencyInfo = $this->kzExchangeApi->getExchange();
+                if($currencyInfo && isset($currencyInfo['money'])) {
+                    $itemPrice = round($itemPrice / (float)$currencyInfo['money'], 2);
+                    $itemAmount = round($itemAmount / (float)$currencyInfo['money'], 2);
+                }
             }
+            
+            // Конвертируем в копейки (умножаем на 100)
+            $itemPriceInKopecks = (int)round($itemPrice * 100);
+            $itemAmountInKopecks = (int)round($itemAmount * 100);
 
             $productItem = [
                 'positionId' => (string)$positionId,
@@ -210,7 +228,25 @@ class AlfaPayApi
 
         // Добавляем доставку как отдельную позицию, если она есть
         if (isset($orderData['shippingPrice']) && $orderData['shippingPrice'] > 0) {
-            $shippingPriceInKopecks = (int)round($orderData['shippingPrice'] * 100);
+            $shippingPrice = $orderData['shippingPrice'];
+            
+            // Конвертируем в белорусские рубли, если страна не Беларусь
+            if($country == 'RU') {
+                $currencyInfo = $this->ruExchangeApi->getExchange();
+                if($currencyInfo && isset($currencyInfo['money'])) {
+                    $shippingPrice = round($shippingPrice / (float)$currencyInfo['money'], 2);
+                }
+            }
+            
+            if($country == 'KZ') {
+                $currencyInfo = $this->kzExchangeApi->getExchange();
+                if($currencyInfo && isset($currencyInfo['money'])) {
+                    $shippingPrice = round($shippingPrice / (float)$currencyInfo['money'], 2);
+                }
+            }
+            
+            // Конвертируем в копейки (умножаем на 100)
+            $shippingPriceInKopecks = (int)round($shippingPrice * 100);
             $items[] = [
                 'positionId' => (string)$positionId,
                 'name' => 'Стоимость доставки',
@@ -227,13 +263,25 @@ class AlfaPayApi
 
         // Добавляем скидку как отдельную позицию, если она есть
         if (isset($orderData['discountPrice']) && $orderData['discountPrice'] > 0) {
-            $discountPriceInKopecks = (int)round($orderData['discountPrice'] * 100);
+            $discountPrice = $orderData['discountPrice'];
+            
+            // Конвертируем в белорусские рубли, если страна не Беларусь
             if($country == 'RU') {
-                $discountPriceInKopecks = $this->ruExchangeApi->getExchange()['money'] * $discountPriceInKopecks;
+                $currencyInfo = $this->ruExchangeApi->getExchange();
+                if($currencyInfo && isset($currencyInfo['money'])) {
+                    $discountPrice = round($discountPrice / (float)$currencyInfo['money'], 2);
+                }
             }
+            
             if($country == 'KZ') {
-                $discountPriceInKopecks = $this->kzExchangeApi->getExchange()['money'] * $discountPriceInKopecks;
+                $currencyInfo = $this->kzExchangeApi->getExchange();
+                if($currencyInfo && isset($currencyInfo['money'])) {
+                    $discountPrice = round($discountPrice / (float)$currencyInfo['money'], 2);
+                }
             }
+            
+            // Конвертируем в копейки (умножаем на 100)
+            $discountPriceInKopecks = (int)round($discountPrice * 100);
             $items[] = [
                 'positionId' => (string)$positionId,
                 'name' => 'Скидка на товар',
