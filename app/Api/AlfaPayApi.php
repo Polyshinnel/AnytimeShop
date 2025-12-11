@@ -38,7 +38,7 @@ class AlfaPayApi
      *               - formUrl (string): URL для перенаправления на страницу оплаты
      *               - orderId (string): ID заказа в системе банка
      */
-    public function createOrder(array $orderData, string $currency): array
+    public function createOrder(array $orderData, string $country): array
     {
         $paymentUrl = config('alfapay.alfapay_url') . '/rest/register.do';
         $userName = config('alfapay.alfapay_login');
@@ -64,7 +64,7 @@ class AlfaPayApi
             'KZ' => 398, // Казахстан - KZT (Казахстанский тенге)
         ];
 
-        $currency = $currencies[$currency] ?? $currencies['BY'];
+        $currency = $currencies[$country] ?? $currencies['BY'];
         // URL для возврата после оплаты
         $returnUrl = 'https://diabet-anytime.com/order/success';
         $failUrl = 'https://diabet-anytime.com/order/cancel';

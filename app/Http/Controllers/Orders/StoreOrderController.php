@@ -137,6 +137,7 @@ class StoreOrderController extends Controller
             '₽' => 'RU',
             '₸' => 'KZ',
         ];
+        dd($currency);
         $country = $countries[$currency] ?? 'BY';
 
         if($country == 'BY') {
