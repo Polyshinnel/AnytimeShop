@@ -13,7 +13,7 @@
 
                     <div class="header-head-total">
                         @include('Components.HeaderNav')
-                        
+
                         <div class="header-head-total-phone">
                             <img src="/assets/img/A1.png" alt="Иконка" title="Иконка | AnyTime">
                             <a href="{{ $phoneHref }}">{{ $phoneNumber }}</a>
@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <a href="https://t.me/DiabetAnyTime" target="_blank" class="header-telegram-link">
                                 <img src="/assets/img/icons/telegram.svg" alt="Telegram" title="Telegram | AnyTime">
                             </a>
@@ -82,7 +82,7 @@
             <div class="motto-block">
                 <img src="/assets/img/logo-w.png" alt="Логотип Yuwell" title="Логотип Yuwell | AnyTime" class="yewell-logo">
                 <h1>Anytime CGM, Система мониторинга глюкозы</h1>
-                <p>Следите за уровнем глюкозы и ее изменений без необходимости прокалывать пальцы</p>
+                <p>Следите за уровнем глюкозы и ее изменениями без необходимости прокалывать пальцы</p>
                 <button class="more-info-scroll">Купить</button>
 
             </div>

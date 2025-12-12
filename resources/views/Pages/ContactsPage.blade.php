@@ -20,9 +20,7 @@
                         <div class="contacts-page-block__contact-info__unit-text">
                             <a href="tel:+375173360870">+375 17 336-08-70</a>
                             <span>Служба поддержки</span>
-                            <a href="tel:+375296340870">+375 29 634-08-70</a>
-                            <a href="tel:+78003013090">+7 (800) 301-30-90</a>
-                            <a href="tel:+74994300670">+7 (499) 430-06-70</a>
+                            <a href="tel:+74994300670">+7 499 430 06 70</a>
                         </div>
                         <!-- /.contacts-page-block__contact-info__unit-text -->
                     </div>

@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="advantages-list-item__text">
-                        <p>14 дней постоянного мониторинга, 24 часа в сутки.</p>
+                        <p>14 дней постоянного мониторинга, 24 часа в сутки</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="advantages-list-item__text">
-                        <p>Без проколов пальца.</p>
+                        <p>Без проколов пальца</p>
                     </div>
                 </div>
                 <!-- /.advantages-list-item -->
